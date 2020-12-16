@@ -1,0 +1,90 @@
+﻿body {
+    font-family: "Segoe UI", Arial, Sans-Serif;
+    font-size: 12px;
+    background-color: #F3F5F5;
+}
+
+html, body {
+    margin: 0;
+    padding: 0
+}
+
+html {
+    overflow-y: scroll;
+}
+
+h2 {
+    font-weight: normal;
+    padding: 0;
+    margin: 0 10px 0 0
+}
+
+#navigation-wrap {
+    min-height: 24px;
+}
+
+#navigation {
+    margin: 10px;
+}
+
+#main {
+    margin: 10px;
+}
+
+#main-content-title {
+    border-radius: 0 5px;
+    -webkit-border-radius: 0 5px;
+    padding: 5px 20px;
+}
+
+#main-content-text {
+    padding: 0 20px 20px 20px;
+}
+
+#main-content {
+    border-radius: 5px;
+    box-shadow: 0 1px 2px #555;
+    -webkit-border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px #555;
+    min-height: 560px;
+}
+
+. {
+    display: block;
+}
+
+    .clearfix {
+        clear: both;
+    }
+
+    .line {
+        border: none;
+        border-bottom: 1px dotted #666;
+    }
+
+. {
+    display: block;
+}
+
+    .box {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 240px;
+        height: 80px;
+        margin: -75px 0 0 -135px;
+        padding: 10px;
+        border-radius: 2px 2px;
+        border: 1px solid #fff;
+        background: rgba(0,0,0,0.25);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+        -o-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+        -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+        -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+    }
+
+    .start {
+        background-image: url("water.jpg");
+        background-position: center;
+        height: 100%;
+    }

@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="admin_page.master.cs" Inherits="_supervisor_admin_page" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .RadMenu_Metro .rmLink .rmText {
+           text-transform:uppercase;
+       }
+    </style>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+    </telerik:RadScriptManager>
+    <div id="header-wrap">
+        <div id="header">
+            <div id="header-left">
+            </div>
+            <div id="header-right">
+            </div>
+        </div>
+    </div>
+    <div id="navigation-wrap" class="clearfix">
+        <div id="navigation">
+            <div id="navigation-left">
+                <telerik:RadMenu ID="mnuLeft" runat="server" 
+                    TabIndex="-1" >
+                    
+                </telerik:RadMenu>
+            </div>
+            <div id="navigation-right">
+            </div>
+        </div>
+    </div>
+    <div id="main-wrap">
+        <div id="main">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="footer-wrap">
+        <div="footer">
+            <div="footer-left">
+            </div>
+            <div="footer-right">
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

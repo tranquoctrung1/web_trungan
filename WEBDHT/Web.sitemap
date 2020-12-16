@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization="true" >
+    <siteMapNode url="" title="Home"  description="" roles="admin,adminviewer,staff,KD_READ_ALL_COMPANY,KT_READ_ALL_COMPANY">
+        <siteMapNode url="" title="$resources:Lit,thietbi" description="" roles="admin,adminviewer">
+            <siteMapNode url="~/_supervisor/device/meter.aspx" title="$resources:Lit,dongho" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/device/transmitter.aspx" title="$resources:Lit,bohienthi" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/device/logger.aspx" title="$resources:Lit,logger" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/device/cover.aspx" title="$resources:Lit,napham" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/file/meter.aspx" title="$resources:Lit,downloadfiledongho" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/device/delete_useless_meters.aspx" title="$resources:Lit,xoadongho" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/device/delete_useless_transmitters.aspx" title="$resources:Lit,xoabohienthi" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/device/delete_useless_loggers.aspx" title="$resources:Lit,xoalogger" description="" roles="admin,adminviewer"/>
+        </siteMapNode>
+        <siteMapNode url="" title="$resources:Lit,diemlapdat" description="" roles="admin,adminviewer"> 
+            <siteMapNode url="~/_supervisor/site/info.aspx" title="$resources:Lit,thongtindiemlapdat" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/site/config.aspx" title="$resources:Lit,cauhinhlogger" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/site/change_meter.aspx" title="$resources:Lit,thaydongho" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/site/change_transmitter.aspx" title="$resources:Lit,thaybohienthi" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/site/change_logger.aspx" title="$resources:Lit,thaylogger" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/file/site.aspx" title="$resources:Lit,downloadfilediemlapdat" description="" roles="admin,adminviewer"/>
+        </siteMapNode>
+        <siteMapNode url="" title="$resources:Lit,nhaplieu" description="" roles="admin,adminviewer,staff">
+            <siteMapNode url="~/_supervisor/data/raw.aspx" title="$resources:Lit,nhaptaychiso" description="" roles="admin,adminviewer,staff"/>
+            <siteMapNode url="~/_supervisor/data/logger.aspx" title="$resources:Lit,nhaptaysanluong" description="" roles="admin,adminviewer,staff"/>
+            <siteMapNode url="~/_supervisor/data/change.aspx" title="$resources:Lit,suadulieu" description="" roles="admin,adminviewer,staff"/>
+        </siteMapNode>
+        <siteMapNode url="" title="$resources:Lit,thongke" description="" roles="admin,adminviewer,KT_READ_ALL_COMPANY">
+            <siteMapNode url="~/_supervisor/report/rsi_sgwdc.aspx" title="$resources:Lit,diemlapdatxinghiepquanly" description="" roles="admin,adminviewer,techstaff,KT_READ_ALL_COMPANY"/>
+            <siteMapNode url="~/_supervisor/report/rsi_marks_size_sgwdc.aspx" title="$resources:Lit,theohieuco" description="" roles="admin,adminviewer,techstaff,KT_READ_ALL_COMPANY"/>
+            <siteMapNode url="~/_supervisor/report/rsi_.aspx" title="$resources:Lit,thongketuychondiemlapdat" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/report/rsi_marks_size.aspx" title="$resources:Lit,thongketuychonhieuco" description="" roles="admin,adminviewer,techstaff"/>
+            <siteMapNode url="~/_supervisor/report/rsi_has_changed.aspx" title="$resources:Lit,hoatdongphatsinh" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/report/rde_meter.aspx" title="$resources:Lit,thongketuychondongho" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/report/rde_transmitter.aspx" title="$resources:Lit,thongketuychonbohienthi" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/report/rde_logger.aspx" title="$resources:Lit,thongketuychonlogger" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/report/rsi_history.aspx" title="$resources:Lit,lichsudiemlapdat" description="" roles="admin,adminviewer,KT_READ_ALL_COMPANY"/>
+            <siteMapNode url="~/_supervisor/report/rsi_expiry.aspx" title="$resources:Lit,thoigiandonghohoatdong" description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/report/rsi_meter_accrediation.aspx" title="$resources:Lit,donghodenhankiemdinh " description="" roles="admin,adminviewer"/>
+            <siteMapNode url="~/_supervisor/report/rde_emeter.aspx" title="$resources:Lit,hosothietbidongho" description="" roles="admin,adminviewer,KT_READ_ALL_COMPANY"/>
+            <siteMapNode url="~/_supervisor/report/rde_etransmitter.aspx" title="$resources:Lit,hosothietbibohienthi" description="" roles="admin,adminviewer,KT_READ_ALL_COMPANY"/>
+            <siteMapNode url="~/_supervisor/report/rde_elogger.aspx" title="$resources:Lit,hosothietbilogger" description="" roles="admin,adminviewer"/>
+        </siteMapNode>
+        <siteMapNode url="" title="$resources:Lit,sanluong" description="" roles="admin,adminviewer,staff">
+            <siteMapNode url="~/_supervisor/report/rou_dcompany.aspx" title="$resources:Lit,sanluongcaccongtycapnuoc" description="" roles="admin,adminviewer,staff,salestaff"/>
+            <siteMapNode url="~/_supervisor/report/rou_company.aspx" title="$resources:Lit,sanluongtheoquanly" description="" roles="admin,adminviewer,staff"/>
+            <siteMapNode url="~/_supervisor/report/rou_group.aspx" title="$resources:Lit,sanluongtheonhom" description="" roles="admin,adminviewer,staff"/>
+            <siteMapNode url="~/_supervisor/report/rou_group2.aspx" title="$resources:Lit,sanluongtheonhom2" description="" roles="admin,adminviewer,staff"/>
+          <siteMapNode url="~/_supervisor/report/rou_group3.aspx" title="$resources:Lit,sanluongtheonhom3" description="" roles="admin,adminviewer,staff"/>
+          <siteMapNode url="~/_supervisor/report/rou_group4.aspx" title="$resources:Lit,sanluongtheonhom4" description="" roles="admin,adminviewer,staff"/>
+          <siteMapNode url="~/_supervisor/report/rou_group5.aspx" title="$resources:Lit,sanluongtheonhom5" description="" roles="admin,adminviewer,staff"/>
+            <siteMapNode url="~/_supervisor/report/rou_level.aspx" title="$resources:Lit,sanluongtheocapdongho" description="" roles="admin,adminviewer,staff"/>
+            <siteMapNode url="~/_supervisor/report/rou_all.aspx" title="$resources:Lit,sanluongtonghop" description="" roles="admin,adminviewer,staff"/>
+        </siteMapNode>
+        <siteMapNode url="" title="$resources:Lit,tienich" description="" roles="admin,adminviewer,staff">
+            <siteMapNode url="~/_supervisor/report/rsi_4_staff.aspx" title="$resources:Lit,mauin" description="" roles="admin,adminviewer,staff"/>
+            <siteMapNode url="" title="$resources:Lit,dothi" description="" roles="admin,adminviewer,staff">
+                <siteMapNode url="~/_supervisor/chart/site.aspx" title="$resources:Lit,dothimotdiemlapdat" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/chart/group.aspx" title="$resources:Lit,dothitheonhomdongho1" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/chart/group_site.aspx" title="$resources:Lit,dothitheodiemlapdatvanhom1" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/chart/group2.aspx" title="$resources:Lit,dothitheonhomdongho2" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/chart/group_site2.aspx" title="$resources:Lit,dothitheodiemlapdatvanhom2" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/chart/two_groups.aspx" title="$resources:Lit,dothi2nhomlapdat" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/chart/company_group1.aspx" title="$resources:Lit,dothitheocongtyvanhom" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/chart/company_group2.aspx" title="$resources:Lit,dothitheocongtyvanhom2" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/chart/site_company.aspx" title="$resources:Lit,dothitheodiemlapdatvacongty" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/chart/company.aspx" title="$resources:Lit,dothimotcongty" roles="admin,adminviewer,staff"/>
+              <siteMapNode url="~/_supervisor/chart/mcompany.aspx" title="$resources:Lit,dothimotdvqly" roles="admin,adminviewer,staff"/>
+            </siteMapNode>
+          <siteMapNode url="~/_supervisor/UtiLity_read_all/map_v1_0.aspx" title="$resources:Lit,bando" description="" roles="admin,adminviewer,staff"/>
+            <!--<siteMapNode url="" title="$resources:Lit,bando" description="" roles="admin,adminviewer,staff">
+                <siteMapNode url="~/_supervisor/UtiLity_read_all/map.aspx?co=BO" title="BOO" description="" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/UtiLity_read_all/map.aspx?co=CG" title="Cần Giờ" description="" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/UtiLity_read_all/map.aspx?co=CL" title="Chợ Lớn" description="" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/UtiLity_read_all/map.aspx?co=GD" title="Gia Định" description="" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/UtiLity_read_all/map.aspx?co=HM" title="HM" description="" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/UtiLity_read_all/map.aspx?co=NB" title="Nhà Bè" description="" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/UtiLity_read_all/map.aspx?co=PT" title="Phú Hòa Tân" description="" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/UtiLity_read_all/map.aspx?co=SG" title="Sài Gòn" description="" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/UtiLity_read_all/map.aspx?co=TA" title="Trung An" description="" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/UtiLity_read_all/map.aspx?co=TD" title="Thủ Đức" description="" roles="admin,adminviewer,staff"/>
+                <siteMapNode url="~/_supervisor/UtiLity_read_all/map.aspx?co=TH" title="Tân Hòa" description="" roles="admin,adminviewer,staff"/>
+              <siteMapNode url="~/_supervisor/UtiLity_read_all/map_v1_0.aspx" title="Map_V1_0" description="" roles="admin,adminviewer,staff"/>
+            </siteMapNode>-->
+            <siteMapNode url="~/_supervisor/_file/meter.aspx" title="$resources:Lit,downloadfiledongho" description="" roles="admin,adminviewer,staff"/>
+            <siteMapNode url="~/_supervisor/_file/site.aspx" title="$resources:Lit,downloadfilediemlapdat" description="" roles="admin,adminviewer,staff"/>
+        </siteMapNode>
+        <siteMapNode url="" title="$resources:Lit,taikhoan" description="" roles="admin,adminviewer,staff">
+            <siteMapNode url="~/_supervisor/account/change_password.aspx" title="$resources:Lit,doimatkhau" description="" roles="admin,adminviewer,staff"/>
+        </siteMapNode>
+        <siteMapNode url="" title="Admin panel" description="" roles="admin">
+            <siteMapNode url="~/_supervisor/admin/view_users.aspx" title="$resources:Lit,xemnguoidung" description="" roles="admin"/>
+            <siteMapNode url="~/_supervisor/admin/cre_user.aspx" title="$resources:Lit,taomoinguoidung" description="" roles="admin"/>
+            <siteMapNode url="~/_supervisor/admin/cre_dbrecord.aspx" title="$resources:Lit,taomoidulieukhac" description="" roles="admin"/>
+          <siteMapNode url="~/_supervisor/admin/Alarming.aspx" title="Alarm" description="" roles="admin"/>
+         
+        </siteMapNode>
+        <!--<siteMapNode url="~/_supervisor/help.aspx" title="Trợ giúp" description="" roles="admin,adminviewer,staff">
+        </siteMapNode>
+        <siteMapNode url="~/_supervisor/about.aspx" title="Liên hệ" description="" roles="admin,adminviewer,staff">
+        </siteMapNode>-->
+    </siteMapNode>
+</siteMap>

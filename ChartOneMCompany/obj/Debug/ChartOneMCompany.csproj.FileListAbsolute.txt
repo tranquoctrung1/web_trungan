@@ -1,0 +1,327 @@
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ChartOneMCompany.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ChartOneMCompany.pdb
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\AppManifest.xaml
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ChartOneMCompany.xap
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ChartOneMCompanyTestPage.html
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.ComponentModel.DataAnnotations.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Windows.Controls.Data.Input.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Windows.Controls.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Xml.Linq.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\Telerik.Windows.Controls.DataVisualization.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\Telerik.Windows.Controls.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\Telerik.Windows.Controls.Input.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\Telerik.Windows.Data.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\Telerik.Windows.Themes.Windows8.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\Visiblox.Charts.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Windows.Data.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.ComponentModel.DataAnnotations.xml
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Windows.Controls.xml
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Windows.Controls.Data.Input.xml
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Xml.Linq.xml
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\Telerik.Windows.Controls.xml
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\Telerik.Windows.Controls.DataVisualization.xml
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\Telerik.Windows.Controls.Input.xml
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\Telerik.Windows.Data.xml
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\Visiblox.Charts.xml
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Windows.Data.xml
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ar\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\bg\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ca\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\cs\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\da\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\de\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\el\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\es\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\et\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\eu\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fi\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fr\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\he\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\hr\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\hu\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\id\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\it\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ja\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ko\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\lt\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\lv\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ms\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\nl\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\no\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pl\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pt\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pt-BR\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ro\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ru\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sk\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sl\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sv\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\th\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\tr\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\uk\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\vi\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hans\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hant\System.ComponentModel.DataAnnotations.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ar\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\bg\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ca\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\cs\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\da\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\de\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\el\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\es\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\et\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\eu\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fi\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fr\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\he\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\hr\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\hu\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\id\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\it\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ja\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ko\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\lt\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\lv\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ms\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\nl\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\no\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pl\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pt\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pt-BR\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ro\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ru\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sk\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sl\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sv\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\th\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\tr\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\uk\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\vi\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hans\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hant\System.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ar\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\bg\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ca\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\cs\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\da\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\de\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\el\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\es\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\et\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\eu\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fi\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fr\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\he\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\hr\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\hu\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\id\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\it\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ja\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ko\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\lt\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\lv\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ms\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\nl\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\no\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pl\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pt\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pt-BR\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ro\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ru\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sk\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sl\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sv\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\th\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\tr\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\uk\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\vi\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hans\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hant\System.Windows.Controls.Data.Input.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\de\System.Xml.Linq.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\es\System.Xml.Linq.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fr\System.Xml.Linq.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\it\System.Xml.Linq.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ja\System.Xml.Linq.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ko\System.Xml.Linq.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ru\System.Xml.Linq.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hans\System.Xml.Linq.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hant\System.Xml.Linq.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\de\Telerik.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\es\Telerik.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fr\Telerik.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\it\Telerik.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\nl\Telerik.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\tr\Telerik.Windows.Controls.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\de\System.Windows.Data.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\es\System.Windows.Data.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fr\System.Windows.Data.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\it\System.Windows.Data.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ja\System.Windows.Data.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ko\System.Windows.Data.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ru\System.Windows.Data.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hans\System.Windows.Data.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hant\System.Windows.Data.resources.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\obj\Debug\ChartOneMCompany.csprojResolveAssemblyReference.cache
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\obj\Debug\App.g.cs
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\obj\Debug\MainPage.g.cs
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\obj\Debug\ChartOneMCompany.g.resources
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\obj\Debug\ChartOneMCompany.dll
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\obj\Debug\ChartOneMCompany.pdb
+D:\Projects\[WC_XNTD] WEBDHT\WEBDHT\ChartOneMCompany\obj\Debug\XapCacheFile.xml
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ChartOneMCompany.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ChartOneMCompany.pdb
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\AppManifest.xaml
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ChartOneMCompany.xap
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ChartOneMCompanyTestPage.html
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.ComponentModel.DataAnnotations.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Windows.Controls.Data.Input.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Windows.Controls.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Xml.Linq.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\Visiblox.Charts.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Windows.Data.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.ComponentModel.DataAnnotations.xml
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Windows.Controls.xml
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Windows.Controls.Data.Input.xml
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Xml.Linq.xml
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\Visiblox.Charts.xml
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\System.Windows.Data.xml
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ar\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\bg\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ca\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\cs\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\da\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\de\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\el\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\es\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\et\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\eu\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fi\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fr\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\he\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\hr\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\hu\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\id\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\it\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ja\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ko\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\lt\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\lv\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ms\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\nl\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\no\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pl\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pt\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pt-BR\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ro\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ru\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sk\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sl\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sv\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\th\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\tr\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\uk\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\vi\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hans\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hant\System.ComponentModel.DataAnnotations.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ar\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\bg\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ca\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\cs\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\da\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\de\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\el\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\es\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\et\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\eu\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fi\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fr\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\he\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\hr\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\hu\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\id\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\it\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ja\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ko\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\lt\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\lv\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ms\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\nl\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\no\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pl\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pt\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pt-BR\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ro\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ru\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sk\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sl\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sv\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\th\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\tr\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\uk\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\vi\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hans\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hant\System.Windows.Controls.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ar\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\bg\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ca\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\cs\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\da\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\de\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\el\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\es\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\et\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\eu\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fi\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fr\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\he\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\hr\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\hu\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\id\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\it\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ja\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ko\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\lt\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\lv\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ms\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\nl\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\no\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pl\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pt\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\pt-BR\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ro\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ru\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sk\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sl\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\sv\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\th\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\tr\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\uk\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\vi\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hans\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hant\System.Windows.Controls.Data.Input.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\de\System.Xml.Linq.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\es\System.Xml.Linq.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fr\System.Xml.Linq.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\it\System.Xml.Linq.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ja\System.Xml.Linq.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ko\System.Xml.Linq.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ru\System.Xml.Linq.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hans\System.Xml.Linq.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hant\System.Xml.Linq.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\de\System.Windows.Data.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\es\System.Windows.Data.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\fr\System.Windows.Data.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\it\System.Windows.Data.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ja\System.Windows.Data.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ko\System.Windows.Data.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\ru\System.Windows.Data.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hans\System.Windows.Data.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\Bin\Debug\zh-Hant\System.Windows.Data.resources.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\obj\Debug\App.g.cs
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\obj\Debug\MainPage.g.cs
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\obj\Debug\ChartOneMCompany.g.resources
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\obj\Debug\ChartOneMCompany.dll
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\obj\Debug\ChartOneMCompany.pdb
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\obj\Debug\XapCacheFile.xml
+D:\bavitech\DHT\XNTD_WEBDHT\WEBDHT\ChartOneMCompany\obj\Debug\ChartOneMCompany.csprojResolveAssemblyReference.cache

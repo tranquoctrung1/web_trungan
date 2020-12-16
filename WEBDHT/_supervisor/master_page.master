@@ -1,0 +1,758 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="master_page.master.cs" Inherits="_supervisor_master_page" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Cấp Nước Trung An</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link href="../css/admin-lte/css/AdminLTE.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../bower_components/dist/css/skins/skin-blue.min.css">
+    <link href="../css/CommonCSS.css" rel="stylesheet" />
+    <link href="../css/awesome-bootstrap-checkbox.css" rel="stylesheet" />
+    <link href="../css/masterPage.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"/>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+   <%-- <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>--%>
+    <div id="header-wrap">
+        <div id="header">
+            <div id="header-left">
+            </div>
+            <div id="header-right">
+            </div>
+        </div>
+    </div>
+    <div id="navigation-wrap" class="clearfix">
+       <%-- <div id="navigation">
+            <div id="navigation-left">
+                <telerik:RadMenu ID="mnuLeft" runat="server" DataSourceID="SiteMapDataSource1" 
+                    TabIndex="-1" onitemdatabound="mnuLeft_ItemDataBound" >
+                    
+                </telerik:RadMenu>
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" 
+                    ShowStartingNode="False" />
+            </div>
+            <div id="navigation-right">
+                <telerik:RadMenu ID="mnuUser" runat="server" style="float:right" 
+                    onitemclick="mnuUser_ItemClick" 
+                    onclientitemclicking="mnuUser_ItemClicking">
+                    <Items>
+                        <telerik:RadMenuItem runat="server" Text="User" TabIndex="-1">
+                            <ItemTemplate>
+                                <asp:LoginName ID="LoginName1" runat="server" style="margin-left:10px"/>
+                            </ItemTemplate>
+                        </telerik:RadMenuItem>
+                        <telerik:RadMenuItem runat="server" Text="<%$Resources:Lit, ngonngu %>" TabIndex="-1">
+
+                            <Items>
+                                <telerik:RadMenuItem runat="server" Text="<%$Resources:Lit, tiengviet %>" >
+                                </telerik:RadMenuItem>
+                                <telerik:RadMenuItem runat="server" Text="<%$Resources:Lit, tienganh %>">
+                                </telerik:RadMenuItem>
+
+                            </Items>
+                        </telerik:RadMenuItem>
+                        <telerik:RadMenuItem runat="server" TabIndex="-1">
+                            <ItemTemplate>
+                                <asp:LoginStatus ID="LoginStatus1" runat="server" 
+                                    LogoutPageUrl="~/login.aspx" TabIndex="-1" />
+                            </ItemTemplate>
+                        </telerik:RadMenuItem>
+                    </Items>
+                </telerik:RadMenu>
+            </div>
+        </div>--%>
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+        </telerik:RadScriptManager>
+        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" UpdatePanelsRenderMode="Inline">
+        </telerik:RadAjaxManager>
+        <telerik:RadFormDecorator ID="RadFormDecorator1" runat="server" DecoratedControls="All" ControlsToSkip="LoginControls" />
+        <div class="wrapper">
+
+            <!-- Main Header -->
+            <header class="main-header">
+                <!-- Header Navbar -->
+                <nav class="navbar navbar-static-top menu-top-mobile" role="navigation">
+                    <!-- Sidebar toggle button-->
+                    <div class="icon-menu" onclick="displayMenuList(); return false">
+                        <asp:ImageButton ToolTip="Menu" ImageUrl="~/App_Themes/menu-list.jpg" runat="server" />
+                        <%--<span class="sr-only">Toggle navigation</span>--%>
+                    </div>
+                    <!-- Navbar Right Menu -->
+                </nav>
+            </header>
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar box-shadow menu-main-mobile" id="tab-icon-menu">
+
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- /.search form -->
+
+                    <!-- Sidebar Menu -->
+                    <ul class="sidebar-menu" data-widget="tree">
+                        <!-- Optionally, you can add icons to the links -->
+                        <%-- <li class="treeview">
+                            <a class="logo brand-link" href="#">
+                                <img src="#" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8" runat="server" id="imgLogo">
+                              
+                            </a>
+                        </li>--%>
+                        <li class="treeview">
+                            <a href="#ThietBi"><i class="fa fa-flag"></i>
+                                <asp:Label ID="Label1" runat="server" Text="Thiết Bị"></asp:Label>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="/_supervisor/device/meter.aspx">
+                                        <asp:Label ID="Label2" runat="server" Text="Đồng Hồ"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/device/transmitter.aspx">
+                                        <asp:Label ID="Label3" runat="server" Text="Bộ Hiển Thị"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/device/logger.aspx">
+                                        <asp:Label ID="Label4" runat="server" Text="Logger"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/device/cover.aspx">
+                                        <asp:Label ID="Label5" runat="server" Text="Nắp Hầm"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/file/meter.aspx">
+                                        <asp:Label ID="Label6" runat="server" Text="Download File Đồng Hồ"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/device/delete_useless_meters.aspx">
+                                        <asp:Label ID="Label7" runat="server" Text="Xóa Đồng Hồ Không Sử Dụng"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/device/delete_useless_transmitters.aspx">
+                                        <asp:Label ID="Label8" runat="server" Text="Xóa Bộ Hiển Thị Không Sử Dụng"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/device/delete_useless_loggers.aspx">
+                                        <asp:Label ID="Label9" runat="server" Text="Xóa Logger Không Sử Dụng"></asp:Label>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#ViTriLapDat"><i class="fa fa-map-marker"></i>
+                                <asp:Label ID="blEAndsL" runat="server" Text="Điểm Lắp Đặt"></asp:Label>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="/_supervisor/site/info.aspx">
+                                        <asp:Label ID="lbInfo" runat="server" Text="Thông Tin Điểm Lắp Đặt"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/site/config.aspx">
+                                        <asp:Label ID="lbConfig" runat="server" Text="Cấu Hình Logger"></asp:Label>
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a href="/_supervisor/site/change_meter.aspx">
+                                        <asp:Label ID="lbChangeMeter" runat="server" Text="Thay Đồng Hồ"></asp:Label>
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a href="/_supervisor/site/change_transmitter.aspx">
+                                        <asp:Label ID="lbChangeTransmitter" runat="server" Text="Thay Bộ Hiển Thị"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/site/change_logger.aspx">
+                                        <asp:Label ID="lbChangeLogger" runat="server" Text="Thay Logger"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/file/site.aspx">
+                                        <asp:Label ID="lbDownloadFileConfig" runat="server" Text="Download File Điểm Lắp Đặt"></asp:Label>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#ThongKe"><i class="fa fa-balance-scale"></i>
+                                <asp:Label ID="lbThongKe" runat="server" Text="Thống Kê"></asp:Label>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                 <li>
+                                    <a href="/_supervisor/report/rsi_sgwdc.aspx">
+                                        <asp:Label ID="lbReportRSI" runat="server" Text="Điểm Lắp Đặt Xí nghiệp Quản Lý"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/report/rsi_marks_size_sgwdc.aspx">
+                                        <asp:Label ID="lbReportRSIMark" runat="server" Text="Theo Hiệu Cỡ (Xí Nghiệp Quản Lý)"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/report/rsi_.aspx">
+                                        <asp:Label ID="lbRSI_" runat="server" Text="Thống Kê Tùy Chọn Điểm Lắp Đặt"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/report/rsi_marks_size.aspx">
+                                        <asp:Label ID="lbRSIMarkSize" runat="server" Text="Thống Kê Tùy Chọn Hiệu Cỡ"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/report/rsi_has_changed.aspx">
+                                        <asp:Label ID="lbRSIChange" runat="server" Text="Hoạt Động Phát Sinh Trong Kỳ"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/report/rde_meter.aspx">
+                                        <asp:Label ID="lbRDEMeter" runat="server" Text="Thống Kê Đồng Hồ"></asp:Label>
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a href="/_supervisor/report/rde_transmitter.aspx">
+                                        <asp:Label ID="lbRDETransmitter" runat="server" Text="Thống Kê Bộ Hiển Thị"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/report/rde_logger.aspx">
+                                        <asp:Label ID="lbRDELogger" runat="server" Text="Thống Kê Bộ Logger"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/report/rsi_history.aspx">
+                                        <asp:Label ID="lbRSIHistory" runat="server" Text="Lịch Sử Điểm Lắp Đặt"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/report/rsi_expiry.aspx">
+                                        <asp:Label ID="lbRSIExpiry" runat="server" Text="Thời Gian Đồng Hồ Hoạt Động"></asp:Label>
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a href="/_supervisor/report/rsi_meter_accrediation.aspx">
+                                        <asp:Label ID="lbRSIMeterAccredaition" runat="server" Text="Đồng Hồ Đến Hạn Kiểm Định"></asp:Label>
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a href="/_supervisor/report/rde_emeter.aspx">
+                                        <asp:Label ID="lbRDEEmeter" runat="server" Text="Hồ Sơ Thiết Bị Đồng Hồ"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/report/rde_etransmitter.aspx">
+                                        <asp:Label ID="lbRDERTransmitter" runat="server" Text="Hồ Sơ Thiết Bị Bộ Hiển Thị"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/report/rde_elogger.aspx">
+                                        <asp:Label ID="lbRDERLogger" runat="server" Text="Hồ Sơ Thiết Bị Logger"></asp:Label>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#NhapLieu"><i class="fa fa-pencil-square-o"></i>
+                                <asp:Label ID="lbNhapLieu" runat="server" Text="Nhập Liệu"></asp:Label>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                 <li>
+                                    <a href="/_supervisor/data/raw.aspx">
+                                        <asp:Label ID="lbDataRaw" runat="server" Text="Nhập Tay Chỉ Số"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/data/logger.aspx">
+                                        <asp:Label ID="lbDataLogger" runat="server" Text="Nhập Tay Sản Lượng"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/data/change.aspx">
+                                        <asp:Label ID="lbDataChange" runat="server" Text="Sữa Dữ Liệu Nhập Tay"></asp:Label>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                       <%-- <li class="treeview">
+                            <a href="#QuanLyNguoiDung"><i class="fa fa-users"></i>
+                                <asp:Label ID="lbAdminPanel" runat="server" Text="Admin Panel"></asp:Label>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="/Supervisor/Admin/ViewUsers.aspx">
+                                        <asp:Label ID="lbViewUserDetails" runat="server" Text="Xem Người Dùng"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Supervisor/Admin/CreateUser.aspx">
+                                        <asp:Label ID="lbCreateUsers" runat="server" Text="Tạo Mới Người Dùng"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Supervisor/Admin/SettingSMS.aspx">
+                                        <asp:Label ID="lbMessageSettings" runat="server" Text="Cài Đặt Tin Nhắn"></asp:Label>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>--%>
+
+                         <li class="treeview">
+                            <a href="#SanLuong"><i class="fa fa-database"></i>
+                                <asp:Label ID="lbQuantity" runat="server" Text="Sản Lượng"></asp:Label>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="/_supervisor/logger/datalogger.aspx">
+                                        <asp:Label ID="lbDataLoggerComplex" runat="server" Text="Dữ Liệu Logger"></asp:Label>
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a href="/_supervisor/logger/DailyLogger.aspx">
+                                        <asp:Label ID="lbDailyQuantityPoint" runat="server" Text="Sản Lượng Ngày Theo Point"></asp:Label>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="#DoThi"><i class="fa fa-line-chart"></i>
+                                <asp:Label ID="lbChart" runat="server" Text="Đồ Thị"></asp:Label>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="/_supervisor/chartP/ChartPoint.aspx">
+                                        <asp:Label ID="lbPointChart" runat="server" Text="Đồ Thị Theo Point"></asp:Label>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+
+
+                       <%-- <li class="treeview">
+                            <a href="#QuanLyNgonNgu"><i class="fa fa-language"></i>
+                                <asp:Label ID="lbLanguageManagement" runat="server" Text="Quản Lý Ngôn Ngữ"></asp:Label>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="/Supervisor/Language/ChangeFunction.aspx">
+                                        <asp:Label ID="lbFunctions" runat="server" Text="Tính Năng"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Supervisor/Language/ChangeContent.aspx">
+                                        <asp:Label ID="lbContents" runat="server" Text="Nội Dung Chi Tiết"></asp:Label>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>--%>
+
+                       <%-- <li class="treeview">
+                            <a href="#QuanLyHeThong"><i class="fa fa-plug"></i>
+                                <asp:Label ID="lbConfigSystem" runat="server" Text="Quản Lý Hệ Thống"></asp:Label>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="/Supervisor/System/General.aspx">
+                                        <asp:Label ID="lbGeneralSystem" runat="server" Text="Hệ Thống Chung"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Supervisor/System/Users.aspx">
+                                        <asp:Label ID="lbUserManagement" runat="server" Text="Quản lý tài khoản"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Supervisor/System/Roles.aspx">
+                                        <asp:Label ID="lbRoleManagement" runat="server" Text="Quản lý vai trò người dùng"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Supervisor/System/RoleFunction.aspx">
+                                        <asp:Label ID="lbRoleFunctionManagement" runat="server" Text="Quản lý quyền truy cập"></asp:Label>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>--%>
+                        <%-- <li class="treeview">
+                            <a href="#FullScreen">
+                                <i class="fa fa-arrows-alt"></i>
+                                <span class="name">
+                                    <asp:Label ID="lbFullScreen" runat="server" Text="Toàn màn hình"></asp:Label>
+                                </span>
+                            </a>
+                        </li>--%>
+                        <%--<li class="treeview">
+                            <a href="#Alert" id="btnShowAlarm" class="click">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="name">
+                                    <asp:Label ID="lbAlert" runat="server" Text="Cảnh báo"></asp:Label>
+                                </span>
+                                <span class="pull-right-container" id="txtCountAlarm">
+                                        
+                                </span>
+                            </a>
+                        </li>--%>
+
+                       <%-- <li class="treeview">
+                            <a href="#NgonNgu">
+                                <i class="fa fa-language"></i>
+                                <asp:Label ID="Label1" runat="server" Text="Ngôn ngữ"></asp:Label>
+                                <span class="name">
+                                    <asp:Label ID="lbLang" runat="server" Text=""></asp:Label>
+                                </span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="#"  runat="server">
+                                        <asp:Label ID="lbVi" runat="server" Text="VietNamese"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"  runat="server">
+                                        <asp:Label ID="lbEn" runat="server" Text="English"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" runat="server">
+                                        <asp:Label ID="lbOther" runat="server" Text="Other"></asp:Label>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>--%>
+
+                        <li class="treeview">
+                            <a href="#DangXuat">
+                                <i class="fa fa-user-circle"></i>
+                                <span class="name">
+                                    <asp:Label ID="lbUserName" runat="server" Text="User's name"></asp:Label>
+                                </span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="/_supervisor/account/change_password.aspx">
+                                        <%--<i class="fa fa-gear icon"></i>--%>
+                                        <asp:Label ID="lbChangePassword" runat="server" Text="Đổi Mật Khẩu"></asp:Label>
+                                    </a>
+                                </li>
+                                <li></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#" id="btnLogout">
+                                <i class="fa fa-power-off icon"></i>
+                                <asp:Label ID="lbLogout" runat="server" Text="Logout"></asp:Label>
+                            </a>
+
+                        </li>
+
+                    </ul>
+                    <asp:HiddenField ID="hidListMenu" runat="server" />
+                    <!-- /.sidebar-menu -->
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+    </div>
+    <div id="main-wrap" >
+        <div id="main" >
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="footer-wrap">
+        <div="footer">
+            <div="footer-left">
+            </div>
+            <div="footer-right">
+            </div>
+        </div>
+    </div>
+    </form>
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../bower_components/dist/js/adminlte.min.js"></script>
+    <script src="../../js/AlertMessBox.js"></script>
+    <%--<script type="text/javascript" src="/js/Pi-solution/app.js"></script>--%>
+
+    <script type="text/javascript">
+
+        var hostname = window.location.origin;
+        if (hostname.indexOf("localhost") < 0)
+            hostname = hostname + "/VivaServices/";
+        else
+            hostname = "http://localhost:63111";
+        var urlGetValeAlarm = hostname + '/Service1.svc/GetValeAlarm/';
+        $(function () {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $("#form_Show_Alarm").attr("style", "left:-20px; bottom: unset");
+            }
+
+            $("li").click(function () {
+                if ($("li").hasClass('active')) {
+                    $("li").removeClass('active');
+                }
+                $(this).addClass('active');
+            });
+
+            setInterval(function () { $(".rwControlButtons").css("width", "auto"); }, 100);
+
+            //setInterval(function () {
+            //    var uid = document.getElementById("hdpValueUID").value;
+            //    var urlAlarm = urlGetValeAlarm + uid;
+            //    $.getJSON(urlAlarm, function (d) {
+            //        $("#bodyFormAlarm").empty();
+
+            //        var index = 0;
+            //        $.each(d.GetValeAlarmResult, function (i, val) {
+            //            var date = new Date(parseInt(val.TimeStamp.substr(6)));
+            //            var jsDate = new Date(date).toLocaleDateString();
+            //            var strtable = "";
+            //            if (val.Status == "Delay") {
+            //                strtable += "<tr style = 'background: #ff0'>";
+            //            } else {
+            //                strtable += "<tr>";
+            //            }
+            //            strtable += "<td>" + (index + 1) + "</td>";
+            //            strtable += "<td>" + val.SialiasName + "</td>";
+            //            strtable += "<td>" + jsDate + "</td>";
+            //            strtable += "<td>" + val.NamePath + "</td>";
+            //            strtable += "<td>" + val.LasValue + "</td>";
+            //            if (val.Status == "High") {
+            //                strtable += "<td ><span class='badge bg-red'>" + val.Status + "</span></td>";
+            //            } else if (val.Status == "Low") {
+            //                strtable += "<td ><span class='badge bg-yellow'>" + val.Status + "</span></td>";
+            //            } else if (val.Status == "Baseline") {
+            //                strtable += "<td ><span class='badge bg-light-blue'>" + val.Status + "</span></td>";
+            //            } else {
+            //                strtable += "<td ><span class='badge bg-lime'>" + val.Status + "</span></td>";
+            //            }
+
+            //            strtable += "</tr>";
+            //            $("#bodyFormAlarm").append(strtable);
+            //            index++;
+            //        });
+            //        if (index > 0) {
+            //            $("#noAlarm").addClass("cls-display-none");
+            //            $("#txtCountAlarm").empty();
+            //            $("#txtCountAlarm").append("<small class='label pull-right bg-red' >" + index + "</small>");
+            //        } else {
+            //            $("#noAlarm").removeClass("cls-display-none");
+            //            $("#txtCountAlarm").empty();
+            //            $("#txtCountAlarm").append("<small class='label pull-right bg-red' >" + 0 + "</small>");
+            //        }
+            //    });
+            //}, 1000)
+
+            $("#btnLogout").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/Pi-solution/Pi1.asmx/Logout_pi",
+                    data: "{}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        window.location.href = result.d;
+                    },
+                    error: function (error) {
+                        console.log(error)
+                        alert("The system is under maintenance. Please come back later");
+                    }
+                });
+            });
+
+            // active when click menu
+            var pathname = window.location.pathname;
+            $(".treeview-menu a").each(function () {
+                if ($(this).attr("href") == pathname) {
+                    $(this).addClass("active");
+                    //$(this).parent().parent().parent().addClass("active");
+                    $(this).closest("ul").attr("aria-expanded", "true");
+                    $(this).closest("ul").removeClass("collapse");
+                    //$(this).closest("ul").addClass("sidebar-nav collapse in");
+                }
+                //privilege sub menu
+
+                //var substring = '@' + $(this).attr("href") + '@';
+                //if ($("#hidListMenu").val().indexOf(substring) == -1) {
+
+                //    $(this).parent().attr("style", "display:none !important");
+                //}
+            });
+            //privilege  menu
+            $(".privilege").each(function () {
+                var substring = '@' + $(this).attr("href") + '@';
+                if ($("#hidListMenu").val().indexOf(substring) == -1) {
+                    $(this).parent().attr("style", "display:none !important");
+                }
+            });
+
+
+            //active when click menu
+            $(".sidebar-menu a").each(function () {
+                if ($(this).attr("href") == pathname) {
+                    $(this).parent().addClass("active");
+                }
+            });
+
+            $(".rfdRoundedCorners, .form-control").each(function () {
+                $(this).removeClass("rfdDecorated");
+            });
+
+
+            $(".rwControlButtons, .rbDecorated").each(function () {
+                $(this).removeAttr("style");
+                $(this).parent().removeClass("rfdSkinnedButton");
+
+            });
+            $(".rfdDecorated").each(function () {
+                $(this).parent().removeClass("rfdSkinnedButton");
+
+            });
+            //resize menu + map by screen
+            var screenheight = $(document).height();
+            var screenwidth = $(document).width();
+            var strh = (screenheight - 60);
+            var strw = (screenwidth - 220);
+            if (screenwidth < 768) {
+                strw = (screenwidth - 20);
+                //change header text
+               <%-- $("#<%=lbPageTitle.ClientID%>").html("VIWATER SCADA SYSTEM");--%>
+            }
+
+            //if (screenwidth > 768) {
+            //    $("#sidebar-menu").attr("style", "height:" + (screenheight - 50) + "px ; overflow-y:scroll; overflow-x:hidden"); // leftmenu scroll for >ipad 
+            //}
+
+            $("#MenuCollapse").click(function () {
+                $(".sidebar").toggle(500);
+                $(".header").toggleClass('headerHide');
+                $(".app").toggleClass('headerHide');
+            });
+
+            $('#sidebar-collapse-btn2').click(function () {
+                $("#app").toggleClass("sidebar-open");
+                return false;
+            });
+            var myElement = $('#Inside-bottom');
+            myElement.css({
+                position: 'absolute',
+                left: '50%',
+                'margin-left': 0 - (myElement.width() / 2)
+            });
+
+        })
+        $(document).ready(function () {
+            const mq = window.matchMedia("(min-width: 768px)");
+            if (mq.matches) {
+                $(".main-sidebar").hover(
+                    function () {
+                        $('.treeview-menu').removeClass('cls-display-none');
+                        $('.treeview-menu').removeClass('in');
+                    },
+                    function () {
+                        $('.treeview-menu').addClass('cls-display-none');
+                        $('.treeview-menu').parent().removeClass('open active menu-open');
+                    }
+                );
+            }
+        });
+        const mq = window.matchMedia("(max-width: 767px)");
+        if (mq.matches) {
+            var flag = true;
+            function displayMenuList() {
+                var id_tab_menu = document.getElementById("tab-icon-menu");
+                if (flag) {
+                    id_tab_menu.classList.remove("menu-main-mobile");
+                    flag = false;
+                }
+                else {
+                    id_tab_menu.classList.add("menu-main-mobile");
+                    flag = true;
+                }
+            }
+        }
+        function btnConfirmAlarm_Click() {
+            var qs = getQueryStrings();
+            var uid = qs["uid"];
+            var urlConfirmAlarm = hostname + '/Service1.svc/ConfirmAlarm/' + uid;
+            $.getJSON(urlConfirmAlarm, function (d) { });
+            $("#btnConfirmAlarm").removeClass("btn-info");
+            $("#btnConfirmAlarm").addClass("btn-success");
+        }
+
+        $(document).ready(function () {
+            $('.click').click(function (event) {
+                event.stopPropagation();
+                $(".showup").slideToggle("fast");
+            });
+            $(".showup").on("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+
+        $(document).on("click", function () {
+            $(".showup").hide();
+            $("#btnConfirmAlarm").addClass("btn-info");
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="admin" xml:space="preserve">
+    <value>admin</value>
+  </data>
+  <data name="adminpanel" xml:space="preserve">
+    <value>Admin panel</value>
+  </data>
+  <data name="bando" xml:space="preserve">
+    <value>Bản đồ</value>
+  </data>
+  <data name="bd" xml:space="preserve">
+    <value>Bản đồ</value>
+  </data>
+  <data name="bohienthi" xml:space="preserve">
+    <value>Bộ hiển thị</value>
+  </data>
+  <data name="BOO" xml:space="preserve">
+    <value>BOO</value>
+  </data>
+  <data name="cangio" xml:space="preserve">
+    <value>Cần Giờ</value>
+  </data>
+  <data name="cauhinhlogger" xml:space="preserve">
+    <value>Cấu hình logger</value>
+  </data>
+  <data name="cholon" xml:space="preserve">
+    <value>Chợ Lớn</value>
+  </data>
+  <data name="diemlapdat" xml:space="preserve">
+    <value>Điểm lắp đặt</value>
+  </data>
+  <data name="diemlapdatxinghiepquanly" xml:space="preserve">
+    <value>Điểm lắp đặt xí nghiệp quản lý</value>
+  </data>
+  <data name="doimatkhau" xml:space="preserve">
+    <value>Đổi mật khẩu</value>
+  </data>
+  <data name="dongho" xml:space="preserve">
+    <value>Đồng hồ</value>
+  </data>
+  <data name="donghodenhankiemdinh" xml:space="preserve">
+    <value>Đồng hồ đến hạn kiểm định</value>
+  </data>
+  <data name="dothi" xml:space="preserve">
+    <value>Đồ thị</value>
+  </data>
+  <data name="dothi2nhomlapdat" xml:space="preserve">
+    <value>Đồ thị 2 nhóm lắp đặt</value>
+  </data>
+  <data name="dothimotdiemlapdat" xml:space="preserve">
+    <value>Đồ thị một điểm lắp đặt</value>
+  </data>
+  <data name="dothitheodiemlapdatvanhom2" xml:space="preserve">
+    <value>Đồ thị theo điểm lắp đặt và nhóm 2</value>
+  </data>
+  <data name="dothitheodiemlapdatvanhom1" xml:space="preserve">
+    <value>Đồ thị theo điểm lắp đặt và nhóm 1</value>
+  </data>
+  <data name="dothitheonhomdongho1" xml:space="preserve">
+    <value>Đồ thị theo nhóm đồng hồ 1</value>
+  </data>
+  <data name="dothitheonhomdongho2" xml:space="preserve">
+    <value>Đồ thị theo nhóm đồng hồ 2</value>
+  </data>
+  <data name="downloadfilediemlapdat" xml:space="preserve">
+    <value>Download file điểm lắp đặt</value>
+  </data>
+  <data name="downloadfiledongho" xml:space="preserve">
+    <value>Download file đồng hồ</value>
+  </data>
+  <data name="dt" xml:space="preserve">
+    <value>Đồ thị</value>
+  </data>
+  <data name="giadinh" xml:space="preserve">
+    <value>Gia Định</value>
+  </data>
+  <data name="hm" xml:space="preserve">
+    <value>HM</value>
+  </data>
+  <data name="hoatdongphatsinh" xml:space="preserve">
+    <value>Hoạt động phát sinh trong kỳ</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="hosothietbibohienthi" xml:space="preserve">
+    <value>Hồ sơ thiết bị bộ hiển thị</value>
+  </data>
+  <data name="hosothietbidongho" xml:space="preserve">
+    <value>Hồ sơ thiết bị đồng hồ</value>
+  </data>
+  <data name="hosothietbilogger" xml:space="preserve">
+    <value>Hồ sơ thiết bị logger</value>
+  </data>
+  <data name="lichsudiemlapdat" xml:space="preserve">
+    <value>Lịch sử điểm lắp đặt</value>
+  </data>
+  <data name="logger" xml:space="preserve">
+    <value>Logger</value>
+  </data>
+  <data name="mauin" xml:space="preserve">
+    <value>Mẫu in</value>
+  </data>
+  <data name="nhabe" xml:space="preserve">
+    <value>Nhà Bè</value>
+  </data>
+  <data name="nhaplieu" xml:space="preserve">
+    <value>Nhập liệu</value>
+  </data>
+  <data name="nhaptaychiso" xml:space="preserve">
+    <value>Nhập tay chỉ số</value>
+  </data>
+  <data name="nhaptaysanluong" xml:space="preserve">
+    <value>Nhập tay sản lượng</value>
+  </data>
+  <data name="phuhoatan" xml:space="preserve">
+    <value>Phú Hòa Tân</value>
+  </data>
+  <data name="saigon" xml:space="preserve">
+    <value>Sài Gòn</value>
+  </data>
+  <data name="sanluong" xml:space="preserve">
+    <value>Sản lượng</value>
+  </data>
+  <data name="sanluongcaccongtycapnuoc" xml:space="preserve">
+    <value>Sản lượng các công ty cấp nước</value>
+  </data>
+  <data name="sanluongtheocapdongho" xml:space="preserve">
+    <value>Sản lượng theo cấp đồng hồ</value>
+  </data>
+  <data name="sanluongtheonhom" xml:space="preserve">
+    <value>Sản lượng theo nhóm</value>
+  </data>
+  <data name="sanluongtheonhom2" xml:space="preserve">
+    <value>Sản lượng theo nhóm 2</value>
+  </data>
+  <data name="sanluongtheoquanly" xml:space="preserve">
+    <value>Sản lượng theo quản lý</value>
+  </data>
+  <data name="sanluongtonghop" xml:space="preserve">
+    <value>Sản lượng tổng hợp</value>
+  </data>
+  <data name="sl" xml:space="preserve">
+    <value>Sản lượng</value>
+  </data>
+  <data name="suadulieu" xml:space="preserve">
+    <value>Sửa dữ liệu</value>
+  </data>
+  <data name="taikhoan" xml:space="preserve">
+    <value>Tài khoản</value>
+  </data>
+  <data name="tanhoa" xml:space="preserve">
+    <value>Tân Hòa</value>
+  </data>
+  <data name="taomoidulieukhac" xml:space="preserve">
+    <value>Tạo mới dữ liệu khác</value>
+  </data>
+  <data name="taomoinguoidung" xml:space="preserve">
+    <value>Tạo mới người dùng</value>
+  </data>
+  <data name="thaybohienthi" xml:space="preserve">
+    <value>Thay bộ hiển thị</value>
+  </data>
+  <data name="thaydongho" xml:space="preserve">
+    <value>Thay đồng hồ</value>
+  </data>
+  <data name="thaylogger" xml:space="preserve">
+    <value>Thay logger</value>
+  </data>
+  <data name="theohieuco" xml:space="preserve">
+    <value>Theo hiệu cỡ (xí nghiệp quản lý)</value>
+  </data>
+  <data name="thietbi" xml:space="preserve">
+    <value>Thiết bị</value>
+  </data>
+  <data name="thoigiandonghohoatdong" xml:space="preserve">
+    <value>Thời gian đồng hồ hoạt động</value>
+  </data>
+  <data name="thongke" xml:space="preserve">
+    <value>Thống kê</value>
+  </data>
+  <data name="thongketuychonbohienthi" xml:space="preserve">
+    <value>Thống kê tùy chọn bộ hiển thị</value>
+  </data>
+  <data name="thongketuychondiemlapdat" xml:space="preserve">
+    <value>Thống kê tùy chọn điểm lắp đặt</value>
+  </data>
+  <data name="thongketuychondongho" xml:space="preserve">
+    <value>Thống kê tùy chọn đồng hồ</value>
+  </data>
+  <data name="thongketuychonhieuco" xml:space="preserve">
+    <value>Thống kê tùy chọn hiệu cỡ</value>
+  </data>
+  <data name="thongketuychonlogger" xml:space="preserve">
+    <value>Thống kê tùy chọn logger</value>
+  </data>
+  <data name="thongtindiemlapdat" xml:space="preserve">
+    <value>Thông tin điểm lắp đặt</value>
+  </data>
+  <data name="thuduc" xml:space="preserve">
+    <value>Thủ Đức</value>
+  </data>
+  <data name="tienich" xml:space="preserve">
+    <value>Tiện ích</value>
+  </data>
+  <data name="tk" xml:space="preserve">
+    <value>Tài khoản</value>
+  </data>
+  <data name="trungan" xml:space="preserve">
+    <value>Trung An</value>
+  </data>
+  <data name="xemnguoidung" xml:space="preserve">
+    <value>Xem người dùng</value>
+  </data>
+  <data name="xoabohienthi" xml:space="preserve">
+    <value>Xóa bộ hiển thị không sử dụng</value>
+  </data>
+  <data name="xoadongho" xml:space="preserve">
+    <value>Xóa đồng hồ không sử dụng</value>
+  </data>
+  <data name="xoalogger" xml:space="preserve">
+    <value>Xóa logger không sử dụng</value>
+  </data>
+  <data name="ngonngu" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="tienganh" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="tiengviet" xml:space="preserve">
+    <value>Vietnamese</value>
+  </data>
+  <data name="dothitheocongtyvanhom" xml:space="preserve">
+    <value>Đồ thị công ty CP và nhóm</value>
+  </data>
+  <data name="dothitheocongtyvanhom2" xml:space="preserve">
+    <value>Đồ thị công ty CP và nhóm 2</value>
+  </data>
+  <data name="dothitheodiemlapdatvacongty" xml:space="preserve">
+    <value>Đồ thị theo điểm lắp đặt và công ty CP</value>
+  </data>
+  <data name="hoatdong" xml:space="preserve">
+    <value>Hoạt động</value>
+  </data>
+  <data name="hosothietbi" xml:space="preserve">
+    <value>Hồ sơ thiết bị</value>
+  </data>
+  <data name="dothimotcongty" xml:space="preserve">
+    <value>Đồ thị một công ty CP</value>
+  </data>
+  <data name="napham" xml:space="preserve">
+    <value>Nắp hầm</value>
+  </data>
+  <data name="sanluongtheonhom3" xml:space="preserve">
+    <value>Sản lượng theo nhóm 3</value>
+  </data>
+  <data name="sanluongtheonhom4" xml:space="preserve">
+    <value>Sản lượng theo nhóm 4</value>
+  </data>
+  <data name="sanluongtheonhom5" xml:space="preserve">
+    <value>Sản lượng theo nhóm 5</value>
+  </data>
+  <data name="dothimotdvqly" xml:space="preserve">
+    <value>Đồ thị một đơn vị quản lý</value>
+  </data>
+</root>

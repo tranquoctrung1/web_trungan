@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization="true" >
+    <siteMapNode url="" title=""  description="" roles="Volume_read_all">
+        <siteMapNode url="~/_supervisor/report/rou_dcompany.aspx" title="$resources:Lit,sanluongcaccongtycapnuoc" description="" roles="Volume_read_all"/>
+        <siteMapNode url="~/_supervisor/report/rou_company.aspx" title="$resources:Lit,sanluongtheoquanly" description="" roles="Volume_read_all"/>
+        <siteMapNode url="~/_supervisor/report/rou_group.aspx" title="$resources:Lit,sanluongtheonhom" description="" roles="Volume_read_all"/>
+        <siteMapNode url="~/_supervisor/report/rou_group2.aspx" title="$resources:Lit,sanluongtheonhom2" description="" roles="Volume_read_all"/>
+      <siteMapNode url="~/_supervisor/report/rou_group3.aspx" title="$resources:Lit,sanluongtheonhom3" description="" roles="Volume_read_all"/>
+      <siteMapNode url="~/_supervisor/report/rou_group4.aspx" title="$resources:Lit,sanluongtheonhom4" description="" roles="Volume_read_all"/>
+      <siteMapNode url="~/_supervisor/report/rou_group5.aspx" title="$resources:Lit,sanluongtheonhom5" description="" roles="Volume_read_all"/>
+        <siteMapNode url="~/_supervisor/report/rou_level.aspx" title="$resources:Lit,sanluongtheocapdongho" description="" roles="Volume_read_all"/>
+        <siteMapNode url="~/_supervisor/report/rou_all.aspx" title="$resources:Lit,sanluongtonghop" description="" roles="Volume_read_all"/>
+    </siteMapNode>
+</siteMap>

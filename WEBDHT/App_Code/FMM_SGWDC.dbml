@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="web_dht_r02" Class="FMM_SGWDCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=TRUNG-WS;Initial Catalog=web_dht_r02;Persist Security Info=True;User ID=bavitech" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="web_dht_r02ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.t_Devices_Status" Member="DeviceStatus">
+    <Type Name="DeviceStatus">
+      <Column Name="Status" Type="System.String" DbType="NVarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Devices_Meter_Accreditation_Type" Member="MeterAccreditationTypes">
+    <Type Name="MeterAccreditationType">
+      <Column Name="AccreditationType" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Meter_Files" Member="MeterFiles">
+    <Type Name="MeterFile">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Serial" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="MIMEType" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="Size" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Path" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="UploadDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Devices_Loggers" Member="Loggers">
+    <Type Name="Logger">
+      <Column Name="Serial" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ReceiptDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Provider" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Marks" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Installed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Site_Levels" Member="SiteLevels">
+    <Type Name="SiteLevel">
+      <Column Name="[Level]" Member="Level" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Site_Groups" Member="SiteGroups">
+    <Type Name="SiteGroup">
+      <Column Name="[Group]" Member="Group" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Site_Companies" Member="SiteCompanies">
+    <Type Name="SiteCompany">
+      <Column Name="Company" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Production" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Site_Availabilities" Member="SiteAvailabilities">
+    <Type Name="SiteAvailability">
+      <Column Name="Availability" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Site_Status" Member="SiteStatus">
+    <Type Name="SiteStatus">
+      <Column Name="Status" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Site_MeterDirections" Member="SiteMeterDirections">
+    <Type Name="SiteMeterDirection">
+      <Column Name="Direction" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_User_Staffs" Member="UserStaffs">
+    <Type Name="UserStaff">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="ReportDatas">
+    <Type Name="ReportData" Id="ID2">
+      <Column Name="SiteId" Type="System.String" CanBeNull="false" />
+      <Column Name="Location" Type="System.String" CanBeNull="true" />
+      <Column Name="NetDirection" Type="System.String" CanBeNull="true" />
+      <Column Name="PreviousIndex" Type="System.Double" CanBeNull="true" />
+      <Column Name="CurrentIndex" Type="System.Double" CanBeNull="true" />
+      <Column Name="Output" Type="System.Double" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="ReportDailyDatas">
+    <Type Name="ReportDailyData" Id="ID1">
+      <Column Name="SiteId" Type="System.String" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="Value" Type="System.Double" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" CanBeNull="false" />
+      <Column Name="Marks" Type="System.String" CanBeNull="false" />
+      <Column Name="Size" Type="System.Int16" CanBeNull="false" />
+      <Column Name="NotEnoughData" Type="System.Boolean" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Data_Manual" Member="ManualDatas">
+    <Type Name="ManualData">
+      <Column Name="Stt" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SiteId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="[Index]" Member="Index" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Output" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Site_Files" Member="SiteFiles">
+    <Type Name="SiteFile">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SiteId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="MIMEType" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="Size" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Path" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="UploadDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_History_Sites" Member="SiteHistories">
+    <Type Name="SiteHistory">
+      <Column Name="SiteId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Meter" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SerialMeter" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Transmitter" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SerialTransmitter" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Logger" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SeriLogger" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Battery" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TransmitterBattery" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LoggerBattery" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Index]" Member="Index" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_User_Roles" Member="UserRoles">
+    <Type Name="UserRole">
+      <Column Name="Role" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Devices_Units" Member="ChannelUnits">
+    <Type Name="ChannelUnit">
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Devices_SitesConfigs" Member="SiteConfigs">
+    <Type Name="SiteConfig">
+      <Column Name="Id" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SiteId" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Tel" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Pressure" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Pressure1" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Forward" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Reverse" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Interval" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="BeginTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ZoomInit" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ZoomOn" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Devices_ChannelsConfigs" Member="ChannelConfigs">
+    <Type Name="ChannelConfig">
+      <Column Name="Id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LoggerId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastTimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Devices_Meters" Member="Meters">
+    <Type Name="Meter">
+      <Column Name="Serial" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ReceiptDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccreditedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ExpiryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccreditationDocument" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AccreditationType" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Provider" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Marks" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Size" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Installed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="InitialIndex" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ApprovalDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Approved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ApprovalDecision" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SerialTransmitter" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Nationality" Type="System.String" DbType="nvarchar(4000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_History_Site_Meters" Member="SiteMeterHistories">
+    <Type Name="SiteMeterHistory">
+      <Column Name="DateChanged" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="SiteId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OldMeterSerial" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NewMeterSerial" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OldMeterIndex" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NewMeterIndex" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_History_Site_Transmitters" Member="SiteTransmitterHistories">
+    <Type Name="SiteTransmitterHistory">
+      <Column Name="DateChanged" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="SiteId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OldMeterSerial" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NewMeterSerial" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OldMeterIndex" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NewMeterIndex" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_History_Site_Loggers" Member="SiteLoggerHistories">
+    <Type Name="SiteLoggerHistory">
+      <Column Name="DateChanged" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="SiteId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OldMeterSerial" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NewMeterSerial" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OldMeterIndex" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NewMeterIndex" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Gis_Sites" Member="GisSites">
+    <Type Name="GisSite">
+      <Column Name="Company" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Latitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Longitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Zoom" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="ReportSiteMeterHistories">
+    <Type Name="ReportSiteMeterHistory" Id="ID3">
+      <Column Name="Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="DateChanged" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="OSerial" Type="System.String" CanBeNull="false" />
+      <Column Name="OProvider" Type="System.String" CanBeNull="false" />
+      <Column Name="OMarks" Type="System.String" CanBeNull="false" />
+      <Column Name="OSize" Type="System.Int16" CanBeNull="false" />
+      <Column Name="OModel" Type="System.String" CanBeNull="false" />
+      <Column Name="OStatus" Type="System.String" CanBeNull="false" />
+      <Column Name="OIndex" Type="System.Double" CanBeNull="false" />
+      <Column Name="OApprovalDecision" Type="System.String" CanBeNull="false" />
+      <Column Name="OAccreditationDocument" Type="System.String" CanBeNull="false" />
+      <Column Name="NSerial" Type="System.String" CanBeNull="false" />
+      <Column Name="NProvider" Type="System.String" CanBeNull="false" />
+      <Column Name="NMarks" Type="System.String" CanBeNull="false" />
+      <Column Name="NSize" Type="System.Int16" CanBeNull="false" />
+      <Column Name="NModel" Type="System.String" CanBeNull="false" />
+      <Column Name="NStatus" Type="System.String" CanBeNull="false" />
+      <Column Name="NIndex" Type="System.Double" CanBeNull="false" />
+      <Column Name="NApprovalDecision" Type="System.String" CanBeNull="false" />
+      <Column Name="NAccreditationDocument" Type="System.String" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="ReportSiteTransmitterHistories">
+    <Type Name="ReportSiteTransmitterHistory" Id="ID4">
+      <Column Name="Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="DateChanged" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="OSerial" Type="System.String" CanBeNull="false" />
+      <Column Name="OProvider" Type="System.String" CanBeNull="false" />
+      <Column Name="OMarks" Type="System.String" CanBeNull="false" />
+      <Column Name="OSize" Type="System.Int16" CanBeNull="false" />
+      <Column Name="OModel" Type="System.String" CanBeNull="false" />
+      <Column Name="OStatus" Type="System.String" CanBeNull="false" />
+      <Column Name="OIndex" Type="System.Double" CanBeNull="false" />
+      <Column Name="OApprovalDecision" Type="System.String" CanBeNull="false" />
+      <Column Name="NSerial" Type="System.String" CanBeNull="false" />
+      <Column Name="NProvider" Type="System.String" CanBeNull="false" />
+      <Column Name="NMarks" Type="System.String" CanBeNull="false" />
+      <Column Name="NSize" Type="System.Int16" CanBeNull="false" />
+      <Column Name="NModel" Type="System.String" CanBeNull="false" />
+      <Column Name="NStatus" Type="System.String" CanBeNull="false" />
+      <Column Name="NIndex" Type="System.Double" CanBeNull="false" />
+      <Column Name="NApprovalDecision" Type="System.String" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="ReportSiteLoggerHistories">
+    <Type Name="ReportSiteLoggerHistory" Id="ID5">
+      <Column Name="Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="DateChanged" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="OSerial" Type="System.String" CanBeNull="false" />
+      <Column Name="OProvider" Type="System.String" CanBeNull="false" />
+      <Column Name="OMarks" Type="System.String" CanBeNull="false" />
+      <Column Name="OModel" Type="System.String" CanBeNull="false" />
+      <Column Name="OStatus" Type="System.String" CanBeNull="false" />
+      <Column Name="OIndex" Type="System.Double" CanBeNull="false" />
+      <Column Name="NSerial" Type="System.String" CanBeNull="false" />
+      <Column Name="NProvider" Type="System.String" CanBeNull="false" />
+      <Column Name="NMarks" Type="System.String" CanBeNull="false" />
+      <Column Name="NModel" Type="System.String" CanBeNull="false" />
+      <Column Name="NStatus" Type="System.String" CanBeNull="false" />
+      <Column Name="NIndex" Type="System.Double" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Site_Group2s" Member="SiteGroup2s">
+    <Type Name="SiteGroup2">
+      <Column Name="[Group]" Member="Group" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="ChartDatas">
+    <Type Name="ChartData" Id="ID6">
+      <Column Name="TimeStamp" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="Value" Type="System.Double" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Devices_Transmitters" Member="Transmitters">
+    <Type Name="Transmitter">
+      <Column Name="Serial" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ReceiptDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Provider" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Marks" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Size" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Installed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="InitialIndex" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ApprovalDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Approved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ApprovalDecision" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccreditedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ExpiryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AccreditationDocument" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AccreditationType" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="MeterSerial" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_User_Users" Member="Users">
+    <Type Name="User">
+      <Column Name="Uid" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StaffId" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Salt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Role" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LogCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Zoom" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Company" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Language" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Site_Covers" Member="Covers">
+    <Type Name="Cover">
+      <Column Name="CoverID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CoverL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CoverW" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CoverH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CoverMaterial" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CoverNL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Site_Group3s" Member="SiteGroup3s">
+    <Type Name="SiteGroup3">
+      <Column Name="[Group]" Member="Group" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Site_Group4s" Member="SiteGroup4s">
+    <Type Name="SiteGroup4">
+      <Column Name="[Group]" Member="Group" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Site_Group5s" Member="SiteGroup5s">
+    <Type Name="SiteGroup5">
+      <Column Name="[Group]" Member="Group" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.t_Site_Sites" Member="Sites">
+    <Type Name="Site">
+      <Column Name="Id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OldId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Longitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Latitude" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ViewGroup" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="StaffId" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Meter" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Transmitter" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Logger" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateOfMeterChange" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateOfLoggerChange" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateOfTransmitterChange" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateOfBatteryChange" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateOfTransmitterBatteryChange" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateOfLoggerBatteryChange" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DescriptionOfChange" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ChangeIndex" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[Level]" Member="Level" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="[Group]" Member="Group" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TakeoverDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Takeovered" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Availability" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Display" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Property" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UsingLogger" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MeterDirection" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ProductionCompany" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="IstDistributionCompany" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="QndDistributionCompany" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="IstDoNotCalculateReverse" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="QndDoNotCalculateReverse" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ChangeIndex1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Group2" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CoverID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Group3" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Group4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Group5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="District" Type="System.String" DbType="nvarchar(4000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="MapSites">
+    <Type Name="MapSite" Id="ID8">
+      <Column Name="SiteId" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Location" Type="System.String" CanBeNull="false" />
+      <Column Name="Longitude" Type="System.Double" CanBeNull="true" />
+      <Column Name="Latitude" Type="System.Double" CanBeNull="true" />
+      <Column Name="LoggerId" Type="System.String" CanBeNull="false" />
+      <Column Name="Nr" Type="System.Int64" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="MapChannels">
+    <Type Name="MapChannel" Id="ID7">
+      <Column Name="Id" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LoggerId" Type="System.String" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" CanBeNull="true" />
+      <Column Name="LastTimestamp" Type="System.DateTime" CanBeNull="true" />
+      <Column Name="LastValue" Type="System.Double" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.p_Calculate_Daily_Output" Method="p_Calculate_Daily_Output">
+    <Parameter Name="Company" Parameter="company" Type="System.String" DbType="NVarChar(5)" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.p_Calculate_Daily_Report" Method="p_Calculate_Daily_Report">
+    <Parameter Name="Company" Parameter="company" Type="System.String" DbType="NVarChar(5)" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.p_Calculate_Logger_Daily_Output" Method="p_Calculate_Logger_Daily_Output">
+    <Parameter Name="Company" Parameter="company" Type="System.String" DbType="NVarChar(5)" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.p_Calculate_Daily_Output_By_Company" Method="p_Calculate_Daily_Output_By_Company">
+    <Parameter Name="Company" Parameter="company" Type="System.String" DbType="NVarChar(5)" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.p_Calculate_Daily_Output_By_Group" Method="p_Calculate_Daily_Output_By_Group">
+    <Parameter Name="Group" Parameter="group" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.p_Calculate_Daily_Output_By_Level" Method="p_Calculate_Daily_Output_By_Level">
+    <Parameter Name="Level" Parameter="level" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.p_Calculate_Daily_Output_All" Method="p_Calculate_Daily_Output_All">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.p_Calculate_Daily_Output_All" Method="p_Calculate_Daily_Output_All1">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.p_History_Site_InsertOrUpdate" Method="p_History_Site_InsertOrUpdate">
+    <Parameter Name="SiteId" Parameter="siteId" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Meter" Parameter="meter" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="SerialMeter" Parameter="serialMeter" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Transmitter" Parameter="transmitter" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="SerialTransmitter" Parameter="serialTransmitter" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Logger" Parameter="logger" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="SerialLogger" Parameter="serialLogger" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Battery" Parameter="battery" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="TransmitterBattery" Parameter="transmitterBattery" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="LoggerBattery" Parameter="loggerBattery" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Index" Parameter="index" Type="System.Double" DbType="Float" />
+    <Parameter Name="Success" Parameter="success" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_History_Site_Delete" Method="p_History_Site_Delete">
+    <Parameter Name="siteId" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="success" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <ElementType Name="p_History_Site_DeleteResult">
+      <Column Name="[Level]" Member="Level" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Test" Method="Test">
+    <ElementType Name="TestResult">
+      <Column Name="dt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_Data_Logger_CreateTable" Method="p_Data_Logger_CreateTable">
+    <Parameter Name="channelId" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_History_Site_Meter_Insert" Method="p_History_Site_Meter_Insert">
+    <Parameter Name="SiteId" Parameter="siteId" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DateChanged" Parameter="dateChanged" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="OldMeterSerial" Parameter="oldMeterSerial" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="NewMeterSerial" Parameter="newMeterSerial" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="OldIndex" Parameter="oldIndex" Type="System.Double" DbType="Float" />
+    <Parameter Name="NewIndex" Parameter="newIndex" Type="System.Double" DbType="Float" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(4000)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_History_Site_Meter_Update" Method="p_History_Site_Meter_Update">
+    <Parameter Name="SiteId" Parameter="siteId" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DateChanged" Parameter="dateChanged" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="OldMeterSerial" Parameter="oldMeterSerial" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="NewMeterSerial" Parameter="newMeterSerial" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="OldIndex" Parameter="oldIndex" Type="System.Double" DbType="Float" />
+    <Parameter Name="NewIndex" Parameter="newIndex" Type="System.Double" DbType="Float" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(4000)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_History_Site_Meter_Delete" Method="p_History_Site_Meter_Delete">
+    <Parameter Name="SiteId" Parameter="siteId" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DateChanged" Parameter="dateChanged" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_History_Site_Transmitter_Insert" Method="p_History_Site_Transmitter_Insert">
+    <Parameter Name="SiteId" Parameter="siteId" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DateChanged" Parameter="dateChanged" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="OldMeterSerial" Parameter="oldMeterSerial" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="NewMeterSerial" Parameter="newMeterSerial" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="OldIndex" Parameter="oldIndex" Type="System.Double" DbType="Float" />
+    <Parameter Name="NewIndex" Parameter="newIndex" Type="System.Double" DbType="Float" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(4000)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_History_Site_Transmitter_Update" Method="p_History_Site_Transmitter_Update">
+    <Parameter Name="SiteId" Parameter="siteId" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DateChanged" Parameter="dateChanged" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="OldMeterSerial" Parameter="oldMeterSerial" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="NewMeterSerial" Parameter="newMeterSerial" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="OldIndex" Parameter="oldIndex" Type="System.Double" DbType="Float" />
+    <Parameter Name="NewIndex" Parameter="newIndex" Type="System.Double" DbType="Float" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(4000)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_History_Site_Transmitter_Delete" Method="p_History_Site_Transmitter_Delete">
+    <Parameter Name="SiteId" Parameter="siteId" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DateChanged" Parameter="dateChanged" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_History_Site_Logger_Insert" Method="p_History_Site_Logger_Insert">
+    <Parameter Name="SiteId" Parameter="siteId" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DateChanged" Parameter="dateChanged" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="OldMeterSerial" Parameter="oldMeterSerial" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="NewMeterSerial" Parameter="newMeterSerial" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="OldIndex" Parameter="oldIndex" Type="System.Double" DbType="Float" />
+    <Parameter Name="NewIndex" Parameter="newIndex" Type="System.Double" DbType="Float" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(4000)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_History_Site_Logger_Update" Method="p_History_Site_Logger_Update">
+    <Parameter Name="SiteId" Parameter="siteId" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DateChanged" Parameter="dateChanged" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="OldMeterSerial" Parameter="oldMeterSerial" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="NewMeterSerial" Parameter="newMeterSerial" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="OldIndex" Parameter="oldIndex" Type="System.Double" DbType="Float" />
+    <Parameter Name="NewIndex" Parameter="newIndex" Type="System.Double" DbType="Float" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(4000)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_History_Site_Logger_Delete" Method="p_History_Site_Logger_Delete">
+    <Parameter Name="SiteId" Parameter="siteId" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DateChanged" Parameter="dateChanged" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_History_Site_Meter_Select_By_SiteId" Method="p_History_Site_Meter_Select_By_SiteId">
+    <Parameter Name="SiteId" Parameter="siteId" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.p_History_Site_Transmitter_Select_By_SiteId" Method="p_History_Site_Transmitter_Select_By_SiteId">
+    <Parameter Name="SiteId" Parameter="siteId" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType IdRef="ID4" />
+  </Function>
+  <Function Name="dbo.p_History_Site_Logger_Select_By_SiteId" Method="p_History_Site_Logger_Select_By_SiteId">
+    <Parameter Name="SiteId" Parameter="siteId" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType IdRef="ID5" />
+  </Function>
+  <Function Name="dbo.p_Calculate_One_Group_Daily_Output" Method="p_Calculate_One_Group_Daily_Output">
+    <Parameter Name="Group" Parameter="group" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Start" Parameter="start" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="End" Parameter="end" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.p_Calculate_One_Site_Daily_Output" Method="p_Calculate_One_Site_Daily_Output">
+    <Parameter Name="SiteId" Parameter="siteId" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Start" Parameter="start" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="End" Parameter="end" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.p_Calculate_Daily_Output_By_Group2" Method="p_Calculate_Daily_Output_By_Group2">
+    <Parameter Name="Group" Parameter="group" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.p_Calculate_One_Group2_Daily_Output" Method="p_Calculate_One_Group2_Daily_Output">
+    <Parameter Name="Group" Parameter="group" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Start" Parameter="start" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="End" Parameter="end" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.p_Calculate_One_Company_Output" Method="p_Calculate_One_Company_Output">
+    <Parameter Name="Company" Parameter="company" Type="System.String" DbType="NVarChar(5)" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.p_Calculate_Daily_Output_By_Group3" Method="p_Calculate_Daily_Output_By_Group3">
+    <Parameter Name="Group" Parameter="group" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.p_Calculate_Daily_Output_By_Group4" Method="p_Calculate_Daily_Output_By_Group4">
+    <Parameter Name="Group" Parameter="group" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.p_Calculate_Daily_Output_By_Group5" Method="p_Calculate_Daily_Output_By_Group5">
+    <Parameter Name="Group" Parameter="group" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.p_Calculate_One_Group3_Daily_Output" Method="p_Calculate_One_Group3_Daily_Output">
+    <Parameter Name="Group" Parameter="group" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Start" Parameter="start" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="End" Parameter="end" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.p_Calculate_One_Group4_Daily_Output" Method="p_Calculate_One_Group4_Daily_Output">
+    <Parameter Name="Group" Parameter="group" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Start" Parameter="start" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="End" Parameter="end" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.p_Calculate_One_Group5_Daily_Output" Method="p_Calculate_One_Group5_Daily_Output">
+    <Parameter Name="Group" Parameter="group" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Start" Parameter="start" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="End" Parameter="end" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.p_Calculate_One_MCompany_Output" Method="p_Calculate_One_MCompany_Output">
+    <Parameter Name="Company" Parameter="company" Type="System.String" DbType="NVarChar(5)" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.p_Map_GetChannels_ByLoggerId" Method="p_Map_GetChannels_ByLoggerId">
+    <Parameter Name="LoggerId" Parameter="loggerId" Type="System.String" DbType="VarChar(50)" />
+    <ElementType IdRef="ID7" />
+  </Function>
+  <Function Name="dbo.p_Map_GetSites_ByCompany" Method="p_Map_GetSites_ByCompany">
+    <Parameter Name="Company" Parameter="company" Type="System.String" DbType="VarChar(50)" />
+    <ElementType IdRef="ID8" />
+  </Function>
+</Database>

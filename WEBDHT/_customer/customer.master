@@ -1,0 +1,92 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="customer.master.cs" Inherits="_customer_customer" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <script type="text/javascript" language="javascript">
+        var scrl = " Tổng công ty Cấp nước Sài Gòn - Xí nghiệp Truyền dẫn Nước sạch.";
+        function scrlsts() {
+            scrl = scrl.substring(1, scrl.length) + scrl.substring(0, 1);
+            document.title = scrl;
+            setTimeout("scrlsts()", 300);
+        }
+    </script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .RadMenu_Metro .rmLink .rmText {
+           text-transform:uppercase;
+       }
+    </style>
+</head>
+<body onload="scrlsts();">
+
+    <form id="form1" runat="server">
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+    </telerik:RadScriptManager>
+    <div id="header-wrap">
+        <div id="header">
+            <div id="header-left">
+            </div>
+            <div id="header-right">
+            </div>
+        </div>
+    </div>
+    <div id="navigation-wrap" class="clearfix">
+        <div id="navigation">
+            <div id="navigation-left">
+                <telerik:RadMenu ID="mnuLeft" runat="server" 
+                    TabIndex="-1" DataSourceID="SiteMapDataSource1" >
+                    
+                </telerik:RadMenu>
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" 
+                    ShowStartingNode="False" SiteMapProvider="SiteMap2" />
+            </div>
+            <div id="navigation-right">
+            <telerik:RadMenu ID="mnuUser" runat="server" style="float:right" 
+                    onitemclick="mnuUser_ItemClick">
+                        <Items>
+                            <telerik:RadMenuItem runat="server" Text="User" TabIndex="-1">
+                                <ItemTemplate>
+                                    <asp:LoginName ID="LoginName1" runat="server" style="margin-left:10px"/>
+                                </ItemTemplate>
+                            </telerik:RadMenuItem>
+                            <telerik:RadMenuItem runat="server" Text="<%$Resources:Lit, ngonngu %>" TabIndex="-1">
+                            <Items>
+                                <telerik:RadMenuItem runat="server" Text="<%$Resources:Lit, tiengviet %>" >
+                                </telerik:RadMenuItem>
+                                <telerik:RadMenuItem runat="server" Text="<%$Resources:Lit, tienganh %>" >
+                                </telerik:RadMenuItem>
+                            </Items>
+                        </telerik:RadMenuItem>
+                            <telerik:RadMenuItem runat="server" TabIndex="-1">
+                                <ItemTemplate>
+                                    <asp:LoginStatus ID="LoginStatus1" runat="server" 
+                                        LogoutPageUrl="~/login.aspx" TabIndex="-1" />
+                                </ItemTemplate>
+                            </telerik:RadMenuItem>
+                        </Items>
+                    </telerik:RadMenu>
+            </div>
+        </div>
+    </div>
+    <div id="main-wrap">
+        <div id="main">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="footer-wrap">
+        <div="footer">
+            <div="footer-left">
+            </div>
+            <div="footer-right">
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

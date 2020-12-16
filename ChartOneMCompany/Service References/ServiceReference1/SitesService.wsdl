@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllSites">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllSitesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllSitesResult" type="tns:ArrayOfSite" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSite">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Site" nillable="true" type="tns:Site" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Site">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OldId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Longitude" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Latitude" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ViewGroup" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StaffId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Meter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Transmitter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Logger" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfMeterChange" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfLoggerChange" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfTransmitterChange" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfBatteryChange" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfTransmitterBatteryChange" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfLoggerBatteryChange" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescriptionOfChange" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChangeIndex" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Level" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TakeoverDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Takeovered" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Availability" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Display" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Property" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UsingLogger" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeterDirection" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductionCompany" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IstDistributionCompany" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QndDistributionCompany" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IstDoNotCalculateReverse" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="QndDoNotCalculateReverse" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChangeIndex1" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoverID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllGroup">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllGroupResult" type="tns:ArrayOfSiteGroup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSiteGroup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SiteGroup" nillable="true" type="tns:SiteGroup" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SiteGroup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Group" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllGroup2">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllGroup2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllGroup2Result" type="tns:ArrayOfSiteGroup2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSiteGroup2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SiteGroup2" nillable="true" type="tns:SiteGroup2" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SiteGroup2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Group" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllGroup3">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllGroup3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllGroup3Result" type="tns:ArrayOfSiteGroup3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSiteGroup3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SiteGroup3" nillable="true" type="tns:SiteGroup3" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SiteGroup3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Group" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllGroup4">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllGroup4Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllGroup4Result" type="tns:ArrayOfSiteGroup4" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSiteGroup4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SiteGroup4" nillable="true" type="tns:SiteGroup4" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SiteGroup4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Group" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllGroup5">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllGroup5Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllGroup5Result" type="tns:ArrayOfSiteGroup5" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSiteGroup5">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SiteGroup5" nillable="true" type="tns:SiteGroup5" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SiteGroup5">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Group" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllCompanies">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllCompaniesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllCompaniesResult" type="tns:ArrayOfSiteCompany" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSiteCompany">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SiteCompany" nillable="true" type="tns:SiteCompany" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SiteCompany">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Production" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSitesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllSites" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSitesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllSitesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllGroup" />
+  </wsdl:message>
+  <wsdl:message name="GetAllGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllGroup2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllGroup2" />
+  </wsdl:message>
+  <wsdl:message name="GetAllGroup2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllGroup2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetAllGroup3SoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllGroup3" />
+  </wsdl:message>
+  <wsdl:message name="GetAllGroup3SoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllGroup3Response" />
+  </wsdl:message>
+  <wsdl:message name="GetAllGroup4SoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllGroup4" />
+  </wsdl:message>
+  <wsdl:message name="GetAllGroup4SoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllGroup4Response" />
+  </wsdl:message>
+  <wsdl:message name="GetAllGroup5SoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllGroup5" />
+  </wsdl:message>
+  <wsdl:message name="GetAllGroup5SoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllGroup5Response" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCompaniesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllCompanies" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCompaniesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SitesServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSites">
+      <wsdl:input message="tns:GetAllSitesSoapIn" />
+      <wsdl:output message="tns:GetAllSitesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup">
+      <wsdl:input message="tns:GetAllGroupSoapIn" />
+      <wsdl:output message="tns:GetAllGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup2">
+      <wsdl:input message="tns:GetAllGroup2SoapIn" />
+      <wsdl:output message="tns:GetAllGroup2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup3">
+      <wsdl:input message="tns:GetAllGroup3SoapIn" />
+      <wsdl:output message="tns:GetAllGroup3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup4">
+      <wsdl:input message="tns:GetAllGroup4SoapIn" />
+      <wsdl:output message="tns:GetAllGroup4SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup5">
+      <wsdl:input message="tns:GetAllGroup5SoapIn" />
+      <wsdl:output message="tns:GetAllGroup5SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanies">
+      <wsdl:input message="tns:GetAllCompaniesSoapIn" />
+      <wsdl:output message="tns:GetAllCompaniesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SitesServiceSoap" type="tns:SitesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSites">
+      <soap:operation soapAction="http://tempuri.org/GetAllSites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup">
+      <soap:operation soapAction="http://tempuri.org/GetAllGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup2">
+      <soap:operation soapAction="http://tempuri.org/GetAllGroup2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup3">
+      <soap:operation soapAction="http://tempuri.org/GetAllGroup3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup4">
+      <soap:operation soapAction="http://tempuri.org/GetAllGroup4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup5">
+      <soap:operation soapAction="http://tempuri.org/GetAllGroup5" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanies">
+      <soap:operation soapAction="http://tempuri.org/GetAllCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SitesServiceSoap12" type="tns:SitesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSites">
+      <soap12:operation soapAction="http://tempuri.org/GetAllSites" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup">
+      <soap12:operation soapAction="http://tempuri.org/GetAllGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup2">
+      <soap12:operation soapAction="http://tempuri.org/GetAllGroup2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup3">
+      <soap12:operation soapAction="http://tempuri.org/GetAllGroup3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup4">
+      <soap12:operation soapAction="http://tempuri.org/GetAllGroup4" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroup5">
+      <soap12:operation soapAction="http://tempuri.org/GetAllGroup5" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanies">
+      <soap12:operation soapAction="http://tempuri.org/GetAllCompanies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SitesService">
+    <wsdl:port name="SitesServiceSoap" binding="tns:SitesServiceSoap">
+      <soap:address location="http://localhost:62928/SitesService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SitesServiceSoap12" binding="tns:SitesServiceSoap12">
+      <soap12:address location="http://localhost:62928/SitesService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

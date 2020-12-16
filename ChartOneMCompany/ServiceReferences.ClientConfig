@@ -1,0 +1,23 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="SitesServiceSoap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="ChartDataServiceSoap" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="../SitesService.asmx" binding="basicHttpBinding"
+                bindingConfiguration="SitesServiceSoap" contract="ServiceReference1.SitesServiceSoap"
+                name="SitesServiceSoap" />
+            <endpoint address="../ChartDataService.asmx" binding="basicHttpBinding"
+                bindingConfiguration="ChartDataServiceSoap" contract="ServiceReference2.ChartDataServiceSoap"
+                name="ChartDataServiceSoap" />
+        </client>
+    </system.serviceModel>
+</configuration>

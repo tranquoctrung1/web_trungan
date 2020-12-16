@@ -1,0 +1,237 @@
+﻿
+.content-page-master {
+    overflow: hidden;
+}
+/*#RAD_SPLITTER_PANE_CONTENT_ctl00_RadPane2 {
+    overflow: unset !important;
+}*/
+#RAD_SPLITTER_ctl00_RadSplitter1,
+#RAD_SPLITTER_PANE_CONTENT_ctl00_RadPane2 {
+    width: 100% !important;
+}
+
+#ctl00_RadSplitter1 {
+    width: 100% !important;
+}
+
+@media(max-width: 767px) {
+    .content-page-right {
+        width: unset;
+    }
+}
+
+.content_block_device {
+    background: #fff;
+    padding: 15px;
+    border-radius: 7px;
+}
+
+@media(max-width: 767px) {
+    .content_block_device {
+        margin-bottom: 65px;
+    }
+}
+
+.RadTabStripTop_Metro .rtsLevel1 {
+    height: 40px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background: linear-gradient(135deg, rgb(29, 137, 206) 0%, rgb(86, 210, 243) 100%);
+}
+
+.RadTabStrip_Metro .rtsLevel1 .rtsUL {
+    padding: 5px !important;
+    background: transparent !important;
+}
+
+.RadTabStrip_Metro .rtsLevel1 .rtsLink {
+    border: unset !important;
+}
+
+.RadTabStrip_Metro .rtsLevel1 .rtsSelected {
+    border-color: unset;
+    border-radius: 4px;
+    height: 30px;
+}
+
+.RadTabStrip_Metro .rtsLevel .rtsOut,
+.RadTabStrip_Metro .rtsLevel .rtsIn,
+.RadTabStrip_Metro .rtsLevel .rtsTxt {
+    padding: 1px 0px 1px 0px !important;
+}
+
+.content_block_device-info {
+    margin-top: 0;
+    border: 1px solid#eaeaea;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.group_content_block {
+    margin-left: 25px;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+
+    .RadComboBox_Metro, .group_content_block .RadInput_Metro {
+        width: 100% !important;
+    }
+
+        .RadComboBox_Metro table, .group_content_block .RadInput_Metro table {
+            height: 30px;
+        }
+
+.RadComboBox table {
+    border-radius: 4px;
+}
+
+.RadComboBox .rcbInput {
+    height: 24px;
+    line-height: 24px;
+}
+
+/*html body .RadInput_Metro .riTextBox,
+html body .RadInputMgr_Metro {
+    border-radius: 4px;
+}*/
+
+.RadComboBoxDropDown_Metro {
+    border-radius: 4px;
+}
+
+.RadInput_Metro input {
+    height: 30px !important;
+}
+
+.RadButton_Metro.rbSkinnedButton,
+.RadButton_Metro.rbVerticalButton {
+    border: unset !important;
+}
+
+#ctl00_ContentPlaceHolder1_ucMeter1_btnAdd,
+#ctl00_ContentPlaceHolder1_ucLogger1_btnAdd,
+#ctl00_ContentPlaceHolder1_ucTransmitter1_btnAdd {
+    background-color: #27aa44;
+    border-radius: 4px;
+}
+
+#ctl00_ContentPlaceHolder1_ucMeter1_btnDelete,
+#ctl00_ContentPlaceHolder1_ucLogger1_btnDelete,
+#ctl00_ContentPlaceHolder1_ucTransmitter1_btnDelete {
+    background-color: #D74635;
+    border-radius: 4px;
+}
+
+#ctl00_ContentPlaceHolder1_ucMeter1_RadButton1,
+#ctl00_ContentPlaceHolder1_ucLogger1_RadButton1,
+#ctl00_ContentPlaceHolder1_ucTransmitter1_RadButton1 {
+    background-color: #5bc0de;
+    border-radius: 4px;
+}
+
+.RadButton_Metro.rbSkinnedButton .rbDecorated {
+    color: #fff !important;
+    margin-top: 2px;
+}
+
+.RadButton_Metro.rbSkinnedButton {
+    height: 30px !important;
+}
+
+.button-group {
+    text-align: center;
+    clear: left;
+    padding-top: 50px
+}
+
+@media(max-width: 365px) {
+    .RadMenu_Metro .rmLink .rmText,
+    .RadTabStrip_Metro .rtsLevel .rtsTxt {
+        font-size: 9pt !important;
+    }
+}
+
+.RadWindow .rwIcon {
+    display: none !important;
+}
+
+
+@media screen and (max-width: 767px) {
+    .RadWindow_Metro {
+        top: 100px !important;
+        width: 100% !important;
+        padding: 0px 10px !important;
+        border: none !important;
+    }
+}
+.lblTitle{
+    line-height: 33px;
+}
+
+.custom-picker {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: rgb(221, 221, 221);
+}
+.RadGrid_Metro .rgFooter {
+    background: #1fb6ff !important;
+}
+
+.date-box{
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.RadListBox_Metro .rlbGroup{
+    border-radius: 5px;
+}
+.wrapper{
+    overflow-x: unset !important;
+    overflow-y: unset !important;
+}
+table thead tr th {
+    background: #1fb6ff !important;
+    text-align: center !important;
+    border: none !important;
+}
+.lblTiltle{
+    line-height: 33px;
+}
+.RadComboBox_Metro .rcbInput {
+    border-right: none !important;
+}
+.RadButton_Metro.rbSkinnedButton, .RadButton_Metro.rbVerticalButton, .RadButton_Metro .rbDecorated {
+    background-color: #00c0ef !important;
+    color: #fff !important;
+}
+.RadButton_Metro .rbDecorated {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html body .RadInput_Metro .riTextBox, html body .RadInputMgr_Metro{
+    border-radius: 5px !important;
+}
+
+@media(max-width: 767px) {
+
+    .changeDevice .RadTabStrip_Metro {
+        overflow-x: auto !important;
+    }
+
+    .changeDevice .RadTabStripTop_Metro .rtsLevel1 {
+        display: flex;
+        width: 600px !important;
+    }
+}
+@media screen and (max-width:1023px) {
+    .dataTable {
+        width: unset !important;
+        overflow: auto;
+    }
+
+        .dataTable .rgMasterTable {
+            width: 1000px !important;
+        }
+}

@@ -1,0 +1,63 @@
+﻿table tbody tr th {
+    background: #1fb6ff !important;
+    text-align: center !important;
+    border: none !important;
+    color: #fff;
+    padding: 5px;
+}
+
+/*table tbody tr:nth-child(2) td img {
+    display: block !important;
+}
+
+table tbody tr:nth-child(2) td input {
+    display: none !important;
+}*/
+
+/*table tbody tr:nth-child(2) {
+    text-align: -webkit-center !important;
+}*/
+
+table tbody tr td img {
+    display: none !important;
+}
+table tbody tr td a {
+    width: 100% !important;
+}
+table tbody tr td {
+    padding: 2px;
+}
+.radio, .checkbox {
+    padding-left: unset !important;
+}
+
+.RadForm.rfdCheckbox input[type="checkbox"][disabled], .RadForm.rfdRadio input[type="radio"][disabled]{
+    opacity: 0 !important;
+}
+.btnEdit {
+    background-image: url(/App_Themes/editfile.png);
+    background-repeat: no-repeat;
+    color: transparent;
+}
+    .btnEdit:hover, .btnEdit:active, .btnEdit:focus {
+        color: transparent !important;
+    }
+
+.RadForm .rfdRoundedCorners {
+    border: 1px solid #999;
+    padding-left: 7px;
+}
+
+.form-group{
+    margin-bottom: 0px !important;
+}
+@media screen and (max-width:1023px) {
+    .dataTable {
+        width: unset !important;
+        overflow: auto;
+    }
+
+        .dataTable table {
+            width: 800px !important;
+        }
+}

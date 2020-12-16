@@ -1,0 +1,3 @@
+D:\_Projects\2014_Q3\[XNTD] WEBDHT\WEBDHT\WEBDHT\obj\Debug\WEBDHT.csprojResolveAssemblyReference.cache
+D:\_Projects\2014_Q3\[XNTD] WEBDHT\WEBDHT\WEBDHT\obj\Debug\RdlCompile.cache
+D:\_Projects\2014_Q3\[XNTD] WEBDHT\WEBDHT\WEBDHT\obj\Debug\RdlCompile.compiled

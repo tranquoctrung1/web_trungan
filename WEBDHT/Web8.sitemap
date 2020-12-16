@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization="true" >
+    <siteMapNode url="" title="Home"  description="" roles="customer_boo">
+        <siteMapNode url="~/_customer/output.aspx" title="$resources:Lit,sanluong"  description="" roles="customer_boo" />
+        <!--<siteMapNode url="~/_customer/chart.aspx" title="$resources:Lit,dothi"  description="" roles="customer" />-->
+        <!--<siteMapNode url="~/_customer/map.aspx" title="$resources:Lit,bando" description="" roles="customer"/>-->
+        <siteMapNode url="~/_customer/change_password.aspx" title="$resources:Lit,taikhoan" description ="" roles="customer_boo"/>
+        <!--<siteMapNode url="~/_customer/help.aspx" title="Trợ giúp" description="" roles="customer"/>
+        <siteMapNode url="~/_customer/about.aspx" title="Liên hệ" description="" roles="customer"/>-->
+    </siteMapNode>
+</siteMap>

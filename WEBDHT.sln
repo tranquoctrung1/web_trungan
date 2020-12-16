@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WEBDHT", "WEBDHT\", "{E0F523CF-CEBE-473E-907F-B1F3605FE03F}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/WEBDHT"
+		Debug.AspNetCompiler.PhysicalPath = "WEBDHT\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WEBDHT\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WEBDHT"
+		Release.AspNetCompiler.PhysicalPath = "WEBDHT\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WEBDHT\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62928"
+		SlnRelativePath = "WEBDHT\"
+		ProjOutputReferences = ""
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfLoggerData", "WcfLoggerData\WcfLoggerData.csproj", "{B3B2834D-D138-4031-9CCD-A03BD8384465}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0F523CF-CEBE-473E-907F-B1F3605FE03F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F523CF-CEBE-473E-907F-B1F3605FE03F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0F523CF-CEBE-473E-907F-B1F3605FE03F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F523CF-CEBE-473E-907F-B1F3605FE03F}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{B3B2834D-D138-4031-9CCD-A03BD8384465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3B2834D-D138-4031-9CCD-A03BD8384465}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3B2834D-D138-4031-9CCD-A03BD8384465}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3B2834D-D138-4031-9CCD-A03BD8384465}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26D53493-0D95-4F1C-A867-A2FBA541091C}
+	EndGlobalSection
+EndGlobal

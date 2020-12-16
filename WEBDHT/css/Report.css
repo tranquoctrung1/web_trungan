@@ -1,0 +1,59 @@
+﻿.custom-picker {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: rgb(221, 221, 221);
+}
+html body .RadInput_Metro .riTextBox, html body .RadInputMgr_Metro {
+    border-radius: 5px !important;
+}
+.RadInput_Metro input {
+    height: 30px !important;
+}
+
+.PivotGridWindow_Metro .rpgFilterWindowContainer{
+    text-align: center;
+}
+.PivotGridWindow_Metro .RadMenu_Metro {
+    display: none;
+}
+.PivotGridWindow_Metro .RadListBox_Metro{
+    width: 100% !important;
+    text-align: left !important;
+}
+.PivotGridWindow_Metro .rpgFilterButtonOk {
+    /*margin-left: 25% !important;*/
+    background: #23c9de !important;
+    color: white !important;
+    border-radius: 4px !important;
+    border-color: unset !important;
+}
+.PivotGridWindow_Metro .rpgFilterButtonCancel {
+    background: #fd8647 !important;
+    color: white !important;
+    border-radius: 4px !important;
+    border-color: unset !important;
+}
+.RadComboBox_Metro, .group_content_block .RadInput_Metro {
+    width: 100% !important;
+}
+.lblTitle {
+    line-height: 33px;
+}
+.RadGrid_Metro .rgAltRow td, .RadGrid_Metro .rgRow td, html body .RadInput_Metro .riTextBox, html body .RadInputMgr_Metro {
+    border: none !important;
+}
+@media screen and (max-width: 767px) {
+    .RadWindow_Metro {
+        top: 100px !important;
+        width: 100% !important;
+        padding: 0px 10px !important;
+        border: none !important;
+    }
+    .RadWindow .rwIframeWrapperIOS{
+        overflow:unset !important;
+    }
+}
+.chkLabel .checkbox {
+    padding-left: 0px !important;
+}

@@ -1,0 +1,107 @@
+﻿.RadComboBox {
+    width: 100% !important;
+}
+
+    .RadComboBox .riTextBox {
+        border-left: hidden !important;
+        border-bottom: hidden !important;
+        border-top: hidden !important;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background-color: white !important;
+    }
+
+.RadInput_Metro {
+    width: 100% !important;
+}
+
+    .RadInput_Metro input {
+        height: 33px !important;
+        border-color: #999 !important;
+    }
+
+html body .RadInput_Metro .riTextBox, html body .RadInputMgr_Metro {
+    border-radius: 5px !important;
+}
+.lblTitle a{
+    color: #1fb6ff !important;
+}
+    .lblTitle a:hover {
+        color: #007fc0 !important;
+    }
+.listMessBox {
+    position: absolute;
+    bottom: 3px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.cls-none-display {
+    display: none !important;
+}
+.listSite .RadGrid_Metro {
+    max-height: 200px;
+    overflow: auto;
+}
+html body .RadInput_Metro .riTextBox{
+    border-color: #999 !important;
+}
+.RadForm.rfdTextbox .RadInput textarea{
+    height: 40px !important;
+}
+.chkRow  .checkbox{
+    padding-left: 0px !important;
+}
+    .chkRow .checkbox label::before {
+        width: 13px !important;
+        height: 13px !important;
+    }
+    .chkRow .checkbox label::after {
+        font-size: 9px !important;
+        margin-left: -21px !important;
+        padding-top: 0px !important;
+    }
+.rowGridData .chkRow .checkbox label::after {
+    top: -2px !important;
+}
+    .RadGrid .rgAdd, .RadGrid .rgRefresh{
+    width: 16px !important;
+    height: 16px !important;
+}
+.RadGrid_Metro input.rgAdd, .RadGrid_Metro input.rgRefresh{
+    background-position: 0px !important;
+}
+.RadGrid_Metro input.rgAdd {
+    background-image: url(/App_Themes/plus.png) !important;
+}
+.RadGrid_Metro input.rgRefresh {
+    background-image: url(/App_Themes/refesh.png) !important;
+}
+.rowGridData .RadGrid_Metro .rgCommandCell {
+    padding: 10px;
+}
+.rowGridData .rgCommandTable caption{
+    display: none !important;
+}
+.rowGridData .RadGrid_Metro{
+    border: none !important;
+}
+.rowGridData .rgMasterTable .rgRow td, .RadGrid_Metro .rgRow td, .RadGrid_Metro .rgAltRow td {
+    border: none !important;
+}
+.actionBtn input{
+    width: 16px !important;
+}
+.rowGridData .RadGrid_Metro .rgEditRow td {
+    border-color: #f1f1f1 !important;
+}
+
+@media screen and (max-width:1023px){
+    .dataTable{
+        width: unset !important;
+        overflow:auto;
+    }
+    .dataTable .rgMasterTable{
+        width: 1200px !important;
+    }
+}

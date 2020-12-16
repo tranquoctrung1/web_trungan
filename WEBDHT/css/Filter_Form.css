@@ -1,0 +1,36 @@
+﻿#ctl00_ContentPlaceHolder1_RadPivotGrid2_FilterWindow_C_FilterMenu {
+    display: none !important;
+}
+
+#ctl00_ContentPlaceHolder1_RadPivotGrid2_FilterWindow_C_rlbFilterSet {
+    width: 100% !important;
+}
+
+    #ctl00_ContentPlaceHolder1_RadPivotGrid2_FilterWindow_C_rlbFilterSet > div {
+        max-height: 320px !important;
+    }
+
+        #ctl00_ContentPlaceHolder1_RadPivotGrid2_FilterWindow_C_rlbFilterSet > div > ul {
+            float: unset !important;
+        }
+
+#ctl00_ContentPlaceHolder1_RadPivotGrid2_FilterWindow_C_btnOK {
+    margin-left: 25%;
+    background: #23c9de;
+    color: white;
+    border-radius: 4px;
+}
+#ctl00_ContentPlaceHolder1_RadPivotGrid2_FilterWindow_C_btnCancel {
+    background: #fd8647;
+    color: white;
+    border-radius: 4px;
+}
+
+.RadPivotGrid .rpgPager .RadComboBox{
+    width: 80px !important;
+}
+
+.config-filtter-mobile{
+    left: 0px !important;
+    width: 100%;
+}

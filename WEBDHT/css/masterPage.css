@@ -1,0 +1,35 @@
+﻿
+#main-wrap 
+{
+    height: 100vh;
+}
+
+#main {
+    margin-left: 5rem !important;
+   /* box-shadow: 0 0 5px 2px rgba(0,0,0,.2);
+    border-radius: 3px;*/
+    height: 100vh;
+
+    
+}
+
+@media only screen and (max-width: 767px) {
+    #main {
+        margin-left: 10px !important;
+        margin-top: 6rem !important
+    }
+}
+
+#navigation-wrap {
+    background: #b2bec30a
+}
+
+.container-fluid {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border-top: 3px solid #0984e3;
+    background: white;
+    margin: 0;
+    box-shadow: 0 0 5px 0 rgba(0,0,0, .2);
+}
+

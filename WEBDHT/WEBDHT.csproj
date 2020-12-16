@@ -1,0 +1,691 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BB7D4AEA-7F10-4437-877E-1FAF63DF4196}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WEBDHT</RootNamespace>
+    <AssemblyName>WEBDHT</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GMaps">
+      <HintPath>..\..\..\..\2012\_Web\FMM_SGWDC_Final\bin\GMaps.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\..\..\2012\_Web\FMM_SGWDC_Final\bin\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q3 2013\Bin45\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q3 2013\Bin45\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Code\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="App_Code\ChartDataService.cs">
+      <SubType>Component</SubType>
+    </Content>
+    <Content Include="App_Code\ClientSite.cs">
+      <SubType>Component</SubType>
+    </Content>
+    <Content Include="App_Code\FMM_SGWDC.designer.cs" />
+    <Content Include="App_Code\SitesService.cs">
+      <SubType>Component</SubType>
+    </Content>
+    <Content Include="App_Code\Reports.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reports.xsd</DependentUpon>
+    </Content>
+    <Content Include="App_Code\FMM_SGWDC1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FMM_SGWDC.dbml</DependentUpon>
+    </Content>
+    <Content Include="App_Code\BLL\ChannelConfigsBLL.cs" />
+    <Content Include="App_Code\BLL\ChannelUnitsBLL.cs" />
+    <Content Include="App_Code\BLL\DataBLL.cs" />
+    <Content Include="App_Code\BLL\DataChartsBLL.cs" />
+    <Content Include="App_Code\BLL\DeviceStatusBLL.cs" />
+    <Content Include="App_Code\BLL\GisSitesBLL.cs" />
+    <Compile Include="App_Code\BLL\LoggersBLL.cs" />
+    <Content Include="App_Code\BLL\MeterAccreditationTypesBLL.cs" />
+    <Content Include="App_Code\BLL\MeterFilesBLL.cs" />
+    <Content Include="App_Code\BLL\MetersBLL.cs" />
+    <Content Include="App_Code\BLL\ReportOutputsBLL.cs" />
+    <Content Include="App_Code\BLL\SiteAvailabilitiesBLL.cs" />
+    <Content Include="App_Code\BLL\SiteCompaniesBLL.cs" />
+    <Content Include="App_Code\BLL\SiteConfigsBLL.cs" />
+    <Content Include="App_Code\BLL\SiteCoversBLL.cs" />
+    <Content Include="App_Code\BLL\SiteFilesBLL.cs" />
+    <Content Include="App_Code\BLL\SiteGroup2sBLL.cs" />
+    <Content Include="App_Code\BLL\SiteGroupsBLL.cs" />
+    <Content Include="App_Code\BLL\SiteHistoriesBLL.cs" />
+    <Content Include="App_Code\BLL\SiteLevelsBLL.cs" />
+    <Content Include="App_Code\BLL\SiteLoggerHistoriesBLL.cs" />
+    <Content Include="App_Code\BLL\SiteMeterDirectionsBLL.cs" />
+    <Content Include="App_Code\BLL\SiteMeterHistoriesBLL.cs" />
+    <Content Include="App_Code\BLL\SitesBLL.cs" />
+    <Content Include="App_Code\BLL\SiteStatusBLL.cs" />
+    <Content Include="App_Code\BLL\SiteTransmitterHistoriesBLL.cs" />
+    <Content Include="App_Code\BLL\TransmittersBLL.cs" />
+    <Content Include="App_Code\BLL\UserRolesBLL.cs" />
+    <Compile Include="App_Code\BLL\UsersBLL.cs" />
+    <Content Include="App_Code\BLL\UserStaffsBLL.cs" />
+    <Content Include="App_Code\COM\CommandStatus.cs" />
+    <Content Include="App_Code\COM\DataObject.cs" />
+    <Content Include="App_Code\COM\LoggerViewModel.cs" />
+    <Content Include="App_Code\COM\MeterViewModel.cs" />
+    <Content Include="App_Code\COM\SiteLoggerHistoryViewModel.cs" />
+    <Content Include="App_Code\COM\SiteMeterHistoryViewModel.cs" />
+    <Content Include="App_Code\COM\SiteTransmitterHistoryViewModel.cs" />
+    <Content Include="App_Code\COM\SiteViewModel.cs" />
+    <Content Include="App_Code\COM\TransmitterViewModel.cs" />
+    <Content Include="App_Code\COM\UserViewModel.cs" />
+    <Content Include="App_Code\UTL\FilesUTL.cs" />
+    <Content Include="App_Code\UTL\StringUTL.cs" />
+    <Compile Include="App_GlobalResources\Lit.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lit.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Lit.en-GB.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lit.en-GB.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default.master.cs">
+      <DependentUpon>default.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\device\cover.aspx.cs">
+      <DependentUpon>cover.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\device\delete_useless_loggers.aspx.cs">
+      <DependentUpon>delete_useless_loggers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\device\delete_useless_meters.aspx.cs">
+      <DependentUpon>delete_useless_meters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\device\delete_useless_transmitters.aspx.cs">
+      <DependentUpon>delete_useless_transmitters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\device\logger.aspx.cs">
+      <DependentUpon>logger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\device\meter.aspx.cs">
+      <DependentUpon>meter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\device\transmitter.aspx.cs">
+      <DependentUpon>transmitter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_customer\about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_customer\change_password.aspx.cs">
+      <DependentUpon>change_password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_customer\chart.aspx.cs">
+      <DependentUpon>chart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_customer\customer.master.cs">
+      <DependentUpon>customer.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_customer\help.aspx.cs">
+      <DependentUpon>help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_customer\map.aspx.cs">
+      <DependentUpon>map.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_customer\output.aspx.cs">
+      <DependentUpon>output.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\account\change_password.aspx.cs">
+      <DependentUpon>change_password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\admin\cre_dbrecord.aspx.cs">
+      <DependentUpon>cre_dbrecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\admin\cre_user.aspx.cs">
+      <DependentUpon>cre_user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\admin\view_users.aspx.cs">
+      <DependentUpon>view_users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\admin_page.master.cs">
+      <DependentUpon>admin_page.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\chart\company.aspx.cs">
+      <DependentUpon>company.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\chart\company_group1.aspx.cs">
+      <DependentUpon>company_group1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\chart\company_group2.aspx.cs">
+      <DependentUpon>company_group2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\chart\group.aspx.cs">
+      <DependentUpon>group.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\chart\group2.aspx.cs">
+      <DependentUpon>group2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\chart\group_site.aspx.cs">
+      <DependentUpon>group_site.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\chart\group_site2.aspx.cs">
+      <DependentUpon>group_site2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\chart\site.aspx.cs">
+      <DependentUpon>site.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\chart\site_company.aspx.cs">
+      <DependentUpon>site_company.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\chart\two_groups.aspx.cs">
+      <DependentUpon>two_groups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\data\change.aspx.cs">
+      <DependentUpon>change.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\data\logger.aspx.cs">
+      <DependentUpon>logger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\data\raw.aspx.cs">
+      <DependentUpon>raw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\file\meter.aspx.cs">
+      <DependentUpon>meter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\file\site.aspx.cs">
+      <DependentUpon>site.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\help.aspx.cs">
+      <DependentUpon>help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\master_page.master.cs">
+      <DependentUpon>master_page.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\KD_READ_ALL_COMPANY\rou_dcompany.aspx.cs">
+      <DependentUpon>rou_dcompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rde_elogger.aspx.cs">
+      <DependentUpon>rde_elogger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rde_emeter.aspx.cs">
+      <DependentUpon>rde_emeter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rde_etransmitter.aspx.cs">
+      <DependentUpon>rde_etransmitter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rde_logger.aspx.cs">
+      <DependentUpon>rde_logger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rde_meter.aspx.cs">
+      <DependentUpon>rde_meter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rde_transmitter.aspx.cs">
+      <DependentUpon>rde_transmitter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rou_all.aspx.cs">
+      <DependentUpon>rou_all.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rou_company.aspx.cs">
+      <DependentUpon>rou_company.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rou_dcompany.aspx.cs">
+      <DependentUpon>rou_dcompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rou_group.aspx.cs">
+      <DependentUpon>rou_group.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rou_group2.aspx.cs">
+      <DependentUpon>rou_group2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rou_level.aspx.cs">
+      <DependentUpon>rou_level.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rsi_.aspx.cs">
+      <DependentUpon>rsi_.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rsi_4_staff.aspx.cs">
+      <DependentUpon>rsi_4_staff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rsi_expiry.aspx.cs">
+      <DependentUpon>rsi_expiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rsi_has_changed.aspx.cs">
+      <DependentUpon>rsi_has_changed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rsi_history.aspx.cs">
+      <DependentUpon>rsi_history.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rsi_marks_size.aspx.cs">
+      <DependentUpon>rsi_marks_size.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rsi_marks_size_sgwdc.aspx.cs">
+      <DependentUpon>rsi_marks_size_sgwdc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rsi_meter_accrediation.aspx.cs">
+      <DependentUpon>rsi_meter_accrediation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rsi_meter_has_accredited.aspx.cs">
+      <DependentUpon>rsi_meter_has_accredited.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\rsi_sgwdc.aspx.cs">
+      <DependentUpon>rsi_sgwdc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\report\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\site\change_logger.aspx.cs">
+      <DependentUpon>change_logger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\site\change_meter.aspx.cs">
+      <DependentUpon>change_meter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\site\change_transmitter.aspx.cs">
+      <DependentUpon>change_transmitter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\site\config.aspx.cs">
+      <DependentUpon>config.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\site\info.aspx.cs">
+      <DependentUpon>info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\Utility_read_all\map.aspx.cs">
+      <DependentUpon>map.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\_file\meter.aspx.cs">
+      <DependentUpon>meter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_supervisor\_file\site.aspx.cs">
+      <DependentUpon>site.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="App_Themes\default\style.css" />
+    <Content Include="App_Themes\default\water.jpg" />
+    <Content Include="App_Themes\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ChartDataService.asmx" />
+    <Content Include="ChartOneCompanyTestPage.aspx" />
+    <Content Include="ChartOneCompanyTestPage.html" />
+    <Content Include="ChartOneGroup2OneCompanyTestPage.aspx" />
+    <Content Include="ChartOneGroup2OneCompanyTestPage.html" />
+    <Content Include="ChartOneGroup2TestPage.aspx" />
+    <Content Include="ChartOneGroup2TestPage.html" />
+    <Content Include="ChartOneGroupOneCompanyTestPage.aspx" />
+    <Content Include="ChartOneGroupOneCompanyTestPage.html" />
+    <Content Include="ChartOneGroupOneSite2TestPage.aspx" />
+    <Content Include="ChartOneGroupOneSite2TestPage.html" />
+    <Content Include="ChartOneGroupOneSiteTestPage.aspx" />
+    <Content Include="ChartOneGroupOneSiteTestPage.html" />
+    <Content Include="ChartOneGroupTestPage.aspx" />
+    <Content Include="ChartOneGroupTestPage.html" />
+    <Content Include="ChartOneSiteOneCompanyTestPage.aspx" />
+    <Content Include="ChartOneSiteOneCompanyTestPage.html" />
+    <Content Include="ChartOneSiteOnePeriodTestPage.aspx" />
+    <Content Include="ChartOneSiteOnePeriodTestPage.html" />
+    <Content Include="ChartOneSiteTestPage.aspx" />
+    <Content Include="ChartOneSiteTestPage.html" />
+    <Content Include="ChartTwoGroupsTestPage.aspx" />
+    <Content Include="ChartTwoGroupsTestPage.html" />
+    <Content Include="ClientSite.asmx" />
+    <Content Include="ClientSiteTestPage.aspx" />
+    <Content Include="ClientSiteTestPage.html" />
+    <Content Include="DataLog.txt" />
+    <Content Include="Default.aspx" />
+    <Content Include="_supervisor\device\cover.aspx" />
+    <Content Include="_supervisor\device\delete_useless_loggers.aspx" />
+    <Content Include="_supervisor\device\delete_useless_meters.aspx" />
+    <Content Include="_supervisor\device\delete_useless_transmitters.aspx" />
+    <Content Include="_supervisor\device\logger.aspx" />
+    <Content Include="_supervisor\device\meter.aspx" />
+    <Content Include="_supervisor\device\transmitter.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="index.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="Silverlight.js" />
+    <Content Include="SitesService.asmx" />
+    <Content Include="Test.aspx" />
+    <Content Include="_customer\about.aspx" />
+    <Content Include="_customer\change_password.aspx" />
+    <Content Include="_customer\chart.aspx" />
+    <Content Include="_customer\help.aspx" />
+    <Content Include="_customer\map.aspx" />
+    <Content Include="_customer\output.aspx" />
+    <Content Include="_supervisor\about.aspx" />
+    <Content Include="_supervisor\account\change_password.aspx" />
+    <Content Include="_supervisor\admin\cre_dbrecord.aspx" />
+    <Content Include="_supervisor\admin\cre_user.aspx" />
+    <Content Include="_supervisor\admin\view_users.aspx" />
+    <Content Include="_supervisor\chart\company.aspx" />
+    <Content Include="_supervisor\chart\company_group1.aspx" />
+    <Content Include="_supervisor\chart\company_group2.aspx" />
+    <Content Include="_supervisor\chart\group.aspx" />
+    <Content Include="_supervisor\chart\group2.aspx" />
+    <Content Include="_supervisor\chart\group_site.aspx" />
+    <Content Include="_supervisor\chart\group_site2.aspx" />
+    <Content Include="_supervisor\chart\site.aspx" />
+    <Content Include="_supervisor\chart\site_company.aspx" />
+    <Content Include="_supervisor\chart\two_groups.aspx" />
+    <Content Include="_supervisor\data\change.aspx" />
+    <Content Include="_supervisor\data\logger.aspx" />
+    <Content Include="_supervisor\data\raw.aspx" />
+    <Content Include="_supervisor\default.aspx" />
+    <Content Include="_supervisor\file\meter.aspx" />
+    <Content Include="_supervisor\file\site.aspx" />
+    <Content Include="_supervisor\help.aspx" />
+    <Content Include="_supervisor\report\KD_READ_ALL_COMPANY\rou_dcompany.aspx" />
+    <Content Include="_supervisor\report\rde_elogger.aspx" />
+    <Content Include="_supervisor\report\rde_emeter.aspx" />
+    <Content Include="_supervisor\report\rde_etransmitter.aspx" />
+    <Content Include="_supervisor\report\rde_logger.aspx" />
+    <Content Include="_supervisor\report\rde_meter.aspx" />
+    <Content Include="_supervisor\report\rde_transmitter.aspx" />
+    <Content Include="_supervisor\report\rou_all.aspx" />
+    <Content Include="_supervisor\report\rou_company.aspx" />
+    <Content Include="_supervisor\report\rou_dcompany.aspx" />
+    <Content Include="_supervisor\report\rou_group.aspx" />
+    <Content Include="_supervisor\report\rou_group2.aspx" />
+    <Content Include="_supervisor\report\rou_level.aspx" />
+    <Content Include="_supervisor\report\rsi_.aspx" />
+    <Content Include="_supervisor\report\rsi_4_staff.aspx" />
+    <Content Include="_supervisor\report\rsi_expiry.aspx" />
+    <Content Include="_supervisor\report\rsi_has_changed.aspx" />
+    <Content Include="_supervisor\report\rsi_history.aspx" />
+    <Content Include="_supervisor\report\rsi_marks_size.aspx" />
+    <Content Include="_supervisor\report\rsi_marks_size_sgwdc.aspx" />
+    <Content Include="_supervisor\report\rsi_meter_accrediation.aspx" />
+    <Content Include="_supervisor\report\rsi_meter_has_accredited.aspx" />
+    <Content Include="_supervisor\report\rsi_sgwdc.aspx" />
+    <Content Include="_supervisor\report\test.aspx" />
+    <Content Include="_supervisor\site\change_logger.aspx" />
+    <Content Include="_supervisor\site\change_meter.aspx" />
+    <Content Include="_supervisor\site\change_transmitter.aspx" />
+    <Content Include="_supervisor\site\chart_style_01.aspx" />
+    <Content Include="_supervisor\site\chart_style_02.aspx" />
+    <Content Include="_supervisor\site\config.aspx" />
+    <Content Include="_supervisor\site\info.aspx" />
+    <Content Include="_supervisor\site\map.aspx" />
+    <Content Include="_supervisor\Utility_read_all\map.aspx" />
+    <Content Include="_supervisor\_file\meter.aspx" />
+    <Content Include="_supervisor\_file\site.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="web.config" />
+    <Content Include="default.master" />
+    <Content Include="PrecompiledApp.config" />
+    <Content Include="vwd.webinfo" />
+    <Content Include="_supervisor\device\Web.config" />
+    <Content Include="App_Code\FMM_SGWDC.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>FMM_SGWDC1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Code\Reports.xsc">
+      <DependentUpon>Reports.xsd</DependentUpon>
+    </Content>
+    <None Include="App_Code\Reports.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Reports.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="App_Code\Reports.xss">
+      <DependentUpon>Reports.xsd</DependentUpon>
+    </Content>
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <Content Include="Web.sitemap" />
+    <Content Include="Web2.sitemap" />
+    <Content Include="Web3.sitemap" />
+    <Content Include="Web4.sitemap" />
+    <Content Include="Web5.sitemap" />
+    <Content Include="Web6.sitemap" />
+    <Content Include="Web7.sitemap" />
+    <Content Include="_customer\customer.master" />
+    <Content Include="_customer\Web.config" />
+    <Content Include="_supervisor\admin_page.master" />
+    <Content Include="_supervisor\master_page.master" />
+    <Content Include="_supervisor\Web.config" />
+    <Content Include="_supervisor\_file\Web.config" />
+    <Content Include="_supervisor\account\Web.config" />
+    <Content Include="_supervisor\admin\Web.config" />
+    <Content Include="_supervisor\chart\Web.config" />
+    <Content Include="_supervisor\data\Web.config" />
+    <Content Include="_supervisor\file\Web.config" />
+    <Content Include="_supervisor\report\Web.config" />
+    <Content Include="_supervisor\report\KD_READ_ALL_COMPANY\Web.config" />
+    <Content Include="_supervisor\site\Web.config" />
+    <Content Include="_supervisor\Utility_read_all\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Code\FMM_SGWDC.dbml.layout">
+      <DependentUpon>FMM_SGWDC.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\files\meter\" />
+    <Folder Include="App_Data\files\site\" />
+    <Folder Include="App_Data\RadUploadTemp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_Data\reports\rde_elogger.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rde_emeter.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rde_etransmitter.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rde_logger.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rde_meter.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rde_transmitter.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rou_all.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rou_horizontal.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rou_report.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rou_vertical.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rsi_4_staff.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rsi_expiry.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rsi_has_changed.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rsi_history.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rsi_history_rev_02.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rsi_marks.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rsi_marks_size.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rsi_meter_expiration.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rsi_meter_has_accredited.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rsi_site.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rsi_site_rev_02.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rsi_site_rev_03.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rsi_site_swdc.rdlc" />
+    <EmbeddedResource Include="App_Data\reports\rsi_size.rdlc" />
+    <Content Include="App_GlobalResources\Lit.en-GB.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Lit.en-GB.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Lit.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Lit.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49573</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60995/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

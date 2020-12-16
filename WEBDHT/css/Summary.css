@@ -1,0 +1,150 @@
+﻿.auto-style1 {
+    width: 100%;
+    display: table
+}
+
+.chkLabel label {
+    margin-bottom: 0px !important;
+}
+
+.checkbox {
+    margin: 5px 0px !important;
+}
+
+.RadGrid {
+    margin-bottom: 15px;
+    overflow: auto;
+    width: unset !important;
+}
+
+.rgMasterTable tbody tr td {
+    border: none !important;
+}
+
+.box-title {
+    text-transform: uppercase;
+}
+
+@media screen and (max-width:1024px) {
+    .dataTable .rgMasterTable {
+        min-width: 1000px;
+    }
+}
+
+.content_block_device {
+    background: #fff;
+    padding: 15px;
+    border-radius: 7px;
+}
+
+@media(max-width: 767px) {
+    .content_block_device {
+        margin-bottom: 65px;
+    }
+
+    .changeDevice .RadTabStrip_Metro {
+        overflow-x: auto !important;
+    }
+
+    .changeDevice .RadTabStripTop_Metro .rtsLevel1 {
+        display: flex;
+        width: 600px !important;
+    }
+}
+
+.RadTabStripTop_Metro .rtsLevel1 {
+    height: 40px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background: linear-gradient(135deg, rgb(29, 137, 206) 0%, rgb(86, 210, 243) 100%);
+}
+
+.RadTabStrip_Metro .rtsLevel1 .rtsUL {
+    padding: 5px !important;
+    background: transparent !important;
+}
+
+.RadTabStrip_Metro .rtsLevel1 .rtsLink {
+    border: unset !important;
+}
+
+.RadTabStrip_Metro .rtsLevel1 .rtsSelected {
+    border-color: unset;
+    border-radius: 4px;
+    height: 30px;
+}
+
+.RadTabStrip_Metro .rtsLevel .rtsOut,
+.RadTabStrip_Metro .rtsLevel .rtsIn,
+.RadTabStrip_Metro .rtsLevel .rtsTxt {
+    padding: 1px 0px 1px 0px !important;
+}
+
+.content_block_device-info {
+    margin-top: 0;
+    border: 1px solid#eaeaea;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.group-text .RadInput_Metro, .group-text .RadPicker, .group-text .RadComboBox, .RadWindow .RadComboBox, .RadWindow .RadInput_Metro,
+#popup_panel_channel .RadComboBox, #popup_panel_channel .RadInput_Metro {
+    width: 100% !important;
+}
+
+.tbDescription {
+    height: auto !important;
+}
+
+html body .RadInput_Metro .riTextBox, html body .RadInputMgr_Metro{
+    height: 33px;
+    border-color: #999 !important;
+    border-radius: 5px;
+}
+
+.deviceTab .row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.group-text a, .lnkButton a {
+    color: #1fb6ff !important;
+}
+
+    .group-text a:hover, .lnkButton a:hover {
+        color: #007fc0 !important;
+    }
+
+@media screen and (max-width: 767px) {
+    .RadWindow_Metro {
+        top: 100px !important;
+        width: 100% !important;
+        padding: 0px 10px !important;
+        border: none !important;
+    }
+}
+.RadUpload .ruFakeInput {
+    border-radius: 4px !important;
+    height: 25px !important;
+    width: 149px;
+}
+
+.RadUpload .ruFileWrap {
+    height: 33px !important;
+}
+
+div.RadUploadSubmit, div.RadUpload_Metro .ruButton {
+    background-color: #27aa44 !important;
+    border-radius: 4px;
+    height: 31px !important;
+    color: #fff !important;
+    border: unset !important;
+}
+
+    div.RadUploadSubmit, div.RadUpload_Metro .ruButton:hover {
+        background-color: #1b7518;
+    }
+    .chkLabel .checkbox{
+        padding-left: 0px !important;
+     }
+

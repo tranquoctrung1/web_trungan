@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="siteId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSiteDataResult" type="tns:ArrayOfChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfChartData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ChartData" nillable="true" type="tns:ChartData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ChartData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGroupData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="group" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupDataResult" type="tns:ArrayOfChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteAndGroupData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="siteId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="group" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteAndGroupDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSiteAndGroupDataResult" type="tns:ChartSiteAndGroupData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ChartSiteAndGroupData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ListSiteData" type="tns:ArrayOfChartData" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListGroupData" type="tns:ArrayOfChartData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGroup2Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="group" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroup2DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroup2DataResult" type="tns:ArrayOfChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroup3Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="group" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroup3DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroup3DataResult" type="tns:ArrayOfChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroup4Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="group" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroup4DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroup4DataResult" type="tns:ArrayOfChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroup5Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="group" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroup5DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroup5DataResult" type="tns:ArrayOfChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteAndGroup2Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="siteId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="group" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteAndGroup2DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSiteAndGroup2DataResult" type="tns:ChartSiteAndGroupData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompanyData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompanyDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompanyDataResult" type="tns:ArrayOfChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMCompanyData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMCompanyDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMCompanyDataResult" type="tns:ArrayOfChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompanyAndGroupData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="group" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompanyAndGroupDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompanyAndGroupDataResult" type="tns:ChartCompanyAndGroupData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ChartCompanyAndGroupData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ListCompanyData" type="tns:ArrayOfChartData" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListGroupData" type="tns:ArrayOfChartData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCompanyAndGroup2Data">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="group" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompanyAndGroup2DataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompanyAndGroup2DataResult" type="tns:ChartCompanyAndGroupData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteAndCompanyData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteAndCompanyDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSiteAndCompanyDataResult" type="tns:ChartSiteAndCompanyData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ChartSiteAndCompanyData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ListSiteData" type="tns:ArrayOfChartData" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListCompanyData" type="tns:ArrayOfChartData" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSiteData" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSiteDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupData" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteAndGroupDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSiteAndGroupData" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteAndGroupDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSiteAndGroupDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroup2DataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroup2Data" />
+  </wsdl:message>
+  <wsdl:message name="GetGroup2DataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroup2DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroup3DataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroup3Data" />
+  </wsdl:message>
+  <wsdl:message name="GetGroup3DataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroup3DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroup4DataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroup4Data" />
+  </wsdl:message>
+  <wsdl:message name="GetGroup4DataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroup4DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroup5DataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroup5Data" />
+  </wsdl:message>
+  <wsdl:message name="GetGroup5DataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroup5DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteAndGroup2DataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSiteAndGroup2Data" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteAndGroup2DataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSiteAndGroup2DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompanyData" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompanyDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMCompanyDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMCompanyData" />
+  </wsdl:message>
+  <wsdl:message name="GetMCompanyDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMCompanyDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyAndGroupDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompanyAndGroupData" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyAndGroupDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompanyAndGroupDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyAndGroup2DataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompanyAndGroup2Data" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyAndGroup2DataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompanyAndGroup2DataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteAndCompanyDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSiteAndCompanyData" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteAndCompanyDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSiteAndCompanyDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ChartDataServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteData">
+      <wsdl:input message="tns:GetSiteDataSoapIn" />
+      <wsdl:output message="tns:GetSiteDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupData">
+      <wsdl:input message="tns:GetGroupDataSoapIn" />
+      <wsdl:output message="tns:GetGroupDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteAndGroupData">
+      <wsdl:input message="tns:GetSiteAndGroupDataSoapIn" />
+      <wsdl:output message="tns:GetSiteAndGroupDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup2Data">
+      <wsdl:input message="tns:GetGroup2DataSoapIn" />
+      <wsdl:output message="tns:GetGroup2DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup3Data">
+      <wsdl:input message="tns:GetGroup3DataSoapIn" />
+      <wsdl:output message="tns:GetGroup3DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup4Data">
+      <wsdl:input message="tns:GetGroup4DataSoapIn" />
+      <wsdl:output message="tns:GetGroup4DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup5Data">
+      <wsdl:input message="tns:GetGroup5DataSoapIn" />
+      <wsdl:output message="tns:GetGroup5DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteAndGroup2Data">
+      <wsdl:input message="tns:GetSiteAndGroup2DataSoapIn" />
+      <wsdl:output message="tns:GetSiteAndGroup2DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyData">
+      <wsdl:input message="tns:GetCompanyDataSoapIn" />
+      <wsdl:output message="tns:GetCompanyDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMCompanyData">
+      <wsdl:input message="tns:GetMCompanyDataSoapIn" />
+      <wsdl:output message="tns:GetMCompanyDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyAndGroupData">
+      <wsdl:input message="tns:GetCompanyAndGroupDataSoapIn" />
+      <wsdl:output message="tns:GetCompanyAndGroupDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyAndGroup2Data">
+      <wsdl:input message="tns:GetCompanyAndGroup2DataSoapIn" />
+      <wsdl:output message="tns:GetCompanyAndGroup2DataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteAndCompanyData">
+      <wsdl:input message="tns:GetSiteAndCompanyDataSoapIn" />
+      <wsdl:output message="tns:GetSiteAndCompanyDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ChartDataServiceSoap" type="tns:ChartDataServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteData">
+      <soap:operation soapAction="http://tempuri.org/GetSiteData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupData">
+      <soap:operation soapAction="http://tempuri.org/GetGroupData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteAndGroupData">
+      <soap:operation soapAction="http://tempuri.org/GetSiteAndGroupData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup2Data">
+      <soap:operation soapAction="http://tempuri.org/GetGroup2Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup3Data">
+      <soap:operation soapAction="http://tempuri.org/GetGroup3Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup4Data">
+      <soap:operation soapAction="http://tempuri.org/GetGroup4Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup5Data">
+      <soap:operation soapAction="http://tempuri.org/GetGroup5Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteAndGroup2Data">
+      <soap:operation soapAction="http://tempuri.org/GetSiteAndGroup2Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyData">
+      <soap:operation soapAction="http://tempuri.org/GetCompanyData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMCompanyData">
+      <soap:operation soapAction="http://tempuri.org/GetMCompanyData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyAndGroupData">
+      <soap:operation soapAction="http://tempuri.org/GetCompanyAndGroupData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyAndGroup2Data">
+      <soap:operation soapAction="http://tempuri.org/GetCompanyAndGroup2Data" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteAndCompanyData">
+      <soap:operation soapAction="http://tempuri.org/GetSiteAndCompanyData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ChartDataServiceSoap12" type="tns:ChartDataServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteData">
+      <soap12:operation soapAction="http://tempuri.org/GetSiteData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupData">
+      <soap12:operation soapAction="http://tempuri.org/GetGroupData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteAndGroupData">
+      <soap12:operation soapAction="http://tempuri.org/GetSiteAndGroupData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup2Data">
+      <soap12:operation soapAction="http://tempuri.org/GetGroup2Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup3Data">
+      <soap12:operation soapAction="http://tempuri.org/GetGroup3Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup4Data">
+      <soap12:operation soapAction="http://tempuri.org/GetGroup4Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup5Data">
+      <soap12:operation soapAction="http://tempuri.org/GetGroup5Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteAndGroup2Data">
+      <soap12:operation soapAction="http://tempuri.org/GetSiteAndGroup2Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyData">
+      <soap12:operation soapAction="http://tempuri.org/GetCompanyData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMCompanyData">
+      <soap12:operation soapAction="http://tempuri.org/GetMCompanyData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyAndGroupData">
+      <soap12:operation soapAction="http://tempuri.org/GetCompanyAndGroupData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyAndGroup2Data">
+      <soap12:operation soapAction="http://tempuri.org/GetCompanyAndGroup2Data" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteAndCompanyData">
+      <soap12:operation soapAction="http://tempuri.org/GetSiteAndCompanyData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ChartDataService">
+    <wsdl:port name="ChartDataServiceSoap" binding="tns:ChartDataServiceSoap">
+      <soap:address location="http://localhost:62928/ChartDataService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ChartDataServiceSoap12" binding="tns:ChartDataServiceSoap12">
+      <soap12:address location="http://localhost:62928/ChartDataService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

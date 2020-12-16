@@ -1,0 +1,87 @@
+﻿.txtSearch{
+    border: 1px solid #999 !important;
+    padding: 5px !important;    
+    border-radius: 5px !important;  
+}
+.btn-search {
+    background: #1fb6ff;
+    color: #fff !important;
+    border-color: #43a7d7;
+    padding: 6px 20px;
+    border-radius: 5px;
+    border-style: none;
+}
+    .btn-search:hover {
+        background: #0A5BC4;
+        border-color: #0A5BC4;
+    }
+.rowData .box {
+    max-height: 165px;
+    overflow: auto;
+}
+.box {
+    width: unset !important;
+    
+}
+.auto-style1 {
+    width: 100%;
+}
+
+.bb {
+    font-weight: 600;
+    color: #0A5BC4;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.rb {
+    font-weight: 600;
+    color: #ff1010;
+}
+.TACol_1 .box-danger {
+    border-top-color: #00a65a;
+}
+
+.TACol_2 .box-danger {
+    border-top-color: #f39c12;
+}
+.btn-paging {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 100%;
+    color: #656565 !important;
+    padding: 1px 6px
+}
+
+table{
+    float: right;
+}
+.page-number {
+    color: #000;
+    padding: 1px 4px;
+    border: 1px solid #ddd;
+}
+.ColTABold2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@media (max-width: 567px) {
+    .col-sm-4{
+        padding: 0 !important;
+    }
+    .bb{
+        white-space: normal;
+    }
+    .pageInfo{
+        display: none;
+    }
+}
+.box-danger .container-fluid:nth-of-type(odd) {
+    background-color: #fff;
+}
+
+.box-danger .container-fluid:nth-of-type(even) {
+    background-color: #f1f1f1;
+}

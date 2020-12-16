@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization="true" >
+    <siteMapNode url="" title=""  description="" roles="KT_READ_ALL_COMPANY">
+        <siteMapNode url="~/_supervisor/report/rsi_sgwdc.aspx" title="$resources:Lit,diemlapdatxinghiepquanly"  description="" roles="KT_READ_ALL_COMPANY" />
+        <siteMapNode url="~/_supervisor/report/rsi_marks_size_sgwdc.aspx" title="$resources:Lit,theohieuco"  description="" roles="KT_READ_ALL_COMPANY" />
+        <siteMapNode url="~/_supervisor/report/rsi_history.aspx" title="$resources:Lit,lichsudiemlapdat" description="" roles="KT_READ_ALL_COMPANY" />
+        <siteMapNode url="~/_supervisor/report/rde_emeter.aspx" title="$resources:Lit,hosothietbidongho" description="" roles="KT_READ_ALL_COMPANY"/>
+        <siteMapNode url="~/_supervisor/report/rde_etransmitter.aspx" title="$resources:Lit,hosothietbibohienthi" description="" roles="KT_READ_ALL_COMPANY"/>
+        <siteMapNode url="~/_supervisor/account/change_password.aspx" title="$resources:Lit,doimatkhau" description="" roles="KT_READ_ALL_COMPANY"/>
+    </siteMapNode>
+</siteMap>

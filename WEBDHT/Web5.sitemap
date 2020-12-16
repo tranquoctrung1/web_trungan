@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization="true" >
+    <siteMapNode url="" title=""  description="" roles="Statis_read_all">
+        <siteMapNode url="" title="$resources:Lit,thongke" description="" roles="Statis_read_all">
+            <siteMapNode url="~/_supervisor/report/rsi_sgwdc.aspx" title="$resources:Lit,diemlapdatxinghiepquanly" description="" roles="Statis_read_all"/>
+            <siteMapNode url="~/_supervisor/report/rsi_marks_size_sgwdc.aspx" title="$resources:Lit,theohieuco" description="" roles="Statis_read_all"/>
+            <siteMapNode url="~/_supervisor/report/rsi_.aspx" title="$resources:Lit,thongketuychondiemlapdat" description="" roles="Statis_read_all"/>
+            <siteMapNode url="~/_supervisor/report/rsi_marks_size.aspx" title="$resources:Lit,thongketuychonhieuco" description="" roles="Statis_read_all"/>
+            <siteMapNode url="~/_supervisor/report/rde_meter.aspx" title="$resources:Lit,thongketuychondongho" description="" roles="Statis_read_all"/>
+            <siteMapNode url="~/_supervisor/report/rde_transmitter.aspx" title="$resources:Lit,thongketuychonbohienthi" description="" roles="Statis_read_all"/>
+            <siteMapNode url="~/_supervisor/report/rde_logger.aspx" title="$resources:Lit,thongketuychonlogger" description="" roles="Statis_read_all"/>
+        </siteMapNode>
+        <siteMapNode url="" title="$resources:Lit,hoatdong" description="" roles="Statis_read_all">
+            <siteMapNode url="~/_supervisor/report/rsi_has_changed.aspx" title="$resources:Lit,hoatdongphatsinh" description="" roles="Statis_read_all"/>
+            <siteMapNode url="~/_supervisor/report/rsi_history.aspx" title="$resources:Lit,lichsudiemlapdat" description="" roles="Statis_read_all"/>
+            <siteMapNode url="~/_supervisor/report/rsi_expiry.aspx" title="$resources:Lit,thoigiandonghohoatdong" description="" roles="Statis_read_all"/>
+            <siteMapNode url="~/_supervisor/report/rsi_meter_accrediation.aspx" title="$resources:Lit,donghodenhankiemdinh" description="" roles="Statis_read_all"/>
+        </siteMapNode>
+        <siteMapNode url="" title="$resources:Lit,hosothietbi" description="" roles="Statis_read_all">
+            <siteMapNode url="~/_supervisor/report/rde_emeter.aspx" title="$resources:Lit,hosothietbidongho" description="" roles="Statis_read_all"/>
+            <siteMapNode url="~/_supervisor/report/rde_etransmitter.aspx" title="$resources:Lit,hosothietbibohienthi" description="" roles="Statis_read_all"/>
+            <siteMapNode url="~/_supervisor/report/rde_elogger.aspx" title="$resources:Lit,hosothietbilogger" description="" roles="Statis_read_all"/>
+        </siteMapNode>
+    </siteMapNode>
+</siteMap>

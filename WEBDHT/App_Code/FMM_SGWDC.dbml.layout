@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.875, 28.625" name="FMM_SGWDC">
+  <DataContextMoniker Name="/FMM_SGWDCDataContext" />
+  <nestedChildShapes>
+    <classShape Id="86556b25-53c7-47ab-920e-91e9f9687b7e" absoluteBounds="3, 0.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/DeviceStatus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d14df930-d0fd-43c0-b8c2-9cad8bfe17fe" absoluteBounds="3.015, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="167543d1-4792-48f0-8363-c8d9052f4186" absoluteBounds="3, 1.875, 2, 1.1939925130208331">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/MeterAccreditationType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1be9810d-04c1-4429-bbb6-e88de77c4a21" absoluteBounds="3.015, 2.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6de376ce-a9b1-4cc2-ba7d-b5d626148b08" absoluteBounds="3, 3.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/MeterFile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e02abbec-f55d-4b13-bc9f-5c64e1dab33c" absoluteBounds="3.015, 3.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6fea3da7-1247-446b-94d4-5743ee843a9a" absoluteBounds="7.25, 0.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/Logger" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1dbba3be-e44f-40fc-bdb5-616e90e57256" absoluteBounds="7.265, 0.96, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="05232f71-18fe-4282-9d48-cc7ab94f6463" absoluteBounds="3, 5.625, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteLevel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fceb4620-a3f5-426f-b263-f76553af2782" absoluteBounds="3.015, 6.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4ada7381-b80f-4ec1-9d50-b3865be13a50" absoluteBounds="3, 7, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5557d413-7c3a-4b0c-9abe-f90195478989" absoluteBounds="3.015, 7.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f53dea87-b0f0-428d-b181-cf65e2394815" absoluteBounds="3, 8.375, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteCompany" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5014fcf1-e6e6-4634-bd6f-b3ee7375174b" absoluteBounds="3.015, 8.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ecce7d75-cbf8-4323-b8eb-13502601a895" absoluteBounds="3, 10, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteAvailability" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d5fd7631-aa2c-4803-a5b3-929f605c19cc" absoluteBounds="3.015, 10.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0c127859-e021-4f1f-800b-89d279609a4f" absoluteBounds="3, 11.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteStatus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="77ae801c-8577-4a7d-a600-bc94ef2c671a" absoluteBounds="3.015, 11.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="65df1fd5-ea22-4482-b42b-490560df3d13" absoluteBounds="5.25, 5.625, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteMeterDirection" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3456c69c-0fac-48cb-9b34-23558166301e" absoluteBounds="5.265, 6.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="929d4980-6987-4efe-b5df-ee2af02e3c01" absoluteBounds="0.875, 13.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/UserStaff" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca4b68bc-ec35-4f31-9b4d-42f67dd61360" absoluteBounds="0.89, 14.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4e86394c-47dc-4b67-ac45-51969dfec57c" absoluteBounds="0.875, 15.125, 2, 1.9631982421875023">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/ReportData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ba528267-cb15-4684-b42b-788012480ced" absoluteBounds="0.88999999999999968, 15.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c864216d-ba23-42b1-b42c-956acf4f8de8" absoluteBounds="0.875, 17.375, 2, 2.15549967447917">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/ReportDailyData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="063e6561-f02f-4326-83f4-b2e82cbb4411" absoluteBounds="0.89000000000000012, 17.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b155bb2e-3c1c-4125-93e0-1aadbd89d303" absoluteBounds="0.875, 19.5, 2, 1.9631982421875023">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/ManualData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0475d796-d06f-44ea-a450-7e55b4966ee7" absoluteBounds="0.89, 19.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a9f43d9f-273c-4d73-8755-2fe818564c07" absoluteBounds="5.25, 7, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteFile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae94dab7-21ba-416e-a172-90fdcafbf32b" absoluteBounds="5.265, 7.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="35f1eddc-28e8-4302-99b1-d96683698824" absoluteBounds="5.25, 9.25, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="83be739a-cef0-4b6e-86ea-c1ce691b189e" absoluteBounds="5.265, 9.71, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c54d0f1e-6836-49f8-af40-4ba4b3996814" absoluteBounds="5.25, 13.5, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/UserRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="198c4efd-8ff5-46e3-8c97-bfe02acb9ee7" absoluteBounds="5.265, 13.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2e155377-52dc-4b94-b875-c4100508d58a" absoluteBounds="0.875, 21.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/ChannelUnit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b4e02e09-77a9-4108-9ac5-102222a0eb6b" absoluteBounds="0.89000000000000012, 22.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2c257fb7-b0bf-4270-9dd7-19bd6f5595ee" absoluteBounds="3.125, 21.625, 2, 2.9247054036458344">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteConfig" />
+      <nestedChildShapes>
+        <elementListCompartment Id="58295c56-0066-4242-89aa-fe4275c6a6b7" absoluteBounds="3.14, 22.085, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fc3faa0c-7e15-4c5c-a3a7-fa6e11bbd814" absoluteBounds="5.375, 21.625, 2, 2.15549967447917">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/ChannelConfig" />
+      <nestedChildShapes>
+        <elementListCompartment Id="50159bcc-ba92-411c-85e6-dfc46de96f91" absoluteBounds="5.39, 22.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c07dd6bf-d25b-47ec-83d7-7735d8781d8b" absoluteBounds="0.875, 0.5, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/Meter" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ecd817ab-6023-49f0-a957-25322ae2989c" absoluteBounds="0.89, 0.96, 1.9700000000000002, 3.9031168619791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="38bf5eff-7cba-467c-8de8-6fb60d6a0a7d" absoluteBounds="7.375, 5.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteMeterHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="60db2274-5379-4398-8f17-5bb931fe698e" absoluteBounds="7.39, 6.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="101cbe30-81a7-4e66-b829-31fabc87a5de" absoluteBounds="7.375, 7.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteTransmitterHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="18bacd40-e2f9-4acb-b03f-7ed10fb0b563" absoluteBounds="7.39, 8.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="071e3a6a-b64a-4526-9a24-6a6e3e49bbea" absoluteBounds="7.375, 10.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteLoggerHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e102b3c8-29a3-4f9f-a9d7-fc64fe3abd8a" absoluteBounds="7.39, 10.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2111713b-759c-4e28-95d7-9cba2cc1ac40" absoluteBounds="0.875, 23, 2, 1.5785953776041701">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/GisSite" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb7c8bbf-173c-4994-96c3-709566c559d8" absoluteBounds="0.89000000000000012, 23.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="52232565-439f-4347-a8eb-305bf362ce07" absoluteBounds="3, 16.5, 2, 4.8477197265625023">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/ReportSiteMeterHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b1a9b20e-2f40-40d6-8667-4751de62fc4d" absoluteBounds="3.015, 16.96, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fc5cfcf1-4b4d-440a-a36c-00fce6ced421" absoluteBounds="5.25, 16.5, 2, 4.46311686197917">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/ReportSiteTransmitterHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5aa989fa-51bf-4358-ac95-da83dd28fb2c" absoluteBounds="5.265, 16.96, 1.9700000000000002, 3.9031168619791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ea1782a7-3de6-469e-9116-20ac2e5f257f" absoluteBounds="7.5, 16.5, 2, 3.6939111328125023">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/ReportSiteLoggerHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2bd8a876-f31a-4230-8eb4-1293795624f8" absoluteBounds="7.515, 16.96, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8e65f7c4-c198-45e0-ab91-922e421f836a" absoluteBounds="9.625, 5.625, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteGroup2" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b84ebd13-e48f-4ff0-8958-cd0fc70fa0f1" absoluteBounds="9.64, 6.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ddf628fb-574f-40a1-bee4-8bc3689b7626" absoluteBounds="1, 24.875, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/ChartData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1fdc327b-da0a-4f49-af26-3dfa48ee49c1" absoluteBounds="1.015, 25.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="02ee10e2-a388-47fc-af64-1b1b492da7c7" absoluteBounds="5.125, 0.5, 2, 4.2708154296875">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/Transmitter" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6c470f87-f260-42ec-9cd6-0f37fe09c257" absoluteBounds="5.14, 0.96, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9465c6f4-9453-4dba-a1c3-cc8d279dc3bc" absoluteBounds="3, 13.5, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4b9704d8-490a-4881-80a1-effde22aff79" absoluteBounds="3.015, 13.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d468a3a5-1d29-4a55-924c-3dd20cab35bb" absoluteBounds="1, 11.875, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/Cover" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14630bc4-10f5-4f8b-8c64-b205e7715c0f" absoluteBounds="1.0150000000000001, 12.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9b4f97f9-9784-4cae-8529-b03c9bf7b5d4" absoluteBounds="9.625, 6.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteGroup3" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5779b3a9-9819-468d-8726-1b9d5b603007" absoluteBounds="9.64, 7.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa19a79c-e2c2-4445-b837-ef07da61170e" absoluteBounds="9.625, 8.125, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteGroup4" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae5eb510-8010-43e9-bd12-b06295f23279" absoluteBounds="9.64, 8.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4109f4d5-71cc-4439-8bee-d68d70d6417f" absoluteBounds="9.625, 9.375, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/SiteGroup5" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9d62ce18-3b68-4635-b33b-f2b780253158" absoluteBounds="9.64, 9.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="46f71e9b-7bfb-47b4-a1b4-bcbde1588b91" absoluteBounds="0.875, 4.875, 2, 9.0783512369791648">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/Site" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e905967e-5522-4f80-976b-ee6c689a3171" absoluteBounds="0.89, 5.335, 1.9700000000000002, 8.5183512369791661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3dfd6d0c-8a1d-4148-9034-5a5bac6c14b7" absoluteBounds="3.125, 24.875, 2, 1.9631982421875023">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/MapSite" />
+      <nestedChildShapes>
+        <elementListCompartment Id="859b1e53-75af-495d-8b20-a68121373e8a" absoluteBounds="3.14, 25.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dcf3ad83-8aa9-4796-b3b7-cde0cf024d0d" absoluteBounds="1, 26.25, 2, 2.15549967447917">
+      <DataClassMoniker Name="/FMM_SGWDCDataContext/MapChannel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8e4e4af9-aded-4e04-aebd-d3ff4d732434" absoluteBounds="1.015, 26.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

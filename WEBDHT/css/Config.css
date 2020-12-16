@@ -1,0 +1,104 @@
+﻿.group-text .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.group-text a, .lnkButton a{
+    color: #1fb6ff !important;
+}
+    .group-text a:hover, .lnkButton a:hover {
+        color: #007fc0 !important;
+    }
+.group-text .RadInput_Metro, .group-text .RadPicker, .group-text .RadComboBox, .RadWindow .RadComboBox, .RadWindow .RadInput_Metro,
+#popup_panel_channel .RadComboBox, #popup_panel_channel .RadInput_Metro {
+    width: 100% !important;
+}
+html body .RadInput_Metro .riTextBox, html body .RadInputMgr_Metro {
+    height: 33px !important;
+    border-color: #999 !important;
+    border-radius: 5px;
+}
+.m-t-17{
+    margin-top: 17px;
+}
+.RadForm.rfdTextbox .rfdInputDisabled{
+    border: 1px solid #ddd !important;
+}
+@media screen and (max-width: 767px){
+    .group-text-latitude, .group-text-longtitude {
+        padding: 0px !important
+    }
+    .chkMobile{
+        margin:15px 0px 0px !important;
+        padding-left: 0px !important;
+    }
+}
+
+.RadUpload {
+    width: 100% !important;
+    height: 33px !important;
+    margin-bottom: 3px
+}
+
+.ruInputs, #ctl00_ContentPlaceHolder1_asyncUploadrow0 {
+    height: 100% !important;
+}
+
+.ruFileWrap {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.ruFakeInput {
+    height: 27px !important;
+    width: 75% !important;
+    border-radius: 4px;
+    border: 1px solid #999
+}
+
+.ruButton {
+    height: 100% !important;
+    border: none;
+    border-radius: 4px;
+    color: white !important;
+    background: #0984e3 !important
+}
+
+#main-content-title .title {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    padding-top: 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: #636e72;
+}
+
+.group-text .row 
+{
+    margin-bottom: 5px !important;
+}
+
+.group-text .row span 
+{
+    font-weight: 500
+}
+
+.rgPagerCell {
+    background: white;
+}
+
+
+.d-flex 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+#ctl00_ContentPlaceHolder1_cboIstDistributionCompanies, #ctl00_ContentPlaceHolder1_cboQndDistributionCompanies {
+    width: 90% !important;
+}
+
+.RadListBox 
+{
+    width: 100% !important
+}

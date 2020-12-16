@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization="true" >
+    <siteMapNode url="" title=""  description="" roles="Utility_read_all">
+        <siteMapNode url="" title="$resources:Lit,dothi" description="" roles="Utility_read_all">
+            <siteMapNode url="~/_supervisor/chart/site.aspx" title="$resources:Lit,dothimotdiemlapdat" roles="Utility_read_all"/>
+            <siteMapNode url="~/_supervisor/chart/group.aspx" title="$resources:Lit,dothitheonhomdongho1" roles="Utility_read_all"/>
+            <siteMapNode url="~/_supervisor/chart/group_site.aspx" title="$resources:Lit,dothitheodiemlapdatvanhom1" roles="Utility_read_all"/>
+            <siteMapNode url="~/_supervisor/chart/group2.aspx" title="$resources:Lit,dothitheonhomdongho2" roles="Utility_read_all"/>
+            <siteMapNode url="~/_supervisor/chart/group_site2.aspx" title="$resources:Lit,dothitheodiemlapdatvanhom2" roles="Utility_read_all"/>
+            <siteMapNode url="~/_supervisor/chart/two_groups.aspx" title="$resources:Lit,dothi2nhomlapdat" roles="Utility_read_all"/>
+          <siteMapNode url="~/_supervisor/chart/mcompany.aspx" title="$resources:Lit,dothimotdvqly" roles="admin,adminviewer,staff"/>
+        </siteMapNode>
+      <siteMapNode url="~/_supervisor/UtiLity_read_all/map_v1_0.aspx" title="$resources:Lit,bando" description="" roles="Utility_read_all"/>
+        <!--<siteMapNode url="" title="$resources:Lit,bando" description="" roles="Utility_read_all">
+            <siteMapNode url="~/_supervisor/Utility_read_all/map.aspx?co=BO" title="BOO" description="" roles="Utility_read_all"/>
+            <siteMapNode url="~/_supervisor/Utility_read_all/map.aspx?co=CG" title="Cần Giờ" description="" roles="Utility_read_all"/>
+            <siteMapNode url="~/_supervisor/Utility_read_all/map.aspx?co=CL" title="Chợ Lớn" description="" roles="Utility_read_all"/>
+            <siteMapNode url="~/_supervisor/Utility_read_all/map.aspx?co=GD" title="Gia Định" description="" roles="Utility_read_all"/>
+            <siteMapNode url="~/_supervisor/Utility_read_all/map.aspx?co=HM" title="HM" description="" roles="Utility_read_all"/>
+            <siteMapNode url="~/_supervisor/Utility_read_all/map.aspx?co=NB" title="Nhà Bè" description="" roles="Utility_read_all"/>
+            <siteMapNode url="~/_supervisor/Utility_read_all/map.aspx?co=PT" title="Phú Hòa Tân" description="" roles="Utility_read_all"/>
+            <siteMapNode url="~/_supervisor/Utility_read_all/map.aspx?co=SG" title="Sài Gòn" description="" roles="Utility_read_all"/>
+            <siteMapNode url="~/_supervisor/Utility_read_all/map.aspx?co=TA" title="Trung An" description="" roles="Utility_read_all"/>
+            <siteMapNode url="~/_supervisor/Utility_read_all/map.aspx?co=TD" title="Thủ Đức" description="" roles="Utility_read_all"/>
+            <siteMapNode url="~/_supervisor/Utility_read_all/map.aspx?co=TH" title="Tân Hòa" description="" roles="Utility_read_all"/>
+        </siteMapNode>-->
+        <siteMapNode url="~/_supervisor/_file/meter.aspx" title="$resources:Lit,downloadfiledongho" description="" roles="Utility_read_all"/>
+        <siteMapNode url="~/_supervisor/_file/site.aspx" title="$resources:Lit,downloadfilediemlapdat" description="" roles="Utility_read_all"/>
+    </siteMapNode>
+</siteMap>

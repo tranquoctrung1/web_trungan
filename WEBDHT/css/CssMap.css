@@ -1,0 +1,176 @@
+﻿
+.custom-table-marker {
+    /*border: 1px solid #ccc7c7;*/
+    border-radius: 5px;
+    padding: 8px;
+    /*background-color: white;*/
+}
+
+.custom-border-bottom {
+    border-bottom: 1px solid #ccc7c7;
+    text-align: center;
+    color: #30a0c1;
+    background-color: white;
+}
+
+.zoom-icon {
+    position: absolute;
+    z-index: 2;
+    top: 63px;
+    right: 15px;
+}
+
+    .zoom-icon > img {
+        height: 28px;
+    }
+.icon-right {
+    position: absolute;
+    z-index: 2;
+   
+}
+    .icon-right > img {
+        height: 28px;
+    }
+.width-search-icon {
+    right: 15px;
+    top: 100px;
+    background-color:forestgreen;
+}
+    .width-search-icon > img, .custom-width-search-icon>img {
+        animation: 2s linear infinite fa-spin;
+    }
+
+.width-filter-icon {
+    position: absolute !important;
+    top: 180px;
+    right: 15px;
+    padding: 2px;
+    transition: .3s all ease-in-out;
+}
+
+.width-layer-icon {
+    position: absolute !important;
+    top: 230px;
+    right: 15px;
+    padding: 2px;
+    transition: .3s all ease-in-out;
+}
+
+    .width-layer-icon.active {
+        right: 230px;
+        top: 180px;
+        transition: .3s all ease-in-out;
+    }
+
+.width-filter-icon.active {
+    right: 230px;
+    top: 180px;
+    transition: .3s all ease-in-out;
+}
+
+    .custom-width-search-icon {
+        right: 230px;
+        top: 100px;
+        transition-delay: .3s;
+        background-color: forestgreen;
+    }
+
+    .custom-width-search-icon img 
+    {
+        color: white;
+    }
+
+    .width-setting-icon {
+        right: 15px;
+        top: 138px;
+        background-color: red;
+    }
+    .width-setting-icon > img, .custom-width-setting-icon >img{
+        animation: 2s linear infinite fa-spin;
+    }
+
+.custom-width-setting-icon {
+    right: 230px;
+    top: 138px;
+    transition-delay: .3s;
+    background-color: red;
+}
+
+.bottom-popup-esri {
+    background: #fff;
+    position: absolute;
+    width: calc(100% - 42px);
+    height: 240px;
+    bottom: 0;
+    z-index: 800;
+    left: 42px;
+    overflow-y: auto;
+}
+#ctl00_ContentPlaceHolder1_radTreeViewSite span{
+    color: white !important;
+}
+
+.config-menu {
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgb(20, 105, 210) !important;
+}
+
+.ontrol-sidebar{
+    padding-top: 10px !important;
+}
+.gm-style-iw.gm-style-iw-c {
+    max-height: 200px !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.bottom-popup-esri-siteinfo {
+    background: #fff;
+    position: absolute;
+    height: 130px;
+    z-index: 800;
+    left: 42px;
+    bottom: 240px;
+}
+
+.fade-custom{
+    opacity: 1;
+}
+
+.fix-header {
+    position: sticky;
+    top: 0px;
+    white-space: nowrap;
+}
+
+.custom-tooltip {
+    position: fixed;
+    display: inline-block;
+}
+
+    .custom-tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #808080;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        right: 105%;
+    }
+
+.custom-tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.checkbox > div {
+    color: white;
+    font-size: 13px;
+}
+
+.btn-right {
+    float: right;
+}

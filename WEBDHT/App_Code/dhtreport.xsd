@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dhtreport" targetNamespace="http://tempuri.org/dhtreport.xsd" xmlns:mstns="http://tempuri.org/dhtreport.xsd" xmlns="http://tempuri.org/dhtreport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="web_dht_r02ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="web_dht_r02ConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.web_dht_r02ConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="dht_reportsitesTableAdapter" GeneratorDataComponentClassName="dht_reportsitesTableAdapter" Name="dht_reportsites" UserDataComponentName="dht_reportsitesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="web_dht_r02ConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="dht" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="dht" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="dht">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT t_Site_Sites.Id, t_Site_Sites.Location, t_Site_Sites.StaffId, t_Site_Sites.Meter, t_Site_Sites.Transmitter, t_Site_Sites.Logger, t_Site_Sites.DateOfMeterChange, t_Site_Sites.Level, t_Site_Sites.[Group], t_Site_Sites.Takeovered, t_Site_Sites.Status, t_Site_Sites.Availability, 
+             t_Site_Sites.Property, t_Site_Sites.UsingLogger, t_Site_Sites.ProductionCompany, t_Site_Sites.QndDistributionCompany, t_Site_Sites.Description, t_Site_Sites.Group2, t_Site_Sites.District, t_Site_Sites.Company, t_Devices_Meters.Provider, t_Devices_Meters.AccreditationType, 
+             t_Devices_Meters.AccreditationDocument, t_Devices_Meters.ExpiryDate, t_Devices_Meters.AccreditedDate, t_Devices_Meters.Marks, t_Devices_Meters.Size, t_Devices_Meters.Model, t_Devices_Meters.ApprovalDecision, t_Devices_Loggers.Model AS LoggerModel
+FROM   t_Site_Sites INNER JOIN
+             t_Devices_Meters ON t_Site_Sites.Meter = t_Devices_Meters.Serial INNER JOIN
+             t_Devices_Loggers ON t_Site_Sites.Logger = t_Devices_Loggers.Serial</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Location" DataSetColumn="Location" />
+              <Mapping SourceColumn="StaffId" DataSetColumn="StaffId" />
+              <Mapping SourceColumn="Meter" DataSetColumn="Meter" />
+              <Mapping SourceColumn="Transmitter" DataSetColumn="Transmitter" />
+              <Mapping SourceColumn="Logger" DataSetColumn="Logger" />
+              <Mapping SourceColumn="DateOfMeterChange" DataSetColumn="DateOfMeterChange" />
+              <Mapping SourceColumn="Level" DataSetColumn="Level" />
+              <Mapping SourceColumn="Group" DataSetColumn="Group" />
+              <Mapping SourceColumn="Takeovered" DataSetColumn="Takeovered" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="Availability" DataSetColumn="Availability" />
+              <Mapping SourceColumn="Property" DataSetColumn="Property" />
+              <Mapping SourceColumn="UsingLogger" DataSetColumn="UsingLogger" />
+              <Mapping SourceColumn="ProductionCompany" DataSetColumn="ProductionCompany" />
+              <Mapping SourceColumn="QndDistributionCompany" DataSetColumn="QndDistributionCompany" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Group2" DataSetColumn="Group2" />
+              <Mapping SourceColumn="District" DataSetColumn="District" />
+              <Mapping SourceColumn="Company" DataSetColumn="Company" />
+              <Mapping SourceColumn="Provider" DataSetColumn="Provider" />
+              <Mapping SourceColumn="AccreditationType" DataSetColumn="AccreditationType" />
+              <Mapping SourceColumn="AccreditationDocument" DataSetColumn="AccreditationDocument" />
+              <Mapping SourceColumn="ExpiryDate" DataSetColumn="ExpiryDate" />
+              <Mapping SourceColumn="AccreditedDate" DataSetColumn="AccreditedDate" />
+              <Mapping SourceColumn="Marks" DataSetColumn="Marks" />
+              <Mapping SourceColumn="Size" DataSetColumn="Size" />
+              <Mapping SourceColumn="Model" DataSetColumn="Model" />
+              <Mapping SourceColumn="ApprovalDecision" DataSetColumn="ApprovalDecision" />
+              <Mapping SourceColumn="LoggerModel" DataSetColumn="LoggerModel" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dhtreport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dhtreport" msprop:Generator_UserDSName="dhtreport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dht_reportsites" msprop:Generator_TableClassName="dht_reportsitesDataTable" msprop:Generator_TableVarName="tabledht_reportsites" msprop:Generator_TablePropName="dht_reportsites" msprop:Generator_RowDeletingName="dht_reportsitesRowDeleting" msprop:Generator_RowChangingName="dht_reportsitesRowChanging" msprop:Generator_RowEvHandlerName="dht_reportsitesRowChangeEventHandler" msprop:Generator_RowDeletedName="dht_reportsitesRowDeleted" msprop:Generator_UserTableName="dht_reportsites" msprop:Generator_RowChangedName="dht_reportsitesRowChanged" msprop:Generator_RowEvArgName="dht_reportsitesRowChangeEvent" msprop:Generator_RowClassName="dht_reportsitesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StaffId" msprop:Generator_ColumnVarNameInTable="columnStaffId" msprop:Generator_ColumnPropNameInRow="StaffId" msprop:Generator_ColumnPropNameInTable="StaffIdColumn" msprop:Generator_UserColumnName="StaffId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Meter" msprop:Generator_ColumnVarNameInTable="columnMeter" msprop:Generator_ColumnPropNameInRow="Meter" msprop:Generator_ColumnPropNameInTable="MeterColumn" msprop:Generator_UserColumnName="Meter" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Transmitter" msprop:Generator_ColumnVarNameInTable="columnTransmitter" msprop:Generator_ColumnPropNameInRow="Transmitter" msprop:Generator_ColumnPropNameInTable="TransmitterColumn" msprop:Generator_UserColumnName="Transmitter" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Logger" msprop:Generator_ColumnVarNameInTable="columnLogger" msprop:Generator_ColumnPropNameInRow="Logger" msprop:Generator_ColumnPropNameInTable="LoggerColumn" msprop:Generator_UserColumnName="Logger" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateOfMeterChange" msprop:Generator_ColumnVarNameInTable="columnDateOfMeterChange" msprop:Generator_ColumnPropNameInRow="DateOfMeterChange" msprop:Generator_ColumnPropNameInTable="DateOfMeterChangeColumn" msprop:Generator_UserColumnName="DateOfMeterChange" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Level" msprop:Generator_ColumnVarNameInTable="columnLevel" msprop:Generator_ColumnPropNameInRow="Level" msprop:Generator_ColumnPropNameInTable="LevelColumn" msprop:Generator_UserColumnName="Level" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Group" msprop:Generator_ColumnVarNameInTable="columnGroup" msprop:Generator_ColumnPropNameInRow="Group" msprop:Generator_ColumnPropNameInTable="GroupColumn" msprop:Generator_UserColumnName="Group" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Takeovered" msprop:Generator_ColumnVarNameInTable="columnTakeovered" msprop:Generator_ColumnPropNameInRow="Takeovered" msprop:Generator_ColumnPropNameInTable="TakeoveredColumn" msprop:Generator_UserColumnName="Takeovered" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Availability" msprop:Generator_ColumnVarNameInTable="columnAvailability" msprop:Generator_ColumnPropNameInRow="Availability" msprop:Generator_ColumnPropNameInTable="AvailabilityColumn" msprop:Generator_UserColumnName="Availability" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Property" msprop:Generator_ColumnVarNameInTable="columnProperty" msprop:Generator_ColumnPropNameInRow="Property" msprop:Generator_ColumnPropNameInTable="PropertyColumn" msprop:Generator_UserColumnName="Property" type="xs:boolean" minOccurs="0" />
+              <xs:element name="UsingLogger" msprop:Generator_ColumnVarNameInTable="columnUsingLogger" msprop:Generator_ColumnPropNameInRow="UsingLogger" msprop:Generator_ColumnPropNameInTable="UsingLoggerColumn" msprop:Generator_UserColumnName="UsingLogger" type="xs:boolean" minOccurs="0" />
+              <xs:element name="ProductionCompany" msprop:Generator_ColumnVarNameInTable="columnProductionCompany" msprop:Generator_ColumnPropNameInRow="ProductionCompany" msprop:Generator_ColumnPropNameInTable="ProductionCompanyColumn" msprop:Generator_UserColumnName="ProductionCompany" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="QndDistributionCompany" msprop:Generator_ColumnVarNameInTable="columnQndDistributionCompany" msprop:Generator_ColumnPropNameInRow="QndDistributionCompany" msprop:Generator_ColumnPropNameInTable="QndDistributionCompanyColumn" msprop:Generator_UserColumnName="QndDistributionCompany" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Group2" msprop:Generator_ColumnVarNameInTable="columnGroup2" msprop:Generator_ColumnPropNameInRow="Group2" msprop:Generator_ColumnPropNameInTable="Group2Column" msprop:Generator_UserColumnName="Group2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="District" msprop:Generator_ColumnVarNameInTable="columnDistrict" msprop:Generator_ColumnPropNameInRow="District" msprop:Generator_ColumnPropNameInTable="DistrictColumn" msprop:Generator_UserColumnName="District" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company" msprop:Generator_ColumnVarNameInTable="columnCompany" msprop:Generator_ColumnPropNameInRow="Company" msprop:Generator_ColumnPropNameInTable="CompanyColumn" msprop:Generator_UserColumnName="Company" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Provider" msprop:Generator_ColumnVarNameInTable="columnProvider" msprop:Generator_ColumnPropNameInRow="Provider" msprop:Generator_ColumnPropNameInTable="ProviderColumn" msprop:Generator_UserColumnName="Provider" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccreditationType" msprop:Generator_ColumnVarNameInTable="columnAccreditationType" msprop:Generator_ColumnPropNameInRow="AccreditationType" msprop:Generator_ColumnPropNameInTable="AccreditationTypeColumn" msprop:Generator_UserColumnName="AccreditationType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccreditationDocument" msprop:Generator_ColumnVarNameInTable="columnAccreditationDocument" msprop:Generator_ColumnPropNameInRow="AccreditationDocument" msprop:Generator_ColumnPropNameInTable="AccreditationDocumentColumn" msprop:Generator_UserColumnName="AccreditationDocument" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ExpiryDate" msprop:Generator_ColumnVarNameInTable="columnExpiryDate" msprop:Generator_ColumnPropNameInRow="ExpiryDate" msprop:Generator_ColumnPropNameInTable="ExpiryDateColumn" msprop:Generator_UserColumnName="ExpiryDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="AccreditedDate" msprop:Generator_ColumnVarNameInTable="columnAccreditedDate" msprop:Generator_ColumnPropNameInRow="AccreditedDate" msprop:Generator_ColumnPropNameInTable="AccreditedDateColumn" msprop:Generator_UserColumnName="AccreditedDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Marks" msprop:Generator_ColumnVarNameInTable="columnMarks" msprop:Generator_ColumnPropNameInRow="Marks" msprop:Generator_ColumnPropNameInTable="MarksColumn" msprop:Generator_UserColumnName="Marks" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Size" msprop:Generator_ColumnVarNameInTable="columnSize" msprop:Generator_ColumnPropNameInRow="Size" msprop:Generator_ColumnPropNameInTable="SizeColumn" msprop:Generator_UserColumnName="Size" type="xs:short" minOccurs="0" />
+              <xs:element name="Model" msprop:Generator_ColumnVarNameInTable="columnModel" msprop:Generator_ColumnPropNameInRow="Model" msprop:Generator_ColumnPropNameInTable="ModelColumn" msprop:Generator_UserColumnName="Model" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ApprovalDecision" msprop:Generator_ColumnVarNameInTable="columnApprovalDecision" msprop:Generator_ColumnPropNameInRow="ApprovalDecision" msprop:Generator_ColumnPropNameInTable="ApprovalDecisionColumn" msprop:Generator_UserColumnName="ApprovalDecision" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LoggerModel" msprop:Generator_ColumnVarNameInTable="columnLoggerModel" msprop:Generator_ColumnPropNameInRow="LoggerModel" msprop:Generator_ColumnPropNameInTable="LoggerModelColumn" msprop:Generator_UserColumnName="LoggerModel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:dht_reportsites" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

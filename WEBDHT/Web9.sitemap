@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization="true" >
+    <siteMapNode url="" title=""  description="" roles="admin,meter_logger_tran">
+      <siteMapNode url="" title="$resources:Lit,thietbi" description="" roles="admin,meter_logger_tran">
+        <siteMapNode url="~/_supervisor/device/meter.aspx" title="$resources:Lit,dongho" description="" roles="admin,meter_logger_tran"/>
+        <siteMapNode url="~/_supervisor/device/transmitter.aspx" title="$resources:Lit,bohienthi" description="" roles="admin,meter_logger_tran"/>
+        <siteMapNode url="~/_supervisor/device/logger.aspx" title="$resources:Lit,logger" description="" roles="admin,meter_logger_tran"/>
+        <siteMapNode url="~/_supervisor/device/cover.aspx" title="$resources:Lit,napham" description="" roles="admin,meter_logger_tran"/>
+      </siteMapNode>
+      <siteMapNode url="" title="$resources:Lit,diemlapdat" description="" roles="admin,meter_logger_tran">
+        <siteMapNode url="~/_supervisor/site/change_meter.aspx" title="$resources:Lit,thaydongho" description="" roles="admin,meter_logger_tran"/>
+        <siteMapNode url="~/_supervisor/site/change_transmitter.aspx" title="$resources:Lit,thaybohienthi" description="" roles="admin,meter_logger_tran"/>
+        <siteMapNode url="~/_supervisor/site/change_logger.aspx" title="$resources:Lit,thaylogger" description="" roles="admin,meter_logger_tran"/>
+      </siteMapNode>
+    </siteMapNode>
+</siteMap>

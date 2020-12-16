@@ -1,0 +1,10 @@
+30/10/2012 09:53:56 TT ==> <u>xn</u><c>INSERT/UPDATE MANUAL DATA: td1001|index:|output:|description:</c>
+
+30/10/2012 09:55:53 TT ==> <u>xn</u><c>INSERT/UPDATE MANUAL DATA: td1001|index:7878788|output:7872032|description:</c>
+
+30/10/2012 09:55:53 TT ==> <u>xn</u><c>INSERT/UPDATE MANUAL DATA: td1001|index:67676|output:-7811112|description:</c>
+
+30/10/2012 09:55:53 TT ==> <u>xn</u><c>INSERT/UPDATE MANUAL DATA: td1001|index:|output:|description:</c>
+
+07/12/2020 03:37:00 TT ==> <u>bavitech</u><c>INSERT/UPDATE MANUAL DATA: 10D12A|timestamp:12/8/2020 12:00:00 AM|index:|output:|description:</c>
+
