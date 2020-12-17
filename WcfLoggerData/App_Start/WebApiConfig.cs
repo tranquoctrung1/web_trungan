@@ -32,6 +32,12 @@ namespace WcfLoggerData
               defaults: new { siteid = RouteParameter.Optional}
           );
 
+            config.Routes.MapHttpRoute(
+             name: "GetDataReportDailyTotal",
+             routeTemplate: "api/{controller}/{start}/{end}",
+             defaults: new { start = RouteParameter.Optional, end = RouteParameter.Optional }
+         );
+
             var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
             config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
         }

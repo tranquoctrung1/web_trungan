@@ -8,42 +8,42 @@ using WcfLoggerData.Models;
 
 namespace WcfLoggerData.Action
 {
-    public class GetDataReportDailySiteAction
+    public class GetDataReportDailyManagerAction
     {
-        public List<DataReportDailySiteViewModel> GetDataReportDailySite(string siteid, string start, string end)
+        public List<DataReportDailyManagerViewModel> GetDataReportDailyManager(string managerid, string start, string end)
         {
-            List<DataReportDailySiteViewModel> list = new List<DataReportDailySiteViewModel>();
+            List<DataReportDailyManagerViewModel> list = new List<DataReportDailyManagerViewModel>();
             DateTime timeStart = new DateTime(1970, 01, 01).AddSeconds(int.Parse(start)).AddHours(7);
             DateTime timeEnd = new DateTime(1970, 01, 01).AddSeconds(int.Parse(end)).AddHours(7);
 
             // this el is total data
-            DataReportDailySiteViewModel totalData = new DataReportDailySiteViewModel();
+            DataReportDailyManagerViewModel totalData = new DataReportDailyManagerViewModel();
             totalData.TimeStamp = new DateTime(1970, 01, 01);
             totalData.Value = 0;
 
             try
             {
-                string store = "p_Calculate_One_Site_Daily_Output";
+                string store = "p_Calculate_One_Company_Output";
 
                 Connect.ConnectToDataBase();
 
-                SqlCommand command =  Connect.ExcuteStoreProceduce(store);
-                command.Parameters.Add(new SqlParameter("@SiteId", siteid));
-                command.Parameters.Add(new SqlParameter("@Start", timeStart));
-                command.Parameters.Add(new SqlParameter("@End", timeEnd));
+                SqlCommand command = Connect.ExcuteStoreProceduce(store);
+                command.Parameters.Add(new SqlParameter("@Company", managerid));
+                command.Parameters.Add(new SqlParameter("@StartDate", timeStart));
+                command.Parameters.Add(new SqlParameter("@EndDate", timeEnd));
 
                 SqlDataReader reader = command.ExecuteReader();
 
-                if(reader.HasRows)
+                if (reader.HasRows)
                 {
-                    while(reader.Read())
+                    while (reader.Read())
                     {
-                        DataReportDailySiteViewModel el = new DataReportDailySiteViewModel();
+                        DataReportDailyManagerViewModel el = new DataReportDailyManagerViewModel();
                         try
                         {
                             el.TimeStamp = DateTime.Parse(reader["TimeStamp"].ToString());
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
                             el.TimeStamp = null;
                         }
@@ -61,7 +61,7 @@ namespace WcfLoggerData.Action
                     }
                 }
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }

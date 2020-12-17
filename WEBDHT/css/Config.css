@@ -2,33 +2,41 @@
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
-.group-text a, .lnkButton a{
+
+.group-text a, .lnkButton a {
     color: #1fb6ff !important;
 }
+
     .group-text a:hover, .lnkButton a:hover {
         color: #007fc0 !important;
     }
+
 .group-text .RadInput_Metro, .group-text .RadPicker, .group-text .RadComboBox, .RadWindow .RadComboBox, .RadWindow .RadInput_Metro,
 #popup_panel_channel .RadComboBox, #popup_panel_channel .RadInput_Metro {
     width: 100% !important;
 }
+
 html body .RadInput_Metro .riTextBox, html body .RadInputMgr_Metro {
     height: 33px !important;
     border-color: #999 !important;
     border-radius: 5px;
 }
-.m-t-17{
+
+.m-t-17 {
     margin-top: 17px;
 }
-.RadForm.rfdTextbox .rfdInputDisabled{
+
+.RadForm.rfdTextbox .rfdInputDisabled {
     border: 1px solid #ddd !important;
 }
-@media screen and (max-width: 767px){
+
+@media screen and (max-width: 767px) {
     .group-text-latitude, .group-text-longtitude {
         padding: 0px !important
     }
-    .chkMobile{
-        margin:15px 0px 0px !important;
+
+    .chkMobile {
+        margin: 15px 0px 0px !important;
         padding-left: 0px !important;
     }
 }
@@ -72,23 +80,20 @@ html body .RadInput_Metro .riTextBox, html body .RadInputMgr_Metro {
     color: #636e72;
 }
 
-.group-text .row 
-{
+.group-text .row {
     margin-bottom: 5px !important;
 }
 
-.group-text .row span 
-{
-    font-weight: 500
-}
+    .group-text .row span {
+        font-weight: 500
+    }
 
 .rgPagerCell {
     background: white;
 }
 
 
-.d-flex 
-{
+.d-flex {
     display: flex;
     justify-content: center;
     align-items: center
@@ -98,7 +103,26 @@ html body .RadInput_Metro .riTextBox, html body .RadInputMgr_Metro {
     width: 90% !important;
 }
 
-.RadListBox 
-{
+.RadListBox {
     width: 100% !important
+}
+
+.loading-area.show {
+    display: flex !important;
+    justify-content: center;
+    align-items: center
+}
+
+    .loading-area .box-loading {
+        width: 50px;
+        height: 50px;
+    }
+
+        .loading-area .box-loading img {
+            width: 100%
+        }
+
+.loading-area.hide 
+{
+    display: none
 }

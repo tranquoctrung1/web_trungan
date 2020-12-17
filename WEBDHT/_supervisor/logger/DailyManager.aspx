@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="DailyLogger.aspx.cs" Inherits="_supervisor_logger_DailyLogger" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="DailyManager.aspx.cs" Inherits="_supervisor_logger_DailyManager" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../css/Config.css" rel="stylesheet">
@@ -20,44 +21,41 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main-content2">
         <div id="main-content-title">
-            <h2 class="title">Sản Lượng Theo Point</h2>
+            <h2 class="title">Sản Lượng Theo Đơn Vị Quản Lý</h2>
         </div>
         <div class="container-fluid m-t">
             <div class="row">
                 <div class="col-sm-4">
                     <div class="group-text">
                         <div class="row">
-                            <span>Mã point</span>
+                            <span>Đơn vị quản lý</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadComboBox ID="cboSiteIds" runat="server"
-                                DataSourceID="SitesDataSource" DataTextField="Id" DataValueField="Id"
-                                AllowCustomText="True" DropDownWidth="350px" EnableLoadOnDemand="True"
-                                Filter="StartsWith" HighlightTemplatedItems="True"
-                                AutoPostBack="false">
+                            <telerik:RadComboBox ID="cboCompanies" Runat="server" AllowCustomText="True" 
+                                EnableLoadOnDemand="True" Filter="StartsWith" 
+                                HighlightTemplatedItems="True" DataSourceID="SiteCompaniesDataSource" 
+                                DataTextField="Company" DataValueField="Company" DropDownWidth="275px" 
+                                TabIndex="1">
                                 <HeaderTemplate>
-
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
-                                            <td style="width: 50px">Mã NV</td>
-                                            <td style="width: 50px">Mã vị trí</td>
-                                            <td style="width: 250px">Vị trí</td>
+                                            <td style="width:70px">Công ty</td>
+                                            <td style="width:200px">Mô tả</td>
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
-                                            <td style="width: 50px"><%#DataBinder.Eval(Container.DataItem,"StaffId") %></td>
-                                            <td style="width: 50px"><%#DataBinder.Eval(Container.DataItem,"Id") %></td>
-                                            <td style="width: 250px"><%#DataBinder.Eval(Container.DataItem,"Location") %></td>
+                                            <td style="width:70px"><%#DataBinder.Eval(Container.DataItem,"Company") %></td>
+                                            <td style="width:200px"><%#DataBinder.Eval(Container.DataItem,"Description") %></td>
                                         </tr>
                                     </table>
                                 </ItemTemplate>
                             </telerik:RadComboBox>
-                            <asp:ObjectDataSource ID="SitesDataSource" runat="server"
-                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll"
-                                TypeName="SitesBLL"></asp:ObjectDataSource>
+                            <asp:ObjectDataSource ID="SiteCompaniesDataSource" runat="server" 
+                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll" 
+                                TypeName="SiteCompaniesBLL"></asp:ObjectDataSource>
                         </div>
                     </div>
 
@@ -139,8 +137,7 @@
             }
             loadingElement.classList.remove('hide');
 
-
-            let siteIDCbo = $find('<%=cboSiteIds.ClientID %>');
+            let siteIDCbo = $find('<%=cboCompanies.ClientID %>');
             let start = $find('<%=dtmStart.ClientID %>');
             let end = $find('<%=dtmEnd.ClientID %>');
             if (siteIDCbo == null || siteIDCbo == undefined || siteIDCbo.get_selectedItem() == null || siteIDCbo.get_selectedItem() == undefined) {
@@ -178,10 +175,10 @@
             let totalSecondStart = timeStart.getTime() / 1000;
             let totalSecondEnd = timeEnd.getTime() / 1000;
 
-            let urlGetDataDailySite = `${hostname}/api/getdatareportdailysite/${siteid}/${totalSecondStart}/${totalSecondEnd}`;
+            let urlGetDataDailyManager = `${hostname}/api/getdatareportdailymanager/?manager=${siteid}&start=${totalSecondStart}&end=${totalSecondEnd}`;
 
 
-            axios.get(urlGetDataDailySite).then((res) => {
+            axios.get(urlGetDataDailyManager).then((res) => {
                 createTable(res.data);
             }).catch(err => console.log(err))
 
@@ -208,7 +205,7 @@
 
                     for (let pro in data[index]) {
                         if (pro == "TimeStamp") {
-                            contentHeader += `<th>Thời Gian</th>`;
+                            contentHeader += `<th>Thời Gian</th>`; 
                         }
                         else if (pro == "Value") {
                             contentHeader += `<th>Giá Trị</th>`;

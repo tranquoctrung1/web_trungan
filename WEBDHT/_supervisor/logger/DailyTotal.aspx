@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="DailyLogger.aspx.cs" Inherits="_supervisor_logger_DailyLogger" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="DailyTotal.aspx.cs" Inherits="_supervisor_logger_DailyTotal" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../css/Config.css" rel="stylesheet">
@@ -20,49 +20,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main-content2">
         <div id="main-content-title">
-            <h2 class="title">Sản Lượng Theo Point</h2>
+            <h2 class="title">Sản Lượng Tổng</h2>
         </div>
         <div class="container-fluid m-t">
             <div class="row">
-                <div class="col-sm-4">
-                    <div class="group-text">
-                        <div class="row">
-                            <span>Mã point</span>
-                        </div>
-                        <div class="row m-b">
-                            <telerik:RadComboBox ID="cboSiteIds" runat="server"
-                                DataSourceID="SitesDataSource" DataTextField="Id" DataValueField="Id"
-                                AllowCustomText="True" DropDownWidth="350px" EnableLoadOnDemand="True"
-                                Filter="StartsWith" HighlightTemplatedItems="True"
-                                AutoPostBack="false">
-                                <HeaderTemplate>
-
-                                    <table cellpadding="0" cellspacing="0">
-                                        <tr>
-                                            <td style="width: 50px">Mã NV</td>
-                                            <td style="width: 50px">Mã vị trí</td>
-                                            <td style="width: 250px">Vị trí</td>
-                                        </tr>
-                                    </table>
-                                </HeaderTemplate>
-                                <ItemTemplate>
-                                    <table cellpadding="0" cellspacing="0">
-                                        <tr>
-                                            <td style="width: 50px"><%#DataBinder.Eval(Container.DataItem,"StaffId") %></td>
-                                            <td style="width: 50px"><%#DataBinder.Eval(Container.DataItem,"Id") %></td>
-                                            <td style="width: 250px"><%#DataBinder.Eval(Container.DataItem,"Location") %></td>
-                                        </tr>
-                                    </table>
-                                </ItemTemplate>
-                            </telerik:RadComboBox>
-                            <asp:ObjectDataSource ID="SitesDataSource" runat="server"
-                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll"
-                                TypeName="SitesBLL"></asp:ObjectDataSource>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-sm-4">
+                
+                <div class="col-sm-6">
                     <div class="group-text">
                         <div class="row">
                             <span>Từ ngày</span>
@@ -81,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <div class="group-text">
                         <div class="row">
                             <span>Đến ngày</span>
@@ -140,14 +103,9 @@
             loadingElement.classList.remove('hide');
 
 
-            let siteIDCbo = $find('<%=cboSiteIds.ClientID %>');
             let start = $find('<%=dtmStart.ClientID %>');
             let end = $find('<%=dtmEnd.ClientID %>');
-            if (siteIDCbo == null || siteIDCbo == undefined || siteIDCbo.get_selectedItem() == null || siteIDCbo.get_selectedItem() == undefined) {
-                alert("Chưa chọn mã point")
-                return false;
-            }
-            else if (start == null || start == undefined || start.get_selectedDate() == null || start.get_selectedDate() == undefined) {
+            if (start == null || start == undefined || start.get_selectedDate() == null || start.get_selectedDate() == undefined) {
                 alert("Chưa chọn ngày bắt đầu")
                 return false;
             }
@@ -156,13 +114,11 @@
                 return false;
             }
             else {
-                let siteID = siteIDCbo.get_selectedItem().get_value();
-
-                getData(siteID, start, end)
+                getData(start, end)
             }
         }
 
-        function getData(siteid, start, end) {
+        function getData(start, end) {
             var hostname = window.location.origin;
             if (hostname.indexOf("localhost") < 0)
                 hostname = hostname + "/VivaServices/";
@@ -178,7 +134,7 @@
             let totalSecondStart = timeStart.getTime() / 1000;
             let totalSecondEnd = timeEnd.getTime() / 1000;
 
-            let urlGetDataDailySite = `${hostname}/api/getdatareportdailysite/${siteid}/${totalSecondStart}/${totalSecondEnd}`;
+            let urlGetDataDailySite = `${hostname}/api/getdatareportdailytotal/?start=${totalSecondStart}&end=${totalSecondEnd}`;
 
 
             axios.get(urlGetDataDailySite).then((res) => {
@@ -316,3 +272,4 @@
         }
     </script>
 </asp:Content>
+
