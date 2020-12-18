@@ -351,8 +351,18 @@
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="/_supervisor/logger/HourlyLogger.aspx">
+                                        <asp:Label ID="lbQuantityHourlyLogger" runat="server" Text="Sản Lượng Giờ Theo Point"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="/_supervisor/logger/DailyManager.aspx">
                                         <asp:Label ID="lbDailyQuantityManager" runat="server" Text="Sản Lượng Ngày Theo Đơn Vị Quản Lý"></asp:Label>
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a href="/_supervisor/logger/HourlyManager.aspx">
+                                        <asp:Label ID="lbQuantityHourlyManager" runat="server" Text="Sản Lượng Giờ Theo Đơn Vị Quản Lý"></asp:Label>
                                     </a>
                                 </li>
                                 <li>

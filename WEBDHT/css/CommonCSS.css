@@ -144,7 +144,7 @@
     }
     .main-sidebar:hover {
         transition: all .15s linear !important;
-        width: 250px;
+        width: 280px;
     }
     .main-sidebar:hover .fa-block{
         display: block !important;

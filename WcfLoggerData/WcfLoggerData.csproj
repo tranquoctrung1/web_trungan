@@ -118,6 +118,8 @@
     <Compile Include="Action\GetDataReportDailyManagerAction.cs" />
     <Compile Include="Action\GetDataReportDailySiteAction.cs" />
     <Compile Include="Action\GetDataReportDailyTotalAction.cs" />
+    <Compile Include="Action\GetDataReportHourlyCompanyAction.cs" />
+    <Compile Include="Action\GetDataReportHourlySiteAction.cs" />
     <Compile Include="Action\GetListSitesAction.cs" />
     <Compile Include="Action\GetLoggerAction.cs" />
     <Compile Include="Action\GetTimeOfFirstChannel.cs" />
@@ -128,6 +130,8 @@
     <Compile Include="Controllers\GetDataReportDailyManagerController.cs" />
     <Compile Include="Controllers\GetDataReportDailySiteController.cs" />
     <Compile Include="Controllers\GetDataReportDailyTotalController.cs" />
+    <Compile Include="Controllers\GetDataReportHourlyCompanyController.cs" />
+    <Compile Include="Controllers\GetDataReportHourlySiteController.cs" />
     <Compile Include="Controllers\GetTimeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -138,6 +142,8 @@
     <Compile Include="Models\DataReportDailyManagerViewModel.cs" />
     <Compile Include="Models\DataReportDailySiteViewModel.cs" />
     <Compile Include="Models\DataReportDailyTotalViewModel.cs" />
+    <Compile Include="Models\DataReportHourlyCompanyViewModel.cs" />
+    <Compile Include="Models\DataReportHourlySiteViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +163,8 @@
     <Folder Include="Views\GetDataDailyManager\" />
     <Folder Include="Views\GetDataReportDailySite\" />
     <Folder Include="Views\GetDataReportDailyTotal\" />
+    <Folder Include="Views\GetDataReportHourlyCompany\" />
+    <Folder Include="Views\GetDataReportHourlySite\" />
     <Folder Include="Views\GetTime\" />
   </ItemGroup>
   <ItemGroup>

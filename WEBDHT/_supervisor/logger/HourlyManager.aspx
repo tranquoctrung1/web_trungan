@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="DailyManager.aspx.cs" Inherits="_supervisor_logger_DailyManager" %>
-
+﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="HourlyManager.aspx.cs" Inherits="_supervisor_logger_HourlyManager" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../css/Config.css" rel="stylesheet">
@@ -21,7 +20,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main-content2">
         <div id="main-content-title">
-            <h2 class="title">Sản Lượng Theo Đơn Vị Quản Lý</h2>
+            <h2 class="title">Sản Lượng Quản Lý Theo Giờ</h2>
         </div>
         <div class="container-fluid m-t">
             <div class="row">
@@ -31,7 +30,7 @@
                             <span>Đơn vị quản lý</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadComboBox ID="cboCompanies" Runat="server" AllowCustomText="True" 
+                             <telerik:RadComboBox ID="cboCompanies" Runat="server" AllowCustomText="True" 
                                 EnableLoadOnDemand="True" Filter="StartsWith" 
                                 HighlightTemplatedItems="True" DataSourceID="SiteCompaniesDataSource" 
                                 DataTextField="Company" DataValueField="Company" DropDownWidth="275px" 
@@ -63,10 +62,10 @@
                 <div class="col-sm-4">
                     <div class="group-text">
                         <div class="row">
-                            <span>Từ ngày</span>
+                            <span>Giờ Bắt Đầu</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadDatePicker ID="dtmStart" runat="server" Culture="en-GB"
+                            <telerik:RadDateTimePicker ID="dtmStart" runat="server" Culture="en-GB"
                                 TabIndex="2">
                                 <Calendar UseColumnHeadersAsSelectors="False" UseRowHeadersAsSelectors="False"
                                     ViewSelectorText="x">
@@ -75,17 +74,17 @@
                                     EnableSingleInputRendering="True" LabelWidth="64px" TabIndex="2">
                                 </DateInput>
                                 <DatePopupButton HoverImageUrl="" ImageUrl="" TabIndex="-1" />
-                            </telerik:RadDatePicker>
+                            </telerik:RadDateTimePicker>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="group-text">
                         <div class="row">
-                            <span>Đến ngày</span>
+                            <span>Giờ Kết Thúc</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadDatePicker ID="dtmEnd" runat="server" Culture="en-GB" TabIndex="3">
+                            <telerik:RadDateTimePicker ID="dtmEnd" runat="server" Culture="en-GB" TabIndex="3">
                                 <Calendar UseColumnHeadersAsSelectors="False" UseRowHeadersAsSelectors="False"
                                     ViewSelectorText="x">
                                 </Calendar>
@@ -93,7 +92,7 @@
                                     EnableSingleInputRendering="True" LabelWidth="64px" TabIndex="3">
                                 </DateInput>
                                 <DatePopupButton HoverImageUrl="" ImageUrl="" TabIndex="-1" />
-                            </telerik:RadDatePicker>
+                            </telerik:RadDateTimePicker>
                         </div>
                     </div>
 
@@ -137,6 +136,7 @@
             }
             loadingElement.classList.remove('hide');
 
+
             let siteIDCbo = $find('<%=cboCompanies.ClientID %>');
             let start = $find('<%=dtmStart.ClientID %>');
             let end = $find('<%=dtmEnd.ClientID %>');
@@ -175,10 +175,10 @@
             let totalSecondStart = timeStart.getTime() / 1000;
             let totalSecondEnd = timeEnd.getTime() / 1000;
 
-            let urlGetDataDailyManager = `${hostname}/api/getdatareportdailymanager/?manager=${siteid}&start=${totalSecondStart}&end=${totalSecondEnd}`;
+            let urlGetDataDailySite = `${hostname}/api/getdatareporthourlycompany/?company=${siteid}&start=${totalSecondStart}&end=${totalSecondEnd}`;
 
 
-            axios.get(urlGetDataDailyManager).then((res) => {
+            axios.get(urlGetDataDailySite).then((res) => {
                 createTable(res.data);
             }).catch(err => console.log(err))
 
@@ -205,7 +205,7 @@
 
                     for (let pro in data[index]) {
                         if (pro == "TimeStamp") {
-                            contentHeader += `<th>Thời Gian</th>`; 
+                            contentHeader += `<th>Thời Gian</th>`;
                         }
                         else if (pro == "Value") {
                             contentHeader += `<th>Giá Trị</th>`;
@@ -313,3 +313,4 @@
         }
     </script>
 </asp:Content>
+
