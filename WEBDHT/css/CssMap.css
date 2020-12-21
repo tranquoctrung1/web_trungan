@@ -41,30 +41,30 @@
     }
 
 .width-filter-icon {
-    position: absolute !important;
-    top: 180px;
-    right: 15px;
+    position: absolute;
+    top: 175px;
+    right: 13px;
     padding: 2px;
     transition: .3s all ease-in-out;
 }
 
 .width-layer-icon {
-    position: absolute !important;
-    top: 230px;
-    right: 15px;
+    position: absolute;
+    top: 215px;
+    right: 13px;
     padding: 2px;
     transition: .3s all ease-in-out;
 }
 
     .width-layer-icon.active {
         right: 230px;
-        top: 180px;
+        top: 215px;
         transition: .3s all ease-in-out;
     }
 
 .width-filter-icon.active {
     right: 230px;
-    top: 180px;
+    top: 175px;
     transition: .3s all ease-in-out;
 }
 

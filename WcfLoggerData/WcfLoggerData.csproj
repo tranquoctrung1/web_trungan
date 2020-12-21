@@ -113,18 +113,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\DataChannelChartAction.cs" />
+    <Compile Include="Action\GetChannelByGroupChannelAction.cs" />
+    <Compile Include="Action\GetChannelByLoggerAction.cs" />
     <Compile Include="Action\GetChannelConfigAction.cs" />
+    <Compile Include="Action\GetChannelDataDailyAction.cs" />
     <Compile Include="Action\GetDataHistoryAction.cs" />
     <Compile Include="Action\GetDataReportDailyManagerAction.cs" />
     <Compile Include="Action\GetDataReportDailySiteAction.cs" />
     <Compile Include="Action\GetDataReportDailyTotalAction.cs" />
     <Compile Include="Action\GetDataReportHourlyCompanyAction.cs" />
     <Compile Include="Action\GetDataReportHourlySiteAction.cs" />
+    <Compile Include="Action\GetDisplayGroupAction.cs" />
+    <Compile Include="Action\GetGroupChannelAction.cs" />
+    <Compile Include="Action\GetGroupChannelByLoggerAction.cs" />
     <Compile Include="Action\GetListSitesAction.cs" />
     <Compile Include="Action\GetLoggerAction.cs" />
+    <Compile Include="Action\GetMultipleDataAction.cs" />
+    <Compile Include="Action\GetSiteByUIDAction.cs" />
+    <Compile Include="Action\GetSitesByDisplayGroupAction.cs" />
     <Compile Include="Action\GetTimeOfFirstChannel.cs" />
+    <Compile Include="Action\GetValueAlarmAction.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ConnectDB\Connect.cs" />
+    <Compile Include="Controllers\GetChannelByGroupChannelController.cs" />
+    <Compile Include="Controllers\GetChannelByLoggerController.cs" />
+    <Compile Include="Controllers\GetChannelDataChartController.cs" />
+    <Compile Include="Controllers\GetChannelDataDailyController.cs" />
     <Compile Include="Controllers\GetDataChartController.cs" />
     <Compile Include="Controllers\GetDataComplexController.cs" />
     <Compile Include="Controllers\GetDataReportDailyManagerController.cs" />
@@ -132,11 +147,24 @@
     <Compile Include="Controllers\GetDataReportDailyTotalController.cs" />
     <Compile Include="Controllers\GetDataReportHourlyCompanyController.cs" />
     <Compile Include="Controllers\GetDataReportHourlySiteController.cs" />
+    <Compile Include="Controllers\GetDisplayGroupController.cs" />
+    <Compile Include="Controllers\GetGroupChannelByLoggerController.cs" />
+    <Compile Include="Controllers\GetGroupChannelController.cs" />
+    <Compile Include="Controllers\GetMultipleDataController.cs" />
+    <Compile Include="Controllers\GetSiteByUIDController.cs" />
+    <Compile Include="Controllers\GetSitesByDisplayGroupController.cs" />
     <Compile Include="Controllers\GetTimeController.cs" />
+    <Compile Include="Controllers\GetValueAlarmController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChannelByGroupChannelViewModel.cs" />
+    <Compile Include="Models\ChannelByLoggerViewModel.cs" />
+    <Compile Include="Models\ChannelDataDailyViewModel.cs" />
+    <Compile Include="Models\ChannelMultipleDataViewModel.cs" />
+    <Compile Include="Models\ChannelsViewModel.cs" />
     <Compile Include="Models\ChannelViewModel.cs" />
+    <Compile Include="Models\DataChannelChartViewModel.cs" />
     <Compile Include="Models\DataComplexViewModel.cs" />
     <Compile Include="Models\DataGraphViewModel.cs" />
     <Compile Include="Models\DataReportDailyManagerViewModel.cs" />
@@ -144,6 +172,11 @@
     <Compile Include="Models\DataReportDailyTotalViewModel.cs" />
     <Compile Include="Models\DataReportHourlyCompanyViewModel.cs" />
     <Compile Include="Models\DataReportHourlySiteViewModel.cs" />
+    <Compile Include="Models\GroupChannelByLoggerViewModel.cs" />
+    <Compile Include="Models\GroupChannelViewModel.cs" />
+    <Compile Include="Models\SiteByDisplayGroupViewModel.cs" />
+    <Compile Include="Models\SiteResultByUIDViewModel.cs" />
+    <Compile Include="Models\ValueAlarmViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,13 +192,24 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\GetChannelByGroupChannel\" />
+    <Folder Include="Views\GetChannelByLogger\" />
+    <Folder Include="Views\GetChannelDataChart\" />
+    <Folder Include="Views\GetChannelDataDaily\" />
     <Folder Include="Views\GetDataChart\" />
     <Folder Include="Views\GetDataDailyManager\" />
     <Folder Include="Views\GetDataReportDailySite\" />
     <Folder Include="Views\GetDataReportDailyTotal\" />
     <Folder Include="Views\GetDataReportHourlyCompany\" />
     <Folder Include="Views\GetDataReportHourlySite\" />
+    <Folder Include="Views\GetDisplayGroup\" />
+    <Folder Include="Views\GetGroupChannelByLogger\" />
+    <Folder Include="Views\GetGroupChannel\" />
+    <Folder Include="Views\GetMultipleData\" />
+    <Folder Include="Views\GetSiteByUID\" />
+    <Folder Include="Views\GetSitesByDisplayGroup\" />
     <Folder Include="Views\GetTime\" />
+    <Folder Include="Views\GetValueAlarm\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
