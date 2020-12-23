@@ -18,11 +18,11 @@ public partial class _supervisor_report_rsi_marks_size : BasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        win.VisibleOnPageLoad = false;
+        //win.VisibleOnPageLoad = false;
     }
     protected void btnView_Click(object sender, EventArgs e)
     {
-        win.VisibleOnPageLoad = true;
+        //win.VisibleOnPageLoad = true;
         List<string> listLevels = GetLevels();
         if (listLevels.Count == 0)
         {
@@ -117,7 +117,7 @@ public partial class _supervisor_report_rsi_marks_size : BasePage
 
     protected void btnMarks_Click(object sender, EventArgs e)
     {
-        win.VisibleOnPageLoad = true;
+       // win.VisibleOnPageLoad = true;
         List<string> listLevels = GetLevels();
         if (listLevels.Count == 0)
         {
@@ -216,7 +216,7 @@ public partial class _supervisor_report_rsi_marks_size : BasePage
 
     protected void btnSize_Click(object sender, EventArgs e)
     {
-        win.VisibleOnPageLoad = true;
+        //win.VisibleOnPageLoad = true;
         List<string> listLevels = GetLevels();
         if (listLevels.Count == 0)
         {

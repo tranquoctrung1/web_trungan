@@ -9,8 +9,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main-content2">
-        <div class="title">
-            <h2>Thống kê hiệu cỡ (DMA)</h2>
+        <div id="main-content-title">
+            <h2 class="title">Thống kê hiệu cỡ (DMA)</h2>
         </div>
         <div class="container-fluid m-t">
             <div class="row">
@@ -22,16 +22,16 @@
             </div>
         </div>
         <div class="container-fluid m-t">
-            <telerik:RadWindow ID="win" runat="server" InitialBehaviors="Maximize"
+            <%--<telerik:RadWindow ID="win" runat="server" InitialBehaviors="Maximize"
                 Modal="True" VisibleStatusbar="False">
-                <ContentTemplate>
+                <ContentTemplate>--%>
                     <rsweb:ReportViewer ID="rpt" runat="server" AsyncRendering="False"
                         SizeToReportContent="True">
                         <LocalReport ReportPath="App_Data\reports\rsi_marks_size.rdlc"
                             DisplayName="_hieu_co_XNQL" />
                     </rsweb:ReportViewer>
-                </ContentTemplate>
-            </telerik:RadWindow>
+              <%--  </ContentTemplate>
+            </telerik:RadWindow>--%>
         </div>
     </div>
 </asp:Content>

@@ -10,11 +10,11 @@ public partial class _supervisor_report_rde_meter : BasePage
     MetersBLL _metersBLL = new MetersBLL();
     protected void Page_Load(object sender, EventArgs e)
     {
-        win.VisibleOnPageLoad = false;
+        //win.VisibleOnPageLoad = false;
     }
     protected void btnView_Click(object sender, EventArgs e)
     {
-        win.VisibleOnPageLoad = true;
+       // win.VisibleOnPageLoad = true;
         List<string> listProviders = GetProviders();
         if (listProviders.Count == 0)
         {

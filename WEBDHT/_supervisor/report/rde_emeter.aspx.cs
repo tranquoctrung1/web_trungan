@@ -7,7 +7,7 @@ public partial class _supervisor_report_rde_emeter : BasePage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        win.VisibleOnPageLoad = false;
+       // win.VisibleOnPageLoad = false;
     }
     protected void cboMeters_SelectedIndexChanged(object sender, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
     {
@@ -37,6 +37,6 @@ public partial class _supervisor_report_rde_emeter : BasePage
         parms.Add(new Microsoft.Reporting.WebForms.ReportParameter("Nation", site != null ? meter.Nationality : ""));
         rpt.LocalReport.SetParameters(parms);
         rpt.LocalReport.Refresh();
-        win.VisibleOnPageLoad = true;
+       // win.VisibleOnPageLoad = true;
     }
 }

@@ -21,7 +21,7 @@ public partial class _supervisor_report_rsi_has_changed : BasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         ntf.VisibleOnPageLoad = false;
-        win.VisibleOnPageLoad = false;
+       // win.VisibleOnPageLoad = false;
     }
     protected void btnView_Click(object sender, EventArgs e)
     {
@@ -53,7 +53,7 @@ public partial class _supervisor_report_rsi_has_changed : BasePage
                 rpt.LocalReport.SetParameters(parms0);
                 rpt.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", list));
                 rpt.LocalReport.Refresh();
-                win.VisibleOnPageLoad = true;
+               // win.VisibleOnPageLoad = true;
                 return;
                 break;
             case 1://Thay đồng hồ
@@ -91,6 +91,6 @@ public partial class _supervisor_report_rsi_has_changed : BasePage
         rpt.LocalReport.SetParameters(parms);
         rpt.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", list));
         rpt.LocalReport.Refresh();
-        win.VisibleOnPageLoad = true;
+       // win.VisibleOnPageLoad = true;
     }
 }

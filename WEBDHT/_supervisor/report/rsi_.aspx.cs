@@ -10,11 +10,11 @@ public partial class _supervisor_report_rsi_ : BasePage
     SitesBLL _sitesBLL = new SitesBLL();
     protected void Page_Load(object sender, EventArgs e)
     {
-        win.VisibleOnPageLoad = false;
+        //win.VisibleOnPageLoad = false;
     }
     protected void btnView_Click(object sender, EventArgs e)
     {
-        win.VisibleOnPageLoad = true;
+       // win.VisibleOnPageLoad = true;
         List<string> listMeterModels = GetMeterModels();
         if (listMeterModels.Count == 0)
         {

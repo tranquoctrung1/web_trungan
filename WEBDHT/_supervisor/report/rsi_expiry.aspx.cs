@@ -14,7 +14,7 @@ public partial class _supervisor_report_rsi_expiry : BasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         ntf.VisibleOnPageLoad = false;
-        win.VisibleOnPageLoad = false;
+        //win.VisibleOnPageLoad = false;
     }
     protected void btnView_Click(object sender, EventArgs e)
     {
@@ -84,7 +84,7 @@ public partial class _supervisor_report_rsi_expiry : BasePage
         rpt.LocalReport.DisplayName = cboTypes.Text;
         rpt.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", list));
         rpt.LocalReport.Refresh();
-        win.VisibleOnPageLoad = true;
+        //win.VisibleOnPageLoad = true;
     }
     private List<string> GetAllStatus()
     {

@@ -105,17 +105,14 @@
                 </div>
             </div>
         </div>
-
-        <telerik:RadWindow ID="win" runat="server" InitialBehaviors="Maximize"
-            Modal="True" VisibleStatusbar="False">
-            <ContentTemplate>
-                <rsweb:ReportViewer ID="rpt" runat="server" AsyncRendering="False"
+         <div class="container-fluid m-t">
+              <rsweb:ReportViewer ID="rpt" runat="server" AsyncRendering="False"
                     SizeToReportContent="True">
                     <LocalReport ReportPath="App_Data\reports\rde_transmitter.rdlc"
                         DisplayName="_bo_hien_thi_tuy_chon" />
                 </rsweb:ReportViewer>
-            </ContentTemplate>
-        </telerik:RadWindow>
+             </div>
+      
     </div>
 </asp:Content>
 

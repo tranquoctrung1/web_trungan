@@ -15,7 +15,7 @@ public partial class _supervisor_report_rsi_history : BasePage
     SiteLoggerHistoriesBLL _siteLoggerHistoriesBLL = new SiteLoggerHistoriesBLL();
     protected void Page_Load(object sender, EventArgs e)
     {
-        win.VisibleOnPageLoad = false;
+        //win.VisibleOnPageLoad = false;
         if (!IsPostBack)
         {
             cboSiteIds.Focus();
@@ -23,7 +23,7 @@ public partial class _supervisor_report_rsi_history : BasePage
     }
     protected void cboSiteIds_SelectedIndexChanged(object sender, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
     {
-        win.VisibleOnPageLoad = true;
+        //win.VisibleOnPageLoad = true;
         rpt.LocalReport.DataSources.Clear();
         rpt.LocalReport.EnableExternalImages = true;
         Microsoft.Reporting.WebForms.ReportParameterCollection parms = new Microsoft.Reporting.WebForms.ReportParameterCollection();
@@ -61,6 +61,6 @@ public partial class _supervisor_report_rsi_history : BasePage
         rpt.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet2", siteTransmitterHistory));
         rpt.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet3", siteLoggerHistory));
         rpt.LocalReport.Refresh();
-        win.VisibleOnPageLoad = true;
+       // win.VisibleOnPageLoad = true;
     }
 }

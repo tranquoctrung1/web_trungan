@@ -19,18 +19,18 @@
                    
                 </div>
             </div>
-        </div>
+        </div>bav
         <div class="container-fluid m-t">
-            <telerik:RadWindow ID="win" runat="server" InitialBehaviors="Maximize"
+           <%-- <telerik:RadWindow ID="win" runat="server" InitialBehaviors="Maximize"
                 Modal="True" VisibleStatusbar="False">
-                <ContentTemplate>
+                <ContentTemplate>--%>
                     <rsweb:ReportViewer ID="rpt" runat="server" AsyncRendering="False"
                         SizeToReportContent="True">
                         <LocalReport ReportPath="App_Data\reports\rsi_site_swdc.rdlc"
                             DisplayName="_diem_lap_dat_XNQL" />
                     </rsweb:ReportViewer>
-                </ContentTemplate>
-            </telerik:RadWindow>
+               <%-- </ContentTemplate>
+            </telerik:RadWindow>--%>
         </div>
     </div>
 </asp:Content>

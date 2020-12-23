@@ -11,7 +11,7 @@ public partial class _supervisor_report_rde_elogger : BasePage
     LoggersBLL _loggersBLL = new LoggersBLL();
     protected void Page_Load(object sender, EventArgs e)
     {
-        win.VisibleOnPageLoad = false;
+        //win.VisibleOnPageLoad = false;
     }
     protected void cboLoggers_SelectedIndexChanged(object sender, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
     {
@@ -31,6 +31,6 @@ public partial class _supervisor_report_rde_elogger : BasePage
         parms.Add(new Microsoft.Reporting.WebForms.ReportParameter("SiteLocation", site != null ? site.Location : ""));
         rpt.LocalReport.SetParameters(parms);
         rpt.LocalReport.Refresh();
-        win.VisibleOnPageLoad = true;
+        //win.VisibleOnPageLoad = true;
     }
 }

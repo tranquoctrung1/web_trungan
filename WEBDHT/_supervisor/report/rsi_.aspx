@@ -150,16 +150,13 @@
                         OnClick="btnView_Click" CssClass="btn btn-primary"></asp:Button>
                 </div>
             </div>
-            <telerik:RadWindow ID="win" runat="server" InitialBehaviors="Maximize"
-                Modal="True" VisibleStatusbar="False">
-                <ContentTemplate>
-                    <rsweb:ReportViewer ID="rpt" runat="server" AsyncRendering="False"
+        </div>
+        <div class="container-fluid m-t">
+             <rsweb:ReportViewer ID="rpt" runat="server" AsyncRendering="False"
                         SizeToReportContent="True">
                         <LocalReport ReportPath="App_Data\reports\rsi_site_rev_02.rdlc"
                             DisplayName="_diem_lap_dat_tuy_chon" />
                     </rsweb:ReportViewer>
-                </ContentTemplate>
-            </telerik:RadWindow>
         </div>
     </div>
 </asp:Content>

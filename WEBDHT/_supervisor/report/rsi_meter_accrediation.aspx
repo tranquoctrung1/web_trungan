@@ -43,18 +43,15 @@
 
             </div>
         </div>
-        <telerik:RadWindow ID="win" runat="server" InitialBehaviors="Maximize"
-            Modal="True" VisibleStatusbar="False">
-            <ContentTemplate>
-                <rsweb:ReportViewer ID="rpt" runat="server" AsyncRendering="False"
-                    SizeToReportContent="True">
-                    <LocalReport ReportPath="App_Data\reports\rsi_meter_expiration.rdlc" />
-                </rsweb:ReportViewer>
-            </ContentTemplate>
-        </telerik:RadWindow>
+
         <telerik:RadNotification ID="ntf" runat="server" Title="Message">
         </telerik:RadNotification>
-
+        <div class="container-fluid m-t">
+            <rsweb:ReportViewer ID="rpt" runat="server" AsyncRendering="False"
+                SizeToReportContent="True">
+                <LocalReport ReportPath="App_Data\reports\rsi_meter_expiration.rdlc" />
+            </rsweb:ReportViewer>
+        </div>
     </div>
 </asp:Content>
 

@@ -11,7 +11,7 @@
         <div id="main-content-title">
             <h2 class="title">Thống kê logger</h2>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid m-t">
             <div class="row">
                 <div class="col-sm-2 col-md-1">
                     <label class="label" for="chkListProviders">Nhà sản xuất</label>
@@ -95,17 +95,14 @@
                 </div>
             </div>
         </div>
-
-        <telerik:RadWindow ID="win" runat="server" InitialBehaviors="Maximize"
-            Modal="True" VisibleStatusbar="False">
-            <ContentTemplate>
-                <rsweb:ReportViewer ID="rpt" runat="server" AsyncRendering="False"
+        <div class="container-fluid m-t">
+            <rsweb:ReportViewer ID="rpt" runat="server" AsyncRendering="False"
                     SizeToReportContent="True">
                     <LocalReport ReportPath="App_Data\reports\rde_logger.rdlc"
                         DisplayName="_logger_tuy_chon" />
                 </rsweb:ReportViewer>
-            </ContentTemplate>
-        </telerik:RadWindow>
+        </div>
+        
     </div>
 </asp:Content>
 

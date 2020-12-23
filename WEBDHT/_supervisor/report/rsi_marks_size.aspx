@@ -5,7 +5,7 @@
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../css/Config.css" rel="stylesheet">
-    
+
     <script type="text/javascript">
         //<![CDATA[
 
@@ -155,18 +155,16 @@
                     <asp:Button ID="Button3" runat="server" Text="Hiệu cỡ" CssClass="btn btn-info"
                         OnClick="btnView_Click"></asp:Button>
                 </div>
-                
+
             </div>
-            <telerik:RadWindow ID="win" runat="server" InitialBehaviors="Maximize"
-                Modal="True" VisibleStatusbar="False">
-                <ContentTemplate>
-                    <rsweb:ReportViewer ID="rpt" runat="server" AsyncRendering="False"
-                        SizeToReportContent="True">
-                        <LocalReport ReportPath="App_Data\reports\rsi_site_rev_02.rdlc"
-                            DisplayName="_diem_lap_dat_tuy_chon" />
-                    </rsweb:ReportViewer>
-                </ContentTemplate>
-            </telerik:RadWindow>
+
+        </div>
+        <div class="container-fluid m-t">
+            <rsweb:ReportViewer ID="rpt" runat="server" AsyncRendering="False"
+                SizeToReportContent="True">
+                <LocalReport ReportPath="App_Data\reports\rsi_site_rev_02.rdlc"
+                    DisplayName="_diem_lap_dat_tuy_chon" />
+            </rsweb:ReportViewer>
         </div>
     </div>
 </asp:Content>

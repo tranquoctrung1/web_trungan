@@ -10,7 +10,7 @@ public partial class _supervisor_report_rsi_sgwdc : BasePage
     SitesBLL _sitesBLL = new SitesBLL();
     protected void Page_Load(object sender, EventArgs e)
     {
-        win.VisibleOnPageLoad = false;
+       // win.VisibleOnPageLoad = false;
         if (!IsPostBack)
         {
             Show();
@@ -23,7 +23,7 @@ public partial class _supervisor_report_rsi_sgwdc : BasePage
     }
     private void Show()
     {
-        win.VisibleOnPageLoad = true;
+        //win.VisibleOnPageLoad = true;
         List<SiteViewModel> list = _sitesBLL.GetAll4SGWDC();
         rpt.LocalReport.DataSources.Clear();
         rpt.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", list));
