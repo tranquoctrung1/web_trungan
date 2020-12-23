@@ -21,14 +21,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main-content2">
         <div id="main-content-title">
-            <h2 class="title">Sản Lượng Theo Đơn Vị Quản Lý</h2>
+            <h2 class="title">Sản Lượng Theo DMA</h2>
         </div>
         <div class="container-fluid m-t">
             <div class="row">
                 <div class="col-sm-4">
                     <div class="group-text">
                         <div class="row">
-                            <span>Đơn vị quản lý</span>
+                            <span>Mã DMA</span>
                         </div>
                         <div class="row m-b">
                             <telerik:RadComboBox ID="cboCompanies" Runat="server" AllowCustomText="True" 
@@ -141,7 +141,7 @@
             let start = $find('<%=dtmStart.ClientID %>');
             let end = $find('<%=dtmEnd.ClientID %>');
             if (siteIDCbo == null || siteIDCbo == undefined || siteIDCbo.get_selectedItem() == null || siteIDCbo.get_selectedItem() == undefined) {
-                alert("Chưa chọn mã quản lý")
+                alert("Chưa chọn mã DMA")
                 return false;
             }
             else if (start == null || start == undefined || start.get_selectedDate() == null || start.get_selectedDate() == undefined) {

@@ -47,6 +47,7 @@ namespace WcfLoggerData.ConnectDB
         public static SqlCommand ExcuteStoreProceduce(string sqlquery)
         {
             SqlCommand sqlCommand = new SqlCommand(sqlquery, sqlConnection);
+            sqlCommand.CommandTimeout = 0;
             sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
             sqlCommand.Clone();
 

@@ -104,12 +104,12 @@
                     <!-- Sidebar Menu -->
                     <ul class="sidebar-menu" data-widget="tree">
                         <!-- Optionally, you can add icons to the links -->
-                         <li class="treeview">
+                         <%--<li class="treeview">
                             <a class="logo brand-link" href="/">
                                 <img src="../App_Themes/logo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8" runat="server" id="imgLogo">
                               
                             </a>
-                        </li>
+                        </li>--%>
                         <li>
                             <a href="/_supervisor/map/Map.aspx">
                                 <i class="fa fa-home"></i>
@@ -352,28 +352,48 @@
                                     </a>
                                 </li>
                                  <li>
+                                    <a href="/_supervisor/logger/HourlyLogger.aspx">
+                                        <asp:Label ID="lbQuantityHourlyLogger" runat="server" Text="Sản Lượng Giờ Theo Point"></asp:Label>
+                                    </a>
+                                </li>
+                                 <li>
                                     <a href="/_supervisor/logger/DailyLogger.aspx">
                                         <asp:Label ID="lbDailyQuantityPoint" runat="server" Text="Sản Lượng Ngày Theo Point"></asp:Label>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/_supervisor/logger/HourlyLogger.aspx">
-                                        <asp:Label ID="lbQuantityHourlyLogger" runat="server" Text="Sản Lượng Giờ Theo Point"></asp:Label>
+                                    <a href="/_supervisor/logger/MonthlyLogger.aspx">
+                                        <asp:Label ID="lbmonthlyQuantityLogger" runat="server" Text="Sản Lượng Tháng Theo Point"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/logger/HourlyManager.aspx">
+                                        <asp:Label ID="lbQuantityHourlyManager" runat="server" Text="Sản Lượng Giờ Theo DMA"></asp:Label>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/_supervisor/logger/DailyManager.aspx">
-                                        <asp:Label ID="lbDailyQuantityManager" runat="server" Text="Sản Lượng Ngày Theo Đơn Vị Quản Lý"></asp:Label>
+                                        <asp:Label ID="lbDailyQuantityManager" runat="server" Text="Sản Lượng Ngày Theo DMA"></asp:Label>
                                     </a>
                                 </li>
-                                 <li>
-                                    <a href="/_supervisor/logger/HourlyManager.aspx">
-                                        <asp:Label ID="lbQuantityHourlyManager" runat="server" Text="Sản Lượng Giờ Theo Đơn Vị Quản Lý"></asp:Label>
+                                <li>
+                                    <a href="/_supervisor/logger/MonthlyCompany.aspx">
+                                        <asp:Label ID="lbMonthlyQuantityManager" runat="server" Text="Sản Lượng Tháng Theo DMA"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/logger/HourlyTotal.aspx">
+                                        <asp:Label ID="lbHourlyQuantityTotal" runat="server" Text="Sản Lượng Giờ Tổng Công Ty"></asp:Label>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/_supervisor/logger/DailyTotal.aspx">
                                         <asp:Label ID="lbDailyQuantityTotal" runat="server" Text="Sản Lượng Ngày Tổng Công Ty"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/logger/MonthlyTotal.aspx">
+                                        <asp:Label ID="lbMonthlyQuantityTotal" runat="server" Text="Sản Lượng Tháng Tổng Công Ty"></asp:Label>
                                     </a>
                                 </li>
                             </ul>
@@ -407,6 +427,11 @@
                                 <li>
                                     <a href="/_supervisor/alarm/AlarmTable.aspx">
                                         <asp:Label ID="lbTableAlarm" runat="server" Text="Bảng Cảnh Báo"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/alarm/SettingAlarm.aspx">
+                                        <asp:Label ID="lbSettingAlarm" runat="server" Text="Cài Đặt Cảnh Báo"></asp:Label>
                                     </a>
                                 </li>
                                 

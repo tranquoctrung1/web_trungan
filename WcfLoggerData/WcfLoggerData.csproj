@@ -124,6 +124,10 @@
     <Compile Include="Action\GetDataReportDailyTotalAction.cs" />
     <Compile Include="Action\GetDataReportHourlyCompanyAction.cs" />
     <Compile Include="Action\GetDataReportHourlySiteAction.cs" />
+    <Compile Include="Action\GetDataReportHourlyTotalAction.cs" />
+    <Compile Include="Action\GetDataReportMonthlyManagerAction.cs" />
+    <Compile Include="Action\GetDataReportMonthlySiteAction.cs" />
+    <Compile Include="Action\GetDataReportMonthlyTotalAction.cs" />
     <Compile Include="Action\GetDisplayGroupAction.cs" />
     <Compile Include="Action\GetGroupChannelAction.cs" />
     <Compile Include="Action\GetGroupChannelByLoggerAction.cs" />
@@ -147,6 +151,10 @@
     <Compile Include="Controllers\GetDataReportDailyTotalController.cs" />
     <Compile Include="Controllers\GetDataReportHourlyCompanyController.cs" />
     <Compile Include="Controllers\GetDataReportHourlySiteController.cs" />
+    <Compile Include="Controllers\GetDataReportHourlyTotalController.cs" />
+    <Compile Include="Controllers\GetDataReportMonthlyManagerController.cs" />
+    <Compile Include="Controllers\GetDataReportMonthlySiteController.cs" />
+    <Compile Include="Controllers\GetDataReportMonthlyTotalController.cs" />
     <Compile Include="Controllers\GetDisplayGroupController.cs" />
     <Compile Include="Controllers\GetGroupChannelByLoggerController.cs" />
     <Compile Include="Controllers\GetGroupChannelController.cs" />
@@ -172,6 +180,10 @@
     <Compile Include="Models\DataReportDailyTotalViewModel.cs" />
     <Compile Include="Models\DataReportHourlyCompanyViewModel.cs" />
     <Compile Include="Models\DataReportHourlySiteViewModel.cs" />
+    <Compile Include="Models\DataReportHourlyTotalViewModel.cs" />
+    <Compile Include="Models\DataReportMonthlyManagerViewModel.cs" />
+    <Compile Include="Models\DataReportMonthlySiteViewModel.cs" />
+    <Compile Include="Models\DataReportMonthlyTotalViewModel.cs" />
     <Compile Include="Models\GroupChannelByLoggerViewModel.cs" />
     <Compile Include="Models\GroupChannelViewModel.cs" />
     <Compile Include="Models\SiteByDisplayGroupViewModel.cs" />
@@ -202,6 +214,10 @@
     <Folder Include="Views\GetDataReportDailyTotal\" />
     <Folder Include="Views\GetDataReportHourlyCompany\" />
     <Folder Include="Views\GetDataReportHourlySite\" />
+    <Folder Include="Views\GetDataReportHourlyTotal\" />
+    <Folder Include="Views\GetDataReportMonthlyManager\" />
+    <Folder Include="Views\GetDataReportMonthlySite\" />
+    <Folder Include="Views\GetDataReportMonthlyTotal\" />
     <Folder Include="Views\GetDisplayGroup\" />
     <Folder Include="Views\GetGroupChannelByLogger\" />
     <Folder Include="Views\GetGroupChannel\" />

@@ -148,11 +148,11 @@
                 return false;
             }
             else if (start == null || start == undefined || start.get_selectedDate() == null || start.get_selectedDate() == undefined) {
-                alert("Chưa chọn ngày bắt đầu")
+                alert("Chưa chọn giờ bắt đầu")
                 return false;
             }
             else if (end == null || end == undefined || end.get_selectedDate() == null || end.get_selectedDate() == undefined) {
-                alert("Chưa chọn ngày kết thúc")
+                alert("Chưa chọn giờ kết thúc")
                 return false;
             }
             else {

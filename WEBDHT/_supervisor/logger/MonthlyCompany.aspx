@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="HourlyManager.aspx.cs" Inherits="_supervisor_logger_HourlyManager" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="MonthlyCompany.aspx.cs" Inherits="_supervisor_logger_MonthlyCompany" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../css/Config.css" rel="stylesheet">
@@ -20,7 +20,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main-content2">
         <div id="main-content-title">
-            <h2 class="title">Sản Lượng Giờ Theo DMA</h2>
+            <h2 class="title">Sản Lượng Tháng Theo DMA</h2>
         </div>
         <div class="container-fluid m-t">
             <div class="row">
@@ -30,7 +30,7 @@
                             <span>Mã DMA</span>
                         </div>
                         <div class="row m-b">
-                             <telerik:RadComboBox ID="cboCompanies" Runat="server" AllowCustomText="True" 
+                            <telerik:RadComboBox ID="cboCompanies" Runat="server" AllowCustomText="True" 
                                 EnableLoadOnDemand="True" Filter="StartsWith" 
                                 HighlightTemplatedItems="True" DataSourceID="SiteCompaniesDataSource" 
                                 DataTextField="Company" DataValueField="Company" DropDownWidth="275px" 
@@ -62,37 +62,29 @@
                 <div class="col-sm-4">
                     <div class="group-text">
                         <div class="row">
-                            <span>Giờ Bắt Đầu</span>
+                            <span>Từ tháng</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadDateTimePicker ID="dtmStart" runat="server" Culture="en-GB"
-                                TabIndex="2">
-                                <Calendar UseColumnHeadersAsSelectors="False" UseRowHeadersAsSelectors="False"
-                                    ViewSelectorText="x">
-                                </Calendar>
-                                <DateInput DateFormat="dd/MM/yyyy" DisplayDateFormat="dd/MM/yyyy"
-                                    EnableSingleInputRendering="True" LabelWidth="64px" TabIndex="2">
-                                </DateInput>
-                                <DatePopupButton HoverImageUrl="" ImageUrl="" TabIndex="-1" />
-                            </telerik:RadDateTimePicker>
+                            <telerik:RadMonthYearPicker ID="dtmStart" runat="server" Culture="en-GB" CssClass="custom-picker full-width h-33">
+                                <DateInput DisplayDateFormat="MM/yyyy" DateFormat="MM/yyyy" LabelWidth="40%"></DateInput>
+
+                                <DatePopupButton ImageUrl="" HoverImageUrl="" BackColor="White"></DatePopupButton>
+                            </telerik:RadMonthYearPicker>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="group-text">
                         <div class="row">
-                            <span>Giờ Kết Thúc</span>
+                            <span>Đến tháng</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadDateTimePicker ID="dtmEnd" runat="server" Culture="en-GB" TabIndex="3">
-                                <Calendar UseColumnHeadersAsSelectors="False" UseRowHeadersAsSelectors="False"
-                                    ViewSelectorText="x">
-                                </Calendar>
-                                <DateInput DateFormat="dd/MM/yyyy" DisplayDateFormat="dd/MM/yyyy"
-                                    EnableSingleInputRendering="True" LabelWidth="64px" TabIndex="3">
-                                </DateInput>
-                                <DatePopupButton HoverImageUrl="" ImageUrl="" TabIndex="-1" />
-                            </telerik:RadDateTimePicker>
+                           <telerik:RadMonthYearPicker ID="dtmEnd" runat="server" Culture="en-GB" CssClass="custom-picker full-width h-33">
+                                <DateInput DisplayDateFormat="MM/yyyy" DateFormat="MM/yyyy" LabelWidth="40%"></DateInput>
+
+                                <DatePopupButton ImageUrl="" HoverImageUrl="" BackColor="White"></DatePopupButton>
+                            </telerik:RadMonthYearPicker>
+                           
                         </div>
                     </div>
 
@@ -145,11 +137,11 @@
                 return false;
             }
             else if (start == null || start == undefined || start.get_selectedDate() == null || start.get_selectedDate() == undefined) {
-                alert("Chưa chọn giờ bắt đầu")
+                alert("Chưa chọn tháng bắt đầu")
                 return false;
             }
             else if (end == null || end == undefined || end.get_selectedDate() == null || end.get_selectedDate() == undefined) {
-                alert("Chưa chọn giờ kết thúc")
+                alert("Chưa chọn tháng kết thúc")
                 return false;
             }
             else {
@@ -175,7 +167,7 @@
             let totalSecondStart = timeStart.getTime() / 1000;
             let totalSecondEnd = timeEnd.getTime() / 1000;
 
-            let urlGetDataDailySite = `${hostname}/api/getdatareporthourlycompany/?company=${siteid}&start=${totalSecondStart}&end=${totalSecondEnd}`;
+            let urlGetDataDailySite = `${hostname}/api/getdatareportmonthlymanager/?manager=${siteid}&start=${totalSecondStart}&end=${totalSecondEnd}`;
 
 
             axios.get(urlGetDataDailySite).then((res) => {
@@ -313,4 +305,3 @@
         }
     </script>
 </asp:Content>
-

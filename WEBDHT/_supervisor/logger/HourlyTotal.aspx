@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="HourlyManager.aspx.cs" Inherits="_supervisor_logger_HourlyManager" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="HourlyTotal.aspx.cs" Inherits="_supervisor_logger_HourlyTotal" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../css/Config.css" rel="stylesheet">
@@ -20,46 +20,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main-content2">
         <div id="main-content-title">
-            <h2 class="title">Sản Lượng Giờ Theo DMA</h2>
+            <h2 class="title">Sản Lượng Tổng Theo Giờ</h2>
         </div>
         <div class="container-fluid m-t">
             <div class="row">
-                <div class="col-sm-4">
-                    <div class="group-text">
-                        <div class="row">
-                            <span>Mã DMA</span>
-                        </div>
-                        <div class="row m-b">
-                             <telerik:RadComboBox ID="cboCompanies" Runat="server" AllowCustomText="True" 
-                                EnableLoadOnDemand="True" Filter="StartsWith" 
-                                HighlightTemplatedItems="True" DataSourceID="SiteCompaniesDataSource" 
-                                DataTextField="Company" DataValueField="Company" DropDownWidth="275px" 
-                                TabIndex="1">
-                                <HeaderTemplate>
-                                    <table cellpadding="0" cellspacing="0">
-                                        <tr>
-                                            <td style="width:70px">Công ty</td>
-                                            <td style="width:200px">Mô tả</td>
-                                        </tr>
-                                    </table>
-                                </HeaderTemplate>
-                                <ItemTemplate>
-                                    <table cellpadding="0" cellspacing="0">
-                                        <tr>
-                                            <td style="width:70px"><%#DataBinder.Eval(Container.DataItem,"Company") %></td>
-                                            <td style="width:200px"><%#DataBinder.Eval(Container.DataItem,"Description") %></td>
-                                        </tr>
-                                    </table>
-                                </ItemTemplate>
-                            </telerik:RadComboBox>
-                            <asp:ObjectDataSource ID="SiteCompaniesDataSource" runat="server" 
-                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll" 
-                                TypeName="SiteCompaniesBLL"></asp:ObjectDataSource>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <div class="group-text">
                         <div class="row">
                             <span>Giờ Bắt Đầu</span>
@@ -78,7 +43,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <div class="group-text">
                         <div class="row">
                             <span>Giờ Kết Thúc</span>
@@ -137,14 +102,9 @@
             loadingElement.classList.remove('hide');
 
 
-            let siteIDCbo = $find('<%=cboCompanies.ClientID %>');
             let start = $find('<%=dtmStart.ClientID %>');
             let end = $find('<%=dtmEnd.ClientID %>');
-            if (siteIDCbo == null || siteIDCbo == undefined || siteIDCbo.get_selectedItem() == null || siteIDCbo.get_selectedItem() == undefined) {
-                alert("Chưa chọn mã DMA")
-                return false;
-            }
-            else if (start == null || start == undefined || start.get_selectedDate() == null || start.get_selectedDate() == undefined) {
+            if (start == null || start == undefined || start.get_selectedDate() == null || start.get_selectedDate() == undefined) {
                 alert("Chưa chọn giờ bắt đầu")
                 return false;
             }
@@ -153,13 +113,11 @@
                 return false;
             }
             else {
-                let siteID = siteIDCbo.get_selectedItem().get_value();
-
-                getData(siteID, start, end)
+                getData(start, end)
             }
         }
 
-        function getData(siteid, start, end) {
+        function getData(start, end) {
             var hostname = window.location.origin;
             if (hostname.indexOf("localhost") < 0)
                 hostname = hostname + "/VivaServices/";
@@ -175,7 +133,7 @@
             let totalSecondStart = timeStart.getTime() / 1000;
             let totalSecondEnd = timeEnd.getTime() / 1000;
 
-            let urlGetDataDailySite = `${hostname}/api/getdatareporthourlycompany/?company=${siteid}&start=${totalSecondStart}&end=${totalSecondEnd}`;
+            let urlGetDataDailySite = `${hostname}/api/getdatareporthourlytotal/?start=${totalSecondStart}&end=${totalSecondEnd}`;
 
 
             axios.get(urlGetDataDailySite).then((res) => {
@@ -313,4 +271,3 @@
         }
     </script>
 </asp:Content>
-

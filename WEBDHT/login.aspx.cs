@@ -11,7 +11,7 @@ public partial class login : BasePage
     private string _msgWrong = "Sai ký danh hoặc mật khẩu.";
     private string _msgEmptyUid = "Chưa nhập ký danh.";
     private string _msgEmptyPwd = "Chưa nhập mật khẩu.";
-    private string _urlDefault = "~/_supervisor/map/Map.aspx";
+    private string _urlDefault = "~/_supervisor/default.aspx";
     private string _urlCustomer = "~/_customer/output.aspx";
     UsersBLL _usersBLL = new UsersBLL();
     StringUTL _stringUTL = new StringUTL();

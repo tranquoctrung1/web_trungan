@@ -92,6 +92,7 @@
 
         let data = [];
         let filterData = [];
+        let isFilter = false;
 
         function getData() {
             let url = `${hostname}/api/getvaluealarm/?uid=admin`
@@ -211,21 +212,53 @@
 
         function searchHandle() {
             let txtSearch = document.getElementById('txtSearch');
-            console.log(data);
 
             filterData = data.filter((item) => item.AliasName.toLowerCase().indexOf(txtSearch.value.toLowerCase()) !== -1);
 
             createBody(filterData);
 
+            isFilter = true;
         }
 
+
+
         function reload() {
-            createBody(data)
+            createBody(data);
+
+            let txtSearch = document.getElementById('txtSearch');
+            txtSearch.innerHTML = "";
+
+            isFilter = false;
         }
 
         // call get data
         getData();
 
+        setInterval(function () {
+            var hostname = window.location.origin;
+            if (hostname.indexOf("localhost") < 0)
+                hostname = hostname + "/VivaServices/";
+            else
+                hostname = "http://localhost:57880";
+
+            let url = `${hostname}/api/getvaluealarm/?uid=admin`
+
+            axios.get(url).then((res) => {
+                data = res.data;
+                if (isFilter == true) {
+                    let txtSearch = document.getElementById('txtSearch');
+
+                    filterData = data.filter((item) => item.AliasName.toLowerCase().indexOf(txtSearch.value.toLowerCase()) !== -1);
+
+                    createBody(filterData);
+
+                }
+                else {
+                    createBody(data);
+                }
+            }).catch((err) => console.log(err))
+
+        }, 30000);
     </script>
 
 </asp:Content>
