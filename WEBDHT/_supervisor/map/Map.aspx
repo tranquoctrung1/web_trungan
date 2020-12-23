@@ -276,12 +276,12 @@
                                 <ul class="treeview-menu">
                                     <li>
                                         <a href="/_supervisor/report/rsi_sgwdc.aspx">
-                                            <asp:Label ID="lbReportRSI" runat="server" Text="Điểm Lắp Đặt Xí nghiệp Quản Lý"></asp:Label>
+                                            <asp:Label ID="lbReportRSI" runat="server" Text="Điểm Lắp Đặt Theo DMA"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="/_supervisor/report/rsi_marks_size_sgwdc.aspx">
-                                            <asp:Label ID="lbReportRSIMark" runat="server" Text="Theo Hiệu Cỡ (Xí Nghiệp Quản Lý)"></asp:Label>
+                                            <asp:Label ID="lbReportRSIMark" runat="server" Text="Theo Hiệu Cỡ (DMA)"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
@@ -425,37 +425,37 @@
                                             <asp:Label ID="lbmonthlyQuantityLogger" runat="server" Text="Sản Lượng Tháng Theo Point"></asp:Label>
                                         </a>
                                     </li>
-                            <li>
-                                <a href="/_supervisor/logger/HourlyManager.aspx">
-                                    <asp:Label ID="lbQuantityHourlyManager" runat="server" Text="Sản Lượng Giờ Theo DMA"></asp:Label>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/_supervisor/logger/DailyManager.aspx">
-                                    <asp:Label ID="lbDailyQuantityManager" runat="server" Text="Sản Lượng Ngày Theo DMA"></asp:Label>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/_supervisor/logger/MonthlyCompany.aspx">
-                                    <asp:Label ID="lbMonthlyQuantityManager" runat="server" Text="Sản Lượng Tháng Theo DMA"></asp:Label>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/_supervisor/logger/HourlyTotal.aspx">
-                                    <asp:Label ID="lbHourlyQuantityTotal" runat="server" Text="Sản Lượng Giờ Tổng Công Ty"></asp:Label>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/_supervisor/logger/DailyTotal.aspx">
-                                    <asp:Label ID="lbDailyQuantityTotal" runat="server" Text="Sản Lượng Ngày Tổng Công Ty"></asp:Label>
-                                </a>
-                            </li>
-                            <li>
-                                    <a href="/_supervisor/logger/MonthlyTotal.aspx">
-                                        <asp:Label ID="lbMonthlyQuantityTotal" runat="server" Text="Sản Lượng Tháng Tổng Công Ty"></asp:Label>
-                                    </a>
-                                </li>
-                        </ul>
+                                    <li>
+                                        <a href="/_supervisor/logger/HourlyManager.aspx">
+                                            <asp:Label ID="lbQuantityHourlyManager" runat="server" Text="Sản Lượng Giờ Theo DMA"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/logger/DailyManager.aspx">
+                                            <asp:Label ID="lbDailyQuantityManager" runat="server" Text="Sản Lượng Ngày Theo DMA"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/logger/MonthlyCompany.aspx">
+                                            <asp:Label ID="lbMonthlyQuantityManager" runat="server" Text="Sản Lượng Tháng Theo DMA"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/logger/HourlyTotal.aspx">
+                                            <asp:Label ID="lbHourlyQuantityTotal" runat="server" Text="Sản Lượng Giờ Tổng Công Ty"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/logger/DailyTotal.aspx">
+                                            <asp:Label ID="lbDailyQuantityTotal" runat="server" Text="Sản Lượng Ngày Tổng Công Ty"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                            <a href="/_supervisor/logger/MonthlyTotal.aspx">
+                                                <asp:Label ID="lbMonthlyQuantityTotal" runat="server" Text="Sản Lượng Tháng Tổng Công Ty"></asp:Label>
+                                            </a>
+                                        </li>
+                            </ul>
                         </li>
 
                             <li class="treeview">
@@ -491,6 +491,27 @@
                                 <li>
                                     <a href="/_supervisor/alarm/SettingAlarm.aspx">
                                         <asp:Label ID="lbSettingAlarm" runat="server" Text="Cài Đặt Cảnh Báo"></asp:Label>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li class="treeview">
+                            <a href="#DMA"><i class="fa fa-plus-square"></i>
+                                <asp:Label ID="lbDMA" runat="server" Text="DMA"></asp:Label>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="/_supervisor/DMA/AddDMA.aspx">
+                                        <asp:Label ID="lbAddDMA" runat="server" Text="Thêm DMA"></asp:Label>
+                                    </a>
+                                </li>
+                               <li>
+                                    <a href="/_supervisor/DMA/SeparateDMA.aspx">
+                                        <asp:Label ID="lbSeoerateDMA" runat="server" Text="Phân DMA"></asp:Label>
                                     </a>
                                 </li>
                             </ul>

@@ -217,12 +217,12 @@
                             <ul class="treeview-menu">
                                  <li>
                                     <a href="/_supervisor/report/rsi_sgwdc.aspx">
-                                        <asp:Label ID="lbReportRSI" runat="server" Text="Điểm Lắp Đặt Xí nghiệp Quản Lý"></asp:Label>
+                                        <asp:Label ID="lbReportRSI" runat="server" Text="Điểm Lắp Đặt Theo DMA"></asp:Label>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/_supervisor/report/rsi_marks_size_sgwdc.aspx">
-                                        <asp:Label ID="lbReportRSIMark" runat="server" Text="Theo Hiệu Cỡ (Xí Nghiệp Quản Lý)"></asp:Label>
+                                        <asp:Label ID="lbReportRSIMark" runat="server" Text="Theo Hiệu Cỡ (DMA)"></asp:Label>
                                     </a>
                                 </li>
                                 <li>
@@ -437,7 +437,26 @@
                                 
                             </ul>
                         </li>
-
+                        <li class="treeview">
+                            <a href="#DMA"><i class="fa fa-plus-square"></i>
+                                <asp:Label ID="lbDMA" runat="server" Text="DMA"></asp:Label>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="/_supervisor/DMA/AddDMA.aspx">
+                                        <asp:Label ID="lbAddDMA" runat="server" Text="Thêm DMA"></asp:Label>
+                                    </a>
+                                </li>
+                               <li>
+                                    <a href="/_supervisor/DMA/SeparateDMA.aspx">
+                                        <asp:Label ID="lbSeoerateDMA" runat="server" Text="Phân DMA"></asp:Label>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
                        <%-- <li class="treeview">
                             <a href="#QuanLyNgonNgu"><i class="fa fa-language"></i>

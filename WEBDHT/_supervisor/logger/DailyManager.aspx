@@ -39,7 +39,7 @@
                                 <HeaderTemplate>
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
-                                            <td style="width:70px">Công ty</td>
+                                            <td style="width:70px">DMA</td>
                                             <td style="width:200px">Mô tả</td>
                                         </tr>
                                     </table>
