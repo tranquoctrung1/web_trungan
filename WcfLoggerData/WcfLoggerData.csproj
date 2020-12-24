@@ -118,6 +118,10 @@
     <Compile Include="Action\GetChannelByLoggerAction.cs" />
     <Compile Include="Action\GetChannelConfigAction.cs" />
     <Compile Include="Action\GetChannelDataDailyAction.cs" />
+    <Compile Include="Action\GetDataDashBoardDailySiteAction.cs" />
+    <Compile Include="Action\GetDataDashBoardHourlySiteAction.cs" />
+    <Compile Include="Action\GetDataDashBoardMonthlyAction.cs" />
+    <Compile Include="Action\GetDataDashBoardYearlySiteAction.cs" />
     <Compile Include="Action\GetDataHistoryAction.cs" />
     <Compile Include="Action\GetDataReportDailyManagerAction.cs" />
     <Compile Include="Action\GetDataReportDailySiteAction.cs" />
@@ -128,6 +132,7 @@
     <Compile Include="Action\GetDataReportMonthlyManagerAction.cs" />
     <Compile Include="Action\GetDataReportMonthlySiteAction.cs" />
     <Compile Include="Action\GetDataReportMonthlyTotalAction.cs" />
+    <Compile Include="Action\GetDataReportYearlySiteAction.cs" />
     <Compile Include="Action\GetDisplayGroupAction.cs" />
     <Compile Include="Action\GetGroupChannelAction.cs" />
     <Compile Include="Action\GetGroupChannelByLoggerAction.cs" />
@@ -146,6 +151,10 @@
     <Compile Include="Controllers\GetChannelDataDailyController.cs" />
     <Compile Include="Controllers\GetDataChartController.cs" />
     <Compile Include="Controllers\GetDataComplexController.cs" />
+    <Compile Include="Controllers\GetDataDashBoardDailySiteController.cs" />
+    <Compile Include="Controllers\GetDataDashBoardHourlySiteController.cs" />
+    <Compile Include="Controllers\GetDataDashBoardMonthlySiteController.cs" />
+    <Compile Include="Controllers\GetDataDashBoardYearlySiteController.cs" />
     <Compile Include="Controllers\GetDataReportDailyManagerController.cs" />
     <Compile Include="Controllers\GetDataReportDailySiteController.cs" />
     <Compile Include="Controllers\GetDataReportDailyTotalController.cs" />
@@ -155,6 +164,7 @@
     <Compile Include="Controllers\GetDataReportMonthlyManagerController.cs" />
     <Compile Include="Controllers\GetDataReportMonthlySiteController.cs" />
     <Compile Include="Controllers\GetDataReportMonthlyTotalController.cs" />
+    <Compile Include="Controllers\GetDataReportYearlySiteController.cs" />
     <Compile Include="Controllers\GetDisplayGroupController.cs" />
     <Compile Include="Controllers\GetGroupChannelByLoggerController.cs" />
     <Compile Include="Controllers\GetGroupChannelController.cs" />
@@ -184,6 +194,7 @@
     <Compile Include="Models\DataReportMonthlyManagerViewModel.cs" />
     <Compile Include="Models\DataReportMonthlySiteViewModel.cs" />
     <Compile Include="Models\DataReportMonthlyTotalViewModel.cs" />
+    <Compile Include="Models\DataReportYearlySiteViewModel.cs" />
     <Compile Include="Models\GroupChannelByLoggerViewModel.cs" />
     <Compile Include="Models\GroupChannelViewModel.cs" />
     <Compile Include="Models\SiteByDisplayGroupViewModel.cs" />
@@ -210,6 +221,10 @@
     <Folder Include="Views\GetChannelDataDaily\" />
     <Folder Include="Views\GetDataChart\" />
     <Folder Include="Views\GetDataDailyManager\" />
+    <Folder Include="Views\GetDataDashBoardDailySite\" />
+    <Folder Include="Views\GetDataDashBoardHourlySite\" />
+    <Folder Include="Views\GetDataDashBoardMonthlySite\" />
+    <Folder Include="Views\GetDataDashBoardYearlySite\" />
     <Folder Include="Views\GetDataReportDailySite\" />
     <Folder Include="Views\GetDataReportDailyTotal\" />
     <Folder Include="Views\GetDataReportHourlyCompany\" />
@@ -218,6 +233,7 @@
     <Folder Include="Views\GetDataReportMonthlyManager\" />
     <Folder Include="Views\GetDataReportMonthlySite\" />
     <Folder Include="Views\GetDataReportMonthlyTotal\" />
+    <Folder Include="Views\GetDataReportYearlySite\" />
     <Folder Include="Views\GetDisplayGroup\" />
     <Folder Include="Views\GetGroupChannelByLogger\" />
     <Folder Include="Views\GetGroupChannel\" />

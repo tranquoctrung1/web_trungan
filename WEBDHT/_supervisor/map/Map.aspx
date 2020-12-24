@@ -175,9 +175,15 @@
                                     <asp:Label ID="lbMap" runat="server" Text="Bản Đồ Tổng Thể"></asp:Label>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/_supervisor/DashBoard/DashBoard.aspx">
+                                    <i class="fa fa-table"></i>
+                                    <asp:Label ID="lbDashBoard" runat="server" Text="DashBoard"></asp:Label>
+                                </a>
+                            </li>
                             <li class="treeview">
                                 <a href="#ThietBi"><i class="fa fa-flag"></i>
-                                    <asp:Label ID="Label1" runat="server" Text="Thiết Bị"></asp:Label>
+                                    <asp:Label ID="lbDevice" runat="server" Text="Thiết Bị"></asp:Label>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
                                     </span>
@@ -451,12 +457,12 @@
                                         </a>
                                     </li>
                                     <li>
-                                            <a href="/_supervisor/logger/MonthlyTotal.aspx">
-                                                <asp:Label ID="lbMonthlyQuantityTotal" runat="server" Text="Sản Lượng Tháng Tổng Công Ty"></asp:Label>
-                                            </a>
-                                        </li>
-                            </ul>
-                        </li>
+                                        <a href="/_supervisor/logger/MonthlyTotal.aspx">
+                                            <asp:Label ID="lbMonthlyQuantityTotal" runat="server" Text="Sản Lượng Tháng Tổng Công Ty"></asp:Label>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
                             <li class="treeview">
                                 <a href="#DoThi"><i class="fa fa-line-chart"></i>
@@ -475,48 +481,48 @@
                                 </ul>
                             </li>
 
-                        <li class="treeview">
-                            <a href="#CanhBao"><i class="fa fa-bell"></i>
-                                <asp:Label ID="lbAlarm" runat="server" Text="Cảnh Báo"></asp:Label>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="/_supervisor/alarm/AlarmTable.aspx">
-                                        <asp:Label ID="lbTableAlarm" runat="server" Text="Bảng Cảnh Báo"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/_supervisor/alarm/SettingAlarm.aspx">
-                                        <asp:Label ID="lbSettingAlarm" runat="server" Text="Cài Đặt Cảnh Báo"></asp:Label>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        <li class="treeview">
-                            <a href="#DMA"><i class="fa fa-plus-square"></i>
-                                <asp:Label ID="lbDMA" runat="server" Text="DMA"></asp:Label>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="/_supervisor/DMA/AddDMA.aspx">
-                                        <asp:Label ID="lbAddDMA" runat="server" Text="Thêm DMA"></asp:Label>
-                                    </a>
-                                </li>
-                               <li>
-                                    <a href="/_supervisor/DMA/SeparateDMA.aspx">
-                                        <asp:Label ID="lbSeoerateDMA" runat="server" Text="Phân DMA"></asp:Label>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <%-- <li class="treeview">
+                            <li class="treeview">
+                                <a href="#CanhBao"><i class="fa fa-bell"></i>
+                                    <asp:Label ID="lbAlarm" runat="server" Text="Cảnh Báo"></asp:Label>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="/_supervisor/alarm/AlarmTable.aspx">
+                                            <asp:Label ID="lbTableAlarm" runat="server" Text="Bảng Cảnh Báo"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/alarm/SettingAlarm.aspx">
+                                            <asp:Label ID="lbSettingAlarm" runat="server" Text="Cài Đặt Cảnh Báo"></asp:Label>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="treeview">
+                                <a href="#DMA"><i class="fa fa-plus-square"></i>
+                                    <asp:Label ID="lbDMA" runat="server" Text="DMA"></asp:Label>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="/_supervisor/DMA/AddDMA.aspx">
+                                            <asp:Label ID="lbAddDMA" runat="server" Text="Thêm DMA"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/DMA/SeparateDMA.aspx">
+                                            <asp:Label ID="lbSeoerateDMA" runat="server" Text="Phân DMA"></asp:Label>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <%-- <li class="treeview">
                             <a href="#QuanLyNgonNgu"><i class="fa fa-language"></i>
                                 <asp:Label ID="lbLanguageManagement" runat="server" Text="Quản Lý Ngôn Ngữ"></asp:Label>
                                 <span class="pull-right-container">
@@ -537,7 +543,7 @@
                             </ul>
                         </li>--%>
 
-                        <%-- <li class="treeview">
+                            <%-- <li class="treeview">
                             <a href="#QuanLyHeThong"><i class="fa fa-plug"></i>
                                 <asp:Label ID="lbConfigSystem" runat="server" Text="Quản Lý Hệ Thống"></asp:Label>
                                 <span class="pull-right-container">
@@ -567,7 +573,7 @@
                                 </li>
                             </ul>
                         </li>--%>
-                        <%-- <li class="treeview">
+                            <%-- <li class="treeview">
                             <a href="#FullScreen">
                                 <i class="fa fa-arrows-alt"></i>
                                 <span class="name">
@@ -575,7 +581,7 @@
                                 </span>
                             </a>
                         </li>--%>
-                        <%--<li class="treeview">
+                            <%--<li class="treeview">
                             <a href="#Alert" id="btnShowAlarm" class="click">
                                 <i class="fa fa-bell-o"></i>
                                 <span class="name">
@@ -587,7 +593,7 @@
                             </a>
                         </li>--%>
 
-                        <%-- <li class="treeview">
+                            <%-- <li class="treeview">
                             <a href="#NgonNgu">
                                 <i class="fa fa-language"></i>
                                 <asp:Label ID="Label1" runat="server" Text="Ngôn ngữ"></asp:Label>
@@ -617,33 +623,33 @@
                             </ul>
                         </li>--%>
 
-                        <li class="treeview">
-                            <a href="#DangXuat">
-                                <i class="fa fa-user-circle"></i>
-                                <span class="name">
-                                    <asp:Label ID="lbUserName" runat="server" Text="User's name"></asp:Label>
-                                </span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="/_supervisor/account/change_password.aspx">
-                                        <%--<i class="fa fa-gear icon"></i>--%>
-                                        <asp:Label ID="lbChangePassword" runat="server" Text="Đổi Mật Khẩu"></asp:Label>
-                                    </a>
-                                </li>
-                                <li></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#" id="btnLogout">
-                                <i class="fa fa-power-off icon"></i>
-                                <asp:Label ID="lbLogout" runat="server" Text="Logout"></asp:Label>
-                            </a>
+                            <li class="treeview">
+                                <a href="#DangXuat">
+                                    <i class="fa fa-user-circle"></i>
+                                    <span class="name">
+                                        <asp:Label ID="lbUserName" runat="server" Text="User's name"></asp:Label>
+                                    </span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="/_supervisor/account/change_password.aspx">
+                                            <%--<i class="fa fa-gear icon"></i>--%>
+                                            <asp:Label ID="lbChangePassword" runat="server" Text="Đổi Mật Khẩu"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li></li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#" id="btnLogout">
+                                    <i class="fa fa-power-off icon"></i>
+                                    <asp:Label ID="lbLogout" runat="server" Text="Logout"></asp:Label>
+                                </a>
 
-                        </li>
+                            </li>
 
                         </ul>
                         <asp:HiddenField ID="hidListMenu" runat="server" />

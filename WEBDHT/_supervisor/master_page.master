@@ -116,9 +116,15 @@
                                 <asp:Label ID="lbMap" runat="server" Text="Bản Đồ Tổng Thể"></asp:Label>
                             </a>
                         </li>
+                        <li>
+                            <a href="/_supervisor/DashBoard/DashBoard.aspx">
+                                <i class="fa fa-table"></i>
+                                <asp:Label ID="lbDashBoard" runat="server" Text="DashBoard"></asp:Label>
+                            </a>
+                        </li>
                         <li class="treeview">
                             <a href="#ThietBi"><i class="fa fa-flag"></i>
-                                <asp:Label ID="Label1" runat="server" Text="Thiết Bị"></asp:Label>
+                                <asp:Label ID="lbDevice" runat="server" Text="Thiết Bị"></asp:Label>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
                                 </span>
