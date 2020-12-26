@@ -1,9 +1,30 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="ChartPoint.aspx.cs" Inherits="_supervisor_chartP_ChartPoint" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="ChartManagerHourly.aspx.cs" Inherits="_supervisor_chartP_ChartManagerHourly" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-     <link href="../../css/Config.css" rel="stylesheet">
+    <link href="../../css/Config.css" rel="stylesheet">
     <style type="text/css">
-        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none !important;
+            font-size: 2rem !important;
+            font-weight: bold !important;
+        }
+
+        #loading {
+            width: 50px;
+            height: 50px
+        }
+
+            #loading.hide {
+                display: none;
+            }
+            #loading.show 
+            {
+                display: inline
+            }
 
         #chart {
             position: relative;
@@ -22,42 +43,41 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main-content2">
         <div id="main-content-title">
-            <h2 class="title">Đồ Thị Giờ Theo Point</h2>
+            <h2 class="title">Đồ Thị Giờ Theo DMA</h2>
         </div>
         <div class="container-fluid m-t">
             <div class="row">
                 <div class="col-sm-4">
                     <div class="group-text">
                         <div class="row">
-                            <span>Mã point</span>
+                            <span>Mã DMA</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadComboBox ID="cboSiteIds" runat="server"
-                                DataSourceID="SitesDataSource" DataTextField="Id" DataValueField="Id"
-                                AllowCustomText="True" DropDownWidth="350px" EnableLoadOnDemand="True"
-                                Filter="StartsWith" HighlightTemplatedItems="True"
-                                AutoPostBack="false" onclientselectedindexchanged="OnClientSelectedIndexChanged">
+                            <telerik:RadComboBox ID="cboCompanies" runat="server" AllowCustomText="True"
+                                EnableLoadOnDemand="True" Filter="StartsWith"
+                                HighlightTemplatedItems="True" DataSourceID="SiteCompaniesDataSource"
+                                DataTextField="Company" DataValueField="Company" DropDownWidth="275px"
+                                TabIndex="1" OnClientSelectedIndexChanged="OnClientSelectedIndexChanged">
                                 <HeaderTemplate>
-                                    <%--OnSelectedIndexChanged="cboSiteIds_SelectedIndexChanged"--%>
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
-                                            <td style="width: 50px">Mã vị trí</td>
-                                            <td style="width: 250px">Vị trí</td>
+                                            <td style="width: 70px">DMA</td>
+                                            <td style="width: 200px">Mô tả</td>
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
-                                            <td style="width: 50px"><%#DataBinder.Eval(Container.DataItem,"Id") %></td>
-                                            <td style="width: 250px"><%#DataBinder.Eval(Container.DataItem,"Location") %></td>
+                                            <td style="width: 70px"><%#DataBinder.Eval(Container.DataItem,"Company") %></td>
+                                            <td style="width: 200px"><%#DataBinder.Eval(Container.DataItem,"Description") %></td>
                                         </tr>
                                     </table>
                                 </ItemTemplate>
                             </telerik:RadComboBox>
-                            <asp:ObjectDataSource ID="SitesDataSource" runat="server"
+                            <asp:ObjectDataSource ID="SiteCompaniesDataSource" runat="server"
                                 OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll"
-                                TypeName="SitesBLL"></asp:ObjectDataSource>
+                                TypeName="SiteCompaniesBLL"></asp:ObjectDataSource>
                         </div>
                     </div>
                 </div>
@@ -108,35 +128,42 @@
         <div class="container-fluid m-t">
             <div class="row">
                 <div class="col">
+                    <div class="loading">
+                        <img id="loading" class="hide" src="../../2.gif" />
+                    </div>
                     <div id="chart">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-
+        let loadingElement = document.getElementById('loading');
+        let chartElement = document.getElementById('chart');
 
         function btnViewOnClick() {
-            let siteIDCbo = $find('<%=cboSiteIds.ClientID %>');
+            loadingElement.classList.add('show');
+            loadingElement.classList.remove('hide');
+            chartElement.innerHTML = "";
+
+            let siteIDCbo = $find('<%=cboCompanies.ClientID %>');
             let start = $find('<%=dtmStart.ClientID %>');
             let end = $find('<%=dtmEnd.ClientID %>');
             if (siteIDCbo == null || siteIDCbo == undefined || siteIDCbo.get_selectedItem() == null || siteIDCbo.get_selectedItem() == undefined) {
-                alert("Chưa chọn mã point")
+                alert("Chưa chọn mã DMA")
                 return false;
             }
             else if (start == null || start == undefined || start.get_selectedDate() == null || start.get_selectedDate() == undefined) {
-                alert("Chưa chọn ngày bắt đầu")
+                alert("Chưa chọn giờ bắt đầu")
                 return false;
             }
             else if (end == null || end == undefined || end.get_selectedDate() == null || end.get_selectedDate() == undefined) {
-                alert("Chưa chọn ngày kết thúc")
+                alert("Chưa chọn giờ kết thúc")
                 return false;
             }
             else {
                 let siteID = siteIDCbo.get_selectedItem().get_value();
-               
 
                 callAPIAndDrawChart(siteID, end, start)
             }
@@ -147,6 +174,9 @@
             let start = $find('<%=dtmStart.ClientID %>');
             let end = $find('<%=dtmEnd.ClientID %>');
 
+            loadingElement.classList.add('show');
+            loadingElement.classList.remove('hide');
+            chartElement.innerHTML = "";
             callAPITimeAndDrawChart(siteid, end, start)
         }
 
@@ -169,11 +199,12 @@
             let totalSecondStart = timeStart.getTime() / 1000;
             let totalSecondEnd = timeEnd.getTime() / 1000;
 
-            let urlGetDataChart = `${hostname}/api/getdatareporthourlysite/${siteid}/${totalSecondStart}/${totalSecondEnd}`;
+            let urlGetDataChart = `${hostname}/api/getdatareporthourlycompany/?company=${siteid}&start=${totalSecondStart}&end=${totalSecondEnd}`;
             console.log(urlGetDataChart)
 
             axios.get(urlGetDataChart).then((res) => {
                 if (checkExistsData(res.data)) {
+                    loadingElement.classList.add('hide');
                     //drawChart(sortingData(convertData(res.data)), getListChannel(res.data));
                     drawChartQuantity(converDataQuantity(res.data));
                 }
@@ -202,52 +233,43 @@
             else
                 hostname = "http://localhost:57880";
 
-            let urlGetTime = `${hostname}/api/gettime/?siteid=${siteid}`;
-            axios.get(urlGetTime).then((res) => {
-                // set default time for start and end 
-                if (res.data != null && res.data != undefined && res.data.trim() != "") {
-                    let date = new Date(Date.parse(convertDateFromApi(res.data)))
-                    let temp = new Date(Date.parse(convertDateFromApi(res.data)))
-                    let startDate = new Date(temp.setDate(temp.getDate() - 1));
-                    startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), startDate.getHours(), startDate.getMinutes(), startDate.getSeconds());
+            let now = Date.now();
+            now = new Date(now);
+            let date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), 0, 0);
+            let temp = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), 0, 0);
+            let startDate = new Date(temp.setHours(temp.getHours() - 12));
 
-                    start.set_selectedDate(startDate);
-                    end.set_selectedDate(date);
 
-                    let totalSecondStart = startDate.getTime() / 1000;
-                    let totalSecondEnd = date.getTime() / 1000;
+            start.set_selectedDate(startDate);
+            end.set_selectedDate(date);
 
-                    let urlGetDataChart = `${hostname}/api/getdatareporthourlysite/${siteid}/${totalSecondStart}/${totalSecondEnd}`;
-                    console.log(urlGetDataChart)
+            let totalSecondStart = startDate.getTime() / 1000;
+            let totalSecondEnd = date.getTime() / 1000;
 
-                    axios.get(urlGetDataChart).then((res) => {
-                        if (checkExistsData(res.data)) {
-                            console.log(res.data)
-                            //drawChart(sortingData(convertData(res.data)), getListChannel(res.data));
-                            drawChartQuantity(converDataQuantity(res.data));
-                        }
-                        else {
-                            start.set_selectedDate(null);
-                            end.set_selectedDate(null);
-                            document.getElementById("chart").innerHTML = "";
-                        }
-                    }).catch(err => console.log(err));
+            let urlGetDataChart = `${hostname}/api/getdatareporthourlycompany/?company=${siteid}&start=${totalSecondStart}&end=${totalSecondEnd}`;
+            console.log(urlGetDataChart)
+
+            axios.get(urlGetDataChart).then((res) => {
+                if (checkExistsData(res.data)) {
+                    loadingElement.classList.add('hide');
+
+                    //drawChart(sortingData(convertData(res.data)), getListChannel(res.data));
+                    drawChartQuantity(converDataQuantity(res.data));
                 }
                 else {
                     start.set_selectedDate(null);
                     end.set_selectedDate(null);
                     document.getElementById("chart").innerHTML = "";
                 }
-            }).catch((err) => {
-                console.log(err);
-            })
+            }).catch(err => console.log(err));
+
         }
 
         function converDataQuantity(data) {
             let convertingData = [];
 
             if (checkExistsData(data)) {
-                for (let i = 0; i < data.length - 1;i++) {
+                for (let i = 0; i < data.length - 1; i++) {
                     let obj = {};
                     if (data[i] != null && data[i] != undefined) {
                         if (data[i].TimeStamp != null && data[i].TimeStamp != undefined && data[i].TimeStamp.trim() != "") {
@@ -262,7 +284,7 @@
                 }
 
             }
-            
+
             return convertingData;
         }
 
@@ -279,7 +301,7 @@
             return listChannel;
         }
 
-         // unnecessary
+        // unnecessary
         function convertData(data) {
             let convertData = [];
             let isFirst = 0;
@@ -435,10 +457,10 @@
                     series.tooltipText = "{name}: [bold]{valueY.value}[/]";
                     series.fill = am4core.color(color);
                     series.stroke = am4core.color(color);
-                //series.strokeWidth = 3;
+                    //series.strokeWidth = 3;
                 }
 
-              
+
                 chart.cursor = new am4charts.XYCursor();
                 chart.cursor.xAxis = dateAxis2;
 

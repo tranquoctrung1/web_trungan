@@ -169,7 +169,7 @@
 
         axios.get(urlGetDataComplex).then(function (res) {
             totalData = res.data;
-            totalPage = Math.ceil(res.data.length / 10);
+            totalPage = Math.ceil(res.data.length / 12);
 
             dataElement.insertAdjacentHTML("beforeend", createTable(totalData, startPage));
 
@@ -191,7 +191,7 @@
             let content = "";
 
 
-            for (let item of [...data.slice(startPage * 10, (startPage + 1) * 10)]) {
+            for (let item of [...data.slice(startPage * 12, (startPage + 1) * 12)]) {
 
                 content += `<div class="col-md-6 col-lg-3">
                     <div class="card text-dark bg-light mb-3">

@@ -181,6 +181,13 @@
                                     <asp:Label ID="lbDashBoard" runat="server" Text="DashBoard"></asp:Label>
                                 </a>
                             </li>
+                               
+                         <li>
+                            <a href="/_supervisor/logger/datalogger.aspx">
+                                <i class="fa fa-table"></i>
+                                <asp:Label ID="lbDataLoggerTable" runat="server" Text="Dữ Liệu Logger"></asp:Label>
+                            </a>
+                        </li>
                             <li class="treeview">
                                 <a href="#ThietBi"><i class="fa fa-flag"></i>
                                     <asp:Label ID="lbDevice" runat="server" Text="Thiết Bị"></asp:Label>
@@ -402,6 +409,7 @@
                                 </li>
                             </ul>
                         </li>--%>
+                         
 
                             <li class="treeview">
                                 <a href="#SanLuong"><i class="fa fa-database"></i>
@@ -474,10 +482,49 @@
                                 <ul class="treeview-menu">
                                     <li>
                                         <a href="/_supervisor/chartP/ChartPoint.aspx">
-                                            <asp:Label ID="lbPointChart" runat="server" Text="Đồ Thị Theo Point"></asp:Label>
+                                            <asp:Label ID="lbPointChart" runat="server" Text="Đồ Thị Giờ Theo Point"></asp:Label>
                                         </a>
                                     </li>
-
+                                    <li>
+                                        <a href="/_supervisor/chartP/ChartPointDay.aspx">
+                                            <asp:Label ID="lbChartPointDaily" runat="server" Text="Đồ Thị Ngày Theo Point"></asp:Label>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="/_supervisor/chartP/ChartPointMonthly.aspx">
+                                            <asp:Label ID="lbChartPointMonthly" runat="server" Text="Đồ Thị Tháng Theo Point"></asp:Label>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="/_supervisor/chartP/ChartManagerHourly.aspx">
+                                            <asp:Label ID="lbChartHourlyManager" runat="server" Text="Đồ Thị Giờ Theo DMA"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/chartP/ChartManagerDaily.aspx">
+                                            <asp:Label ID="lbChartDailyManager" runat="server" Text="Đồ Thị Ngày Theo DMA"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/chartP/ChartManagerMonthly.aspx">
+                                            <asp:Label ID="lbChartMonthlyManager" runat="server" Text="Đồ Thị Tháng Theo DMA"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/chartP/ChartTotalHourly.aspx">
+                                            <asp:Label ID="lbChartHourlyTotal" runat="server" Text="Đồ Thị Giờ Tổng"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/chartP/ChartDailyTotal.aspx">
+                                            <asp:Label ID="lbChartDailyTotal" runat="server" Text="Đồ Thị Ngày Tổng"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/chartP/ChartMonthlyTotal.aspx">
+                                            <asp:Label ID="lbChartMonthlyTotal" runat="server" Text="Đồ Thị Tháng Tổng"></asp:Label>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 

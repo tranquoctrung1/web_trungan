@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="ChartPoint.aspx.cs" Inherits="_supervisor_chartP_ChartPoint" %>
-
+﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="ChartPointDay.aspx.cs" Inherits="_supervisor_chartP_ChartPointDay" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
      <link href="../../css/Config.css" rel="stylesheet">
     <style type="text/css">
@@ -22,7 +21,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main-content2">
         <div id="main-content-title">
-            <h2 class="title">Đồ Thị Giờ Theo Point</h2>
+            <h2 class="title">Đồ Thị Ngày Theo Point</h2>
         </div>
         <div class="container-fluid m-t">
             <div class="row">
@@ -65,10 +64,10 @@
                 <div class="col-sm-4">
                     <div class="group-text">
                         <div class="row">
-                            <span>Giờ bắt đầu</span>
+                            <span>Ngày bắt đầu</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadDateTimePicker ID="dtmStart" runat="server" Culture="en-GB">
+                            <telerik:RadDatePicker ID="dtmStart" runat="server" Culture="en-GB">
                                 <Calendar UseColumnHeadersAsSelectors="False" UseRowHeadersAsSelectors="False"
                                     ViewSelectorText="x">
                                 </Calendar>
@@ -76,17 +75,17 @@
                                     EnableSingleInputRendering="True" LabelWidth="64px">
                                 </DateInput>
                                 <DatePopupButton HoverImageUrl="" ImageUrl="" TabIndex="-1" />
-                            </telerik:RadDateTimePicker>
+                            </telerik:RadDatePicker>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="group-text">
                         <div class="row">
-                            <span>Giờ kết thúc</span>
+                            <span>Ngày kết thúc</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadDateTimePicker ID="dtmEnd" runat="server" Culture="en-GB">
+                            <telerik:RadDatePicker ID="dtmEnd" runat="server" Culture="en-GB">
                                 <Calendar UseColumnHeadersAsSelectors="False" UseRowHeadersAsSelectors="False"
                                     ViewSelectorText="x">
                                 </Calendar>
@@ -94,7 +93,7 @@
                                     EnableSingleInputRendering="True" LabelWidth="64px">
                                 </DateInput>
                                 <DatePopupButton HoverImageUrl="" ImageUrl="" TabIndex="-1" />
-                            </telerik:RadDateTimePicker>
+                            </telerik:RadDatePicker>
                         </div>
                     </div>
                 </div>
@@ -169,7 +168,7 @@
             let totalSecondStart = timeStart.getTime() / 1000;
             let totalSecondEnd = timeEnd.getTime() / 1000;
 
-            let urlGetDataChart = `${hostname}/api/getdatareporthourlysite/${siteid}/${totalSecondStart}/${totalSecondEnd}`;
+            let urlGetDataChart = `${hostname}/api/getdatareportdailysite/${siteid}/${totalSecondStart}/${totalSecondEnd}`;
             console.log(urlGetDataChart)
 
             axios.get(urlGetDataChart).then((res) => {
@@ -208,8 +207,8 @@
                 if (res.data != null && res.data != undefined && res.data.trim() != "") {
                     let date = new Date(Date.parse(convertDateFromApi(res.data)))
                     let temp = new Date(Date.parse(convertDateFromApi(res.data)))
-                    let startDate = new Date(temp.setDate(temp.getDate() - 1));
-                    startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), startDate.getHours(), startDate.getMinutes(), startDate.getSeconds());
+                    let startDate = new Date(temp.setDate(temp.getDate() - 10));
+                    startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), 0, 0, 0);
 
                     start.set_selectedDate(startDate);
                     end.set_selectedDate(date);
@@ -217,7 +216,7 @@
                     let totalSecondStart = startDate.getTime() / 1000;
                     let totalSecondEnd = date.getTime() / 1000;
 
-                    let urlGetDataChart = `${hostname}/api/getdatareporthourlysite/${siteid}/${totalSecondStart}/${totalSecondEnd}`;
+                    let urlGetDataChart = `${hostname}/api/getdatareportdailysite/${siteid}/${totalSecondStart}/${totalSecondEnd}`;
                     console.log(urlGetDataChart)
 
                     axios.get(urlGetDataChart).then((res) => {
@@ -247,7 +246,7 @@
             let convertingData = [];
 
             if (checkExistsData(data)) {
-                for (let i = 0; i < data.length - 1;i++) {
+                for (let i = 0; i < data.length - 1; i++) {
                     let obj = {};
                     if (data[i] != null && data[i] != undefined) {
                         if (data[i].TimeStamp != null && data[i].TimeStamp != undefined && data[i].TimeStamp.trim() != "") {
@@ -262,7 +261,7 @@
                 }
 
             }
-            
+
             return convertingData;
         }
 
@@ -279,7 +278,7 @@
             return listChannel;
         }
 
-         // unnecessary
+        // unnecessary
         function convertData(data) {
             let convertData = [];
             let isFirst = 0;
@@ -435,10 +434,10 @@
                     series.tooltipText = "{name}: [bold]{valueY.value}[/]";
                     series.fill = am4core.color(color);
                     series.stroke = am4core.color(color);
-                //series.strokeWidth = 3;
+                    //series.strokeWidth = 3;
                 }
 
-              
+
                 chart.cursor = new am4charts.XYCursor();
                 chart.cursor.xAxis = dateAxis2;
 

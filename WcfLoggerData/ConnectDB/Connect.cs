@@ -21,6 +21,11 @@ namespace WcfLoggerData.ConnectDB
             {
                 sqlConnection.Open();
             }
+            else if(sqlConnection.State == ConnectionState.Connecting)
+            {
+                sqlConnection.Close();
+                sqlConnection.Open();
+            }
         }
 
         public static void DisconnectToDataBase()
