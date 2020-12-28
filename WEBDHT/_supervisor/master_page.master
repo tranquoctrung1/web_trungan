@@ -469,6 +469,7 @@
                                 <asp:Label ID="lbAlarm" runat="server" Text="Cảnh Báo"></asp:Label>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                    <i class="badge bg-danger" id="countAlarm">0</i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
@@ -672,8 +673,9 @@
         if (hostname.indexOf("localhost") < 0)
             hostname = hostname + "/VivaServices/";
         else
-            hostname = "http://localhost:63111";
-        var urlGetValeAlarm = hostname + '/Service1.svc/GetValeAlarm/';
+            hostname = "http://localhost:57880";
+        var urlGetValeAlarm = hostname + '/api/getvaluealarm/?uid=';
+
         $(function () {
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 $("#form_Show_Alarm").attr("style", "left:-20px; bottom: unset");
@@ -687,6 +689,19 @@
             });
 
             setInterval(function () { $(".rwControlButtons").css("width", "auto"); }, 100);
+
+            // get value alarm (count total alarm)
+
+            setInterval(function () {
+                var uid = document.getElementById("lbUserName").value;
+                var urlAlarm = urlGetValeAlarm + uid;
+                $.getJSON(urlAlarm, function (d) {
+
+                    var countAlarm = document.getElementById('countAlarm');
+                    countAlarm.innerHTML = d.length.toString();
+                })
+
+            }, 2000)
 
             //setInterval(function () {
             //    var uid = document.getElementById("hdpValueUID").value;

@@ -539,11 +539,15 @@ a {
             }
 
         .sidebar-menu > li .label, .sidebar-menu > li .badge {
-            margin-right: 5px
+            /*margin-right: 5px*/
+            background: red !important;
+            transform: translateY(-7px);
+            border-radius: 5px !important;
+            font-size: 9px !important;
         }
 
         .sidebar-menu > li .badge {
-            margin-top: 3px
+            /*margin-top: 3px*/
         }
 
     .sidebar-menu li.header {
@@ -3306,7 +3310,7 @@ table.text-center, table.text-center td, table.text-center th {
     }
 
         .treeview-menu > li > a {
-            padding: 5px 5px 5px 15px;
+            padding: 5px 5px 5px 32px;
             display: block;
             font-size: 14px
         }

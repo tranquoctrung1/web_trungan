@@ -5,9 +5,7 @@
     <head>
         <title></title>
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
-        </script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXcBIH-8x-fgsegv6OedGZmh7g0JZyGr0&region=VI&sensor=false"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXcBIH-8x-fgsegv6OedGZmh7g0JZyGr0"></script>
 
 
         <script src="../../js/markerwithlabel.js"></script>
@@ -23,6 +21,7 @@
         <script src="../../js/amcharts/exporting/rgbcolor.js"></script>
         <script src="../../js/randomColor.js"></script>
         <script src="../../js/arcgislink.js"></script>
+        <script src="../../js/markerclusterer.js"></script>
         <link href="../../App_Themes/common.css" rel="stylesheet" />
         <link href="../../css/CssMap.css" rel="stylesheet" />
 
@@ -1733,7 +1732,7 @@
                                 var chartWidth = 0;
                                 var chartHeight = 0;
 
-                                //var isDisableCluster = true;
+                                var isDisableCluster = true;
                                 var isShowInfoHtml = true;
 
                                 var statusShowAll = true;
@@ -1775,15 +1774,16 @@
                                         zoom: zoom,
                                         center: center,
                                         mapTypeId: google.maps.MapTypeId.ROADMAP,
-                                        streetViewControl: true
+                                        streetViewControl: true,
+                                        fullscreenControl: false
                                     };
                                     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
-                                    var url = 'https://trungangis.capnuoctrungan.vn/arcgis/rest/services/mangluoi/mapserver';
+                                    //var url = 'https://trungangis.capnuoctrungan.vn/arcgis/rest/services/mangluoi/mapserver';
                                     //var url = 'http://113.161.76.112:6080/arcgis/rest/services/KHAWASSCOMapService/MapServer';
-                                    var cpc = new gmaps.ags.CopyrightControl(map);
-                                    var dynamap = new gmaps.ags.MapOverlay(url, {});
-                                    dynamap.setMap(map);
+                                   // var cpc = new gmaps.ags.CopyrightControl(map);
+                                   // var dynamap = new gmaps.ags.MapOverlay(url, {});
+                                   // dynamap.setMap(map);
 
                                     //TREEVIEW & MAP CONTENT
                                     var treeViewSite = $find("<%= radTreeViewSite.ClientID %>");
@@ -2001,7 +2001,7 @@
                                                                 //delay
                                                                 if (statusImage_delay && displayByGroupChannel == 1) {
                                                                     markers.push(marker);
-                                                                    omarkers.push(omarker);
+                                                                   omarkers.push(omarker);
                                                                 } else {
                                                                     marker.setVisible(false);
                                                                     omarker.setVisible(false);
@@ -2010,11 +2010,9 @@
                                                         }
                                                     }
                                                     //if (isDisableCluster) {
-                                                    //if (countSite == (ds.GetSitesByUidResult.length - siteHasNotChannel)) {
                                                     //    markerCluster = new MarkerClusterer(map, markers,
                                                     //        { imagePath: '../../_imgs/iconCluster/m' }
                                                     //    );
-
                                                     //    markerCluster = new MarkerClusterer(map, omarkers,
                                                     //        { imagePath: '../../_imgs/iconCluster/m' }
                                                     //    );
@@ -2023,7 +2021,6 @@
                                                     //        styles[i].textColor = "white";
                                                     //        styles[i].textSize = 15;
                                                     //    }
-                                                    //}
                                                     //}
 
                                                 }
