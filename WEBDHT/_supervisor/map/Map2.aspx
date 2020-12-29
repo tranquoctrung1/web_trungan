@@ -393,7 +393,7 @@
                                     </li>
                                 </ul>
                             </li>
-                           
+
                             <li class="treeview">
                                 <a href="#SanLuong"><i class="fa fa-database"></i>
                                     <asp:Label ID="lbQuantity" runat="server" Text="Sản Lượng"></asp:Label>
@@ -516,7 +516,7 @@
                                     <asp:Label ID="lbAlarm" runat="server" Text="Cảnh Báo"></asp:Label>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                         <i class="badge bg-danger" id="countAlarm">0</i>
+                                        <i class="badge bg-danger" id="countAlarm">0</i>
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
@@ -553,7 +553,7 @@
                                     </li>
                                 </ul>
                             </li>
-                           
+
                             <li class="treeview">
                                 <a href="#DangXuat">
                                     <i class="fa fa-user-circle"></i>
@@ -631,7 +631,7 @@
                         <telerik:RadSplitter ID="RadSplitter1" runat="server" Height="100%" Width="100%">
 
                             <telerik:RadPane ID="RadPane2" runat="server" Height="100%">
-                               <%-- <a href="#" class="zoom-icon  custom-tooltip" onclick="resetZoom()">
+                                <%-- <a href="#" class="zoom-icon  custom-tooltip" onclick="resetZoom()">
                                     <img src="../../App_Themes/zoom.png" />
                                     <span class="tooltiptext">ZOOM-OUT</span>
                                 </a>--%>
@@ -646,10 +646,6 @@
                                 <a href="#" class="icon-right width-filter-icon custom-tooltip" data-toggle="control-sidebar" id="icon_collap_filter_menu" onclick="customFilter()">
                                     <img src="../../App_Themes/filter.png" />
                                     <span class="tooltiptext">LỌC SITES</span>
-                                </a>
-                                <a href="#" class="icon-right width-layer-icon custom-tooltip" data-toggle="control-sidebar" id="icon_collap_layer_menu" style="display: none" onclick="customLayer()">
-                                    <img src="../../App_Themes/layer.png" />
-                                    <span class="tooltiptext">LAYERS</span>
                                 </a>
 
                                 <div id="map_canvas">
@@ -779,7 +775,7 @@
                                                 <asp:Label Text="Thiết lập bản đồ" ID="txtSettingMap" runat="server" />
                                             </h4>
                                         </div>
-                                        
+
                                         <div class="checkbox">
                                             <div>
                                                 <input type="checkbox" class="custom-checkbox" checked="checked" value="" id="cbkShowInfo">
@@ -867,34 +863,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="tab-content" id="tab_menu_4">
-                                        <div>
-                                            <h4 class="text-white">
-                                                <asp:Label Text="Layers" ID="lbFilterLayer" runat="server" />
-                                            </h4>
-                                        </div>
-                                        <div id="layerArea">
-                                            <div class="checkbox">
-                                                <div>
-                                                    <input type="checkbox" class="custom-checkbox" value="1" id="ckArea">
-                                                    <asp:Label Text="Vùng" ID="lbAreaLayer" runat="server" />
-                                                </div>
-                                            </div>
-                                            <div class="checkbox">
-                                                <div>
-                                                    <input type="checkbox" class="custom-checkbox" value="1" id="ckPipeLV1">
-                                                    <asp:Label Text="Tuyến Ống 1" ID="lbPipeLV1Layer" runat="server" />
-                                                </div>
-                                            </div>
-                                            <div class="checkbox">
-                                                <div>
-                                                    <input type="checkbox" class="custom-checkbox" value="2" id="ckPipeLineLV2">
-                                                    <asp:Label Text="Tuyến Ống 2" ID="lbPipeLV2Layer" runat="server" />
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                    </div>
                                 </div>
                                 <div class="control-sidebar-bg"></div>
                             </telerik:RadPane>
@@ -1557,20 +1526,6 @@
                                 var urlGetDisplayGroups = hostname + '/api/GetDisplayGroup';
                                 var urlGetSiteByDisplayGroup = hostname + '/api/GetSitesByDisplayGroup/?displaygroup=';
 
-                                let kml_area;
-                                let kml_level1;
-                                let kml_level2_PVC;
-                                let kml_level2_HDPE;
-                                let kml_level2_DICL;
-                                let kml_level2_uPVC;
-                                let kml_areafile = "https://novas-online.vn/dawaco/waterNetwork/kml/vungcn_60.kml";
-                                let kml_level1file = "https://novas-online.vn/dawaco/waterNetwork/kml/CAP1_T5.kml";
-                                let kml_level2_PVCfile = "https://novas-online.vn/dawaco/waterNetwork/kml/cap2_PVCST.kml";
-                                let kml_level2_HDPEfile = "https://novas-online.vn/dawaco/waterNetwork/kml/cap2_HDPE.kml";
-                                let kml_level2_DICLfile = "https://novas-online.vn/dawaco/waterNetwork/kml/cap2_DICL.kml";
-                                let kml_level2_uPVCfile = "https://novas-online.vn/dawaco/waterNetwork/kml/cap2_uPVC.kml";
-
-
                                 //var urlMRed = 'http://i748.photobucket.com/albums/xx123/bttrung1988/mRed_zpscf7a64f6.png';
                                 var urlMRed = ' ~/App_Themes/red.png';
                                 var urlMGreen = 'http://i748.photobucket.com/albums/xx123/bttrung1988/mGreen_zpsf28ed33c.png';
@@ -1600,48 +1555,15 @@
                                 var mreds = [];
                                 var mblues = [];
 
-                                //var image_nor = {
-                                //    url: '../../App_Themes/green.png',
-                                //    //url:'#',
-                                //    size: new google.maps.Size(20, 20),
-                                //    origin: new google.maps.Point(0, 0),
-                                //    //anchor: new google.maps.Point(-6, 45)
-                                //};
-
                                 var image_nor = '../../App_Themes/marker_green.png';
-
-                                //var image_err_low_press = {
-                                //    url: '../../App_Themes/red.png',
-                                //    //url:'#',
-                                //    size: new google.maps.Size(20, 20),
-                                //    origin: new google.maps.Point(0, 0),
-                                //    //anchor: new google.maps.Point(-75, 30)
-                                //};
 
                                 var image_err_low_press = '../../App_Themes/marker_red.png';
 
-                                //var image_err_sig_delay = {
-                                //    url: '../../App_Themes/oranges.png',
-                                //    //url:'#',
-                                //    size: new google.maps.Size(20, 20),
-                                //    origin: new google.maps.Point(0, 0),
-                                //    //anchor: new google.maps.Point(-6, 45)
-                                //};
-
                                 var image_err_sig_delay = '../../App_Themes/marker_orange.png';
 
-                                //var image_err_previous = {
-                                //    url: '../../App_Themes/yellow.png',
-                                //    //url:'#',
-                                //    size: new google.maps.Size(20, 20),
-                                //    origin: new google.maps.Point(0, 0),
-                                //    //anchor: new google.maps.Point(-6, 45)
-                                //};
-
-                                var image_err_previous = '../../App_Themes/marker_yellow.png'; 
+                                var image_err_previous = '../../App_Themes/marker_yellow.png';
 
                                 var locations = [];
-
 
                                 var chart;
                                 var end;
@@ -1717,7 +1639,7 @@
                                     //MAP
                                     var qs = getQueryStrings();
                                     var uid = qs["uid"];
-                                    
+
                                     map = L.map('map_canvas', {
                                         contextmenu: true,
                                         contextmenuWidth: 140,
@@ -1803,22 +1725,6 @@
                                     L.Control.Watermark = L.Control.extend({
                                         onAdd: function (map) {
                                             return icon_collap_filter_menu
-                                        },
-
-                                        onRemove: function (map) {
-                                            // Nothing to do here
-                                        }
-                                    });
-
-                                    L.control.watermark = function (opts) {
-                                        return new L.Control.Watermark(opts);
-                                    }
-
-                                    L.control.watermark({ position: 'topright' }).addTo(map);
-                                    //
-                                    L.Control.Watermark = L.Control.extend({
-                                        onAdd: function (map) {
-                                            return icon_collap_layer_menu
                                         },
 
                                         onRemove: function (map) {
@@ -1977,102 +1883,11 @@
                                                     //infoHtml += "<tr><td style=' background-color: white;border-top: unset;'><a href=\"#\"  style='color: #30a0c1;' onclick=\"openChartMinMaxPre('" + s.LoggerId + "');\">MinMax Pressure Day</a></td></tr>"
                                                     infoHtml += '</table>';
                                                     //LOAD TO MAP
-                                                    //var latlng = new google.maps.LatLng(s.Latitude, s.Longitude);
-                                                    //var anchor = new google.maps.Point(s.LabelAnchorX = null ? 40 : s.LabelAnchorX, s.LabelAnchorY = null ? 0 : s.LabelAnchorY);
-                                                    //var omarker = new google.maps.Marker({
-                                                    //    id: 'om_' + s.SiteId,
-                                                    //    position: latlng,
-                                                    //    map: map,
-                                                    //    icon: img,
-                                                    //    html: infoHtml
-                                                    //});
-                                                    //var marker = new MarkerWithLabel({
-                                                    //    id: 'm_' + s.SiteId,
-                                                    //    position: latlng,
-                                                    //    map: map,
-                                                    //    icon: img,
-                                                    //    draggable: false,
-                                                    //    raiseOnDrag: true,
-                                                    //    labelContent: labelHtml,
-                                                    //    labelAnchor: anchor,
-                                                    //    labelClass: "labels", // the CSS class for the label
-                                                    //    labelInBackground: false,
-                                                    //    html: infoHtml,
-                                                    //    visible: false
-                                                    //});
 
-
-                                                    //google.maps.event.addListener(marker, 'click', function () {
-                                                    //    infowindow.setContent(this.html);
-                                                    //    infowindow.open(map, this);
-                                                    //    funtionShowInfo(s.SiteId, s.LoggerId, s.Location);
-                                                    //});
-                                                    //google.maps.event.addListener(omarker, 'click', function () {
-                                                    //    infowindow.setContent(this.html);
-                                                    //    infowindow.open(map, this);
-                                                    //});
-
-                                                    //if (!isShowInfoHtml) {
-                                                    //    marker.setVisible(false);
-                                                    //}
-                                                    ////green
-                                                    //if (marker.icon.url == image_nor.url) {
-                                                    //    if (statusImage_nor && displayByGroupChannel == 1) {
-                                                    //        markers.push(marker);
-                                                    //        omarkers.push(omarker);
-                                                    //    } else {
-                                                    //        marker.setVisible(false);
-                                                    //        omarker.setVisible(false);
-                                                    //    }
-                                                    //} else {
-                                                    //    //ress
-                                                    //    if (marker.icon.url == image_err_low_press.url) {
-                                                    //        if (statusImage_press && displayByGroupChannel == 1) {
-                                                    //            markers.push(marker);
-                                                    //            omarkers.push(omarker);
-                                                    //        } else {
-                                                    //            marker.setVisible(false);
-                                                    //            omarker.setVisible(false);
-                                                    //        }
-                                                    //    } else {
-                                                    //        //yellow
-                                                    //        if (marker.icon.url == image_err_previous.url) {
-                                                    //            if (statusImage_previous && displayByGroupChannel == 1) {
-                                                    //                markers.push(marker);
-                                                    //                omarkers.push(omarker);
-                                                    //            } else {
-                                                    //                marker.setVisible(false);
-                                                    //                omarker.setVisible(false);
-                                                    //            }
-                                                    //        } else {
-                                                    //            //delay
-                                                    //            if (statusImage_delay && displayByGroupChannel == 1) {
-                                                    //                markers.push(marker);
-                                                    //                omarkers.push(omarker);
-                                                    //            } else {
-                                                    //                marker.setVisible(false);
-                                                    //                omarker.setVisible(false);
-                                                    //            }
-                                                    //        }
-                                                    //    }
-                                                    //}
-                                                    //if (isDisableCluster) {
-                                                    //    markerCluster = new MarkerClusterer(map, markers,
-                                                    //        { imagePath: '../../_imgs/iconCluster/m' }
-                                                    //    );
-                                                    //    markerCluster = new MarkerClusterer(map, omarkers,
-                                                    //        { imagePath: '../../_imgs/iconCluster/m' }
-                                                    //    );
-                                                    //    const styles = markerCluster.getStyles();
-                                                    //    for (let i = 0; i < styles.length; i++) {
-                                                    //        styles[i].textColor = "white";
-                                                    //        styles[i].textSize = 15;
-                                                    //    }
-                                                    //}
                                                     if (s.Latitude != null && s.Latitude != undefined && s.Latitude.toString().trim() != "" && s.Longitude != null && s.Longitude != undefined && s.Longitude.toString().trim() != "") {
                                                         var greenIcon = new L.Icon({
                                                             iconUrl: img,
-                                                            iconSize: [15, 15],
+                                                            iconSize: [20, 20],
                                                             iconAnchor: [s.LabelAnchorX = null ? 40 : s.LabelAnchorX, s.LabelAnchorY = null ? 0 : s.LabelAnchorY],
                                                         });
 
@@ -2129,34 +1944,6 @@
                                         })
                                     });
 
-                                    ////treeViewSite.commitChanges();
-                                    ////CONTEXT MENU
-                                    //var contextMenuOptions = {};
-                                    //contextMenuOptions.classNames = { menu: 'context_menu', menuSeparator: 'context_menu_separator' };
-                                    //var menuItems = [];
-                                    //menuItems.push({ className: 'context_menu_item', eventName: 'hide_click', label: 'Hide labels' });
-                                    //menuItems.push({ className: 'context_menu_item', eventName: 'show_click', label: 'Show labels' });
-                                    //contextMenuOptions.menuItems = menuItems;
-                                    //var contextMenu = new ContextMenu(map, contextMenuOptions);
-
-                                    //google.maps.event.addListener(map, 'rightclick', function (mouseEvent) {
-                                    //    contextMenu.show(mouseEvent.latLng);
-                                    //});
-                                    //google.maps.event.addListener(contextMenu, 'menu_item_selected', function (latLng, eventName) {
-                                    //    switch (eventName) {
-                                    //        case 'hide_click':
-                                    //            for (var i = 0; i < markers.length; i++) {
-                                    //                markers[i].setVisible(false);
-                                    //            }
-                                    //            break;
-                                    //        case 'show_click':
-                                    //            for (var i = 0; i < markers.length; i++) {
-                                    //                markers[i].setVisible(true);
-                                    //            }
-                                    //            break;
-                                    //    }
-                                    //});
-
                                     FillDiaplayGroups();
                                 }
 
@@ -2169,90 +1956,6 @@
                                     }
                                     prevMarker = this;
                                 }
-
-                                //document.getElementById('ckArea').addEventListener('change', function (e) {
-                                //    if (this.checked == true) {
-                                //        showAreaLayerKML();
-                                //    }
-                                //    else {
-                                //        hideAreaLayerKML();
-                                //    }
-                                //})
-
-                                //document.getElementById('ckPipeLV1').addEventListener('change', function (e) {
-                                //    if (this.checked == true) {
-                                //        showPipeLV1();
-                                //    }
-                                //    else {
-                                //        hidePipeLV1();
-                                //    }
-
-                                //})
-
-                                //document.getElementById('ckPipeLineLV2').addEventListener('change', function (e) {
-
-                                //    if (this.checked == true) {
-                                //        showPipeLV2();
-                                //    }
-                                //    else {
-                                //        hidePipeLV2();
-                                //    }
-                                //})
-
-                                //function showPipeLV2() {
-                                //    kml_level2_PVC = new google.maps.KmlLayer({
-                                //        url: kml_level2_PVCfile,
-                                //        map: map,
-                                //    });
-
-
-                                //    kml_level2_HDPE = new google.maps.KmlLayer({
-                                //        url: kml_level2_HDPEfile,
-                                //        map: map,
-                                //    });
-
-                                //    kml_level2_DICL = new google.maps.KmlLayer({
-                                //        url: kml_level2_DICLfile,
-                                //        map: map,
-                                //    });
-
-
-                                //    kml_level2_uPVC = new google.maps.KmlLayer({
-                                //        url: kml_level2_uPVCfile,
-                                //        map: map,
-                                //    });
-
-                                //}
-
-                                //function hidePipeLV2() {
-                                //    kml_level2_PVC.setMap(null);
-                                //    kml_level2_HDPE.setMap(null);
-                                //    kml_level2_DICL.setMap(null);
-                                //    kml_level2_uPVC.setMap(null);
-                                //}
-
-                                //function showPipeLV1() {
-                                //    kml_level1 = new google.maps.KmlLayer({
-                                //        url: kml_level1file,
-                                //        map: map,
-                                //    })
-                                //}
-
-                                //function hidePipeLV1() {
-                                //    kml_level1.setMap(null);
-                                //}
-
-                                //function showAreaLayerKML() {
-                                //    kml_area = new google.maps.KmlLayer({
-                                //        url: kml_areafile,
-                                //        map: map,
-                                //    });
-                                //}
-
-                                //function hideAreaLayerKML() {
-                                //    kml_area.setMap(null);
-                                //}
-
 
 
                                 function FillDiaplayGroups() {
@@ -2443,28 +2146,10 @@
                                                 //infoHtml += "<tr><td><a href=\"#\" style='color: #30a0c1' onclick=\"openChartMinMaxPre('" + s.LoggerId + "');\">MinMax Pressure Day</a></td></tr>";
                                                 infoHtml += '</table>';
                                                 //LOAD TO MAP
-                                                //loop_m:
-                                                //for (var k = 0; k < markers.length; k++) {
-                                                //    if (markers[k].id == ('m_' + s.SiteId)) {
-
-                                                //        markers[k].setIcon(img);
-                                                //        markers[k].html = infoHtml;
-                                                //        markers[k].labelContent = labelHtml;
-                                                //        markers[k].label.setContent();
-                                                //        break loop_m;
-                                                //    }
-                                                //}
-                                                //loop_om:
-                                                //for (var k = 0; k < omarkers.length; k++) {
-                                                //    if (omarkers[k].id == ('om_' + s.SiteId)) {
-                                                //        omarkers[k].setIcon(img);
-                                                //        break loop_om;
-                                                //    }
-                                                //}
 
                                                 var greenIcon = new L.Icon({
                                                     iconUrl: img,
-                                                    iconSize: [15, 15],
+                                                    iconSize: [20, 20],
                                                     iconAnchor: [s.LabelAnchorX = null ? 40 : s.LabelAnchorX, s.LabelAnchorY = null ? 0 : s.LabelAnchorY],
                                                 });
 
@@ -2478,51 +2163,6 @@
                                                         marker.getTooltip().update();
                                                     }
                                                 })
-
-                                                //for (var k = 0; k < markers.length; k++) {
-                                                //    if (markers[k].id == ('m_' + s.SiteId)) {
-                                                //        if (markers[k].icon.url == image_nor.url) {
-                                                //            if (statusImage_nor && displayByGroupChannel == 1) {
-                                                //                markers[k].setVisible(true);
-                                                //                omarkers[k].setVisible(true);
-                                                //            } else {
-                                                //                markers[k].setVisible(false);
-                                                //                omarkers[k].setVisible(false);
-                                                //                siteHasNotChannel++
-                                                //            }
-                                                //        }
-                                                //        if (markers[k].icon.url == image_err_low_press.url) {
-                                                //            if (statusImage_press && displayByGroupChannel == 1) {
-                                                //                markers[k].setVisible(true);
-                                                //                omarkers[k].setVisible(true);
-                                                //            } else {
-                                                //                markers[k].setVisible(false);
-                                                //                omarkers[k].setVisible(false);
-                                                //                siteHasNotChannel++
-                                                //            }
-                                                //        }
-                                                //        if (markers[k].icon.url == image_err_previous.url) {
-                                                //            if (statusImage_previous && displayByGroupChannel == 1) {
-                                                //                markers[k].setVisible(true);
-                                                //                omarkers[k].setVisible(true);
-                                                //            } else {
-                                                //                markers[k].setVisible(false);
-                                                //                omarkers[k].setVisible(false);
-                                                //                siteHasNotChannel++
-                                                //            }
-                                                //        }
-                                                //        if (markers[k].icon.url == image_err_sig_delay.url) {
-                                                //            if (statusImage_delay && displayByGroupChannel == 1) {
-                                                //                markers[k].setVisible(true);
-                                                //                omarkers[k].setVisible(true);
-                                                //            } else {
-                                                //                markers[k].setVisible(false);
-                                                //                omarkers[k].setVisible(false);
-                                                //                siteHasNotChannel++
-                                                //            }
-                                                //        }
-                                                //    }
-                                                //}
                                             }
                                             hasChannel = false;
                                         });
@@ -2943,24 +2583,12 @@
                                 }
 
                                 function closePopupSiteInfo() {
-                                    //$("#bottom_popup_siteinfo").addClass("cls-display-none");
                                 }
                                 function resetZoom() {
-                                    //zoom = 9;
-                                    //center = new google.maps.LatLng(20.909666, 103.586557);
-                                    //map.setZoom(zoom);
-                                    //map.setCenter(center);
+                                    ;
                                 }
 
                                 function openWin(id) {
-                                    //loop_ow:
-                                    //for (var i = 0; i < markers.length; i++) {
-                                    //    if (markers[i].id == ('m_' + id)) {
-                                    //        map.panTo(markers[i].getPosition());
-                                    //        google.maps.event.trigger(markers[i], 'click');
-                                    //        break loop_ow;
-                                    //    }
-                                    //}
                                     map.eachLayer(function (layer) {
                                         if (layer.options.id == `m_${id}`) {
                                             layer.fire('click');
@@ -3921,58 +3549,7 @@
                             index++;
                         });
                     });
-                    // test all resulr and then enable to test
-                    /* 
-                    setInterval(function () {
-                        var qs = getQueryStrings();
-                        var uid = qs["uid"];
-                        var urlAlarm = urlGetValeAlarm + uid;
-                        $.getJSON(urlAlarm, function (d) {
-                            $("#bodyFormAlarm").empty();
-                            console.log(d);
-                            var index = 0;
-                            $.each(d, function (i, val) {
-                                var date = new Date(parseInt(val.TimeStamp.substr(6)));
-                                var jsDate = new Date(date).toLocaleDateString();
-                                var strtable = "";
-                                if (val.Status == "Delay") {
-                                    strtable += "<tr style = 'background: #ff0'>";
-                                } else {
-                                    strtable += "<tr>";
-                                }
-                                strtable += "<td>" + (index + 1) + "</td>";
-                                strtable += "<td>" + val.SialiasName + "</td>";
-                                strtable += "<td>" + jsDate + "</td>";
-                                strtable += "<td>" + val.NamePath + "</td>";
-                                strtable += "<td>" + val.LasValue + "</td>";
-                                if (val.Status == "High") {
-                                    strtable += "<td ><span class='badge bg-red'>" + val.Status + "</span></td>";
-                                } else if (val.Status == "Low") {
-                                    strtable += "<td ><span class='badge bg-yellow'>" + val.Status + "</span></td>";
-                                } else if (val.Status == "Baseline") {
-                                    strtable += "<td ><span class='badge bg-light-blue'>" + val.Status + "</span></td>";
-                                } else {
-                                    strtable += "<td ><span class='badge bg-lime'>" + val.Status + "</span></td>";
-                                }
-
-                                strtable += "</tr>";
-                                $("#bodyFormAlarm").append(strtable);
-                                index++;
-                            });
-                            if (index > 0) {
-                                $("#noAlarm").addClass("cls-display-none");
-                                $("#txtCountAlarm").empty();
-                                $("#txtCountAlarm").append("<small class='label pull-right bg-red' >" + index + "</small>");
-                            } else {
-                                $("#noAlarm").removeClass("cls-display-none");
-                                $("#txtCountAlarm").empty();
-                                $("#txtCountAlarm").append("<small class='label pull-right bg-red' >" + 0 + "</small>");
-                            }
-                        });
-                    }, 1000)
-                    */
                 })
-
             }
             $(document).ready(function () {
                 var mq = window.matchMedia("(min-width: 768px)");
@@ -4010,15 +3587,6 @@
             var showAlarm = true;
 
             function btnAlarm_Click() {
-                //if (showAlarm) {
-                //    $('#form_Show_Alarm').removeClass('cls-display-none');
-                //    showAlarm = false;
-                //    clickBodyShowAlarm = true;
-                //} else {
-                //    $('#form_Show_Alarm').addClass('cls-display-none');
-                //    showAlarm = true;
-                //}
-                //$('#body_form_show_alarm').removeClass('cls-display-none');
                 $("#btnConfirmAlarm").addClass("btn-info");
             }
 
