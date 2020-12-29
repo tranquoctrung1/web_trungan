@@ -117,6 +117,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="/_supervisor/map/Map2.aspx">
+                                <i class="fa fa-home"></i>
+                                <asp:Label ID="lbMap2" runat="server" Text="Bản Đồ Tổng Thể 2"></asp:Label>
+                            </a>
+                        </li>
+                        <li>
                             <a href="/_supervisor/DashBoard/DashBoard.aspx">
                                 <i class="fa fa-table"></i>
                                 <asp:Label ID="lbDashBoard" runat="server" Text="DashBoard"></asp:Label>

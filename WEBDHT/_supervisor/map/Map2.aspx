@@ -1,15 +1,17 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Empty.master" AutoEventWireup="true" CodeFile="Map.aspx.cs" Inherits="_supervisor_map_Map" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Empty.master" AutoEventWireup="true" CodeFile="Map2.aspx.cs" Inherits="_supervisor_map_Map2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
     <head>
         <title></title>
-        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXcBIH-8x-fgsegv6OedGZmh7g0JZyGr0"></script>
 
+        <link href="../../css/leaflet/leaflet.1.6.0.css" rel="stylesheet" />
+        <link href="../../css/leaflet/context-menu.min.css" rel="stylesheet" />
 
-        <script src="../../js/markerwithlabel.js"></script>
-        <script src="../../js/ContextMenu.js"></script>
+        <script src="../../js/leaflet/leaflet.1.6.0.js"></script>
+        <script src="../../js/leaflet/context-menu.js"></script>
+        <script src="../../js/leaflet/kmllayer.js"></script>
+
         <script src="../../js/jquery-1.7.2.min.js"></script>
         <script src="../../js/amcharts/amcharts.js"></script>
         <script src="../../js/amcharts/serial.js"></script>
@@ -20,8 +22,6 @@
         <script src="../../js/amcharts/exporting/jspdf.plugin.addimage.js"></script>
         <script src="../../js/amcharts/exporting/rgbcolor.js"></script>
         <script src="../../js/randomColor.js"></script>
-        <script src="../../js/arcgislink.js"></script>
-        <script src="../../js/markerclusterer.js"></script>
         <link href="../../App_Themes/common.css" rel="stylesheet" />
         <link href="../../css/CssMap.css" rel="stylesheet" />
 
@@ -119,6 +119,10 @@
                 overflow: hidden !important;
                 margin-left: 42px !important;
             }
+
+            .leaflet-control-zoom {
+                display: none
+            }
         </style>
 
 
@@ -174,7 +178,7 @@
                                     <asp:Label ID="lbMap" runat="server" Text="Bản Đồ Tổng Thể"></asp:Label>
                                 </a>
                             </li>
-                             <li>
+                            <li>
                                 <a href="/_supervisor/map/Map2.aspx">
                                     <i class="fa fa-home"></i>
                                     <asp:Label ID="lbMap2" runat="server" Text="Bản Đồ Tổng Thể 2"></asp:Label>
@@ -186,13 +190,13 @@
                                     <asp:Label ID="lbDashBoard" runat="server" Text="DashBoard"></asp:Label>
                                 </a>
                             </li>
-                               
-                         <li>
-                            <a href="/_supervisor/logger/datalogger.aspx">
-                                <i class="fa fa-table"></i>
-                                <asp:Label ID="lbDataLoggerTable" runat="server" Text="Dữ Liệu Logger"></asp:Label>
-                            </a>
-                        </li>
+
+                            <li>
+                                <a href="/_supervisor/logger/datalogger.aspx">
+                                    <i class="fa fa-table"></i>
+                                    <asp:Label ID="lbDataLoggerTable" runat="server" Text="Dữ Liệu Logger"></asp:Label>
+                                </a>
+                            </li>
                             <li class="treeview">
                                 <a href="#ThietBi"><i class="fa fa-flag"></i>
                                     <asp:Label ID="lbDevice" runat="server" Text="Thiết Bị"></asp:Label>
@@ -389,33 +393,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <%-- <li class="treeview">
-                            <a href="#QuanLyNguoiDung"><i class="fa fa-users"></i>
-                                <asp:Label ID="lbAdminPanel" runat="server" Text="Admin Panel"></asp:Label>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="/Supervisor/Admin/ViewUsers.aspx">
-                                        <asp:Label ID="lbViewUserDetails" runat="server" Text="Xem Người Dùng"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Supervisor/Admin/CreateUser.aspx">
-                                        <asp:Label ID="lbCreateUsers" runat="server" Text="Tạo Mới Người Dùng"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Supervisor/Admin/SettingSMS.aspx">
-                                        <asp:Label ID="lbMessageSettings" runat="server" Text="Cài Đặt Tin Nhắn"></asp:Label>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>--%>
-                         
-
+                           
                             <li class="treeview">
                                 <a href="#SanLuong"><i class="fa fa-database"></i>
                                     <asp:Label ID="lbQuantity" runat="server" Text="Sản Lượng"></asp:Label>
@@ -495,12 +473,12 @@
                                             <asp:Label ID="lbChartPointDaily" runat="server" Text="Đồ Thị Ngày Theo Point"></asp:Label>
                                         </a>
                                     </li>
-                                     <li>
+                                    <li>
                                         <a href="/_supervisor/chartP/ChartPointMonthly.aspx">
                                             <asp:Label ID="lbChartPointMonthly" runat="server" Text="Đồ Thị Tháng Theo Point"></asp:Label>
                                         </a>
                                     </li>
-                                     <li>
+                                    <li>
                                         <a href="/_supervisor/chartP/ChartManagerHourly.aspx">
                                             <asp:Label ID="lbChartHourlyManager" runat="server" Text="Đồ Thị Giờ Theo DMA"></asp:Label>
                                         </a>
@@ -538,6 +516,7 @@
                                     <asp:Label ID="lbAlarm" runat="server" Text="Cảnh Báo"></asp:Label>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                         <i class="badge bg-danger" id="countAlarm">0</i>
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
@@ -574,107 +553,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <%-- <li class="treeview">
-                            <a href="#QuanLyNgonNgu"><i class="fa fa-language"></i>
-                                <asp:Label ID="lbLanguageManagement" runat="server" Text="Quản Lý Ngôn Ngữ"></asp:Label>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="/Supervisor/Language/ChangeFunction.aspx">
-                                        <asp:Label ID="lbFunctions" runat="server" Text="Tính Năng"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Supervisor/Language/ChangeContent.aspx">
-                                        <asp:Label ID="lbContents" runat="server" Text="Nội Dung Chi Tiết"></asp:Label>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>--%>
-
-                            <%-- <li class="treeview">
-                            <a href="#QuanLyHeThong"><i class="fa fa-plug"></i>
-                                <asp:Label ID="lbConfigSystem" runat="server" Text="Quản Lý Hệ Thống"></asp:Label>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="/Supervisor/System/General.aspx">
-                                        <asp:Label ID="lbGeneralSystem" runat="server" Text="Hệ Thống Chung"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Supervisor/System/Users.aspx">
-                                        <asp:Label ID="lbUserManagement" runat="server" Text="Quản lý tài khoản"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Supervisor/System/Roles.aspx">
-                                        <asp:Label ID="lbRoleManagement" runat="server" Text="Quản lý vai trò người dùng"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Supervisor/System/RoleFunction.aspx">
-                                        <asp:Label ID="lbRoleFunctionManagement" runat="server" Text="Quản lý quyền truy cập"></asp:Label>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>--%>
-                            <%-- <li class="treeview">
-                            <a href="#FullScreen">
-                                <i class="fa fa-arrows-alt"></i>
-                                <span class="name">
-                                    <asp:Label ID="lbFullScreen" runat="server" Text="Toàn màn hình"></asp:Label>
-                                </span>
-                            </a>
-                        </li>--%>
-                            <%--<li class="treeview">
-                            <a href="#Alert" id="btnShowAlarm" class="click">
-                                <i class="fa fa-bell-o"></i>
-                                <span class="name">
-                                    <asp:Label ID="lbAlert" runat="server" Text="Cảnh báo"></asp:Label>
-                                </span>
-                                <span class="pull-right-container" id="txtCountAlarm">
-                                        
-                                </span>
-                            </a>
-                        </li>--%>
-
-                            <%-- <li class="treeview">
-                            <a href="#NgonNgu">
-                                <i class="fa fa-language"></i>
-                                <asp:Label ID="Label1" runat="server" Text="Ngôn ngữ"></asp:Label>
-                                <span class="name">
-                                    <asp:Label ID="lbLang" runat="server" Text=""></asp:Label>
-                                </span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="#"  runat="server">
-                                        <asp:Label ID="lbVi" runat="server" Text="VietNamese"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"  runat="server">
-                                        <asp:Label ID="lbEn" runat="server" Text="English"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" runat="server">
-                                        <asp:Label ID="lbOther" runat="server" Text="Other"></asp:Label>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>--%>
-
+                           
                             <li class="treeview">
                                 <a href="#DangXuat">
                                     <i class="fa fa-user-circle"></i>
@@ -752,10 +631,10 @@
                         <telerik:RadSplitter ID="RadSplitter1" runat="server" Height="100%" Width="100%">
 
                             <telerik:RadPane ID="RadPane2" runat="server" Height="100%">
-                                <a href="#" class="zoom-icon  custom-tooltip" onclick="resetZoom()">
+                               <%-- <a href="#" class="zoom-icon  custom-tooltip" onclick="resetZoom()">
                                     <img src="../../App_Themes/zoom.png" />
                                     <span class="tooltiptext">ZOOM-OUT</span>
-                                </a>
+                                </a>--%>
                                 <a href="#" class="icon-right width-search-icon custom-tooltip" data-toggle="control-sidebar" id="icon_collap_rightmenu" onclick="customPositionIcon()">
                                     <img src="../../App_Themes/setting.png" />
                                     <span class="tooltiptext">CHỌN ĐỊA ĐIỂM</span>
@@ -900,12 +779,7 @@
                                                 <asp:Label Text="Thiết lập bản đồ" ID="txtSettingMap" runat="server" />
                                             </h4>
                                         </div>
-                                        <%--<div class="checkbox">
-                                            <div>
-                                                <input type="checkbox" class="custom-checkbox" checked="checked" value="" id="cbkGroupLogger">
-                                                <asp:Label Text="Gom nhóm Logger" ID="ckGroupLogger" runat="server" />
-                                            </div>
-                                        </div>--%>
+                                        
                                         <div class="checkbox">
                                             <div>
                                                 <input type="checkbox" class="custom-checkbox" checked="checked" value="" id="cbkShowInfo">
@@ -1459,14 +1333,14 @@
                                 $('#cbkShowInfo').click(function () {
                                     if ($(this).is(':checked')) {
                                         isShowInfoHtml = true;
-                                        for (var i = 0; i < markers.length; i++) {
-                                            markers[i].setVisible(true);
-                                        }
+                                        //for (var i = 0; i < markers.length; i++) {
+                                        //    markers[i].setVisible(true);
+                                        //}
                                     } else {
                                         isShowInfoHtml = false;
-                                        for (var i = 0; i < markers.length; i++) {
-                                            markers[i].setVisible(false);
-                                        }
+                                        //for (var i = 0; i < markers.length; i++) {
+                                        //    markers[i].setVisible(false);
+                                        //}
 
                                     }
                                 });
@@ -1474,48 +1348,87 @@
                                 //set show marker in map
                                 $('#cbkbinhthuong').click(function () {
                                     if ($(this).is(':checked')) {
-                                        statusImage_nor = true;
+                                        markers.forEach(function (marker) {
+                                            if (marker.getIcon().options.iconUrl == image_nor) {
+                                                map.addLayer(marker)
+                                            }
+
+                                        })
                                     } else {
-                                        statusImage_nor = false;
+                                        markers.forEach(function (marker) {
+                                            if (marker.getIcon().options.iconUrl == image_nor) {
+                                                map.removeLayer(marker)
+                                            }
+
+                                        })
                                     }
                                     //omarkers = [];
                                     //markers = [];
                                     //window_init();
-                                    updateMap();
+                                    //updateMap();
                                 });
 
                                 $('#cbkbaotre').click(function () {
                                     if ($(this).is(':checked')) {
-                                        statusImage_press = true;
+                                        markers.forEach(function (marker) {
+                                            if (marker.getIcon().options.iconUrl == image_err_sig_delay) {
+                                                map.addLayer(marker)
+                                            }
+
+                                        })
                                     } else {
-                                        statusImage_press = false;
+                                        markers.forEach(function (marker) {
+                                            if (marker.getIcon().options.iconUrl == image_err_sig_delay) {
+                                                map.removeLayer(marker)
+                                            }
+
+                                        })
                                     }
                                     //omarkers = [];
                                     //markers = [];
                                     //window_init();
-                                    updateMap();
+                                    //updateMap();
                                 });
                                 $('#cbkvuotnguong').click(function () {
                                     if ($(this).is(':checked')) {
-                                        statusImage_delay = true;
+                                        markers.forEach(function (marker) {
+                                            if (marker.getIcon().options.iconUrl == image_err_low_press) {
+                                                map.addLayer(marker)
+                                            }
+
+                                        })
                                     } else {
-                                        statusImage_delay = false;
+                                        markers.forEach(function (marker) {
+                                            if (marker.getIcon().options.iconUrl == image_err_low_press) {
+                                                map.removeLayer(marker)
+                                            }
+
+                                        })
                                     }
                                     //omarkers = [];
                                     //markers = [];
                                     //window_init();
-                                    updateMap();
+                                    //updateMap();
                                 });
                                 $('#cbkkhongapluc').click(function () {
                                     if ($(this).is(':checked')) {
-                                        statusImage_previous = true;
+                                        markers.forEach(function (marker) {
+                                            if (marker.getIcon().options.iconUrl == image_err_previous) {
+                                                map.addLayer(marker)
+                                            }
+
+                                        })
                                     } else {
-                                        statusImage_previous = false;
+                                        markers.forEach(function (marker) {
+                                            if (marker.getIcon().options.iconUrl == image_err_previous) {
+                                                map.removeLayer(marker)
+                                            }
+                                        })
                                     }
                                     //omarkers = [];
                                     //markers = [];
                                     //window_init();
-                                    updateMap();
+                                    //updateMap();
                                 });
 
 
@@ -1666,9 +1579,9 @@
                                 var map;
                                 var markers = [];
                                 var omarkers = [];
-                                var infowindow = new google.maps.InfoWindow({
-                                    content: ''
-                                });
+                                //var infowindow = new google.maps.InfoWindow({
+                                //    content: ''
+                                //});
 
                                 var infoHtml;
                                 var dInfoHtml;
@@ -1687,37 +1600,46 @@
                                 var mreds = [];
                                 var mblues = [];
 
-                                var image_nor = {
-                                    url: '../../App_Themes/green.png',
-                                    //url:'#',
-                                    size: new google.maps.Size(20, 20),
-                                    origin: new google.maps.Point(0, 0),
-                                    //anchor: new google.maps.Point(-6, 45)
-                                };
+                                //var image_nor = {
+                                //    url: '../../App_Themes/green.png',
+                                //    //url:'#',
+                                //    size: new google.maps.Size(20, 20),
+                                //    origin: new google.maps.Point(0, 0),
+                                //    //anchor: new google.maps.Point(-6, 45)
+                                //};
 
-                                var image_err_low_press = {
-                                    url: '../../App_Themes/red.png',
-                                    //url:'#',
-                                    size: new google.maps.Size(20, 20),
-                                    origin: new google.maps.Point(0, 0),
-                                    //anchor: new google.maps.Point(-75, 30)
-                                };
+                                var image_nor = '../../App_Themes/green.png';
 
-                                var image_err_sig_delay = {
-                                    url: '../../App_Themes/oranges.png',
-                                    //url:'#',
-                                    size: new google.maps.Size(20, 20),
-                                    origin: new google.maps.Point(0, 0),
-                                    //anchor: new google.maps.Point(-6, 45)
-                                };
+                                //var image_err_low_press = {
+                                //    url: '../../App_Themes/red.png',
+                                //    //url:'#',
+                                //    size: new google.maps.Size(20, 20),
+                                //    origin: new google.maps.Point(0, 0),
+                                //    //anchor: new google.maps.Point(-75, 30)
+                                //};
 
-                                var image_err_previous = {
-                                    url: '../../App_Themes/yellow.png',
-                                    //url:'#',
-                                    size: new google.maps.Size(20, 20),
-                                    origin: new google.maps.Point(0, 0),
-                                    //anchor: new google.maps.Point(-6, 45)
-                                };
+                                var image_err_low_press = '../../App_Themes/red.png';
+
+                                //var image_err_sig_delay = {
+                                //    url: '../../App_Themes/oranges.png',
+                                //    //url:'#',
+                                //    size: new google.maps.Size(20, 20),
+                                //    origin: new google.maps.Point(0, 0),
+                                //    //anchor: new google.maps.Point(-6, 45)
+                                //};
+
+                                var image_err_sig_delay = '../../App_Themes/oranges.png';
+
+                                //var image_err_previous = {
+                                //    url: '../../App_Themes/yellow.png',
+                                //    //url:'#',
+                                //    size: new google.maps.Size(20, 20),
+                                //    origin: new google.maps.Point(0, 0),
+                                //    //anchor: new google.maps.Point(-6, 45)
+                                //};
+
+                                var image_err_previous = '../../App_Themes/yellow.png'; 
+
                                 var locations = [];
 
 
@@ -1738,7 +1660,7 @@
                                 var chartWidth = 0;
                                 var chartHeight = 0;
 
-                                var isDisableCluster = true;
+                                //var isDisableCluster = true;
                                 var isShowInfoHtml = true;
 
                                 var statusShowAll = true;
@@ -1769,27 +1691,146 @@
                                     return assoc;
                                 }
 
+
+                                function hideLable(e) {
+                                    map.eachLayer(function (layer) {
+                                        layer.closeTooltip()
+                                    })
+                                }
+
+                                function showLable(e) {
+                                    map.eachLayer(function (layer) {
+                                        layer.openTooltip(layer._latlng);
+                                    })
+                                }
+
+                                function zoomIn(e) {
+                                    map.zoomIn();
+                                }
+
+                                function zoomOut(e) {
+                                    map.zoomOut();
+                                }
+
+
                                 function window_init() {
                                     //MAP
                                     var qs = getQueryStrings();
                                     var uid = qs["uid"];
+                                    
+                                    map = L.map('map_canvas', {
+                                        contextmenu: true,
+                                        contextmenuWidth: 140,
+                                        contextmenuItems: [{
+                                            text: 'Hide Lable',
+                                            callback: hideLable
+                                        }, {
+                                            text: 'Show Lable',
+                                            callback: showLable
+                                        }, '-', {
+                                            text: 'Zoom in',
+                                            callback: zoomIn
+                                        }, {
+                                            text: 'Zoom out',
+                                            callback: zoomOut
+                                        }]
+                                    }).setView([10.7611111, 106.675], 12);
 
-                                    zoom = 12;
-                                    center = new google.maps.LatLng(10.7611111, 106.675);
-                                    var myOptions = {
-                                        zoom: zoom,
-                                        center: center,
-                                        mapTypeId: google.maps.MapTypeId.ROADMAP,
-                                        streetViewControl: true,
-                                        fullscreenControl: false
-                                    };
-                                    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+                                    L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidHJhbnF1b2N0cnVuZyIsImEiOiJja2J6eTA1bXQxZTY4MnVudGxtM3BjMzI4In0.c0ylnh0g8KaZ83XlK_qGqw', {
+                                        attribution: '<a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
+                                        maxZoom: 18,
+                                    }).addTo(map);
 
-                                    //var url = 'https://trungangis.capnuoctrungan.vn/arcgis/rest/services/mangluoi/mapserver';
-                                    //var url = 'http://113.161.76.112:6080/arcgis/rest/services/KHAWASSCOMapService/MapServer';
-                                   // var cpc = new gmaps.ags.CopyrightControl(map);
-                                   // var dynamap = new gmaps.ags.MapOverlay(url, {});
-                                   // dynamap.setMap(map);
+                                    //let zoom = document.getElementById('zoom');
+                                    let icon_collap_rightmenu = document.getElementById('icon_collap_rightmenu');
+                                    let icon_collap_setting_menu = document.getElementById('icon_collap_setting_menu');
+                                    let icon_collap_filter_menu = document.getElementById('icon_collap_filter_menu');
+                                    //let icon_collap_layer_menu = document.getElementById('icon_collap_layer_menu');
+
+                                    //L.Control.Watermark = L.Control.extend({
+                                    //    onAdd: function (map) {
+                                    //        return zoom
+                                    //    },
+
+                                    //    onRemove: function (map) {
+                                    //        // Nothing to do here
+                                    //    }
+                                    //});
+
+                                    //L.control.watermark = function (opts) {
+                                    //    return new L.Control.Watermark(opts);
+                                    //}
+
+                                    //L.control.watermark({ position: 'topright' }).addTo(map);
+
+                                    //
+
+                                    L.Control.Watermark = L.Control.extend({
+                                        onAdd: function (map) {
+                                            return icon_collap_rightmenu
+                                        },
+
+                                        onRemove: function (map) {
+                                            // Nothing to do here
+                                        }
+                                    });
+
+                                    L.control.watermark = function (opts) {
+                                        return new L.Control.Watermark(opts);
+                                    }
+
+                                    L.control.watermark({ position: 'topright' }).addTo(map);
+
+                                    //
+
+                                    L.Control.Watermark = L.Control.extend({
+                                        onAdd: function (map) {
+                                            return icon_collap_setting_menu
+                                        },
+
+                                        onRemove: function (map) {
+                                            // Nothing to do here
+                                        }
+                                    });
+
+                                    L.control.watermark = function (opts) {
+                                        return new L.Control.Watermark(opts);
+                                    }
+
+                                    L.control.watermark({ position: 'topright' }).addTo(map);
+
+                                    // 
+                                    L.Control.Watermark = L.Control.extend({
+                                        onAdd: function (map) {
+                                            return icon_collap_filter_menu
+                                        },
+
+                                        onRemove: function (map) {
+                                            // Nothing to do here
+                                        }
+                                    });
+
+                                    L.control.watermark = function (opts) {
+                                        return new L.Control.Watermark(opts);
+                                    }
+
+                                    L.control.watermark({ position: 'topright' }).addTo(map);
+                                    //
+                                    L.Control.Watermark = L.Control.extend({
+                                        onAdd: function (map) {
+                                            return icon_collap_layer_menu
+                                        },
+
+                                        onRemove: function (map) {
+                                            // Nothing to do here
+                                        }
+                                    });
+
+                                    L.control.watermark = function (opts) {
+                                        return new L.Control.Watermark(opts);
+                                    }
+
+                                    L.control.watermark({ position: 'topright' }).addTo(map);
 
                                     //TREEVIEW & MAP CONTENT
                                     var treeViewSite = $find("<%= radTreeViewSite.ClientID %>");
@@ -1936,85 +1977,85 @@
                                                     //infoHtml += "<tr><td style=' background-color: white;border-top: unset;'><a href=\"#\"  style='color: #30a0c1;' onclick=\"openChartMinMaxPre('" + s.LoggerId + "');\">MinMax Pressure Day</a></td></tr>"
                                                     infoHtml += '</table>';
                                                     //LOAD TO MAP
-                                                    var latlng = new google.maps.LatLng(s.Latitude, s.Longitude);
-                                                    var anchor = new google.maps.Point(s.LabelAnchorX = null ? 40 : s.LabelAnchorX, s.LabelAnchorY = null ? 0 : s.LabelAnchorY);
-                                                    var omarker = new google.maps.Marker({
-                                                        id: 'om_' + s.SiteId,
-                                                        position: latlng,
-                                                        map: map,
-                                                        icon: img,
-                                                        html: infoHtml
-                                                    });
-                                                    var marker = new MarkerWithLabel({
-                                                        id: 'm_' + s.SiteId,
-                                                        position: latlng,
-                                                        map: map,
-                                                        icon: img,
-                                                        draggable: false,
-                                                        raiseOnDrag: true,
-                                                        labelContent: labelHtml,
-                                                        labelAnchor: anchor,
-                                                        labelClass: "labels", // the CSS class for the label
-                                                        labelInBackground: false,
-                                                        html: infoHtml,
-                                                        visible: false
-                                                    });
+                                                    //var latlng = new google.maps.LatLng(s.Latitude, s.Longitude);
+                                                    //var anchor = new google.maps.Point(s.LabelAnchorX = null ? 40 : s.LabelAnchorX, s.LabelAnchorY = null ? 0 : s.LabelAnchorY);
+                                                    //var omarker = new google.maps.Marker({
+                                                    //    id: 'om_' + s.SiteId,
+                                                    //    position: latlng,
+                                                    //    map: map,
+                                                    //    icon: img,
+                                                    //    html: infoHtml
+                                                    //});
+                                                    //var marker = new MarkerWithLabel({
+                                                    //    id: 'm_' + s.SiteId,
+                                                    //    position: latlng,
+                                                    //    map: map,
+                                                    //    icon: img,
+                                                    //    draggable: false,
+                                                    //    raiseOnDrag: true,
+                                                    //    labelContent: labelHtml,
+                                                    //    labelAnchor: anchor,
+                                                    //    labelClass: "labels", // the CSS class for the label
+                                                    //    labelInBackground: false,
+                                                    //    html: infoHtml,
+                                                    //    visible: false
+                                                    //});
 
 
-                                                    google.maps.event.addListener(marker, 'click', function () {
-                                                        infowindow.setContent(this.html);
-                                                        infowindow.open(map, this);
-                                                        funtionShowInfo(s.SiteId, s.LoggerId, s.Location);
-                                                    });
-                                                    google.maps.event.addListener(omarker, 'click', function () {
-                                                        infowindow.setContent(this.html);
-                                                        infowindow.open(map, this);
-                                                    });
+                                                    //google.maps.event.addListener(marker, 'click', function () {
+                                                    //    infowindow.setContent(this.html);
+                                                    //    infowindow.open(map, this);
+                                                    //    funtionShowInfo(s.SiteId, s.LoggerId, s.Location);
+                                                    //});
+                                                    //google.maps.event.addListener(omarker, 'click', function () {
+                                                    //    infowindow.setContent(this.html);
+                                                    //    infowindow.open(map, this);
+                                                    //});
 
-                                                    if (!isShowInfoHtml) {
-                                                        marker.setVisible(false);
-                                                    }
-                                                    //green
-                                                    if (marker.icon.url == image_nor.url) {
-                                                        if (statusImage_nor && displayByGroupChannel == 1) {
-                                                            markers.push(marker);
-                                                            omarkers.push(omarker);
-                                                        } else {
-                                                            marker.setVisible(false);
-                                                            omarker.setVisible(false);
-                                                        }
-                                                    } else {
-                                                        //ress
-                                                        if (marker.icon.url == image_err_low_press.url) {
-                                                            if (statusImage_press && displayByGroupChannel == 1) {
-                                                                markers.push(marker);
-                                                                omarkers.push(omarker);
-                                                            } else {
-                                                                marker.setVisible(false);
-                                                                omarker.setVisible(false);
-                                                            }
-                                                        } else {
-                                                            //yellow
-                                                            if (marker.icon.url == image_err_previous.url) {
-                                                                if (statusImage_previous && displayByGroupChannel == 1) {
-                                                                    markers.push(marker);
-                                                                    omarkers.push(omarker);
-                                                                } else {
-                                                                    marker.setVisible(false);
-                                                                    omarker.setVisible(false);
-                                                                }
-                                                            } else {
-                                                                //delay
-                                                                if (statusImage_delay && displayByGroupChannel == 1) {
-                                                                    markers.push(marker);
-                                                                   omarkers.push(omarker);
-                                                                } else {
-                                                                    marker.setVisible(false);
-                                                                    omarker.setVisible(false);
-                                                                }
-                                                            }
-                                                        }
-                                                    }
+                                                    //if (!isShowInfoHtml) {
+                                                    //    marker.setVisible(false);
+                                                    //}
+                                                    ////green
+                                                    //if (marker.icon.url == image_nor.url) {
+                                                    //    if (statusImage_nor && displayByGroupChannel == 1) {
+                                                    //        markers.push(marker);
+                                                    //        omarkers.push(omarker);
+                                                    //    } else {
+                                                    //        marker.setVisible(false);
+                                                    //        omarker.setVisible(false);
+                                                    //    }
+                                                    //} else {
+                                                    //    //ress
+                                                    //    if (marker.icon.url == image_err_low_press.url) {
+                                                    //        if (statusImage_press && displayByGroupChannel == 1) {
+                                                    //            markers.push(marker);
+                                                    //            omarkers.push(omarker);
+                                                    //        } else {
+                                                    //            marker.setVisible(false);
+                                                    //            omarker.setVisible(false);
+                                                    //        }
+                                                    //    } else {
+                                                    //        //yellow
+                                                    //        if (marker.icon.url == image_err_previous.url) {
+                                                    //            if (statusImage_previous && displayByGroupChannel == 1) {
+                                                    //                markers.push(marker);
+                                                    //                omarkers.push(omarker);
+                                                    //            } else {
+                                                    //                marker.setVisible(false);
+                                                    //                omarker.setVisible(false);
+                                                    //            }
+                                                    //        } else {
+                                                    //            //delay
+                                                    //            if (statusImage_delay && displayByGroupChannel == 1) {
+                                                    //                markers.push(marker);
+                                                    //                omarkers.push(omarker);
+                                                    //            } else {
+                                                    //                marker.setVisible(false);
+                                                    //                omarker.setVisible(false);
+                                                    //            }
+                                                    //        }
+                                                    //    }
+                                                    //}
                                                     //if (isDisableCluster) {
                                                     //    markerCluster = new MarkerClusterer(map, markers,
                                                     //        { imagePath: '../../_imgs/iconCluster/m' }
@@ -2028,6 +2069,59 @@
                                                     //        styles[i].textSize = 15;
                                                     //    }
                                                     //}
+                                                    if (s.Latitude != null && s.Latitude != undefined && s.Latitude.toString().trim() != "" && s.Longitude != null && s.Longitude != undefined && s.Longitude.toString().trim() != "") {
+                                                        var greenIcon = new L.Icon({
+                                                            iconUrl: img,
+                                                            iconSize: [15, 15],
+                                                            iconAnchor: [s.LabelAnchorX = null ? 40 : s.LabelAnchorX, s.LabelAnchorY = null ? 0 : s.LabelAnchorY],
+                                                        });
+
+                                                        let marker = new L.marker([parseFloat(s.Latitude), parseFloat(s.Longitude)], { icon: greenIcon, id: `m_${s.SiteId}` }).addTo(map).bindTooltip(labelHtml, {
+                                                            direction: 'bottom',
+                                                            permanent: false,
+                                                            offset: [7, 15]
+                                                        }).on('click', onMarkerClick);
+
+                                                        let popUp = new L.Popup({ autoClose: false, closeOnClick: false, offset: [7, 8] })
+                                                            .setContent(infoHtml)
+                                                            .setLatLng([parseFloat(s.Latitude), parseFloat(s.Longitude)]);
+
+                                                        marker.bindPopup(popUp);
+
+                                                        //green
+                                                        if (marker.getIcon().options.iconUrl == image_nor) {
+                                                            if (statusImage_nor && displayByGroupChannel == 1) {
+                                                                markers.push(marker);
+                                                            } else {
+                                                                map.removeLayer(marker);
+                                                            }
+                                                        } else {
+                                                            //ress
+                                                            if (marker.getIcon().options.iconUrl == image_err_low_press) {
+                                                                if (statusImage_press && displayByGroupChannel == 1) {
+                                                                    markers.push(marker);
+                                                                } else {
+                                                                    map.removeLayer(marker);
+                                                                }
+                                                            } else {
+                                                                //yellow
+                                                                if (marker.getIcon().options.iconUrl == image_err_previous) {
+                                                                    if (statusImage_previous && displayByGroupChannel == 1) {
+                                                                        markers.push(marker);
+                                                                    } else {
+                                                                        map.removeLayer(marker);
+                                                                    }
+                                                                } else {
+                                                                    //delay
+                                                                    if (marker.getIcon().options.iconUrl && displayByGroupChannel == 1) {
+                                                                        markers.push(marker);
+                                                                    } else {
+                                                                        map.removeLayer(marker);
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
 
                                                 }
                                                 hasChannel = false;
@@ -2035,120 +2129,129 @@
                                         })
                                     });
 
+                                    ////treeViewSite.commitChanges();
+                                    ////CONTEXT MENU
+                                    //var contextMenuOptions = {};
+                                    //contextMenuOptions.classNames = { menu: 'context_menu', menuSeparator: 'context_menu_separator' };
+                                    //var menuItems = [];
+                                    //menuItems.push({ className: 'context_menu_item', eventName: 'hide_click', label: 'Hide labels' });
+                                    //menuItems.push({ className: 'context_menu_item', eventName: 'show_click', label: 'Show labels' });
+                                    //contextMenuOptions.menuItems = menuItems;
+                                    //var contextMenu = new ContextMenu(map, contextMenuOptions);
 
-                                    //treeViewSite.commitChanges();
-                                    //CONTEXT MENU
-                                    var contextMenuOptions = {};
-                                    contextMenuOptions.classNames = { menu: 'context_menu', menuSeparator: 'context_menu_separator' };
-                                    var menuItems = [];
-                                    menuItems.push({ className: 'context_menu_item', eventName: 'hide_click', label: 'Hide labels' });
-                                    menuItems.push({ className: 'context_menu_item', eventName: 'show_click', label: 'Show labels' });
-                                    contextMenuOptions.menuItems = menuItems;
-                                    var contextMenu = new ContextMenu(map, contextMenuOptions);
-
-                                    google.maps.event.addListener(map, 'rightclick', function (mouseEvent) {
-                                        contextMenu.show(mouseEvent.latLng);
-                                    });
-                                    google.maps.event.addListener(contextMenu, 'menu_item_selected', function (latLng, eventName) {
-                                        switch (eventName) {
-                                            case 'hide_click':
-                                                for (var i = 0; i < markers.length; i++) {
-                                                    markers[i].setVisible(false);
-                                                }
-                                                break;
-                                            case 'show_click':
-                                                for (var i = 0; i < markers.length; i++) {
-                                                    markers[i].setVisible(true);
-                                                }
-                                                break;
-                                        }
-                                    });
+                                    //google.maps.event.addListener(map, 'rightclick', function (mouseEvent) {
+                                    //    contextMenu.show(mouseEvent.latLng);
+                                    //});
+                                    //google.maps.event.addListener(contextMenu, 'menu_item_selected', function (latLng, eventName) {
+                                    //    switch (eventName) {
+                                    //        case 'hide_click':
+                                    //            for (var i = 0; i < markers.length; i++) {
+                                    //                markers[i].setVisible(false);
+                                    //            }
+                                    //            break;
+                                    //        case 'show_click':
+                                    //            for (var i = 0; i < markers.length; i++) {
+                                    //                markers[i].setVisible(true);
+                                    //            }
+                                    //            break;
+                                    //    }
+                                    //});
 
                                     FillDiaplayGroups();
                                 }
 
-                                document.getElementById('ckArea').addEventListener('change', function (e) {
-                                    if (this.checked == true) {
-                                        showAreaLayerKML();
+
+                                let prevMarker;
+
+                                function onMarkerClick(e) {
+                                    if (prevMarker != null && prevMarker != undefined) {
+                                        prevMarker.closePopup();
                                     }
-                                    else {
-                                        hideAreaLayerKML();
-                                    }
-                                })
-
-                                document.getElementById('ckPipeLV1').addEventListener('change', function (e) {
-                                    if (this.checked == true) {
-                                        showPipeLV1();
-                                    }
-                                    else {
-                                        hidePipeLV1();
-                                    }
-
-                                })
-
-                                document.getElementById('ckPipeLineLV2').addEventListener('change', function (e) {
-
-                                    if (this.checked == true) {
-                                        showPipeLV2();
-                                    }
-                                    else {
-                                        hidePipeLV2();
-                                    }
-                                })
-
-                                function showPipeLV2() {
-                                    kml_level2_PVC = new google.maps.KmlLayer({
-                                        url: kml_level2_PVCfile,
-                                        map: map,
-                                    });
-
-
-                                    kml_level2_HDPE = new google.maps.KmlLayer({
-                                        url: kml_level2_HDPEfile,
-                                        map: map,
-                                    });
-
-                                    kml_level2_DICL = new google.maps.KmlLayer({
-                                        url: kml_level2_DICLfile,
-                                        map: map,
-                                    });
-
-
-                                    kml_level2_uPVC = new google.maps.KmlLayer({
-                                        url: kml_level2_uPVCfile,
-                                        map: map,
-                                    });
-
+                                    prevMarker = this;
                                 }
 
-                                function hidePipeLV2() {
-                                    kml_level2_PVC.setMap(null);
-                                    kml_level2_HDPE.setMap(null);
-                                    kml_level2_DICL.setMap(null);
-                                    kml_level2_uPVC.setMap(null);
-                                }
+                                //document.getElementById('ckArea').addEventListener('change', function (e) {
+                                //    if (this.checked == true) {
+                                //        showAreaLayerKML();
+                                //    }
+                                //    else {
+                                //        hideAreaLayerKML();
+                                //    }
+                                //})
 
-                                function showPipeLV1() {
-                                    kml_level1 = new google.maps.KmlLayer({
-                                        url: kml_level1file,
-                                        map: map,
-                                    })
-                                }
+                                //document.getElementById('ckPipeLV1').addEventListener('change', function (e) {
+                                //    if (this.checked == true) {
+                                //        showPipeLV1();
+                                //    }
+                                //    else {
+                                //        hidePipeLV1();
+                                //    }
 
-                                function hidePipeLV1() {
-                                    kml_level1.setMap(null);
-                                }
+                                //})
 
-                                function showAreaLayerKML() {
-                                    kml_area = new google.maps.KmlLayer({
-                                        url: kml_areafile,
-                                        map: map,
-                                    });
-                                }
+                                //document.getElementById('ckPipeLineLV2').addEventListener('change', function (e) {
 
-                                function hideAreaLayerKML() {
-                                    kml_area.setMap(null);
-                                }
+                                //    if (this.checked == true) {
+                                //        showPipeLV2();
+                                //    }
+                                //    else {
+                                //        hidePipeLV2();
+                                //    }
+                                //})
+
+                                //function showPipeLV2() {
+                                //    kml_level2_PVC = new google.maps.KmlLayer({
+                                //        url: kml_level2_PVCfile,
+                                //        map: map,
+                                //    });
+
+
+                                //    kml_level2_HDPE = new google.maps.KmlLayer({
+                                //        url: kml_level2_HDPEfile,
+                                //        map: map,
+                                //    });
+
+                                //    kml_level2_DICL = new google.maps.KmlLayer({
+                                //        url: kml_level2_DICLfile,
+                                //        map: map,
+                                //    });
+
+
+                                //    kml_level2_uPVC = new google.maps.KmlLayer({
+                                //        url: kml_level2_uPVCfile,
+                                //        map: map,
+                                //    });
+
+                                //}
+
+                                //function hidePipeLV2() {
+                                //    kml_level2_PVC.setMap(null);
+                                //    kml_level2_HDPE.setMap(null);
+                                //    kml_level2_DICL.setMap(null);
+                                //    kml_level2_uPVC.setMap(null);
+                                //}
+
+                                //function showPipeLV1() {
+                                //    kml_level1 = new google.maps.KmlLayer({
+                                //        url: kml_level1file,
+                                //        map: map,
+                                //    })
+                                //}
+
+                                //function hidePipeLV1() {
+                                //    kml_level1.setMap(null);
+                                //}
+
+                                //function showAreaLayerKML() {
+                                //    kml_area = new google.maps.KmlLayer({
+                                //        url: kml_areafile,
+                                //        map: map,
+                                //    });
+                                //}
+
+                                //function hideAreaLayerKML() {
+                                //    kml_area.setMap(null);
+                                //}
 
 
 
@@ -2182,39 +2285,21 @@
 
                                         for (let item of dc) {
                                             if (e.checked == true) {
-                                                for (let marker of markers) {
-                                                    if (marker.id.split('_')[1] == item.SiteID) {
-                                                        marker.setVisible(true);
-                                                        break;
+                                                markers.forEach(function (marker) {
+                                                    if (marker.options.id == `m_${item.SiteID}`) {
+                                                        map.addLayer(marker);
                                                     }
-                                                }
-                                                for (let omarker of omarkers) {
-                                                    if (omarker.id.split('_')[1] == item.SiteID) {
-                                                        omarker.setVisible(true);
-                                                        break;
-                                                    }
-                                                }
+                                                })
                                             }
                                             else {
-                                                for (let marker of markers) {
-                                                    if (marker.id.split('_')[1] == item.SiteID) {
-                                                        marker.setVisible(false);
-                                                        break;
+                                                markers.forEach(function (marker) {
+                                                    if (marker.options.id == `m_${item.SiteID}`) {
+                                                        map.removeLayer(marker);
                                                     }
-                                                }
-                                                for (let omarker of omarkers) {
-                                                    if (omarker.id.split('_')[1] == item.SiteID) {
-                                                        omarker.setVisible(false);
-                                                        break;
-                                                    }
-                                                }
+                                                })
                                             }
                                         }
-
-
-
                                     })
-
                                 }
 
 
@@ -2358,24 +2443,41 @@
                                                 //infoHtml += "<tr><td><a href=\"#\" style='color: #30a0c1' onclick=\"openChartMinMaxPre('" + s.LoggerId + "');\">MinMax Pressure Day</a></td></tr>";
                                                 infoHtml += '</table>';
                                                 //LOAD TO MAP
-                                                loop_m:
-                                                for (var k = 0; k < markers.length; k++) {
-                                                    if (markers[k].id == ('m_' + s.SiteId)) {
+                                                //loop_m:
+                                                //for (var k = 0; k < markers.length; k++) {
+                                                //    if (markers[k].id == ('m_' + s.SiteId)) {
 
-                                                        markers[k].setIcon(img);
-                                                        markers[k].html = infoHtml;
-                                                        markers[k].labelContent = labelHtml;
-                                                        markers[k].label.setContent();
-                                                        break loop_m;
+                                                //        markers[k].setIcon(img);
+                                                //        markers[k].html = infoHtml;
+                                                //        markers[k].labelContent = labelHtml;
+                                                //        markers[k].label.setContent();
+                                                //        break loop_m;
+                                                //    }
+                                                //}
+                                                //loop_om:
+                                                //for (var k = 0; k < omarkers.length; k++) {
+                                                //    if (omarkers[k].id == ('om_' + s.SiteId)) {
+                                                //        omarkers[k].setIcon(img);
+                                                //        break loop_om;
+                                                //    }
+                                                //}
+
+                                                var greenIcon = new L.Icon({
+                                                    iconUrl: img,
+                                                    iconSize: [15, 15],
+                                                    iconAnchor: [s.LabelAnchorX = null ? 40 : s.LabelAnchorX, s.LabelAnchorY = null ? 0 : s.LabelAnchorY],
+                                                });
+
+
+                                                markers.forEach(function (marker) {
+                                                    if (marker.options.id == `m_${s.SiteId}`) {
+                                                        marker.setIcon(greenIcon);
+                                                        marker.getPopup().setContent(infoHtml);
+                                                        marker.getPopup().update();
+                                                        marker.getTooltip().setContent(labelHtml);
+                                                        marker.getTooltip().update();
                                                     }
-                                                }
-                                                loop_om:
-                                                for (var k = 0; k < omarkers.length; k++) {
-                                                    if (omarkers[k].id == ('om_' + s.SiteId)) {
-                                                        omarkers[k].setIcon(img);
-                                                        break loop_om;
-                                                    }
-                                                }
+                                                })
 
                                                 //for (var k = 0; k < markers.length; k++) {
                                                 //    if (markers[k].id == ('m_' + s.SiteId)) {
@@ -2456,7 +2558,6 @@
                                     var channels = [];
                                     var timeInit = [];
                                     $.getJSON(url, function (ds) {
-                                        console.log(ds)
                                         $.each(ds, function (i, s) {
                                             if (s.Groupchannel == "") {
                                                 $("#body_modal_setting").append("<div class='checkbox checkbox-info'><label><input id='ckGroup_" + i + "' type='checkbox'  class='custom-checkbox' value='NULL'>NULL</label> </div>");
@@ -2696,8 +2797,6 @@
                                 function DrawChartColumn(siteId, timeStamp) {
                                     var startDate = timeStamp;
                                     var endDate = addDays(startDate, -7);
-                                    console.log(startDate);
-                                    console.log(endDate)
                                     startDate = startDate.getTime() / 1000;
                                     endDate = endDate.getTime() / 1000;
                                     var url = urlGetChannelDataDaily + siteId + "&start=" + endDate + "&end=" + startDate;
@@ -2847,21 +2946,29 @@
                                     //$("#bottom_popup_siteinfo").addClass("cls-display-none");
                                 }
                                 function resetZoom() {
-                                    zoom = 9;
-                                    center = new google.maps.LatLng(20.909666, 103.586557);
-                                    map.setZoom(zoom);
-                                    map.setCenter(center);
+                                    //zoom = 9;
+                                    //center = new google.maps.LatLng(20.909666, 103.586557);
+                                    //map.setZoom(zoom);
+                                    //map.setCenter(center);
                                 }
 
                                 function openWin(id) {
-                                    loop_ow:
-                                    for (var i = 0; i < markers.length; i++) {
-                                        if (markers[i].id == ('m_' + id)) {
-                                            map.panTo(markers[i].getPosition());
-                                            google.maps.event.trigger(markers[i], 'click');
-                                            break loop_ow;
+                                    //loop_ow:
+                                    //for (var i = 0; i < markers.length; i++) {
+                                    //    if (markers[i].id == ('m_' + id)) {
+                                    //        map.panTo(markers[i].getPosition());
+                                    //        google.maps.event.trigger(markers[i], 'click');
+                                    //        break loop_ow;
+                                    //    }
+                                    //}
+                                    map.eachLayer(function (layer) {
+                                        if (layer.options.id == `m_${id}`) {
+                                            layer.fire('click');
+                                            // map.panTo(layer._latlng);
+                                            //use flyto or panto for moving map center this marker when click
+                                            map.flyTo([layer._latlng.lat, layer._latlng.lng], 15);
                                         }
-                                    }
+                                    });
 
                                 };
 
@@ -3216,14 +3323,9 @@
                                 }
 
                                 function drawChart(channel, start, end) {
-                                    console.log(start)
-                                    console.log(end)
-                                    console.log(channel)
                                     var url = urlGetChannelData + channel.id + "&start=" + start + "&end=" + end;
-                                    console.log(url)
                                     $.getJSON(url, function (d) {
                                         chartData = [];
-                                        console.log(d)
                                         $.each(d, function (i, val) {
                                             if (val.Timestamp != null && val.Timestamp != 'undefined') {
                                                 var parsedDate = new Date(convertDateFromApi(val.Timestamp));
@@ -3236,7 +3338,6 @@
                                             }
                                         });
 
-                                        console.log(chartData)
                                         //SERIAL CHART
                                         chart = new AmCharts.AmSerialChart();
                                         chart.pathToImages = "../../js/amcharts/images/";
@@ -3808,7 +3909,6 @@
 
                     var url = urlGetGroupChannel;
                     $.getJSON(url, function (d) {
-                        console.log(d);
                         var index = 0;
                         $.each(d, function (i, val) {
                             var id = "ckbGroupChannel_" + index.toString();
@@ -3946,9 +4046,21 @@
                 $("#btnConfirmAlarm").addClass("btn-info");
             });
 
+            setInterval(function () {
+                var uid = document.getElementById("ContentPlaceHolder1_lbUserName").value;
+                var urlAlarm = urlGetValeAlarm + uid;
+                $.getJSON(urlAlarm, function (d) {
+
+                    var countAlarm = document.getElementById('countAlarm');
+                    countAlarm.innerHTML = d.length.toString();
+                })
+
+            }, 2000)
+
         </script>
 
     </body>
 
 
 </asp:Content>
+
