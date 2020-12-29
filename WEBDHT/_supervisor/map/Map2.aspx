@@ -1608,7 +1608,7 @@
                                 //    //anchor: new google.maps.Point(-6, 45)
                                 //};
 
-                                var image_nor = '../../App_Themes/green.png';
+                                var image_nor = '../../App_Themes/marker_green.png';
 
                                 //var image_err_low_press = {
                                 //    url: '../../App_Themes/red.png',
@@ -1618,7 +1618,7 @@
                                 //    //anchor: new google.maps.Point(-75, 30)
                                 //};
 
-                                var image_err_low_press = '../../App_Themes/red.png';
+                                var image_err_low_press = '../../App_Themes/marker_red.png';
 
                                 //var image_err_sig_delay = {
                                 //    url: '../../App_Themes/oranges.png',
@@ -1628,7 +1628,7 @@
                                 //    //anchor: new google.maps.Point(-6, 45)
                                 //};
 
-                                var image_err_sig_delay = '../../App_Themes/oranges.png';
+                                var image_err_sig_delay = '../../App_Themes/marker_orange.png';
 
                                 //var image_err_previous = {
                                 //    url: '../../App_Themes/yellow.png',
@@ -1638,7 +1638,7 @@
                                 //    //anchor: new google.maps.Point(-6, 45)
                                 //};
 
-                                var image_err_previous = '../../App_Themes/yellow.png'; 
+                                var image_err_previous = '../../App_Themes/marker_yellow.png'; 
 
                                 var locations = [];
 
