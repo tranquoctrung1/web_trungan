@@ -3368,7 +3368,7 @@
                                 }
                                 window.onload = window_init;
 
-                                setInterval(updateMap, 120000);
+                                setInterval(updateMap, 60000);
                             </script>
                         </telerik:RadScriptBlock>
 

@@ -89,9 +89,9 @@ public partial class _supervisor_report_rsi_ : BasePage
             listCompanies, listStatus, listAvailabilities, listCalculates,
             listTakeovereds, listProperties, listUsingLoggers,
             listLoggerModels, listAccreditationTypes, listApproved, listGroup2s, listMeterModels);
-        rpt.LocalReport.DataSources.Clear();
-        rpt.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", list));
-        rpt.LocalReport.Refresh();
+        //rpt.LocalReport.DataSources.Clear();
+        //rpt.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", list));
+        //rpt.LocalReport.Refresh();
     }
 
     private List<string> GetAllMeterModels()

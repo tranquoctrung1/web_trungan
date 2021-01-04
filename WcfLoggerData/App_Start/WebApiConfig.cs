@@ -29,7 +29,7 @@ namespace WcfLoggerData
             config.Routes.MapHttpRoute(
               name: "GetTime",
               routeTemplate: "api/{controller}/{siteid}",
-              defaults: new { siteid = RouteParameter.Optional}
+              defaults: new { siteid = RouteParameter.Optional }
           );
 
             config.Routes.MapHttpRoute(
@@ -37,6 +37,24 @@ namespace WcfLoggerData
              routeTemplate: "api/{controller}/{start}/{end}",
              defaults: new { start = RouteParameter.Optional, end = RouteParameter.Optional }
          );
+
+            config.Routes.MapHttpRoute(
+            name: "GetDataStatisticSite",
+            routeTemplate: "api/{controller}/{level}/{group}/{group2s}/{meterModel}/{companies}/{status}/{availability}/{calc}/{property}/{takeover}/{usingLogger}/{modelLogger}/{accre}/{approve}",
+            defaults: new { level = RouteParameter.Optional, group = RouteParameter.Optional, group2s = RouteParameter.Optional,
+                meterModel = RouteParameter.Optional,
+                companies = RouteParameter.Optional,
+                status = RouteParameter.Optional,
+                availability = RouteParameter.Optional,
+                calc = RouteParameter.Optional,
+                property = RouteParameter.Optional,
+                takeover = RouteParameter.Optional,
+                usingLogger = RouteParameter.Optional,
+                modelLogger = RouteParameter.Optional,
+                accre = RouteParameter.Optional,
+                approve = RouteParameter.Optional,
+            }
+        );
 
             var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
             config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);

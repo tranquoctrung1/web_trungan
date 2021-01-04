@@ -133,6 +133,7 @@
     <Compile Include="Action\GetDataReportMonthlySiteAction.cs" />
     <Compile Include="Action\GetDataReportMonthlyTotalAction.cs" />
     <Compile Include="Action\GetDataReportYearlySiteAction.cs" />
+    <Compile Include="Action\GetDataStatisticSiteAction.cs" />
     <Compile Include="Action\GetDisplayGroupAction.cs" />
     <Compile Include="Action\GetGroupChannelAction.cs" />
     <Compile Include="Action\GetGroupChannelByLoggerAction.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Action\GetMultipleDataAction.cs" />
     <Compile Include="Action\GetSiteByUIDAction.cs" />
     <Compile Include="Action\GetSitesByDisplayGroupAction.cs" />
+    <Compile Include="Action\GetStatisticSiteDMAAction.cs" />
     <Compile Include="Action\GetTimeOfFirstChannel.cs" />
     <Compile Include="Action\GetValueAlarmAction.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -165,12 +167,14 @@
     <Compile Include="Controllers\GetDataReportMonthlySiteController.cs" />
     <Compile Include="Controllers\GetDataReportMonthlyTotalController.cs" />
     <Compile Include="Controllers\GetDataReportYearlySiteController.cs" />
+    <Compile Include="Controllers\GetDataStatisticSiteController.cs" />
     <Compile Include="Controllers\GetDisplayGroupController.cs" />
     <Compile Include="Controllers\GetGroupChannelByLoggerController.cs" />
     <Compile Include="Controllers\GetGroupChannelController.cs" />
     <Compile Include="Controllers\GetMultipleDataController.cs" />
     <Compile Include="Controllers\GetSiteByUIDController.cs" />
     <Compile Include="Controllers\GetSitesByDisplayGroupController.cs" />
+    <Compile Include="Controllers\GetStatisticSiteDMAController.cs" />
     <Compile Include="Controllers\GetTimeController.cs" />
     <Compile Include="Controllers\GetValueAlarmController.cs" />
     <Compile Include="Global.asax.cs">
@@ -199,6 +203,8 @@
     <Compile Include="Models\GroupChannelViewModel.cs" />
     <Compile Include="Models\SiteByDisplayGroupViewModel.cs" />
     <Compile Include="Models\SiteResultByUIDViewModel.cs" />
+    <Compile Include="Models\StatisticSiteDMAViewModel.cs" />
+    <Compile Include="Models\StatisticSiteViewModel.cs" />
     <Compile Include="Models\ValueAlarmViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -234,12 +240,14 @@
     <Folder Include="Views\GetDataReportMonthlySite\" />
     <Folder Include="Views\GetDataReportMonthlyTotal\" />
     <Folder Include="Views\GetDataReportYearlySite\" />
+    <Folder Include="Views\GetDataStatisticSite\" />
     <Folder Include="Views\GetDisplayGroup\" />
     <Folder Include="Views\GetGroupChannelByLogger\" />
     <Folder Include="Views\GetGroupChannel\" />
     <Folder Include="Views\GetMultipleData\" />
     <Folder Include="Views\GetSiteByUID\" />
     <Folder Include="Views\GetSitesByDisplayGroup\" />
+    <Folder Include="Views\GetStatisticSiteDMA\" />
     <Folder Include="Views\GetTime\" />
     <Folder Include="Views\GetValueAlarm\" />
   </ItemGroup>

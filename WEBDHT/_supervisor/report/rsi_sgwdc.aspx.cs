@@ -7,26 +7,26 @@ using System.Web.UI.WebControls;
 
 public partial class _supervisor_report_rsi_sgwdc : BasePage
 {
-    SitesBLL _sitesBLL = new SitesBLL();
+    //SitesBLL _sitesBLL = new SitesBLL();
     protected void Page_Load(object sender, EventArgs e)
     {
        // win.VisibleOnPageLoad = false;
         if (!IsPostBack)
         {
-            Show();
+           // Show();
         }
     }
 
-    protected void btnView_Click(object sender, EventArgs e)
-    {
-        Show();
-    }
-    private void Show()
-    {
-        //win.VisibleOnPageLoad = true;
-        List<SiteViewModel> list = _sitesBLL.GetAll4SGWDC();
-        rpt.LocalReport.DataSources.Clear();
-        rpt.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", list));
-        rpt.LocalReport.Refresh();
-    }
+    //protected void btnView_Click(object sender, EventArgs e)
+    //{
+    //    Show();
+    //}
+    //private void Show()
+    //{
+    //    //win.VisibleOnPageLoad = true;
+    //    List<SiteViewModel> list = _sitesBLL.GetAll4SGWDC();
+    //    rpt.LocalReport.DataSources.Clear();
+    //    rpt.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", list));
+    //    rpt.LocalReport.Refresh();
+    //}
 }
