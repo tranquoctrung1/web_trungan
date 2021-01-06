@@ -139,6 +139,7 @@
     <Compile Include="Action\GetDataReportMonthlySiteAction.cs" />
     <Compile Include="Action\GetDataReportMonthlyTotalAction.cs" />
     <Compile Include="Action\GetDataReportYearlySiteAction.cs" />
+    <Compile Include="Action\GetDataStatisticLoggerAction.cs" />
     <Compile Include="Action\GetDataStatisticSiteAction.cs" />
     <Compile Include="Action\GetDataStatisticTransmitterAction.cs" />
     <Compile Include="Action\GetDataTransmitterChangedAction.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="Controllers\GetDataReportMonthlySiteController.cs" />
     <Compile Include="Controllers\GetDataReportMonthlyTotalController.cs" />
     <Compile Include="Controllers\GetDataReportYearlySiteController.cs" />
+    <Compile Include="Controllers\GetDataStatisticLoggerController.cs" />
     <Compile Include="Controllers\GetDataStatisticMeterController.cs" />
     <Compile Include="Controllers\GetDataStatisticSiteController.cs" />
     <Compile Include="Controllers\GetDataStatisticTransmitterController.cs" />
@@ -215,6 +217,7 @@
     <Compile Include="Models\GroupChannelViewModel.cs" />
     <Compile Include="Models\SiteByDisplayGroupViewModel.cs" />
     <Compile Include="Models\SiteResultByUIDViewModel.cs" />
+    <Compile Include="Models\StatisticLoggerViewModel.cs" />
     <Compile Include="Models\StatisticMeterViewModel.cs" />
     <Compile Include="Models\StatisticSiteDMAViewModel.cs" />
     <Compile Include="Models\StatisticSiteViewModel.cs" />
@@ -255,6 +258,7 @@
     <Folder Include="Views\GetDataReportMonthlySite\" />
     <Folder Include="Views\GetDataReportMonthlyTotal\" />
     <Folder Include="Views\GetDataReportYearlySite\" />
+    <Folder Include="Views\GetDataStatisticLogger\" />
     <Folder Include="Views\GetDataStatisticMeter\" />
     <Folder Include="Views\GetDataStatisticSite\" />
     <Folder Include="Views\GetDataStatisticTransmitter\" />
