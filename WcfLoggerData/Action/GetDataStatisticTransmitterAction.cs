@@ -8,16 +8,15 @@ using WcfLoggerData.Models;
 
 namespace WcfLoggerData.Action
 {
-    public class GetStatisticMeterAction
+    public class GetDataStatisticTransmitterAction
     {
-        public List<StatisticMeterViewModel> GetStatisticMeter(string provider, string nation, string mark, string size, string model, string status, string install, string siteStatus, string company)
+        public List<StatisticTransmitterViewModel> GetStatisticTransmitter(string provider, string mark, string size, string model, string status, string install, string siteStatus, string company)
         {
-            List<StatisticMeterViewModel> list = new List<StatisticMeterViewModel>();
+            List<StatisticTransmitterViewModel> list = new List<StatisticTransmitterViewModel>();
 
             try
             {
                 List<string> listProvider = provider.Split(new char[] { '|' }, StringSplitOptions.None).ToList();
-                List<string> listNation = nation.Split(new char[] { '|' }, StringSplitOptions.None).ToList();
                 List<string> listMark = mark.Split(new char[] { '|' }, StringSplitOptions.None).ToList();
                 List<string> listSize = size.Split(new char[] { '|' }, StringSplitOptions.None).ToList();
                 List<string> listModel = model.Split(new char[] { '|' }, StringSplitOptions.None).ToList();
@@ -43,11 +42,7 @@ namespace WcfLoggerData.Action
 
                 int numberSatisfaction = 0;
 
-                if(listProvider[0] != "none" && listProvider.Count != 0)
-                {
-                    numberSatisfaction++;
-                }
-                if (listNation[0] != "none" && listNation.Count != 0)
+                if (listProvider[0] != "none" && listProvider.Count != 0)
                 {
                     numberSatisfaction++;
                 }
@@ -80,7 +75,7 @@ namespace WcfLoggerData.Action
                     numberSatisfaction++;
                 }
 
-                string sqlQuery = $"Select m.Serial,m.ReceiptDate, m.AccreditedDate, m.ExpiryDate, m.AccreditationDocument, m.AccreditationType, m.Provider, m.Marks, m.Size, m.Model, m.Status, m.Installed, m.InitialIndex, m.Description, s.Id, s.Location, m.SerialTransmitter,s.Company ,  s.Status as SiteStatus,  m.Nationality   from  t_Site_Sites s join t_Devices_Meters m on s.Meter = m.Serial";
+                string sqlQuery = $"Select t.Serial,t.ReceiptDate, t.AccreditedDate, m.ExpiryDate, m.AccreditationDocument, m.AccreditationType, t.Provider, t.Marks, t.Size, t.Model, t.Status, t.Installed, t.InitialIndex, t.Description,t.ApprovalDecision,t.Approved, s.Id, s.Location,s.Company ,  s.Status as SiteStatus  from  t_Site_Sites s join t_Devices_Meters m on s.Meter = m.Serial join t_Devices_Transmitters t on t.Serial = s.Transmitter";
 
                 Connect.ConnectToDataBase();
 
@@ -90,7 +85,7 @@ namespace WcfLoggerData.Action
 
                 if (reader.HasRows)
                 {
-                    while(reader.Read())
+                    while (reader.Read())
                     {
                         bool isAdd = false;
                         int countNumberSaticfaction = 0;
@@ -98,14 +93,6 @@ namespace WcfLoggerData.Action
                         if (listProvider[0] != "none")
                         {
                             if (listProvider.Contains(reader["Provider"].ToString()))
-                            {
-                                isAdd = true;
-                                countNumberSaticfaction++;
-                            }
-                        }
-                        if (listNation[0] != "none")
-                        {
-                            if (listNation.Contains(reader["Nationality"].ToString()))
                             {
                                 isAdd = true;
                                 countNumberSaticfaction++;
@@ -170,7 +157,7 @@ namespace WcfLoggerData.Action
 
                         if (isAdd == true && countNumberSaticfaction == numberSatisfaction)
                         {
-                            StatisticMeterViewModel el = new StatisticMeterViewModel();
+                            StatisticTransmitterViewModel el = new StatisticTransmitterViewModel();
                             try
                             {
                                 el.NumberOrdered = numberordered++;
@@ -245,7 +232,7 @@ namespace WcfLoggerData.Action
                             }
                             try
                             {
-                                el.Size =int.Parse(reader["Size"].ToString());
+                                el.Size = int.Parse(reader["Size"].ToString());
                             }
                             catch (Exception ex)
                             {
@@ -307,14 +294,7 @@ namespace WcfLoggerData.Action
                             {
                                 el.Location = "";
                             }
-                            try
-                            {
-                                el.TransmitterSerial = reader["TransmitterSerial"].ToString();
-                            }
-                            catch (Exception ex)
-                            {
-                                el.TransmitterSerial = "";
-                            }
+
                             try
                             {
                                 el.SiteCompany = reader["Company"].ToString();
@@ -331,19 +311,12 @@ namespace WcfLoggerData.Action
                             {
                                 el.SiteStatus = "";
                             }
-                            try
-                            {
-                                el.Nationality = reader["Nationality"].ToString();
-                            }
-                            catch (Exception ex)
-                            {
-                                el.Nationality = "";
-                            }
 
                             list.Add(el);
                         }
                     }
                 }
+
             }
             catch(SqlException ex)
             {

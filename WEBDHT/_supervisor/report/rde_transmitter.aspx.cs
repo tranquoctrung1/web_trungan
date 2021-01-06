@@ -56,9 +56,9 @@ public partial class _supervisor_report_rde_transmitter : BasePage
             listSiteCompanies = GetAllSiteCompanies();
         }
         List<TransmitterViewModel> list = _transmittersBLL.GetAllByConds(listProviders, listMarks, listModels, listSizes, listStatus, listInstalleds,listSiteStatus,listSiteCompanies);
-        rpt.LocalReport.DataSources.Clear();
-        rpt.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", list));
-        rpt.LocalReport.Refresh();
+        //rpt.LocalReport.DataSources.Clear();
+        //rpt.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", list));
+        //rpt.LocalReport.Refresh();
     }
     private List<string> GetAllProviders()
     {

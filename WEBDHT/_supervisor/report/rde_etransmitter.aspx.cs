@@ -41,7 +41,6 @@ public partial class _supervisor_report_rde_etransmitter : BasePage
         parms.Add(new Microsoft.Reporting.WebForms.ReportParameter("ExpiryDate", meter.ExpiryDate != null ? ((DateTime)meter.ExpiryDate).ToString("dd/MM/yyyy") : ""));
         parms.Add(new Microsoft.Reporting.WebForms.ReportParameter("AccreditationType", meter.AccreditationType));
         parms.Add(new Microsoft.Reporting.WebForms.ReportParameter("AccreditationDocument", meter.AccreditationDocument));
-
         parms.Add(new Microsoft.Reporting.WebForms.ReportParameter("SiteID", site != null ? site.Id : ""));
         parms.Add(new Microsoft.Reporting.WebForms.ReportParameter("SiteLocation", site != null ? site.Location : ""));
         rpt.LocalReport.SetParameters(parms);

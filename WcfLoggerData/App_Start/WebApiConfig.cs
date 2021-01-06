@@ -73,6 +73,22 @@ namespace WcfLoggerData
             }
         );
 
+            config.Routes.MapHttpRoute(
+            name: "GetDataStatisticTransmiiter",
+            routeTemplate: "api/{controller}/{provider}/{mark}/{size}/{model}/{status}/{install}/{siteStatus}/{company}",
+            defaults: new
+            {
+                provider = RouteParameter.Optional,
+                mark = RouteParameter.Optional,
+                size = RouteParameter.Optional,
+                model = RouteParameter.Optional,
+                status = RouteParameter.Optional,
+                install = RouteParameter.Optional,
+                siteStatus = RouteParameter.Optional,
+                company = RouteParameter.Optional,
+            }
+        );
+
             var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
             config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
         }

@@ -140,6 +140,7 @@
     <Compile Include="Action\GetDataReportMonthlyTotalAction.cs" />
     <Compile Include="Action\GetDataReportYearlySiteAction.cs" />
     <Compile Include="Action\GetDataStatisticSiteAction.cs" />
+    <Compile Include="Action\GetDataStatisticTransmitterAction.cs" />
     <Compile Include="Action\GetDataTransmitterChangedAction.cs" />
     <Compile Include="Action\GetDisplayGroupAction.cs" />
     <Compile Include="Action\GetGroupChannelAction.cs" />
@@ -178,6 +179,7 @@
     <Compile Include="Controllers\GetDataReportYearlySiteController.cs" />
     <Compile Include="Controllers\GetDataStatisticMeterController.cs" />
     <Compile Include="Controllers\GetDataStatisticSiteController.cs" />
+    <Compile Include="Controllers\GetDataStatisticTransmitterController.cs" />
     <Compile Include="Controllers\GetDisplayGroupController.cs" />
     <Compile Include="Controllers\GetGroupChannelByLoggerController.cs" />
     <Compile Include="Controllers\GetGroupChannelController.cs" />
@@ -216,6 +218,7 @@
     <Compile Include="Models\StatisticMeterViewModel.cs" />
     <Compile Include="Models\StatisticSiteDMAViewModel.cs" />
     <Compile Include="Models\StatisticSiteViewModel.cs" />
+    <Compile Include="Models\StatisticTransmitterViewModel.cs" />
     <Compile Include="Models\ValueAlarmViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -254,6 +257,7 @@
     <Folder Include="Views\GetDataReportYearlySite\" />
     <Folder Include="Views\GetDataStatisticMeter\" />
     <Folder Include="Views\GetDataStatisticSite\" />
+    <Folder Include="Views\GetDataStatisticTransmitter\" />
     <Folder Include="Views\GetDisplayGroup\" />
     <Folder Include="Views\GetGroupChannelByLogger\" />
     <Folder Include="Views\GetGroupChannel\" />
