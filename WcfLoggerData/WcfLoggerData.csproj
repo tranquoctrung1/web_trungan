@@ -118,11 +118,17 @@
     <Compile Include="Action\GetChannelByLoggerAction.cs" />
     <Compile Include="Action\GetChannelConfigAction.cs" />
     <Compile Include="Action\GetChannelDataDailyAction.cs" />
+    <Compile Include="Action\GetDataAccreditedMeterAction.cs" />
+    <Compile Include="Action\GetDataBatterryChangedAciton.cs" />
+    <Compile Include="Action\GetDataBatteryLoggerChangedAction.cs" />
+    <Compile Include="Action\GetDataBatteryTransmitterChangedAction.cs" />
     <Compile Include="Action\GetDataDashBoardDailySiteAction.cs" />
     <Compile Include="Action\GetDataDashBoardHourlySiteAction.cs" />
     <Compile Include="Action\GetDataDashBoardMonthlyAction.cs" />
     <Compile Include="Action\GetDataDashBoardYearlySiteAction.cs" />
     <Compile Include="Action\GetDataHistoryAction.cs" />
+    <Compile Include="Action\GetDataLoggerChangedAction.cs" />
+    <Compile Include="Action\GetDataMeterChangedAction.cs" />
     <Compile Include="Action\GetDataReportDailyManagerAction.cs" />
     <Compile Include="Action\GetDataReportDailySiteAction.cs" />
     <Compile Include="Action\GetDataReportDailyTotalAction.cs" />
@@ -134,6 +140,7 @@
     <Compile Include="Action\GetDataReportMonthlyTotalAction.cs" />
     <Compile Include="Action\GetDataReportYearlySiteAction.cs" />
     <Compile Include="Action\GetDataStatisticSiteAction.cs" />
+    <Compile Include="Action\GetDataTransmitterChangedAction.cs" />
     <Compile Include="Action\GetDisplayGroupAction.cs" />
     <Compile Include="Action\GetGroupChannelAction.cs" />
     <Compile Include="Action\GetGroupChannelByLoggerAction.cs" />
@@ -142,6 +149,7 @@
     <Compile Include="Action\GetMultipleDataAction.cs" />
     <Compile Include="Action\GetSiteByUIDAction.cs" />
     <Compile Include="Action\GetSitesByDisplayGroupAction.cs" />
+    <Compile Include="Action\GetStatisticMeterAction.cs" />
     <Compile Include="Action\GetStatisticSiteDMAAction.cs" />
     <Compile Include="Action\GetTimeOfFirstChannel.cs" />
     <Compile Include="Action\GetValueAlarmAction.cs" />
@@ -157,6 +165,7 @@
     <Compile Include="Controllers\GetDataDashBoardHourlySiteController.cs" />
     <Compile Include="Controllers\GetDataDashBoardMonthlySiteController.cs" />
     <Compile Include="Controllers\GetDataDashBoardYearlySiteController.cs" />
+    <Compile Include="Controllers\GetDataHasChangedController.cs" />
     <Compile Include="Controllers\GetDataReportDailyManagerController.cs" />
     <Compile Include="Controllers\GetDataReportDailySiteController.cs" />
     <Compile Include="Controllers\GetDataReportDailyTotalController.cs" />
@@ -167,6 +176,7 @@
     <Compile Include="Controllers\GetDataReportMonthlySiteController.cs" />
     <Compile Include="Controllers\GetDataReportMonthlyTotalController.cs" />
     <Compile Include="Controllers\GetDataReportYearlySiteController.cs" />
+    <Compile Include="Controllers\GetDataStatisticMeterController.cs" />
     <Compile Include="Controllers\GetDataStatisticSiteController.cs" />
     <Compile Include="Controllers\GetDisplayGroupController.cs" />
     <Compile Include="Controllers\GetGroupChannelByLoggerController.cs" />
@@ -203,6 +213,7 @@
     <Compile Include="Models\GroupChannelViewModel.cs" />
     <Compile Include="Models\SiteByDisplayGroupViewModel.cs" />
     <Compile Include="Models\SiteResultByUIDViewModel.cs" />
+    <Compile Include="Models\StatisticMeterViewModel.cs" />
     <Compile Include="Models\StatisticSiteDMAViewModel.cs" />
     <Compile Include="Models\StatisticSiteViewModel.cs" />
     <Compile Include="Models\ValueAlarmViewModel.cs" />
@@ -231,6 +242,7 @@
     <Folder Include="Views\GetDataDashBoardHourlySite\" />
     <Folder Include="Views\GetDataDashBoardMonthlySite\" />
     <Folder Include="Views\GetDataDashBoardYearlySite\" />
+    <Folder Include="Views\GetDataHasChanged\" />
     <Folder Include="Views\GetDataReportDailySite\" />
     <Folder Include="Views\GetDataReportDailyTotal\" />
     <Folder Include="Views\GetDataReportHourlyCompany\" />
@@ -240,6 +252,7 @@
     <Folder Include="Views\GetDataReportMonthlySite\" />
     <Folder Include="Views\GetDataReportMonthlyTotal\" />
     <Folder Include="Views\GetDataReportYearlySite\" />
+    <Folder Include="Views\GetDataStatisticMeter\" />
     <Folder Include="Views\GetDataStatisticSite\" />
     <Folder Include="Views\GetDisplayGroup\" />
     <Folder Include="Views\GetGroupChannelByLogger\" />

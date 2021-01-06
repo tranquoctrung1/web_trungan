@@ -7,6 +7,7 @@ namespace WcfLoggerData.Models
 {
     public class StatisticSiteViewModel
     {
+        public int? NumberOrdered { get; set; } 
         public string Id { get; set; }
         public string OldId { get; set; }
         public string Location { get; set; }

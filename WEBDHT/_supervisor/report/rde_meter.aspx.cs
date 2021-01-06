@@ -61,9 +61,9 @@ public partial class _supervisor_report_rde_meter : BasePage
             listNations = GetAllNations();
         }
         List<MeterViewModel> list = _metersBLL.GetAllByConds(listProviders, listMarks, listModels, listSizes, listStatus, listInstalleds,listSiteStatus,listSiteCompanies, listNations);
-        rpt.LocalReport.DataSources.Clear();
-        rpt.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", list));
-        rpt.LocalReport.Refresh();
+        //rpt.LocalReport.DataSources.Clear();
+        //rpt.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", list));
+        //rpt.LocalReport.Refresh();
     }
 
     private List<string> GetAllNations()

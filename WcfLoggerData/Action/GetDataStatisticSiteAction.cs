@@ -159,6 +159,8 @@ namespace WcfLoggerData.Action
                 Connect.ConnectToDataBase();
                 SqlDataReader reader = Connect.Select(sqlQuery);
 
+                int numberordered = 1;
+
                 if(reader.HasRows)
                 {
                     while(reader.Read())
@@ -273,7 +275,22 @@ namespace WcfLoggerData.Action
                         if (isAdd == true && numberSatisfaction == countNumberSaticfaction)
                         {
                             StatisticSiteViewModel el = new StatisticSiteViewModel();
-
+                            try
+                            {
+                                el.NumberOrdered = numberordered++;
+                            }
+                            catch(Exception ex)
+                            {
+                                el.NumberOrdered = numberordered;
+                            }
+                            try
+                            {
+                                el.Level = reader["Level"].ToString();
+                            }
+                            catch (Exception ex)
+                            {
+                                el.Level = "";
+                            }
                             try
                             {
                                 el.Id = reader["Id"].ToString();
