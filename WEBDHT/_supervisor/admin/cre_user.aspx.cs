@@ -49,12 +49,12 @@ public partial class _supervisor_admin_cre_user : BasePage
             txtPwd.Focus();
             return;
         }
-        if (string.IsNullOrEmpty(cboCompanies.Text))
-        {
-            ntf.Text = _msgEmptyCompany;
-            cboCompanies.Focus();
-            return;
-        }
+        //if (string.IsNullOrEmpty(cboCompanies.Text))
+        //{
+        //    ntf.Text = _msgEmptyCompany;
+        //    cboCompanies.Focus();
+        //    return;
+        //}
         if (string.IsNullOrEmpty(cboRoles.Text))
         {
             ntf.Text = _msgEmptyRole;
@@ -72,10 +72,12 @@ public partial class _supervisor_admin_cre_user : BasePage
         if (dbUser == null)
         {
             status = _usersBLL.Insert(user);
+            cboUid.DataBind();
         }
         else
         {
             status = _usersBLL.Update(user);
+            cboUid.DataBind();
         }
         if (status.Inserted)
         {
@@ -105,6 +107,7 @@ public partial class _supervisor_admin_cre_user : BasePage
         {
             ntf.Text = _msgDeleted;
             SetDefaultControls();
+            cboUid.DataBind();
         }
         else
         {
@@ -116,7 +119,7 @@ public partial class _supervisor_admin_cre_user : BasePage
         cboUid.SelectedIndex = -1;
         cboUid.Text = user.Uid;
         txtPwd.Text = "********";
-        cboCompanies.Text = user.Company;
+        //cboCompanies.Text = user.Company;
         cboRoles.Text = user.Role;
         cboStaffs.Text = user.StaffId;
     }
@@ -128,7 +131,7 @@ public partial class _supervisor_admin_cre_user : BasePage
         user.Pwd = _stringUTL.HashMD5(_stringUTL.HashMD5(txtPwd.Text) + user.Salt);
         user.Role = cboRoles.Text;
         user.StaffId = cboStaffs.Text;
-        user.Company = cboCompanies.Text;
+        user.Company = "";
         return user;
     }
 
@@ -137,8 +140,8 @@ public partial class _supervisor_admin_cre_user : BasePage
         cboUid.SelectedIndex = -1;
         cboRoles.SelectedIndex = -1;
         cboStaffs.SelectedIndex = -1;
-        cboCompanies.SelectedIndex = -1;
-        cboCompanies.Text = string.Empty;
+        //cboCompanies.SelectedIndex = -1;
+        //cboCompanies.Text = string.Empty;
         cboRoles.Text = string.Empty;
         cboStaffs.Text = string.Empty;
         cboUid.Text = string.Empty;

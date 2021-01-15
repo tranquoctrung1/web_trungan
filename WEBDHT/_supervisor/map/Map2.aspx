@@ -553,6 +553,23 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="treeview">
+                            <a href="#QuanLyNguoiDung"><i class="fa fa-users"></i>
+                                <asp:Label ID="lbAdminPanel" runat="server" Text="Admin Panel"></asp:Label>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                               
+                                <li>
+                                    <a href="/_supervisor/admin/cre_user.aspx">
+                                        <asp:Label ID="lbCreateUsers" runat="server" Text="Tạo Mới Người Dùng"></asp:Label>
+                                    </a>
+                                </li>
+                               
+                            </ul>
+                        </li>
 
                             <li class="treeview">
                                 <a href="#DangXuat">

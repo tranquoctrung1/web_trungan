@@ -513,106 +513,23 @@
                             </ul>
                         </li>
 
-                       <%-- <li class="treeview">
-                            <a href="#QuanLyNgonNgu"><i class="fa fa-language"></i>
-                                <asp:Label ID="lbLanguageManagement" runat="server" Text="Quản Lý Ngôn Ngữ"></asp:Label>
+                        <li class="treeview">
+                            <a href="#QuanLyNguoiDung"><i class="fa fa-users"></i>
+                                <asp:Label ID="lbAdminPanel" runat="server" Text="Admin Panel"></asp:Label>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
+                               
                                 <li>
-                                    <a href="/Supervisor/Language/ChangeFunction.aspx">
-                                        <asp:Label ID="lbFunctions" runat="server" Text="Tính Năng"></asp:Label>
+                                    <a href="/_supervisor/admin/cre_user.aspx">
+                                        <asp:Label ID="lbCreateUsers" runat="server" Text="Tạo Mới Người Dùng"></asp:Label>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="/Supervisor/Language/ChangeContent.aspx">
-                                        <asp:Label ID="lbContents" runat="server" Text="Nội Dung Chi Tiết"></asp:Label>
-                                    </a>
-                                </li>
+                               
                             </ul>
-                        </li>--%>
-
-                       <%-- <li class="treeview">
-                            <a href="#QuanLyHeThong"><i class="fa fa-plug"></i>
-                                <asp:Label ID="lbConfigSystem" runat="server" Text="Quản Lý Hệ Thống"></asp:Label>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="/Supervisor/System/General.aspx">
-                                        <asp:Label ID="lbGeneralSystem" runat="server" Text="Hệ Thống Chung"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Supervisor/System/Users.aspx">
-                                        <asp:Label ID="lbUserManagement" runat="server" Text="Quản lý tài khoản"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Supervisor/System/Roles.aspx">
-                                        <asp:Label ID="lbRoleManagement" runat="server" Text="Quản lý vai trò người dùng"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Supervisor/System/RoleFunction.aspx">
-                                        <asp:Label ID="lbRoleFunctionManagement" runat="server" Text="Quản lý quyền truy cập"></asp:Label>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>--%>
-                        <%-- <li class="treeview">
-                            <a href="#FullScreen">
-                                <i class="fa fa-arrows-alt"></i>
-                                <span class="name">
-                                    <asp:Label ID="lbFullScreen" runat="server" Text="Toàn màn hình"></asp:Label>
-                                </span>
-                            </a>
-                        </li>--%>
-                        <%--<li class="treeview">
-                            <a href="#Alert" id="btnShowAlarm" class="click">
-                                <i class="fa fa-bell-o"></i>
-                                <span class="name">
-                                    <asp:Label ID="lbAlert" runat="server" Text="Cảnh báo"></asp:Label>
-                                </span>
-                                <span class="pull-right-container" id="txtCountAlarm">
-                                        
-                                </span>
-                            </a>
-                        </li>--%>
-
-                       <%-- <li class="treeview">
-                            <a href="#NgonNgu">
-                                <i class="fa fa-language"></i>
-                                <asp:Label ID="Label1" runat="server" Text="Ngôn ngữ"></asp:Label>
-                                <span class="name">
-                                    <asp:Label ID="lbLang" runat="server" Text=""></asp:Label>
-                                </span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="#"  runat="server">
-                                        <asp:Label ID="lbVi" runat="server" Text="VietNamese"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"  runat="server">
-                                        <asp:Label ID="lbEn" runat="server" Text="English"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" runat="server">
-                                        <asp:Label ID="lbOther" runat="server" Text="Other"></asp:Label>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>--%>
+                        </li>
 
                         <li class="treeview">
                             <a href="#DangXuat">

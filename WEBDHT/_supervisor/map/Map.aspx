@@ -389,7 +389,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <%-- <li class="treeview">
+                             <li class="treeview">
                             <a href="#QuanLyNguoiDung"><i class="fa fa-users"></i>
                                 <asp:Label ID="lbAdminPanel" runat="server" Text="Admin Panel"></asp:Label>
                                 <span class="pull-right-container">
@@ -397,23 +397,15 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
+                               
                                 <li>
-                                    <a href="/Supervisor/Admin/ViewUsers.aspx">
-                                        <asp:Label ID="lbViewUserDetails" runat="server" Text="Xem Người Dùng"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/Supervisor/Admin/CreateUser.aspx">
+                                    <a href="/_supervisor/admin/cre_user.aspx">
                                         <asp:Label ID="lbCreateUsers" runat="server" Text="Tạo Mới Người Dùng"></asp:Label>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="/Supervisor/Admin/SettingSMS.aspx">
-                                        <asp:Label ID="lbMessageSettings" runat="server" Text="Cài Đặt Tin Nhắn"></asp:Label>
-                                    </a>
-                                </li>
+                               
                             </ul>
-                        </li>--%>
+                        </li>
                          
 
                             <li class="treeview">
