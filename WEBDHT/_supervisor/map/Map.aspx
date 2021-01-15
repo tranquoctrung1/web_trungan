@@ -403,7 +403,11 @@
                                         <asp:Label ID="lbCreateUsers" runat="server" Text="Tạo Mới Người Dùng"></asp:Label>
                                     </a>
                                 </li>
-                               
+                                <li>
+                                    <a href="/_supervisor/admin/cre_staff.aspx">
+                                        <asp:Label ID="lbCreateStaff" runat="server" Text="Tạo Mới Nhân Viên"></asp:Label>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                          

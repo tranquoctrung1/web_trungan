@@ -55,43 +55,6 @@
                         </div>
                     </div>
                 </div>
-<%--                <div class="col-sm-3">
-                    <div class="group-text">
-                        <div class="row">
-                            <span>Công ty</span>
-                        </div>
-                        <div class="row m-b">
-                            <telerik:RadComboBox ID="cboCompanies" runat="server" AllowCustomText="True"
-                                DataSourceID="SiteCompaniesDataSource" DataTextField="Company"
-                                DataValueField="Company" DropDownWidth="275px" EnableLoadOnDemand="True"
-                                Filter="StartsWith" HighlightTemplatedItems="True" TabIndex="21">
-                                <HeaderTemplate>
-                                    <table cellpadding="0" cellspacing="0">
-                                        <tr>
-                                            <td style="width: 70px">Công ty</td>
-                                            <td style="width: 200px">Mô tả</td>
-                                        </tr>
-                                    </table>
-                                </HeaderTemplate>
-                                <ItemTemplate>
-                                    <table cellpadding="0" cellspacing="0">
-                                        <tr>
-                                            <td style="width: 70px">
-                                                <%#DataBinder.Eval(Container.DataItem,"Company") %>
-                                            </td>
-                                            <td style="width: 200px">
-                                                <%#DataBinder.Eval(Container.DataItem,"Description") %>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </ItemTemplate>
-                            </telerik:RadComboBox>
-                            <asp:ObjectDataSource ID="SiteCompaniesDataSource" runat="server"
-                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll"
-                                TypeName="SiteCompaniesBLL"></asp:ObjectDataSource>
-                        </div>
-                    </div>
-                </div>--%>
                 <div class="col-sm-3">
                     <div class="group-text">
                         <div class="row">
