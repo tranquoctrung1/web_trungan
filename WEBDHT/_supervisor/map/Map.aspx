@@ -174,7 +174,7 @@
                                     <asp:Label ID="lbMap" runat="server" Text="Bản Đồ Tổng Thể"></asp:Label>
                                 </a>
                             </li>
-                             <li>
+                            <li>
                                 <a href="/_supervisor/map/Map2.aspx">
                                     <i class="fa fa-home"></i>
                                     <asp:Label ID="lbMap2" runat="server" Text="Bản Đồ Tổng Thể 2"></asp:Label>
@@ -186,13 +186,13 @@
                                     <asp:Label ID="lbDashBoard" runat="server" Text="DashBoard"></asp:Label>
                                 </a>
                             </li>
-                               
-                         <li>
-                            <a href="/_supervisor/logger/datalogger.aspx">
-                                <i class="fa fa-table"></i>
-                                <asp:Label ID="lbDataLoggerTable" runat="server" Text="Dữ Liệu Logger"></asp:Label>
-                            </a>
-                        </li>
+
+                            <li>
+                                <a href="/_supervisor/logger/datalogger.aspx">
+                                    <i class="fa fa-table"></i>
+                                    <asp:Label ID="lbDataLoggerTable" runat="server" Text="Dữ Liệu Logger"></asp:Label>
+                                </a>
+                            </li>
                             <li class="treeview">
                                 <a href="#ThietBi"><i class="fa fa-flag"></i>
                                     <asp:Label ID="lbDevice" runat="server" Text="Thiết Bị"></asp:Label>
@@ -389,28 +389,43 @@
                                     </li>
                                 </ul>
                             </li>
-                             <li class="treeview">
-                            <a href="#QuanLyNguoiDung"><i class="fa fa-users"></i>
-                                <asp:Label ID="lbAdminPanel" runat="server" Text="Admin Panel"></asp:Label>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                               
-                                <li>
-                                    <a href="/_supervisor/admin/cre_user.aspx">
-                                        <asp:Label ID="lbCreateUsers" runat="server" Text="Tạo Mới Người Dùng"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/_supervisor/admin/cre_staff.aspx">
-                                        <asp:Label ID="lbCreateStaff" runat="server" Text="Tạo Mới Nhân Viên"></asp:Label>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                         
+                            <li class="treeview">
+                                <a href="#QuanLyNguoiDung"><i class="fa fa-users"></i>
+                                    <asp:Label ID="lbAdminPanel" runat="server" Text="Admin Panel"></asp:Label>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+
+                                    <li>
+                                        <a href="/_supervisor/admin/cre_user.aspx">
+                                            <asp:Label ID="lbCreateUsers" runat="server" Text="Tạo Mới Người Dùng"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/admin/cre_staff.aspx">
+                                            <asp:Label ID="lbCreateStaff" runat="server" Text="Tạo Mới Nhân Viên"></asp:Label>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#QuanLyHeThong"><i class="fa fa-users"></i>
+                                    <asp:Label ID="lbSystem" runat="server" Text="Quản Lý Hệ Thống"></asp:Label>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="/_supervisor/system/permission_supervisor.aspx">
+                                            <asp:Label ID="lbPermissionSupervisor" runat="server" Text="Phân quyền Supervisor"></asp:Label>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
 
                             <li class="treeview">
                                 <a href="#SanLuong"><i class="fa fa-database"></i>
@@ -491,12 +506,12 @@
                                             <asp:Label ID="lbChartPointDaily" runat="server" Text="Đồ Thị Ngày Theo Point"></asp:Label>
                                         </a>
                                     </li>
-                                     <li>
+                                    <li>
                                         <a href="/_supervisor/chartP/ChartPointMonthly.aspx">
                                             <asp:Label ID="lbChartPointMonthly" runat="server" Text="Đồ Thị Tháng Theo Point"></asp:Label>
                                         </a>
                                     </li>
-                                     <li>
+                                    <li>
                                         <a href="/_supervisor/chartP/ChartManagerHourly.aspx">
                                             <asp:Label ID="lbChartHourlyManager" runat="server" Text="Đồ Thị Giờ Theo DMA"></asp:Label>
                                         </a>
@@ -568,6 +583,22 @@
                                             <asp:Label ID="lbSeoerateDMA" runat="server" Text="Phân DMA"></asp:Label>
                                         </a>
                                     </li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#Quan"><i class="fa fa-plus-square"></i>
+                                    <asp:Label ID="lbDistrict" runat="server" Text="Quận"></asp:Label>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="/_supervisor/District/AddDistrict.aspx">
+                                            <asp:Label ID="lbAddDistrict" runat="server" Text="Thêm Quận"></asp:Label>
+                                        </a>
+                                    </li>
+                                    
                                 </ul>
                             </li>
                             <%-- <li class="treeview">
@@ -1783,9 +1814,9 @@
 
                                     //var url = 'https://trungangis.capnuoctrungan.vn/arcgis/rest/services/mangluoi/mapserver';
                                     //var url = 'http://113.161.76.112:6080/arcgis/rest/services/KHAWASSCOMapService/MapServer';
-                                   // var cpc = new gmaps.ags.CopyrightControl(map);
-                                   // var dynamap = new gmaps.ags.MapOverlay(url, {});
-                                   // dynamap.setMap(map);
+                                    // var cpc = new gmaps.ags.CopyrightControl(map);
+                                    // var dynamap = new gmaps.ags.MapOverlay(url, {});
+                                    // dynamap.setMap(map);
 
                                     //TREEVIEW & MAP CONTENT
                                     var treeViewSite = $find("<%= radTreeViewSite.ClientID %>");
@@ -2003,7 +2034,7 @@
                                                                 //delay
                                                                 if (statusImage_delay && displayByGroupChannel == 1) {
                                                                     markers.push(marker);
-                                                                   omarkers.push(omarker);
+                                                                    omarkers.push(omarker);
                                                                 } else {
                                                                     marker.setVisible(false);
                                                                     omarker.setVisible(false);
