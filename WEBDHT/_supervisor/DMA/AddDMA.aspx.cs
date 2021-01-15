@@ -176,7 +176,7 @@ public partial class _supervisor_DMA_AddDMA : System.Web.UI.Page
         }
     }
 
-    protected void btnDelete_Click(object sender, EventArgs e)
+    protected void btnConfim_Click(object sender, EventArgs e)
     {
         string dma = "";
 

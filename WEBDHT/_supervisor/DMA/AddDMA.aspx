@@ -16,6 +16,16 @@
         }
     </style>
     <script type="text/javascript">
+
+        function btnDelete_Clicked() {
+            var win = $find('<%=winConfirmDelete.ClientID %>');
+            win.show();
+        }
+        function btnCancel_Clicked() {
+            var win = $find('<%=winConfirmDelete.ClientID %>');
+            win.close();
+        }
+
         // preventing resubmition form application
         window.history.replaceState('', '', window.location.href)
     </script>
@@ -75,13 +85,36 @@
                     <asp:Button ID="btnAdd" runat="server" Text="Thêm/Sửa"
                         OnClick="btnAdd_Click" CssClass="btn btn-success"></asp:Button>
                     <asp:Button ID="btnDelete" runat="server"
-                        OnClick="btnDelete_Click" Text="Xóa"
+                        OnClientClick="btnDelete_Clicked()" Text="Xóa"
                         CssClass="btn btn-danger"></asp:Button>
                 </div>
             </div>
         </div>
 
     </div>
+    <telerik:RadWindow ID="winConfirmDelete" runat="server" Modal="True"
+        VisibleStatusbar="False" Height="160">
+        <ContentTemplate>
+            <table width="100%" style="text-align: center">
+                <tr>
+                    <td>Bạn có muốn xóa quận không?
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp</td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Button ID="btnConfim" runat="server" Text="Xóa"
+                            OnClick="btnConfim_Click" CssClass="btn btn-danger"></asp:Button>
+                        <asp:Button ID="btnCancel" runat="server"
+                            OnClientClick="btnCancel_Clicked()" CssClass="btn btn-success"
+                            Text="Hủy thao tác" AutoPostBack="False"></asp:Button>
+                    </td>
+                </tr>
+            </table>
+        </ContentTemplate>
+        </telerik:RadWindow>
 
     <telerik:RadNotification ID="ntf" runat="server"></telerik:RadNotification>
     <telerik:RadAjaxManagerProxy ID="RadAjaxManagerProxy1" runat="server">
