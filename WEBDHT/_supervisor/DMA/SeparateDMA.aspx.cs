@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 
 public partial class _supervisor_DMA_SeparateDMA : System.Web.UI.Page
 {
@@ -14,127 +15,107 @@ public partial class _supervisor_DMA_SeparateDMA : System.Web.UI.Page
 
     }
 
-    protected void cboSiteIds_SelectedIndexChanged(object sender, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
+    protected void cboCompanies_SelectedIndexChanged(object sender, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
     {
-        string siteId = "";
-        string company = "";
-        if (cboSiteIds.Text.Trim() != "" && cboSiteIds.Text != null)
+        if (cboCompanies.Text.Trim() != "" && cboCompanies.Text != null)
         {
-            siteId = cboSiteIds.Text;
+            string idDma = cboCompanies.Text;
 
-            string connectionString = ConfigurationManager.ConnectionStrings["web_dht_r02ConnectionString"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            SiteDMABLL siteDMABLL = new SiteDMABLL();
+
+            List<SiteDMA> d = siteDMABLL.GetSiteDMAById(idDma);
+
+            if (d.Count > 0)
             {
-                string sqlQuery = "select t.Company from t_Site_Sites t where t.Id = '" + siteId + "'";
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                SetControllValue(d);
+            }
+            else
+            {
+                foreach (RadComboBoxItem itemCheck in cboSiteIds.Items)
                 {
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            try
-                            {
-                                company = reader["Company"].ToString();
-                            }
-                            catch (Exception ex)
-                            {
-                                company = "";
-                            }
-                        }
-                    }
+                    itemCheck.Checked = false;
                 }
             }
         }
-
-        cboCompanies.Text = company;
     }
 
-    public bool CheckSiteIdExist(string siteid)
+    public void SetControllValue(List<SiteDMA> d)
     {
-        bool check = false;
-        
-        string connectionString = ConfigurationManager.ConnectionStrings["web_dht_r02ConnectionString"].ConnectionString;
-        using (SqlConnection connection = new SqlConnection(connectionString))
+        cboCompanies.Text = d[0].IdDMA;
+        foreach (RadComboBoxItem itemCheck in cboSiteIds.Items)
         {
-            string sqlQuery = "select Id from  t_Site_Sites where Id = '"+siteid+"'";
-            connection.Open();
-            using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+            foreach (var item in d)
             {
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                if (item.SiteId == itemCheck.Value)
                 {
-                    string temp = "";
-                    while (reader.Read())
-                    {
-                        try
-                        {
-                            temp = reader["Id"].ToString();
-                        }
-                        catch (Exception ex)
-                        {
-                            temp = "";
-                        }
-                    }
-
-
-                    if (temp == siteid)
-                    {
-                        check =  true;
-                    }
+                    itemCheck.Checked = true;
+                    break;
+                }
+                else
+                {
+                    itemCheck.Checked = false;
                 }
             }
         }
-        return check;
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-        if(cboSiteIds.Text.Trim() != "" && cboSiteIds.Text != null)
-        {
-            string siteid = cboSiteIds.Text;
-            string company = cboCompanies.Text;
-
-            if(CheckSiteIdExist(siteid))
-            {
-
-                string connectionString = ConfigurationManager.ConnectionStrings["web_dht_r02ConnectionString"].ConnectionString;
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    string sqlQuery = "update t_Site_Sites set Company = '" + company + "' where Id = '" + siteid + "'";
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(sqlQuery, connection))
-                    {
-                        int nRows = command.ExecuteNonQuery();
-                        
-                        if(nRows == 0)
-                        {
-                            ntf.VisibleOnPageLoad = true;
-                            ntf.Text = "Chưa cập nhật";
-                        }
-                        else
-                        {
-                            ntf.VisibleOnPageLoad = true;
-                            ntf.Text = "Cập nhật thành công";
-                        }
-                    }
-                }
-            }
-            else
-            {
-                ntf.VisibleOnPageLoad = true;
-                ntf.Text = "Mã Point không đúng";
-                return;
-            }
-        }
-        else
+        if (cboCompanies.Text.Trim() == "")
         {
             ntf.VisibleOnPageLoad = true;
-            ntf.Text = "Mã Point rỗng";
+            ntf.Text = "Mã DMA trống!!";
+
             return;
         }
+
+        SiteDMABLL siteDMABLL = new SiteDMABLL();
+        List<SiteDMA> list = GetControlValue();
+        // first delete 
+        int nRowD = 0;
+        int nRowU = 0;
+        nRowD = siteDMABLL.Delete(cboCompanies.Text);
+
+
+        // second insert 
+        if (list.Count > 0)
+        {
+            nRowU = siteDMABLL.Insert(list);
+        }
+
+        if (nRowD > 0)
+        {
+            ntf.VisibleOnPageLoad = true;
+            ntf.Text = "Cập nhật thành công";
+
+            return;
+        }
+    }
+
+    public void SetEmpty()
+    {
+        cboCompanies.SelectedIndex = -1;
+        cboCompanies.Text = string.Empty;
+
+        foreach (var item in cboSiteIds.CheckedItems)
+        {
+            item.Checked = false;
+        }
+    }
+
+    public List<SiteDMA> GetControlValue()
+    {
+        List<SiteDMA> list = new List<SiteDMA>();
+
+        foreach (var item in cboSiteIds.CheckedItems)
+        {
+            SiteDMA el = new SiteDMA();
+            el.SiteId = item.Value;
+            el.IdDMA = cboCompanies.Text;
+
+            list.Add(el);
+        }
+
+        return list;
     }
 }

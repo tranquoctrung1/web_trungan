@@ -26,7 +26,13 @@ public partial class _supervisor_District_SeparateDistrict : System.Web.UI.Page
             {
                 SetControllValue(d);
             }
-
+            else
+            {
+                foreach (RadComboBoxItem itemCheck in cboIds.Items)
+                {
+                    itemCheck.Checked = false;
+                }
+            }
         }
 
     }
@@ -34,15 +40,18 @@ public partial class _supervisor_District_SeparateDistrict : System.Web.UI.Page
     public void SetControllValue(List<SiteDistrict> d)
     {
         cboDistrict.Text = d[0].IdDistrict;
-        var checkedItems = cboIds.CheckedItems;
-        foreach(var item in d)
+        foreach(RadComboBoxItem itemCheck in cboIds.Items)
         {
-            foreach(RadComboBoxItem itemCheck in cboIds.Items)
+            foreach(var item in d)
             {
                 if(item.SiteId == itemCheck.Value)
                 {
                     itemCheck.Checked = true;
                     break;
+                }
+                else
+                {
+                    itemCheck.Checked = false;
                 }
             }
         }
