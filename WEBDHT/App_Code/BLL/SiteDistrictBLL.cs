@@ -30,7 +30,7 @@ public class SiteDistrictBLL
                     {
                         el.IdDistrict = reader["IdDistrict"].ToString();
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         el.IdDistrict = "";
                     }
@@ -38,7 +38,7 @@ public class SiteDistrictBLL
                     {
                         el.SiteId = reader["IdSite"].ToString();
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         el.SiteId = "";
                     }
@@ -65,7 +65,7 @@ public class SiteDistrictBLL
         Connect connect = new Connect();
         try
         {
-            string sqlQuery = "select [IdDistrict], [IdSite] from [t_Site_District] where IdDistrict = '"+id+"'";
+            string sqlQuery = "select [IdDistrict], [IdSite] from [t_Site_District] where IdDistrict = '" + id + "'";
 
             connect.Connected();
 
@@ -115,28 +115,26 @@ public class SiteDistrictBLL
         int nRows = 0;
         try
         {
-            if(sd.Count > 0)
+            if (sd.Count > 0)
             {
-                List<string> sites = new List<string>();
+                string sqlQuery = "insert into t_Site_District values";
 
-                foreach(var item in sd)
+                for (int i = 0; i < sd.Count - 1; i++)
                 {
-                    sites.Add(item.SiteId);
+                    sqlQuery += "('" + sd[0].IdDistrict + "', '" + sd[i].SiteId + "'),";
                 }
-
-                string sqlQuery = "insert into t_Site_District values('"+sd[0].IdDistrict+"', '"+ String.Join(",", sites)+"')";
+                sqlQuery += "('" + sd[sd.Count - 1].IdDistrict + "', '" + sd[sd.Count - 1].SiteId + "')";
 
                 connect.Connected();
                 nRows = connect.ExcuteNonQuery(sqlQuery);
-
             }
             else
             {
                 nRows = 0;
             }
-           
+
         }
-        catch(SqlException ex)
+        catch (SqlException ex)
         {
             throw ex;
         }
@@ -148,32 +146,16 @@ public class SiteDistrictBLL
         return nRows;
     }
 
-    public int Update(List<SiteDistrict> sd)
+    public int Update(SiteDistrict sd)
     {
         Connect connect = new Connect();
         int nRows = 0;
         try
         {
-            if (sd.Count > 0)
-            {
-                List<string> sites = new List<string>();
+            string sqlQuery = "update t_Site_District set IdSite = '" + sd.SiteId + "' where IdDistrict = '" + sd.IdDistrict + "'";
 
-                foreach (var item in sd)
-                {
-                    sites.Add(item.SiteId);
-                }
-
-                string sqlQuery = "update t_Site_District set = '" + String.Join(",", sites) + "' where IdDistrict = '"+ sd[0].IdDistrict+"'";
-
-                connect.Connected();
-                nRows = connect.ExcuteNonQuery(sqlQuery);
-
-            }
-            else
-            {
-                nRows = 0;
-            }
-
+            connect.Connected();
+            nRows = connect.ExcuteNonQuery(sqlQuery);
         }
         catch (SqlException ex)
         {

@@ -24,7 +24,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main-content2">
         <div id="main-content-title">
-            <h2 class="title">Thêm Quận</h2>
+            <h2 class="title">Phân Các Điểm Cho Quận</h2>
         </div>
         <div class="container-fluid m-t">
             <div class="row">
@@ -100,8 +100,8 @@
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="btnAdd">
                 <UpdatedControls>
-                     <telerik:AjaxUpdatedControl ControlID="btnAdd" />
-                     <telerik:AjaxUpdatedControl ControlID="btnAdd" />
+                    <telerik:AjaxUpdatedControl ControlID="cboIds" />
+                     <telerik:AjaxUpdatedControl ControlID="cboDistrict" />
                     <telerik:AjaxUpdatedControl ControlID="ntf" />
                 </UpdatedControls>
             </telerik:AjaxSetting>

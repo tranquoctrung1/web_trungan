@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 
 public partial class _supervisor_District_SeparateDistrict : System.Web.UI.Page
 {
@@ -16,10 +17,12 @@ public partial class _supervisor_District_SeparateDistrict : System.Web.UI.Page
         if (cboDistrict.Text.Trim() != "" && cboDistrict.Text != null)
         {
             string idDistrict = cboDistrict.Text;
-            DistrictBLL districtBLL = new DistrictBLL();
-            District d = districtBLL.GetDistrictById(idDistrict);
 
-            if (d.IdDistrict != null)
+            SiteDistrictBLL siteDistrictBLL = new SiteDistrictBLL();
+
+            List<SiteDistrict> d = siteDistrictBLL.GetSiteDistrictsById(idDistrict);
+
+            if (d.Count > 0)
             {
                 SetControllValue(d);
             }
@@ -28,17 +31,25 @@ public partial class _supervisor_District_SeparateDistrict : System.Web.UI.Page
 
     }
 
-    public void SetControllValue(District d)
+    public void SetControllValue(List<SiteDistrict> d)
     {
-        cboDistrict.Text = d.IdDistrict;
+        cboDistrict.Text = d[0].IdDistrict;
+        var checkedItems = cboIds.CheckedItems;
+        foreach(var item in d)
+        {
+            foreach(RadComboBoxItem itemCheck in cboIds.Items)
+            {
+                if(item.SiteId == itemCheck.Value)
+                {
+                    itemCheck.Checked = true;
+                    break;
+                }
+            }
+        }
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-
-        bool isUpdate = false;
-        bool isInsert = false;
-
         if (cboDistrict.Text.Trim() == "")
         {
             ntf.VisibleOnPageLoad = true;
@@ -47,60 +58,55 @@ public partial class _supervisor_District_SeparateDistrict : System.Web.UI.Page
             return;
         }
 
-        DistrictBLL districtBLL = new DistrictBLL();
-        District d = districtBLL.GetDistrictById(cboDistrict.Text);
+        SiteDistrictBLL siteDistrictBLL = new SiteDistrictBLL();
+        List<SiteDistrict> list = GetControlValue();
+        // first delete 
+        int nRowD = 0;
+        int nRowU = 0;
+        nRowD = siteDistrictBLL.Delete(cboDistrict.Text);
 
-        if (d.IdDistrict == null)
-        {
-            d.IdDistrict = cboDistrict.Text;
 
-            int nRow = districtBLL.Insert(d);
-            if (nRow != 0)
-            {
-                cboDistrict.DataBind();
-                isInsert = true;
-            }
-        }
-        else
+        // second insert 
+        if (list.Count > 0)
         {
-            d.IdDistrict = cboDistrict.Text;
-            int nRow = districtBLL.Update(d);
-            if (nRow != 0)
-            {
-                cboDistrict.DataBind();
-                isUpdate = true;
-            }
+            nRowU = siteDistrictBLL.Insert(list);
         }
 
-        if (isUpdate == true)
+        if(nRowD > 0 )
         {
             ntf.VisibleOnPageLoad = true;
             ntf.Text = "Cập nhật thành công";
 
             return;
         }
-        if (isInsert == true)
-        {
-            ntf.VisibleOnPageLoad = true;
-            ntf.Text = "Thêm thành công";
-
-            return;
-        }
-        if (isUpdate == false && isInsert == false)
-        {
-            ntf.VisibleOnPageLoad = true;
-            ntf.Text = "Thao tác thất bại";
-
-            return;
-        }
     }
 
-    
+
 
     public void SetEmpty()
     {
         cboDistrict.SelectedIndex = -1;
         cboDistrict.Text = string.Empty;
-       
+
+        foreach(var item in cboIds.CheckedItems)
+        {
+            item.Checked = false;
+        }
+    }
+
+    public List<SiteDistrict> GetControlValue()
+    {
+        List<SiteDistrict> list = new List<SiteDistrict>();
+
+        foreach(var item in cboIds.CheckedItems)
+        {
+            SiteDistrict el = new SiteDistrict();
+            el.SiteId = item.Value;
+            el.IdDistrict = cboDistrict.Text;
+
+            list.Add(el);
+        }
+
+        return list;
     }
 }
