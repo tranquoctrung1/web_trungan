@@ -12,7 +12,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main-content2">
         <div id="main-content-title">
-            <h2 class="title">Phân Quyền DMA Theo Nhân Viên</h2>
+            <h2 class="title">Phân Quyền Point Theo Nhân Viên</h2>
         </div>
         <div class="container-fluid m-t">
             <div class="row">
