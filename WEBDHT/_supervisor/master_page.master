@@ -573,7 +573,11 @@
                                         <asp:Label ID="lbPermissionDMA" runat="server" Text="Phân quyền DMA"></asp:Label>
                                     </a>
                                 </li>
-
+                                <li>
+                                    <a href="/_supervisor/system/permission_staff.aspx">
+                                        <asp:Label ID="lbPermissionStaff" runat="server" Text="Phân quyền Staff"></asp:Label>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="treeview">

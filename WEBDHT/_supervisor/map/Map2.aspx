@@ -551,7 +551,7 @@
                                             <asp:Label ID="lbSeoerateDMA" runat="server" Text="Phân DMA"></asp:Label>
                                         </a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
                             <li class="treeview">
@@ -567,7 +567,7 @@
                                             <asp:Label ID="lbAddDistrict" runat="server" Text="Thêm Quận"></asp:Label>
                                         </a>
                                     </li>
-                                     <li>
+                                    <li>
                                         <a href="/_supervisor/District/SeparateDistrict.aspx">
                                             <asp:Label ID="lbSeparateDistrict" runat="server" Text="Phân Quận"></asp:Label>
                                         </a>
@@ -609,10 +609,15 @@
                                         </a>
                                     </li>
                                     <li>
-                                    <a href="/_supervisor/system/permission_DMA.aspx">
-                                        <asp:Label ID="lbPermissionDMA" runat="server" Text="Phân quyền DMA"></asp:Label>
-                                    </a>
-                                </li>
+                                        <a href="/_supervisor/system/permission_DMA.aspx">
+                                            <asp:Label ID="lbPermissionDMA" runat="server" Text="Phân quyền DMA"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/system/permission_staff.aspx">
+                                            <asp:Label ID="lbPermissionStaff" runat="server" Text="Phân quyền Staff"></asp:Label>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 
