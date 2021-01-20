@@ -603,7 +603,11 @@
                                             <asp:Label ID="lbPermissionSupervisor" runat="server" Text="Phân quyền Supervisor"></asp:Label>
                                         </a>
                                     </li>
-
+                                    <li>
+                                    <a href="/_supervisor/system/permission_DMA.aspx">
+                                        <asp:Label ID="lbPermissionDMA" runat="server" Text="Phân quyền DMA"></asp:Label>
+                                    </a>
+                                </li>
                                 </ul>
                             </li>
                             <%-- <li class="treeview">
