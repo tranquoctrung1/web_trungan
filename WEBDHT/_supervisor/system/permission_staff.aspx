@@ -30,8 +30,8 @@
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td style="width: 50px">Mã NV</td>
-                                            <td style="width: 100px">Tên</td>
-                                            <td style="width: 150px">Họ</td>
+                                            <td style="width: 100px">Họ</td>
+                                            <td style="width: 150px">Tên</td>
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
@@ -52,7 +52,7 @@
                                 </ItemTemplate>
                             </telerik:RadComboBox>
                             <asp:ObjectDataSource ID="StaffDataSource" runat="server"
-                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll"
+                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetStaffStaff"
                                 TypeName="UserStaffsBLL"></asp:ObjectDataSource>
                         </div>
                     </div>

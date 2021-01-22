@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -46,6 +47,254 @@ public class UserStaffsBLL
     public UserStaff GetById(string staffId)
     {
         return DataContext.UserStaffs.SingleOrDefault(s => s.Id == staffId);
+    }
+
+    [System.ComponentModel.DataObjectMethod
+   (System.ComponentModel.DataObjectMethodType.Select)]
+    public List<UserStaff> GetStaffSupervisor()
+    {
+        List<UserStaff> list = new List<UserStaff>();
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select [Id], [FirstName], [LastName] from [t_User_Staffs] s join [t_User_Users] u on s.[Id] = u.[StaffId] where u.Role = 'supervisor'";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if(reader.HasRows)
+            {
+                while(reader.Read())
+                {
+                    UserStaff el = new UserStaff();
+                    try
+                    {
+                        el.FirstName = reader["FirstName"].ToString();
+                    }
+                    catch(Exception ex)
+                    {
+                        el.FirstName = "";
+                    }
+                    try
+                    {
+                        el.Id = reader["Id"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Id = "";
+                    }
+                    try
+                    {
+                        el.LastName = reader["LastName"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.LastName = "";
+                    }
+
+                    list.Add(el);
+                }
+            }
+        }
+        catch(SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+
+        return list;
+    }
+
+    [System.ComponentModel.DataObjectMethod
+   (System.ComponentModel.DataObjectMethodType.Select)]
+    public List<UserStaff> GetStaffDMA()
+    {
+        List<UserStaff> list = new List<UserStaff>();
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select [Id], [FirstName], [LastName] from [t_User_Staffs] s join [t_User_Users] u on s.[Id] = u.[StaffId] where u.Role = 'DMA'";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    UserStaff el = new UserStaff();
+                    try
+                    {
+                        el.FirstName = reader["FirstName"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.FirstName = "";
+                    }
+                    try
+                    {
+                        el.Id = reader["Id"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Id = "";
+                    }
+                    try
+                    {
+                        el.LastName = reader["LastName"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.LastName = "";
+                    }
+
+                    list.Add(el);
+                }
+            }
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+
+        return list;
+    }
+
+    [System.ComponentModel.DataObjectMethod
+   (System.ComponentModel.DataObjectMethodType.Select)]
+    public List<UserStaff> GetStaffStaff()
+    {
+        List<UserStaff> list = new List<UserStaff>();
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select [Id], [FirstName], [LastName] from [t_User_Staffs] s join [t_User_Users] u on s.[Id] = u.[StaffId] where u.Role = 'staff'";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    UserStaff el = new UserStaff();
+                    try
+                    {
+                        el.FirstName = reader["FirstName"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.FirstName = "";
+                    }
+                    try
+                    {
+                        el.Id = reader["Id"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Id = "";
+                    }
+                    try
+                    {
+                        el.LastName = reader["LastName"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.LastName = "";
+                    }
+
+                    list.Add(el);
+                }
+            }
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+
+        return list;
+    }
+
+    [System.ComponentModel.DataObjectMethod
+   (System.ComponentModel.DataObjectMethodType.Select)]
+    public List<UserStaff> GetStaffConsumer()
+    {
+        List<UserStaff> list = new List<UserStaff>();
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select [Id], [FirstName], [LastName] from [t_User_Staffs] s join [t_User_Users] u on s.[Id] = u.[StaffId] where u.Role = 'consumer'";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    UserStaff el = new UserStaff();
+                    try
+                    {
+                        el.FirstName = reader["FirstName"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.FirstName = "";
+                    }
+                    try
+                    {
+                        el.Id = reader["Id"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Id = "";
+                    }
+                    try
+                    {
+                        el.LastName = reader["LastName"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.LastName = "";
+                    }
+
+                    list.Add(el);
+                }
+            }
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+
+        return list;
     }
     /// <summary>
     /// Thêm mới nhân viên
