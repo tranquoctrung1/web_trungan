@@ -526,6 +526,11 @@
                                             <asp:Label ID="lbSettingAlarm" runat="server" Text="Cài Đặt Cảnh Báo"></asp:Label>
                                         </a>
                                     </li>
+                                    <li>
+                                    <a href="/_supervisor/alarm/SettingAlarmForPoint.aspx">
+                                        <asp:Label ID="lbSettingAlarmForPont" runat="server" Text="Cài Đặt Cảnh Báo Cho Point"></asp:Label>
+                                    </a>
+                                </li>
                                 </ul>
                             </li>
 

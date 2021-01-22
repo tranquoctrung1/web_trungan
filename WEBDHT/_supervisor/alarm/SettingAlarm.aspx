@@ -3,6 +3,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../css/Config.css" rel="stylesheet">
+    <link href="../../bower_components/treeview/qunit-1.12.0.css" rel="stylesheet" />
+
     <script type="text/javascript">
         // preventing resubmition form application
         window.history.replaceState('', '', window.location.href)
@@ -71,6 +73,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-12">
+                    <div id="tree"></div>
+                </div>
                 <div class="text-center col-sm-12 m-t m-b no-padding" style="clear: both;">
                     <asp:Button ID="btnUpdate" runat="server" Text="Cập Nhật"
                         OnClick="btnUpdate_Click" CssClass="btn btn-success"></asp:Button>
@@ -106,5 +111,101 @@
 
         </AjaxSettings>
     </telerik:RadAjaxManagerProxy>
-    <%--<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>--%>
+    <%--<script src="../../bower_components/treeview/blanket.min.js"></script>--%>
+    <%--<script src="../../bower_components/treeview/qunit-1.12.0.js"></script>--%>
+    <script src="../../bower_components/treeview/jquery.js"></script>
+    <script src="../../bower_components/treeview/bootstrap-treeview.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+        var tree = [
+            {
+                text: "Parent 1",
+                nodes: [
+                    {
+                        text: "Child 1",
+                        nodes: [
+                            {
+                                text: "Grandchild 1"
+                            },
+                            {
+                                text: "Grandchild 2"
+                            }
+                        ]
+                    },
+                    {
+                        text: "Child 2"
+                    }
+                ]
+            },
+            {
+                text: "Parent 2",
+                nodes: [
+                    {
+                        text: "Child 1",
+                        nodes: [
+                            {
+                                text: "Grandchild 1"
+                            },
+                            {
+                                text: "Grandchild 2"
+                            }
+                        ]
+                    },
+                    {
+                        text: "Child 2"
+                    }
+                ]
+            },
+            {
+                text: "Parent 3",
+                nodes: [
+                    {
+                        text: "Child 1",
+                        nodes: [
+                            {
+                                text: "Grandchild 1"
+                            },
+                            {
+                                text: "Grandchild 2"
+                            }
+                        ]
+                    },
+                    {
+                        text: "Child 2"
+                    }
+                ]
+            },
+            {
+                text: "Parent 4",
+                nodes: [
+                    {
+                        text: "Child 1",
+                        nodes: [
+                            {
+                                text: "Grandchild 1"
+                            },
+                            {
+                                text: "Grandchild 2"
+                            }
+                        ]
+                    },
+                    {
+                        text: "Child 2"
+                    }
+                ]
+            },
+            {
+                text: "Parent 5"
+            }
+        ];
+
+        function getTree() {
+            // Some logic to retrieve, or generate tree structure
+            return tree;
+        }
+
+        $('#tree').treeview({ data: getTree() });
+
+    </script>
 </asp:Content>
