@@ -14,6 +14,7 @@ public class LevelAlarmBLL
         List<LevelAlarm> list = new List<LevelAlarm>();
         Connect connect = new Connect();
 
+        // the character N for comparing Vietnamese language
         try
         {
             string sqlQuery = "select [Level], [Value] from [t_LevelAlarm] order by Value desc";
@@ -60,7 +61,7 @@ public class LevelAlarmBLL
         return list;
     }
 
-    public LevelAlarm GetLevelAlarmById(string id)
+    public LevelAlarm GetLevelAlarmById(string id) // id is a level example: Cao, Rất cao
     {
         LevelAlarm la = new LevelAlarm();
         Connect connect = new Connect();
