@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -8,15 +7,15 @@ using WcfLoggerData.ConnectDB;
 
 namespace WcfLoggerData.Action
 {
-    public class GetCurrentTimeAction
+    public class GetMinNightFlowAction
     {
-        public DateTime GetCurrentTime(string channelid)
+        public double? GetMinNightFlow(string channelid, DateTime start, DateTime end)
         {
-            DateTime date = new DateTime(1970, 01, 01);
+            double? min = null;
+
             try
             {
-                string sqlQuery = $"select top(1) TimeStamp from t_Data_{channelid} order by TimeStamp desc";
-
+                string sqlQuery = $"select min(Value) as Min from t_Data_{channelid} where TimeStamp between convert(nvarchar, '{start}', 120) and convert(nvarchar, '{end}', 120)";
                 Connect.ConnectToDataBase();
 
                 SqlDataReader reader = Connect.Select(sqlQuery);
@@ -27,11 +26,11 @@ namespace WcfLoggerData.Action
                     {
                         try
                         {
-                            date = DateTime.Parse( reader["TimeStamp"].ToString());
+                            min = double.Parse(reader["Min"].ToString());
                         }
-                        catch(Exception ex)
+                        catch
                         {
-                            date = new DateTime(1970, 01, 01);
+                            min = null;
                         }
                     }
                 }
@@ -45,7 +44,7 @@ namespace WcfLoggerData.Action
                 Connect.DisconnectToDataBase();
             }
 
-            return date;
+            return min;
         }
     }
 }

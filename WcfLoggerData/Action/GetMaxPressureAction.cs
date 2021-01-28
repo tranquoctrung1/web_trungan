@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -8,35 +7,36 @@ using WcfLoggerData.ConnectDB;
 
 namespace WcfLoggerData.Action
 {
-    public class GetCurrentTimeAction
+    public class GetMaxPressureAction
     {
-        public DateTime GetCurrentTime(string channelid)
+        public double? GetMaxPressure(string channelid, DateTime start, DateTime end)
         {
-            DateTime date = new DateTime(1970, 01, 01);
+            double? pressure = null;
+
             try
             {
-                string sqlQuery = $"select top(1) TimeStamp from t_Data_{channelid} order by TimeStamp desc";
+                string sqlQuery = $"select max(Value) as Max from t_Data_{channelid} where TimeStamp between convert(nvarchar, '{start}', 120) and convert(nvarchar, '{end}', 120)";
 
                 Connect.ConnectToDataBase();
 
                 SqlDataReader reader = Connect.Select(sqlQuery);
 
-                if(reader.HasRows)
+                if (reader.HasRows)
                 {
-                    while(reader.Read())
+                    while (reader.Read())
                     {
                         try
                         {
-                            date = DateTime.Parse( reader["TimeStamp"].ToString());
+                            pressure = double.Parse(reader["Max"].ToString());
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
-                            date = new DateTime(1970, 01, 01);
+                            pressure = null;
                         }
                     }
                 }
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }
@@ -45,7 +45,7 @@ namespace WcfLoggerData.Action
                 Connect.DisconnectToDataBase();
             }
 
-            return date;
+            return pressure;
         }
     }
 }

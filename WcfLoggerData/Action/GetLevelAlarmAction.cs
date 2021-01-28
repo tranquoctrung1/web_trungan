@@ -1,21 +1,22 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using WcfLoggerData.ConnectDB;
+using WcfLoggerData.Models;
 
 namespace WcfLoggerData.Action
 {
-    public class GetCurrentTimeAction
+    public class GetLevelAlarmAction
     {
-        public DateTime GetCurrentTime(string channelid)
+        public List<LevelAlarmViewModel> GetLevelAlarm()
         {
-            DateTime date = new DateTime(1970, 01, 01);
+            List<LevelAlarmViewModel> list = new List<LevelAlarmViewModel>();
+
             try
             {
-                string sqlQuery = $"select top(1) TimeStamp from t_Data_{channelid} order by TimeStamp desc";
+                string sqlQuery = $"select [Level], [Value] from t_LevelAlarm order by [Value] desc";
 
                 Connect.ConnectToDataBase();
 
@@ -25,14 +26,25 @@ namespace WcfLoggerData.Action
                 {
                     while(reader.Read())
                     {
+                        LevelAlarmViewModel el = new LevelAlarmViewModel();
                         try
                         {
-                            date = DateTime.Parse( reader["TimeStamp"].ToString());
+                            el.Level = reader["Level"].ToString();
                         }
                         catch(Exception ex)
                         {
-                            date = new DateTime(1970, 01, 01);
+                            el.Level = "";
                         }
+                        try
+                        {
+                            el.Value =double.Parse(reader["Value"].ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            el.Value = null;
+                        }
+
+                        list.Add(el);
                     }
                 }
             }
@@ -45,7 +57,7 @@ namespace WcfLoggerData.Action
                 Connect.DisconnectToDataBase();
             }
 
-            return date;
+            return list;
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -8,18 +7,19 @@ using WcfLoggerData.ConnectDB;
 
 namespace WcfLoggerData.Action
 {
-    public class GetCurrentTimeAction
+    public class GetQitAction
     {
-        public DateTime GetCurrentTime(string channelid)
+        public double? GetQit(string channelid, DateTime current)
         {
-            DateTime date = new DateTime(1970, 01, 01);
+            double? Qit = null;
+            
             try
             {
-                string sqlQuery = $"select top(1) TimeStamp from t_Data_{channelid} order by TimeStamp desc";
+                string sqlQuery = $"select top(1) Value from t_Data_{channelid} where TimeStamp = convert(nvarchar, '{current}', 120)";
 
                 Connect.ConnectToDataBase();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = Connect.Select(sqlQuery);   
 
                 if(reader.HasRows)
                 {
@@ -27,11 +27,11 @@ namespace WcfLoggerData.Action
                     {
                         try
                         {
-                            date = DateTime.Parse( reader["TimeStamp"].ToString());
+                            Qit = double.Parse(reader["Value"].ToString());
                         }
                         catch(Exception ex)
                         {
-                            date = new DateTime(1970, 01, 01);
+                            Qit = null;
                         }
                     }
                 }
@@ -45,7 +45,7 @@ namespace WcfLoggerData.Action
                 Connect.DisconnectToDataBase();
             }
 
-            return date;
+            return Qit;
         }
     }
 }
