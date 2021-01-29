@@ -34,4 +34,3 @@ D:\project\XNTD_WEBDHT\WEBDHT\WcfLoggerData\bin\Antlr3.Runtime.pdb
 D:\project\XNTD_WEBDHT\WEBDHT\WcfLoggerData\bin\System.Web.Cors.dll
 D:\project\XNTD_WEBDHT\WEBDHT\WcfLoggerData\bin\System.Web.Http.Cors.dll
 D:\project\XNTD_WEBDHT\WEBDHT\WcfLoggerData\bin\System.Web.Http.Cors.xml
-D:\project\XNTD_WEBDHT\WEBDHT\WcfLoggerData\obj\Debug\WcfLoggerData.csprojAssemblyReference.cache

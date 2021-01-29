@@ -60,7 +60,7 @@ namespace WcfLoggerData.ConnectDB
 
         public Connect()
         {
-            connectionString = ConfigurationManager.ConnectionStrings["web_dht_r02ConnectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
         }
     }
 }
