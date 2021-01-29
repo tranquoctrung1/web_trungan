@@ -13,14 +13,14 @@ namespace WcfLoggerData.Action
         public List<LevelAlarmViewModel> GetLevelAlarm()
         {
             List<LevelAlarmViewModel> list = new List<LevelAlarmViewModel>();
-
+            Connect connect = new Connect();
             try
             {
                 string sqlQuery = $"select [Level], [Value] from t_LevelAlarm order by [Value] desc";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if(reader.HasRows)
                 {
@@ -54,7 +54,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;

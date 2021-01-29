@@ -14,13 +14,13 @@ namespace WcfLoggerData.Action
         public List<ValueAlarmViewModel> GetValueAlarm(string uid)
         {
             List<ValueAlarmViewModel> list = new List<ValueAlarmViewModel>();
-
+            Connect connect = new Connect();
             try
             {
                 string sqlQuery = $"select t.Id as ChannelName, t.LastValue, t.LastTimeStamp as TimeStamp, s.Location as SiteAliasName, ds.Interval, ds.DelayTime,t.BaseMin, t.BaseMax, t.BaseLine from t_Devices_ChannelsConfigs t left join t_Devices_SitesConfigs ds on ds.Id = t.LoggerId left join t_Site_Sites s on s.Id = ds.SiteId ";
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if (reader.HasRows)
                 {
@@ -179,7 +179,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                //Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;

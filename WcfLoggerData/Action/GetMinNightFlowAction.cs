@@ -12,13 +12,13 @@ namespace WcfLoggerData.Action
         public double? GetMinNightFlow(string channelid, DateTime start, DateTime end)
         {
             double? min = null;
-
+            Connect connect = new Connect();
             try
             {
                 string sqlQuery = $"select min(Value) as Min from t_Data_{channelid} where TimeStamp between convert(nvarchar, '{start}', 120) and convert(nvarchar, '{end}', 120)";
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if(reader.HasRows)
                 {
@@ -41,7 +41,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return min;

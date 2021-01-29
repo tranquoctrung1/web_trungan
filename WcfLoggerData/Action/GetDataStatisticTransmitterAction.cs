@@ -13,7 +13,7 @@ namespace WcfLoggerData.Action
         public List<StatisticTransmitterViewModel> GetStatisticTransmitter(string provider, string mark, string size, string model, string status, string install, string siteStatus, string company)
         {
             List<StatisticTransmitterViewModel> list = new List<StatisticTransmitterViewModel>();
-
+            Connect connect = new Connect();
             try
             {
                 List<string> listProvider = provider.Split(new char[] { '|' }, StringSplitOptions.None).ToList();
@@ -77,9 +77,9 @@ namespace WcfLoggerData.Action
 
                 string sqlQuery = $"Select t.Serial,t.ReceiptDate, t.AccreditedDate, m.ExpiryDate, m.AccreditationDocument, m.AccreditationType, t.Provider, t.Marks, t.Size, t.Model, t.Status, t.Installed, t.InitialIndex, t.Description,t.ApprovalDecision,t.Approved, s.Id, s.Location,s.Company ,  s.Status as SiteStatus  from  t_Site_Sites s join t_Devices_Meters m on s.Meter = m.Serial join t_Devices_Transmitters t on t.Serial = s.Transmitter";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 int numberordered = 1;
 
@@ -324,7 +324,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;

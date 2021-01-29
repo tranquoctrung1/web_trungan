@@ -12,14 +12,14 @@ namespace WcfLoggerData.Action
         public List<string> GetDisplayGroup()
         {
             List<string> list = new List<string>();
-
+            Connect connect = new Connect();
             try
             {
                 string sqlQuery = $"select Company from t_Site_Companies";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if(reader.HasRows)
                 {
@@ -45,7 +45,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                //Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;

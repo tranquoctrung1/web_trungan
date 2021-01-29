@@ -10,34 +10,29 @@ using System.Web;
 
 namespace WcfLoggerData.ConnectDB
 {
-    public static class Connect
+    public  class Connect
     {
-
-        static string connectionString = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
-        static SqlConnection sqlConnection = new SqlConnection(connectionString);
-        public static void ConnectToDataBase()
+        public string connectionString { get; set; }
+        public SqlConnection sqlConnection { get; set; }
+        public void Connected()
         {
-            if (sqlConnection != null && sqlConnection.State == ConnectionState.Closed)
+            sqlConnection = new SqlConnection(connectionString);
+
+            if (sqlConnection != null && sqlConnection.State == System.Data.ConnectionState.Closed)
             {
-                sqlConnection.Open();
-            }
-            else if(sqlConnection.State == ConnectionState.Connecting)
-            {
-                sqlConnection.Close();
                 sqlConnection.Open();
             }
         }
 
-        public static void DisconnectToDataBase()
+        public void DisConnected()
         {
-            if (sqlConnection != null && sqlConnection.State == ConnectionState.Open)
+            if (sqlConnection != null && sqlConnection.State == System.Data.ConnectionState.Open)
             {
                 sqlConnection.Close();
             }
-
         }
 
-        public static SqlDataReader Select(string sqlQuery)
+        public SqlDataReader Select(string sqlQuery)
         {
             SqlCommand command = new SqlCommand(sqlQuery, sqlConnection);
             SqlDataReader reader = command.ExecuteReader();
@@ -45,18 +40,27 @@ namespace WcfLoggerData.ConnectDB
             command.Dispose();
 
             return reader;
-
         }
 
-        public static SqlCommand ExcuteStoreProceduce(string sqlquery)
+        public SqlCommand ExcuteStoreProceduce(string sqlquery)
         {
-
             SqlCommand sqlCommand = new SqlCommand(sqlquery, sqlConnection);
-            sqlCommand.CommandTimeout = 0;
             sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
             sqlCommand.Clone();
 
             return sqlCommand;
+
+        }
+
+        public int ExcuteNonQuery(string sqlQuery)
+        {
+            SqlCommand command = new SqlCommand(sqlQuery, sqlConnection);
+            return command.ExecuteNonQuery();
+        }
+
+        public Connect()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["web_dht_r02ConnectionString"].ConnectionString;
         }
     }
 }

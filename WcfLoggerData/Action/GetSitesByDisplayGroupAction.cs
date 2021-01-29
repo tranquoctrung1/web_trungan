@@ -13,13 +13,12 @@ namespace WcfLoggerData.Action
         public List<SiteByDisplayGroupViewModel> GetSiteByDisplayGroup(string displayGroup)
         {
             List<SiteByDisplayGroupViewModel> list = new List<SiteByDisplayGroupViewModel>();
-
+            Connect connect = new Connect();
             try
             {
                 string sqlQuery = $"select s.Id, s.Location, ds.Id as LoggerId, s.Company, s.Meter from t_Site_Sites s join t_Devices_SitesConfigs ds on ds.SiteId = s.Id where s.Company = '{displayGroup}'";
-                Connect.ConnectToDataBase();
-
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                connect.Connected();
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if(reader.HasRows)
                 {
@@ -70,7 +69,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                //Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;

@@ -14,15 +14,15 @@ namespace WcfLoggerData.Action
         {
             List<StatisticSiteViewModel> list = new List<StatisticSiteViewModel>();
             DateTime startDate = new DateTime(1970, 01, 01).AddSeconds(int.Parse(start)).AddHours(7);
-
+            Connect connect = new Connect();
 
             try
             {
                 string sqlQuery = $"select s.Id, s.Location, m.Marks, m.Size, m.AccreditedDate, s.DescriptionOfChange, m.AccreditationDocument, m.ExpiryDate from t_Site_Sites s join t_Devices_Meters m on s.Meter = m.Serial where m.AccreditedDate is not null and m.AccreditedDate >= convert(nvarchar, '{startDate}', 120)";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 int numberOrdered = 1;
 
@@ -115,7 +115,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;

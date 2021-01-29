@@ -16,14 +16,15 @@ namespace WcfLoggerData.Action
             DateTime timeEnd = new DateTime(1970, 01, 01).AddSeconds(int.Parse(end)).AddHours(7);
 
             List<DataGraphViewModel> list = new List<DataGraphViewModel>();
+            Connect connect = new Connect();
 
             try
             {
                 string sqlQuery = $"select TimeStamp, Value from t_Data_{channelID} where TimeStamp >= convert(nvarchar, '{timeStart}', 120) and TimeStamp <= convert(nvarchar, '{timeEnd}', 120) order by TimeStamp desc";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if(reader.HasRows)
                 {
@@ -66,7 +67,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;
@@ -75,14 +76,14 @@ namespace WcfLoggerData.Action
         public int GetCountDataHistory(string channelID)
         {
             int count = 0;
-
+            Connect connect = new Connect();
             try
             {
                 string sqlQuery = $"select Count(*) as Count from t_Data_{channelID} ";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if (reader.HasRows)
                 {
@@ -106,7 +107,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return count;

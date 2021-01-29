@@ -18,9 +18,10 @@ namespace WcfLoggerData.Action
             string[] channels = listChannelId.Split('|');
 
             List<ChannelMultipleDataViewModel> lst = new List<ChannelMultipleDataViewModel>();
+            Connect connect = new Connect();
             try
             {
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
                 string temp = "";
                 string tempi = "";
@@ -53,7 +54,7 @@ namespace WcfLoggerData.Action
                 cmdText += ") AS myTable order by [Timestamp]";
 
 
-                SqlDataReader rd = Connect.Select(cmdText);
+                SqlDataReader rd = connect.Select(cmdText);
 
                 if(rd.HasRows)
                 {
@@ -80,7 +81,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                //Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return lst;

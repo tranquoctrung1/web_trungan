@@ -12,14 +12,14 @@ namespace WcfLoggerData.Action
         public Nullable<DateTime> GetTime(string channelID)
         {
             Nullable<DateTime> current = null;
-
+            Connect connect = new Connect();
             try
             {
                 string sqlQuery = $"select top(1) TimeStamp from t_Data_{channelID} order by TimeStamp desc";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if (reader.HasRows)
                 {
@@ -44,7 +44,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return current;

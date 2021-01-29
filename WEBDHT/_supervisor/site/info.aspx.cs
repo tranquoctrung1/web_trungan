@@ -55,7 +55,7 @@ public partial class _supervisor_site_info : BasePage
         nmrLogitude.Value = null;
         nmrLatitude.Value = null;
         cboViewGroups.Text = string.Empty;
-        cboStaffs.Text = string.Empty;
+        //cboStaffs.Text = string.Empty;
         cboMeters.Text = string.Empty;
         cboTransmitters.Text = string.Empty;
         cboLoggers.Text = string.Empty;
@@ -196,7 +196,7 @@ public partial class _supervisor_site_info : BasePage
         site.Latitude = nmrLatitude.Value;
         site.Level = cboLevels.Text;
         site.Location = txtLocation.Text;
-        site.Logger = cboLoggers.Text;
+        site.Logger = cboLoggers.Text ;
         site.Longitude = nmrLogitude.Value;
         site.Meter = cboMeters.Text;
         site.MeterDirection = cboMeterDirections.Text;
@@ -205,7 +205,8 @@ public partial class _supervisor_site_info : BasePage
         site.Property = chkProperty.Checked;
         site.QndDistributionCompany = cboQndDistributionCompanies.Text;
         site.QndDoNotCalculateReverse = chkQndDoNotCalculateReverse.Checked;
-        site.StaffId = cboStaffs.Text;
+        //site.StaffId = cboStaffs.Text;
+        site.StaffId = "";
         site.Status = cboStatus.Text;
         site.TakeoverDate = dtmTakeovered.SelectedDate;
         site.Takeovered = chkTakeovered.Checked;
@@ -266,8 +267,8 @@ public partial class _supervisor_site_info : BasePage
         cboQndDistributionCompanies.SelectedIndex = -1;
         cboQndDistributionCompanies.Text = site.QndDistributionCompany;
         chkQndDoNotCalculateReverse.Checked = site.QndDoNotCalculateReverse ?? false;
-        cboStaffs.SelectedIndex = -1;
-        cboStaffs.Text = site.StaffId;
+        //cboStaffs.SelectedIndex = -1;
+        //cboStaffs.Text = site.StaffId;
         cboStatus.SelectedIndex = -1;
         cboStatus.Text = site.Status;
         dtmTakeovered.SelectedDate = site.TakeoverDate;

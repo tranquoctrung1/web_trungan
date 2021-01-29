@@ -20,14 +20,14 @@ namespace WcfLoggerData.Action
             DataReportHourlyCompanyViewModel totalData = new DataReportHourlyCompanyViewModel();
             totalData.TimeStamp = new DateTime(1970, 01, 01);
             totalData.Value = 0;
-
+            Connect connect = new Connect();
             try
             {
                 string store = "p_Calculate_One_Company_Hourly_Output";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlCommand command = Connect.ExcuteStoreProceduce(store);
+                SqlCommand command = connect.ExcuteStoreProceduce(store);
                 command.Parameters.Add(new SqlParameter("@Company", company));
                 command.Parameters.Add(new SqlParameter("@StartDate", timeStart));
                 command.Parameters.Add(new SqlParameter("@EndDate", timeEnd));
@@ -69,7 +69,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             list.Add(totalData);

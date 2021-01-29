@@ -13,14 +13,14 @@ namespace WcfLoggerData.Action
         public List<GroupChannelViewModel> GetGroupChannel()
         {
             List<GroupChannelViewModel> list = new List<GroupChannelViewModel>();
-
+            Connect connect = new Connect();
             try
             {
                 string sqlQuery = $"select GroupChannel, Description, Status from t_GroupChannel";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if(reader.HasRows)
                 {
@@ -62,7 +62,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                //Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;    

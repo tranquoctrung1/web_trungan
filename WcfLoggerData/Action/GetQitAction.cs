@@ -12,14 +12,14 @@ namespace WcfLoggerData.Action
         public double? GetQit(string channelid, DateTime current)
         {
             double? Qit = null;
-            
+            Connect connect = new Connect();
             try
             {
                 string sqlQuery = $"select top(1) Value from t_Data_{channelid} where TimeStamp = convert(nvarchar, '{current}', 120)";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);   
+                SqlDataReader reader = connect.Select(sqlQuery);   
 
                 if(reader.HasRows)
                 {
@@ -42,7 +42,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return Qit;

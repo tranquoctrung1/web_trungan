@@ -15,14 +15,15 @@ namespace WcfLoggerData.Action
             List<DataChannelChartViewModel> list = new List<DataChannelChartViewModel>();
             DateTime startDate = new DateTime(1970, 01, 01).AddSeconds(Convert.ToInt32(double.Parse(start))).AddHours(7);
             DateTime endDate = new DateTime(1970, 01, 01).AddSeconds(Convert.ToInt32(double.Parse(end))).AddHours(7);
+            Connect connect = new Connect();
 
             try
             {
                 string sqlQuery = $"select TimeStamp, Value from t_Data_{channelid} where TimeStamp between convert(nvarchar, '{startDate}', 120) and convert(nvarchar, '{endDate}', 120)";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if(reader.HasRows)
                 {
@@ -56,7 +57,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                //Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;

@@ -12,15 +12,15 @@ namespace WcfLoggerData.Action
         public string GetLogger (string siteid)
         {
             string loggerId = "";
-
+            Connect connect = new Connect();
             try
             {
 
                 string sqlQuery = $" select dc.Id as LoggerID from t_Site_Sites s join t_Devices_SitesConfigs dc on dc.SiteId = s.Id where s.Id = '{siteid}'";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if(reader.HasRows)
                 {
@@ -43,7 +43,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return loggerId;

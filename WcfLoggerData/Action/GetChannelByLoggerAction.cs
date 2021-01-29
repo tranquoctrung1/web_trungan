@@ -13,14 +13,15 @@ namespace WcfLoggerData.Action
         public List<ChannelByLoggerViewModel> GetChannelByLogger(string loggerid)
         {
             List<ChannelByLoggerViewModel> list = new List<ChannelByLoggerViewModel>();
+            Connect connect = new Connect();
 
             try
             {
                 string sqlQuery = $"select t.Id as ChannelId, t.Name as ChannelName, ds.Pressure, ds.Pressure1, ds.Forward, ds.Reverse, t.LastTimeStamp, t.LastValue, t.Unit, gc.Status as GroupChannelStatus, ds.DelayTime, t.BaseMin, t.BaseMax from t_Devices_ChannelsConfigs t left join t_Devices_SitesConfigs ds on t.LoggerId = ds.Id join t_GroupChannel gc on gc.GroupChannel = t.GroupChannel where ds.Id = '{loggerid}'";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if(reader.HasRows)
                 {
@@ -205,8 +206,9 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                //Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
+
 
             return list;
         }

@@ -13,6 +13,7 @@ namespace WcfLoggerData.Action
         public List<StatisticSiteViewModel> GetStatisticSite(string level, string group, string group2s, string meterModel, string companies, string status, string availability, string calc, string property, string takeover, string usingLogger, string modelLogger, string accre, string approve)
         {
             List<StatisticSiteViewModel> list = new List<StatisticSiteViewModel>();
+            Connect connect = new Connect();
             try
             {
 
@@ -156,8 +157,8 @@ namespace WcfLoggerData.Action
                 }
 
                 string sqlQuery = $"select s.Id,s.Level, m.Provider, m.Marks, m.Size, s.StaffId, m.ApprovalDecision, m.Model, s.Location, s.[Group], s.Group2, s.Company, s.Status, s.Availability, s.IstDistributionCompany, s.QndDistributionCompany, s.ProductionCompany, s.Property, s.Takeovered, s.UsingLogger, s.Description, l.Model as LoggerModel, s.Meter, s.Transmitter, s.Logger, m.AccreditationDocument, m.AccreditedDate, m.ExpiryDate, s.DateOfMeterChange, s.TakeoverDate, m.AccreditationType, m.Approved from t_Site_Sites s join t_Devices_Meters m on s.Meter = m.Serial join t_Devices_Loggers l on s.Logger = l.Serial";
-                Connect.ConnectToDataBase();
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                connect.Connected();
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 int numberordered = 1;
 
@@ -538,7 +539,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;

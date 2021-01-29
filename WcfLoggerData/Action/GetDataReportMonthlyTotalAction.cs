@@ -21,13 +21,14 @@ namespace WcfLoggerData.Action
             totalData.TimeStamp = new DateTime(1970, 01, 01);
             totalData.Value = 0;
 
+            Connect connect = new Connect();
             try
             {
                 string store = "p_Calculate_Monthly_Output_All";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlCommand command = Connect.ExcuteStoreProceduce(store);
+                SqlCommand command = connect.ExcuteStoreProceduce(store);
                 command.Parameters.Add(new SqlParameter("@StartDate", timeStart));
                 command.Parameters.Add(new SqlParameter("@EndDate", timeEnd));
 
@@ -68,7 +69,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             list.Add(totalData);

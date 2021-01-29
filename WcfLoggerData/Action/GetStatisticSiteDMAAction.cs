@@ -13,13 +13,13 @@ namespace WcfLoggerData.Action
         public List<StatisticSiteDMAViewModel> GetStatisticSiteDMA()
         {
             List<StatisticSiteDMAViewModel> list = new List<StatisticSiteDMAViewModel>();
-
+            Connect connect = new Connect();
             try
             {
                 string sqlQuery = $" select ROW_NUMBER() over(order by s.Company) as NumberOrder,s.Id,m.Marks,m.Size, s.Location, s.Level, s.Company, s.Availability, s.Status, s.UsingLogger, s.Description  from t_Site_Sites s join t_Devices_Meters m on s.Meter = m.Serial order by s.Company";
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if(reader.HasRows)
                 {
@@ -133,7 +133,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;

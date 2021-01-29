@@ -13,7 +13,7 @@ namespace WcfLoggerData.Action
         public List<StatisticMeterViewModel> GetStatisticMeter(string provider, string nation, string mark, string size, string model, string status, string install, string siteStatus, string company)
         {
             List<StatisticMeterViewModel> list = new List<StatisticMeterViewModel>();
-
+            Connect connect = new Connect();
             try
             {
                 List<string> listProvider = provider.Split(new char[] { '|' }, StringSplitOptions.None).ToList();
@@ -82,9 +82,9 @@ namespace WcfLoggerData.Action
 
                 string sqlQuery = $"Select m.Serial,m.ReceiptDate, m.AccreditedDate, m.ExpiryDate, m.AccreditationDocument, m.AccreditationType, m.Provider, m.Marks, m.Size, m.Model, m.Status, m.Installed, m.InitialIndex, m.Description, s.Id, s.Location, m.SerialTransmitter,s.Company ,  s.Status as SiteStatus,  m.Nationality   from  t_Site_Sites s join t_Devices_Meters m on s.Meter = m.Serial";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 int numberordered = 1;
 
@@ -351,7 +351,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;

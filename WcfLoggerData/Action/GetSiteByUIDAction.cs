@@ -13,14 +13,14 @@ namespace WcfLoggerData.Action
         public List<SiteResultByUIDViewModel> GetSiteResultByUID(string uid)
         {
             List<SiteResultByUIDViewModel> list = new List<SiteResultByUIDViewModel>();
-
+            Connect connect = new Connect();
             try
             {
                 string sqlQuery = $"select  s.Company, s.Latitude, s.Longitude, s.Id as SiteId, s.Location , t.Id as LoggerId from t_Site_Sites s join t_Devices_SitesConfigs t on t.SiteId = s.Id where exists (select * from t_Devices_ChannelsConfigs dc where dc.LoggerId = t.Id)";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if(reader.HasRows)
                 {
@@ -87,7 +87,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-               // Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;

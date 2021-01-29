@@ -551,11 +551,11 @@
                                             <asp:Label ID="lbAddDMA" runat="server" Text="Thêm DMA"></asp:Label>
                                         </a>
                                     </li>
-                                    <li>
+                                    <%--<li>
                                         <a href="/_supervisor/DMA/SeparateDMA.aspx">
                                             <asp:Label ID="lbSeoerateDMA" runat="server" Text="Phân DMA"></asp:Label>
                                         </a>
-                                    </li>
+                                    </li>--%>
 
                                 </ul>
                             </li>
@@ -572,11 +572,11 @@
                                             <asp:Label ID="lbAddDistrict" runat="server" Text="Thêm Quận"></asp:Label>
                                         </a>
                                     </li>
-                                    <li>
+                                    <%--<li>
                                         <a href="/_supervisor/District/SeparateDistrict.aspx">
                                             <asp:Label ID="lbSeparateDistrict" runat="server" Text="Phân Quận"></asp:Label>
                                         </a>
-                                    </li>
+                                    </li>--%>
                                 </ul>
                             </li>
                             <li class="treeview">

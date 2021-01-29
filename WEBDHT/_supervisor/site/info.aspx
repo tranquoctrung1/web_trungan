@@ -54,12 +54,32 @@
                         <div class="row m-b">
                             <telerik:RadComboBox ID="cboIds" runat="server" AllowCustomText="True"
                                 EnableLoadOnDemand="True" Filter="StartsWith"
-                                HighlightTemplatedItems="True" DataSourceID="IdsDataSource"
+                                HighlightTemplatedItems="True" DataSourceID="IdsDataSource" DataTextField="Id" DataValueField="Id"
                                 AutoPostBack="True" OnSelectedIndexChanged="cboIds_SelectedIndexChanged"
                                 TabIndex="1">
+                                <HeaderTemplate>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="width: 75px">Id</td>
+                                            <td style="width: 175px">Vị trí</td>
+                                        </tr>
+                                    </table>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="width: 75px">
+                                                <%#DataBinder.Eval(Container.DataItem,"Id") %>
+                                            </td>
+                                            <td style="width: 175px">
+                                                <%#DataBinder.Eval(Container.DataItem,"Location") %>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </ItemTemplate>
                             </telerik:RadComboBox>
                             <asp:ObjectDataSource ID="IdsDataSource" runat="server"
-                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllIds"
+                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll"
                                 TypeName="SitesBLL"></asp:ObjectDataSource>
                         </div>
                     </div>
@@ -320,7 +340,7 @@
                     </div>
                     <div class="group-text">
                         <div class="row">
-                            <span>Quản lý</span>
+                            <span>DMA</span>
                         </div>
                         <div class="row m-b">
                             <asp:ObjectDataSource ID="SiteCompaniesDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll" TypeName="SiteCompaniesBLL"></asp:ObjectDataSource>
@@ -394,9 +414,30 @@
                             <span>Quận</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadComboBox ID="cboDistricts" runat="server" AllowCustomText="True" DataSourceID="DistrictsDataSource" HighlightTemplatedItems="True">
+                            <telerik:RadComboBox ID="cboDistricts" runat="server" AllowCustomText="True" DataSourceID="DistrictsDataSource" HighlightTemplatedItems="True"
+                                EnableLoadOnDemand="True" Filter="StartsWith" DataTextField="IdDistrict" DataValueField="IdDistrict" >
+                                <HeaderTemplate>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="width: 50px">Id</td>
+                                            <td style="width: 75px">Tên</td>
+                                            <td style="width: 200px">Mô tả</td>
+                                        </tr>
+                                    </table>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="width: 50px"><%#DataBinder.Eval(Container.DataItem, "IdDistrict")%></td>
+                                            <td style="width: 75px"><%#DataBinder.Eval(Container.DataItem,"Name") %></td>
+                                            <td style="width: 200px">
+                                                <%#DataBinder.Eval(Container.DataItem,"Description") %>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </ItemTemplate>
                             </telerik:RadComboBox>
-                            <asp:ObjectDataSource ID="DistrictsDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllDistricts" TypeName="SitesBLL"></asp:ObjectDataSource>
+                            <asp:ObjectDataSource ID="DistrictsDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetDistricts" TypeName="DistrictBLL"></asp:ObjectDataSource>
                         </div>
                     </div>
                     <div class="group-text">
@@ -782,7 +823,7 @@
                         </div>
                     </div>
 
-                    <div class="group-text">
+                    <%--<div class="group-text">
                         <div class="row">
                             <span>Mã nhân viên</span>
                         </div>
@@ -814,7 +855,7 @@
                                 OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll"
                                 TypeName="UserStaffsBLL"></asp:ObjectDataSource>
                         </div>
-                    </div>
+                    </div>--%>
 
                     <div class="group-text">
                         <div class="row">
@@ -1115,7 +1156,7 @@
                     <telerik:AjaxUpdatedControl ControlID="nmrLogitude" />
                     <telerik:AjaxUpdatedControl ControlID="txtLocation" />
                     <telerik:AjaxUpdatedControl ControlID="cboViewGroups" />
-                    <telerik:AjaxUpdatedControl ControlID="cboStaffs" />
+                    <%--<telerik:AjaxUpdatedControl ControlID="cboStaffs" />--%>
                     <telerik:AjaxUpdatedControl ControlID="txtAddress" />
                     <telerik:AjaxUpdatedControl ControlID="cboDistricts" />
                     <telerik:AjaxUpdatedControl ControlID="cboMeters" />
@@ -1163,13 +1204,14 @@
             <telerik:AjaxSetting AjaxControlID="btnAdd">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="ntf" />
+                    <telerik:AjaxUpdatedControl ControlID="cboIds" />
                     <telerik:AjaxUpdatedControl ControlID="cboSerials" />
                     <telerik:AjaxUpdatedControl ControlID="nmrLatitude" />
                     <telerik:AjaxUpdatedControl ControlID="cboOldIds" />
                     <telerik:AjaxUpdatedControl ControlID="nmrLogitude" />
                     <telerik:AjaxUpdatedControl ControlID="txtLocation" />
                     <telerik:AjaxUpdatedControl ControlID="cboViewGroups" />
-                    <telerik:AjaxUpdatedControl ControlID="cboStaffs" />
+                    <%--<telerik:AjaxUpdatedControl ControlID="cboStaffs" />--%>
                     <telerik:AjaxUpdatedControl ControlID="txtAddress" />
                     <telerik:AjaxUpdatedControl ControlID="cboDistricts" />
                     <telerik:AjaxUpdatedControl ControlID="cboMeters" />

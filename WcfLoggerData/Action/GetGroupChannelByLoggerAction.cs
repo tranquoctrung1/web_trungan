@@ -13,14 +13,14 @@ namespace WcfLoggerData.Action
         public List<GroupChannelByLoggerViewModel> GetGroupChannelByLogger(string loggerid)
         {
             List<GroupChannelByLoggerViewModel> list = new List<GroupChannelByLoggerViewModel>();
-
+            Connect connect = new Connect();
             try
             {
 
                 string sqlQuery = $"select GroupChannel, LastTimeStamp, LoggerId from t_Devices_ChannelsConfigs where LoggerId = '{loggerid}' group by GroupChannel, LastTimeStamp, LoggerId";
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if(reader.HasRows)
                 {
@@ -63,7 +63,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                //Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;

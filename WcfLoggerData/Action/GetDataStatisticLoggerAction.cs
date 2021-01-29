@@ -13,6 +13,7 @@ namespace WcfLoggerData.Action
         public List<StatisticLoggerViewModel> GetStatisticLogger(string provider, string mark, string model, string status, string install, string siteStatus, string company)
         {
             List<StatisticLoggerViewModel> list = new List<StatisticLoggerViewModel>();
+            Connect connect = new Connect();
 
             try
             {
@@ -72,9 +73,9 @@ namespace WcfLoggerData.Action
 
                 string sqlQuery = $"select l.Serial, l.ReceiptDate, l.Provider, l.Marks, l.Model, l.Status, l.Installed, l.Description, s.Id, s.Location, s.Status as SiteStatus, s.Company,s.Logger from t_Site_Sites s join t_Devices_Loggers l on l.Serial = s.Logger";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 int numberordered = 1;
 
@@ -266,11 +267,11 @@ namespace WcfLoggerData.Action
             }
             catch(SqlException ex)
             {
-
+                throw ex;
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;

@@ -13,15 +13,15 @@ namespace WcfLoggerData.Action
         public List<DataComplexViewModel> getListSites()
         {
             List<DataComplexViewModel> list = new List<DataComplexViewModel>();
-
+            Connect connect = new Connect();
             try
             {
 
                 string sqlQuery = "select s.Id, s.Location, s.OldId, dc.Id as LoggerID from t_Site_Sites s join t_Devices_SitesConfigs dc on dc.SiteId = s.Id ";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if(reader.HasRows)
                 {
@@ -72,7 +72,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;

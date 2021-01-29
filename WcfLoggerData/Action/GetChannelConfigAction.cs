@@ -13,14 +13,15 @@ namespace WcfLoggerData.Action
         public List<ChannelViewModel> GetChannelConfig(string loggerID)
         {
             List<ChannelViewModel> list = new List<ChannelViewModel>();
+            Connect connect = new Connect();
 
             try
             {
                 string sqlQuery = $"select tc.Id as ChannelID, tc.LastTimeStamp as TimeStamp, tc.LastValue as Value, tc.Unit as Unit from t_Devices_ChannelsConfigs tc where LoggerId = '{loggerID}'";
 
-                Connect.ConnectToDataBase();
+                connect.Connected();
 
-                SqlDataReader reader = Connect.Select(sqlQuery);
+                SqlDataReader reader = connect.Select(sqlQuery);
 
                 if(reader.HasRows)
                 {
@@ -70,7 +71,7 @@ namespace WcfLoggerData.Action
             }
             finally
             {
-                Connect.DisconnectToDataBase();
+                connect.DisConnected();
             }
 
             return list;
