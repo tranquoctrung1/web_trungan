@@ -26,6 +26,10 @@ namespace WcfLoggerData.Controllers
             GetInconstantPressureAlarmAction getInconstantPressureAlarmAction = new GetInconstantPressureAlarmAction();
             GetCurrentTimeAction getCurrentTimeAction = new GetCurrentTimeAction();
 
+            GetHistoryAlarmAction getHistoryAlarmAction = new GetHistoryAlarmAction();
+
+            //list = getHistoryAlarmAction.GetHistoryAlarm();
+
             var listSites = getListSitesAction.getListSites();
 
             foreach(var site in listSites)
@@ -43,7 +47,6 @@ namespace WcfLoggerData.Controllers
                     string type = "";
                     string level = "";
                     bool check = false;
-
                     if(highFlowAlarm.Trim() != "")
                     {
                         type = "High Flow";

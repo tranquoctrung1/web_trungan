@@ -147,6 +147,7 @@
     <Compile Include="Action\GetDisplayGroupAction.cs" />
     <Compile Include="Action\GetGroupChannelAction.cs" />
     <Compile Include="Action\GetGroupChannelByLoggerAction.cs" />
+    <Compile Include="Action\GetHistoryAlarmAction.cs" />
     <Compile Include="Action\GetInconstantHighFlowAlarmAction.cs" />
     <Compile Include="Action\GetInconstantLowFlowAlarmAction.cs" />
     <Compile Include="Action\GetInconstantPressureAlarmAction.cs" />
