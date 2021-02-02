@@ -959,6 +959,7 @@ public class SitesBLL
         dbSite.Address = site.Address;
         dbSite.CoverID = site.CoverID;
         dbSite.District = site.District;
+        dbSite.DMAOut = site.DMAOut;
         try
         {
             DataContext.SubmitChanges();

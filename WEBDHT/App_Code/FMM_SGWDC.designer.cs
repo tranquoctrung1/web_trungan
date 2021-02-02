@@ -7058,6 +7058,8 @@ public partial class Site : INotifyPropertyChanging, INotifyPropertyChanged
 	private string _Group5;
 	
 	private string _District;
+
+	private string _DMAOut;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -7149,8 +7151,11 @@ public partial class Site : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnGroup5Changed();
     partial void OnDistrictChanging(string value);
     partial void OnDistrictChanged();
-    #endregion
-	
+
+	partial void OnDMAOutChanging(string value);
+	partial void OnDMAOutChanged();
+	#endregion
+
 	public Site()
 	{
 		OnCreated();
@@ -8015,7 +8020,27 @@ public partial class Site : INotifyPropertyChanging, INotifyPropertyChanged
 			}
 		}
 	}
-	
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DMAOut", DbType = "NVarChar(50)")]
+	public string DMAOut
+	{
+		get
+		{
+			return this._DMAOut;
+		}
+		set
+		{
+			if ((this._DMAOut != value))
+			{
+				this.OnDMAOutChanging(value);
+				this.SendPropertyChanging();
+				this._DMAOut = value;
+				this.SendPropertyChanged("DMAOut");
+				this.OnDMAOutChanged();
+			}
+		}
+	}
+
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;

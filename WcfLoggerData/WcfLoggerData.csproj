@@ -166,6 +166,8 @@
     <Compile Include="Action\GetStatisticSiteDMAAction.cs" />
     <Compile Include="Action\GetTimeOfFirstChannel.cs" />
     <Compile Include="Action\GetValueAlarmAction.cs" />
+    <Compile Include="Action\InsertHistoryAlarmAction.cs" />
+    <Compile Include="Action\UpdateHistoryAlarmAction.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ConnectDB\Connect.cs" />
     <Compile Include="Controllers\GetAlarmForPointController.cs" />

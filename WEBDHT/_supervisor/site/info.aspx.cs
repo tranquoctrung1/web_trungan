@@ -99,6 +99,7 @@ public partial class _supervisor_site_info : BasePage
         txtCoverMaterial.Text = string.Empty;
         txtCoverNL.Text = string.Empty;
         cboDistricts.Text = string.Empty;
+        cboCompaniesOut.Text = string.Empty;
 
     }
 
@@ -221,6 +222,7 @@ public partial class _supervisor_site_info : BasePage
         site.Address = txtAddress.Text;
         site.CoverID = cboCoverIDs.Text;
         site.District = cboDistricts.Text;
+        site.DMAOut = cboCompaniesOut.Text;
         return site;
     }
     private void SetSiteControlValues(Site site)
@@ -305,6 +307,7 @@ public partial class _supervisor_site_info : BasePage
         cboDistricts.SelectedIndex = -1;
 
         cboDistricts.Text = site.District;
+        cboCompaniesOut.Text = site.DMAOut;
     }
     private void SetMeterControlValues(Meter meter)
     {
