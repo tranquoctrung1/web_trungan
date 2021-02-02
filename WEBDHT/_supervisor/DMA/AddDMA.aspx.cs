@@ -107,7 +107,7 @@ public partial class _supervisor_DMA_AddDMA : System.Web.UI.Page
         {
             cboCompanies.Text = dma.Company;
             txtStatus.Text = dma.Status;
-            txtDistrict.Text = dma.District;
+            cboDistrict.Text = dma.District;
             txtWard.Text = dma.Ward;
             amountDHTKH.Text = dma.AmountDHTKH.ToString();
             amountPool.Text = dma.AmountPool.ToString();
@@ -123,7 +123,7 @@ public partial class _supervisor_DMA_AddDMA : System.Web.UI.Page
         cboCompanies.SelectedIndex = -1;
         cboCompanies.Text = string.Empty;
         txtStatus.Text = string.Empty;
-        txtDistrict.Text = string.Empty;
+        cboDistrict.Text = string.Empty;
         txtWard.Text = string.Empty;
         amountDHTKH.Text = string.Empty;
         amountPool.Text = string.Empty;
@@ -138,7 +138,7 @@ public partial class _supervisor_DMA_AddDMA : System.Web.UI.Page
         dma.Company = cboCompanies.Text;
         dma.Description = txtDescription.Text;
         dma.Status = txtStatus.Text;
-        dma.District = txtDistrict.Text;
+        dma.District = cboDistrict.Text;
         dma.Ward = txtWard.Text;
         dma.AmountDHTKH =int.Parse( amountDHTKH.Text);
         dma.AmountPool = int.Parse(amountPool.Text);

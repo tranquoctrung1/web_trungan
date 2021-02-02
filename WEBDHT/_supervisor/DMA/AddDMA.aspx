@@ -75,8 +75,33 @@
                             <span>Quận/Huyện</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadTextBox ID="txtDistrict" runat="server">
-                            </telerik:RadTextBox>
+                            <telerik:RadComboBox ID="cboDistrict" runat="server" AllowCustomText="True"
+                                EnableLoadOnDemand="True" Filter="StartsWith" AutoPostBack="true"
+                                HighlightTemplatedItems="True" DataSourceID="DistrictDataSource"
+                                DataTextField="IdDistrict" DataValueField="IdDistrict" DropDownWidth="275px"
+                                TabIndex="1" >
+                                <HeaderTemplate>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="width: 70px">Id</td>
+                                            <td style="width: 100px">Tên Quận</td>
+                                            <td style="width: 100px">Mô tả</td>
+                                        </tr>
+                                    </table>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="width: 70px"><%#DataBinder.Eval(Container.DataItem,"IdDistrict") %></td>
+                                            <td style="width: 100px"><%#DataBinder.Eval(Container.DataItem,"Name") %></td>
+                                            <td style="width: 100px"><%#DataBinder.Eval(Container.DataItem,"Description") %></td>
+                                        </tr>
+                                    </table>
+                                </ItemTemplate>
+                            </telerik:RadComboBox>
+                            <asp:ObjectDataSource ID="DistrictDataSource" runat="server"
+                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetDistricts"
+                                TypeName="DistrictBLL"></asp:ObjectDataSource>
                         </div>
                     </div>
                       
@@ -208,7 +233,7 @@
             <telerik:AjaxSetting AjaxControlID="cboCompanies">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="txtDescription" />
-                    <telerik:AjaxUpdatedControl ControlID="txtDistrict" />
+                    <telerik:AjaxUpdatedControl ControlID="cboDistrict" />
                     <telerik:AjaxUpdatedControl ControlID="amountDHTKH" />
                     <telerik:AjaxUpdatedControl ControlID="amountPool" />
                     <telerik:AjaxUpdatedControl ControlID="nrw" />
@@ -223,7 +248,7 @@
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="ntf" />
                     <telerik:AjaxUpdatedControl ControlID="txtDescription" />
-                    <telerik:AjaxUpdatedControl ControlID="txtDistrict" />
+                    <telerik:AjaxUpdatedControl ControlID="cboDistrict" />
                     <telerik:AjaxUpdatedControl ControlID="amountDHTKH" />
                     <telerik:AjaxUpdatedControl ControlID="amountPool" />
                     <telerik:AjaxUpdatedControl ControlID="nrw" />
