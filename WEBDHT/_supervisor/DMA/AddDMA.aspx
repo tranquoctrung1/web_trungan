@@ -52,6 +52,7 @@
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td style="width: 70px">DMA</td>
+                                            <td style="width: 150px">Mô tả</td>
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
@@ -59,17 +60,102 @@
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td style="width: 70px"><%#DataBinder.Eval(Container.DataItem,"Company") %></td>
+                                            <td style="width: 150px"><%#DataBinder.Eval(Container.DataItem,"Description") %></td>
                                         </tr>
                                     </table>
                                 </ItemTemplate>
                             </telerik:RadComboBox>
                             <asp:ObjectDataSource ID="SiteCompaniesDataSource" runat="server"
-                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll"
-                                TypeName="SiteCompaniesBLL"></asp:ObjectDataSource>
+                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetDMAs"
+                                TypeName="DMABLL"></asp:ObjectDataSource>
+                        </div>
+                    </div>
+                      <div class="group-text">
+                        <div class="row">
+                            <span>Quận/Huyện</span>
+                        </div>
+                        <div class="row m-b">
+                            <telerik:RadTextBox ID="txtDistrict" runat="server">
+                            </telerik:RadTextBox>
+                        </div>
+                    </div>
+                      
+                      <div class="group-text">
+                        <div class="row">
+                            <span>Số lượng DHTKH</span>
+                        </div>
+                        <div class="row m-b">
+                            <telerik:RadNumericTextBox ID="amountDHTKH" runat="server" TabIndex="17">
+                                <NumberFormat DecimalDigits="0" ZeroPattern="n" />
+                            </telerik:RadNumericTextBox>
+                        </div>
+                    </div>
+
+                    <div class="group-text">
+                        <div class="row">
+                            <span>Số lượng bể ký trước</span>
+                        </div>
+                        <div class="row m-b">
+                            <telerik:RadNumericTextBox ID="amountPool" runat="server" TabIndex="17">
+                                <NumberFormat DecimalDigits="0" ZeroPattern="n" />
+                            </telerik:RadNumericTextBox>
+                        </div>
+                    </div>
+
+                     <div class="group-text">
+                        <div class="row">
+                            <span>NRW</span>
+                        </div>
+                        <div class="row m-b">
+                            <telerik:RadNumericTextBox ID="nrw" runat="server" TabIndex="17">
+                                <NumberFormat DecimalDigits="2" ZeroPattern="n" />
+                            </telerik:RadNumericTextBox>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
+                    <div class="group-text">
+                        <div class="row">
+                            <span>Tình Trạng</span>
+                        </div>
+                        <div class="row m-b">
+                            <telerik:RadTextBox ID="txtStatus" runat="server">
+                            </telerik:RadTextBox>
+                        </div>
+                    </div>
+
+                    <div class="group-text">
+                        <div class="row">
+                            <span>Phường/Xã</span>
+                        </div>
+                        <div class="row m-b">
+                            <telerik:RadTextBox ID="txtWard" runat="server">
+                            </telerik:RadTextBox>
+                        </div>
+                    </div>
+
+                    <div class="group-text">
+                        <div class="row">
+                            <span>Số lượng Van</span>
+                        </div>
+                        <div class="row m-b">
+                            <telerik:RadNumericTextBox ID="amoutValve" runat="server" TabIndex="17">
+                                <NumberFormat DecimalDigits="0" ZeroPattern="n" />
+                            </telerik:RadNumericTextBox>
+                        </div>
+                    </div>
+
+                    <div class="group-text">
+                        <div class="row">
+                            <span>Số lượng TCH</span>
+                        </div>
+                        <div class="row m-b">
+                            <telerik:RadNumericTextBox ID="amountTCH" runat="server" TabIndex="17">
+                                <NumberFormat DecimalDigits="0" ZeroPattern="n" />
+                            </telerik:RadNumericTextBox>
+                        </div>
+                    </div>
+
                     <div class="group-text">
                         <div class="row">
                             <span>Mô tả</span>
@@ -122,11 +208,30 @@
             <telerik:AjaxSetting AjaxControlID="cboCompanies">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="txtDescription" />
+                    <telerik:AjaxUpdatedControl ControlID="txtDistrict" />
+                    <telerik:AjaxUpdatedControl ControlID="amountDHTKH" />
+                    <telerik:AjaxUpdatedControl ControlID="amountPool" />
+                    <telerik:AjaxUpdatedControl ControlID="nrw" />
+
+                    <telerik:AjaxUpdatedControl ControlID="txtStatus" />
+                    <telerik:AjaxUpdatedControl ControlID="txtWard" />
+                    <telerik:AjaxUpdatedControl ControlID="amoutValve" />
+                    <telerik:AjaxUpdatedControl ControlID="amountTCH" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="btnAdd">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="ntf" />
+                    <telerik:AjaxUpdatedControl ControlID="txtDescription" />
+                    <telerik:AjaxUpdatedControl ControlID="txtDistrict" />
+                    <telerik:AjaxUpdatedControl ControlID="amountDHTKH" />
+                    <telerik:AjaxUpdatedControl ControlID="amountPool" />
+                    <telerik:AjaxUpdatedControl ControlID="nrw" />
+
+                    <telerik:AjaxUpdatedControl ControlID="txtStatus" />
+                    <telerik:AjaxUpdatedControl ControlID="txtWard" />
+                    <telerik:AjaxUpdatedControl ControlID="amoutValve" />
+                    <telerik:AjaxUpdatedControl ControlID="amountTCH" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="btnDelete">

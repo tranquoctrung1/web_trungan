@@ -1520,7 +1520,16 @@ public partial class SiteCompany : INotifyPropertyChanging, INotifyPropertyChang
 	private System.Nullable<bool> _Production;
 	
 	private string _Description;
-	
+
+	private string _Status;
+	private string _District;
+	private string _Ward;
+	private Nullable<int> _AmountDHTKH;
+	private Nullable<int> _AmountValve;
+	private Nullable<int> _AmountPool;
+	private Nullable<int> _AmountTCH;
+	private Nullable<double> _NRW;
+
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1531,8 +1540,32 @@ public partial class SiteCompany : INotifyPropertyChanging, INotifyPropertyChang
     partial void OnProductionChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
-    #endregion
-	
+
+	partial void OnStatusChanging(string value);
+	partial void OnStatusChanged();
+
+	partial void OnDistrictChanging(string value);
+	partial void OnDistrictChanged();
+
+	partial void OnWardChanging(string value);
+	partial void OnWardChanged();
+
+	partial void OnAmountDHTKHChanging(Nullable<int> value);
+	partial void OnAmountDHTKHChanged();
+
+	partial void OnAmountValveChanging(Nullable<int> value);
+	partial void OnAmountValveChanged();
+
+	partial void OnAmountPoolChanging(Nullable<int> value);
+	partial void OnAmountPoolChanged();
+
+	partial void OnAmountTCHChanging(Nullable<int> value);
+	partial void OnAmountTCHChanged();
+
+	partial void OnNRWChanging(Nullable<double> value);
+	partial void OnNRWChanged();
+	#endregion
+
 	public SiteCompany()
 	{
 		OnCreated();
@@ -1578,7 +1611,167 @@ public partial class SiteCompany : INotifyPropertyChanging, INotifyPropertyChang
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(255)")]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage= "_Status", DbType="NVarChar(50)")]
+	public string Status
+	{
+		get
+		{
+			return this._Status;
+		}
+		set
+		{
+			if ((this._Status != value))
+			{
+				this.OnStatusChanging(value);
+				this.SendPropertyChanging();
+				this._Status = value;
+				this.SendPropertyChanged("Status");
+				this.OnStatusChanged();
+			}
+		}
+	}
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_District", DbType = "NVarChar(50)")]
+	public string District
+	{
+		get
+		{
+			return this._District;
+		}
+		set
+		{
+			if ((this._District != value))
+			{
+				this.OnDistrictChanging(value);
+				this.SendPropertyChanging();
+				this._District = value;
+				this.SendPropertyChanged("District");
+				this.OnDistrictChanged();
+			}
+		}
+	}
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Ward", DbType = "NVarChar(50)")]
+	public string Ward
+	{
+		get
+		{
+			return this._Ward;
+		}
+		set
+		{
+			if ((this._Ward != value))
+			{
+				this.OnWardChanging(value);
+				this.SendPropertyChanging();
+				this._Ward = value;
+				this.SendPropertyChanged("Ward");
+				this.OnWardChanged();
+			}
+		}
+	}
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_AmountDHTKH", DbType = "Int")]
+	public System.Nullable<int> AmountDHTKH
+	{
+		get
+		{
+			return this._AmountDHTKH;
+		}
+		set
+		{
+			if ((this._AmountDHTKH != value))
+			{
+				this.OnAmountDHTKHChanging(value);
+				this.SendPropertyChanging();
+				this._AmountDHTKH = value;
+				this.SendPropertyChanged("AmountDHTKH");
+				this.OnAmountDHTKHChanged();
+			}
+		}
+	}
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_AmountValve", DbType = "Int")]
+	public System.Nullable<int> AmountValve
+	{
+		get
+		{
+			return this._AmountValve;
+		}
+		set
+		{
+			if ((this._AmountValve != value))
+			{
+				this.OnAmountValveChanging(value);
+				this.SendPropertyChanging();
+				this._AmountValve = value;
+				this.SendPropertyChanged("AmountValve");
+				this.OnAmountValveChanged();
+			}
+		}
+	}
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_AmountPool", DbType = "Int")]
+	public System.Nullable<int> AmountPool
+	{
+		get
+		{
+			return this._AmountPool;
+		}
+		set
+		{
+			if ((this._AmountPool != value))
+			{
+				this.OnAmountPoolChanging(value);
+				this.SendPropertyChanging();
+				this._AmountPool = value;
+				this.SendPropertyChanged("AmountPool");
+				this.OnAmountPoolChanged();
+			}
+		}
+	}
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_AmountTCH", DbType = "Int")]
+	public System.Nullable<int> AmountTCH
+	{
+		get
+		{
+			return this._AmountTCH;
+		}
+		set
+		{
+			if ((this._AmountTCH != value))
+			{
+				this.OnAmountTCHChanging(value);
+				this.SendPropertyChanging();
+				this._AmountTCH = value;
+				this.SendPropertyChanged("AmountTCH");
+				this.OnAmountTCHChanged();
+			}
+		}
+	}
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NRW", DbType = "Float")]
+	public System.Nullable<double> NRW
+	{
+		get
+		{
+			return this._NRW;
+		}
+		set
+		{
+			if ((this._NRW != value))
+			{
+				this.OnNRWChanging(value);
+				this.SendPropertyChanging();
+				this._NRW = value;
+				this.SendPropertyChanged("NRW");
+				this.OnNRWChanged();
+			}
+		}
+	}
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Description", DbType = "NVarChar(255)")]
 	public string Description
 	{
 		get
@@ -1597,7 +1790,7 @@ public partial class SiteCompany : INotifyPropertyChanging, INotifyPropertyChang
 			}
 		}
 	}
-	
+
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;

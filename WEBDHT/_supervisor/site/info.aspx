@@ -343,7 +343,7 @@
                             <span>DMA vào</span>
                         </div>
                         <div class="row m-b">
-                            <asp:ObjectDataSource ID="SiteCompaniesDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll" TypeName="SiteCompaniesBLL"></asp:ObjectDataSource>
+                            <asp:ObjectDataSource ID="SiteCompaniesDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetDMAs" TypeName="DMABLL"></asp:ObjectDataSource>
                             <telerik:RadComboBox ID="cboCompanies" runat="server" AllowCustomText="True" DataSourceID="SiteCompaniesDataSource" DataTextField="Company" DataValueField="Company" DropDownWidth="275px" EnableLoadOnDemand="True" Filter="StartsWith" HighlightTemplatedItems="True" TabIndex="21">
                                 <HeaderTemplate>
                                     <table cellpadding="0" cellspacing="0">
@@ -370,7 +370,7 @@
                             <span>DMA ra</span>
                         </div>
                         <div class="row m-b">
-                            <asp:ObjectDataSource ID="SiteCompanyOutDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll" TypeName="SiteCompaniesBLL"></asp:ObjectDataSource>
+                            <asp:ObjectDataSource ID="SiteCompanyOutDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetDMAs" TypeName="DMABLL"></asp:ObjectDataSource>
                             <telerik:RadComboBox ID="cboCompaniesOut" runat="server" AllowCustomText="True" DataSourceID="SiteCompanyOutDataSource" DataTextField="Company" DataValueField="Company" DropDownWidth="275px" EnableLoadOnDemand="True" Filter="StartsWith" HighlightTemplatedItems="True" TabIndex="21">
                                 <HeaderTemplate>
                                     <table cellpadding="0" cellspacing="0">

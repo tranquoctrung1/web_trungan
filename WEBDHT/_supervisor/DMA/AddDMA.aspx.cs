@@ -16,295 +16,136 @@ public partial class _supervisor_DMA_AddDMA : System.Web.UI.Page
 
     protected void cboCompanies_SelectedIndexChanged(object sender, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
     {
-        string dma = "";
-        string des = "";
-        if (cboCompanies.Text.Trim() != "" && cboCompanies.Text != null)
+        if(cboCompanies.Text.Trim() != "" && cboCompanies.Text != null )
         {
-            dma = cboCompanies.SelectedValue;
-
-            string connectionString = ConfigurationManager.ConnectionStrings["web_dht_r02ConnectionString"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string sqlQuery = "select t.Description from t_Site_Companies t where t.Company = '" + dma + "'";
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
-                {
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                        while(reader.Read())
-                        {
-                            try
-                            {
-                                des = reader["Description"].ToString();
-                            }
-                            catch(Exception ex)
-                            {
-                                des = "";
-                            }
-                        }
-                    }
-                }
-            }
-
-            txtDescription.Text = des;
+            SetControlValue(cboCompanies.Text);
+        }
+        else
+        {
+            SetDefaultControlValue();
         }
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-        string dma = "";
-
-        if(cboCompanies.Text.Trim() != "" && cboCompanies.Text != null)
+        if (cboCompanies.Text.Trim() != "" && cboCompanies.Text != null)
         {
-            dma = cboCompanies.Text;
-            bool isInsert = true;
+            DMABLL dMABLL = new DMABLL();
+            var dbDMA = dMABLL.GetDMAByID(cboCompanies.Text);
 
-            string connectionString = ConfigurationManager.ConnectionStrings["web_dht_r02ConnectionString"].ConnectionString;
+            bool isInsert = false;
+            bool isUpdate = false;
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if(dbDMA.Company != null)
             {
+                var dma = GetControlValue();
 
-                string sqlQuery = "select t.Company from t_Site_Companies t where t.Company = '" +dma+"'";
-
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
-                {
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                        string dmaCheck = "";
-
-                        while (reader.Read())
-                        {
-                            try
-                            {
-                                dmaCheck = reader["Company"].ToString();
-                            }
-                            catch(Exception ex)
-                            {
-                                dmaCheck = "";
-                            }
-                        }
-
-                        if(dmaCheck.Trim() != "" && dmaCheck != null)
-                        {
-                            if(dmaCheck == dma)
-                            {
-                                isInsert = false;
-                            }
-                            else
-                            {
-                                isInsert = true;
-                            }
-                        }
-                    }
-                    command.Dispose();
-                }
-                if (isInsert == true)
-                {
-                    string des = "";
-                    if (txtDescription.Text.Trim() != "" && txtDescription.Text != null)
-                    {
-                        des = txtDescription.Text;
-                    }
-                    else
-                    {
-                        des = "";
-                    }
-
-                    string sqlQueryInsert = "insert into t_Site_Companies values('" + dma + "', null, '" + des + "')";
-
-                    using (SqlCommand command2 = new SqlCommand(sqlQueryInsert, connection))
-                    {
-                        int nRows = command2.ExecuteNonQuery();
-
-                        if(nRows == 0)
-                        {
-                            ntf.VisibleOnPageLoad = true;
-                            ntf.Text = "Chưa thêm vào";
-                        }
-                        else
-                        {
-                            ntf.VisibleOnPageLoad = true;
-                            ntf.Text = "Thêm thành công";
-                        }                            
-                    }
-                }
-                else
-                {
-                    string des = "";
-                    if (txtDescription.Text.Trim() != "" && txtDescription.Text != null)
-                    {
-                        des = txtDescription.Text;
-                    }
-                    else
-                    {
-                        des = "";
-                    }
-
-                    string sqlQueryUpdate = "update t_Site_Companies set Company = '"+dma+"', Description = '"+des+"' where Company = '"+dma+"'";
-
-                    using (SqlCommand command2 = new SqlCommand(sqlQueryUpdate, connection))
-                    {
-                        int nRows = command2.ExecuteNonQuery();
-
-                        if (nRows == 0)
-                        {
-                            ntf.VisibleOnPageLoad = true;
-                            ntf.Text = "Chưa cập nhật vào";
-                        }
-                        else
-                        {
-                            ntf.VisibleOnPageLoad = true;
-                            ntf.Text = "Cập nhật thành công";
-                        }
-                    }
-                }
-
+                dMABLL.Update(dma);
                 cboCompanies.DataBind();
+                isUpdate = true;
+            }
+            else
+            {
+                var dma = GetControlValue();
+
+                dMABLL.Insert(dma);
+                cboCompanies.DataBind();
+                isInsert = true;
+            }
+
+            if(isUpdate == true )
+            {
+                ntf.VisibleOnPageLoad = true;
+                ntf.Text = "Cập nhật thành công";
+            }
+            if (isInsert == true)
+            {
+                ntf.VisibleOnPageLoad = true;
+                ntf.Text = "Thêm thành công";
+            }
+            if(isUpdate == false && isInsert == false)
+            {
+                ntf.VisibleOnPageLoad = true;
+                ntf.Text = "Thao tác thất bại";
             }
         }
         else
         {
             ntf.VisibleOnPageLoad = true;
-            ntf.Text = "Mã DMA rỗng";
-            return;
+            ntf.Text = "Chưa có mã DMA";
         }
     }
 
     protected void btnConfim_Click(object sender, EventArgs e)
     {
-        string dma = "";
-
         if (cboCompanies.Text.Trim() != "" && cboCompanies.Text != null)
         {
-            dma = cboCompanies.Text;
-            bool isUpdate = false;
+            DMABLL dMABLL = new DMABLL();
 
-            string connectionString = ConfigurationManager.ConnectionStrings["web_dht_r02ConnectionString"].ConnectionString;
+            int nRows = dMABLL.Delete(cboCompanies.Text);
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if(nRows != 0)
             {
-
-                string sqlQuery = "select t.Company from t_Site_Companies t where t.Company = '" + dma + "'";
-
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
-                {
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                        string dmaCheck = "";
-
-                        while (reader.Read())
-                        {
-                            try
-                            {
-                                dmaCheck = reader["Company"].ToString();
-                            }
-                            catch (Exception ex)
-                            {
-                                dmaCheck = "";
-                            }
-                        }
-
-                        if (dmaCheck.Trim() != "" && dmaCheck != null)
-                        {
-                            if (dmaCheck == dma)
-                            {
-                                isUpdate = true;
-                            }
-                            else
-                            {
-                                isUpdate = false;
-                            }
-                        }
-                    }
-
-                    command.Dispose();
-                }
-                if (isUpdate == true)
-                {
-                    string sqlQueryDelete = "delete from t_Site_Companies where Company = '" + dma + "'";
-
-                    using (SqlCommand command2 = new SqlCommand(sqlQueryDelete, connection))
-                    {
-                        int nRows = command2.ExecuteNonQuery();
-
-                        if (nRows == 0)
-                        {
-                            ntf.VisibleOnPageLoad = true;
-                            ntf.Text = "Chưa xóa được";
-                        }
-                        else
-                        {
-                            cboCompanies.SelectedIndex = -1;
-                            cboCompanies.Text = "";
-                            txtDescription.Text = "";
-                            ntf.VisibleOnPageLoad = true;
-                            ntf.Text = "Xóa thành công";
-
-                        }
-                    }
-                }
-                else
-                {
-                    ntf.VisibleOnPageLoad = true;
-                    ntf.Text = "Không tìm thấy mã DMA";
-                }
-                cboCompanies.DataBind();
-
+                ntf.VisibleOnPageLoad = true;
+                ntf.Text = "Xóa thành công";
             }
-        }
-        else
-        {
-            ntf.VisibleOnPageLoad = true;
-            ntf.Text = "Mã DMA rỗng";
-            return;
+            else
+            {
+                ntf.VisibleOnPageLoad = true;
+                ntf.Text = "Xóa thất bại";
+            }                
         }
     }
 
-    public List<string> GetCompany()
+    protected void SetControlValue(string id)
     {
-        List<string> list = new List<string>();
-        string connectionString = ConfigurationManager.ConnectionStrings["web_dht_r02ConnectionString"].ConnectionString;
+        DMABLL dMABLL = new DMABLL();
 
-        using (SqlConnection connection = new SqlConnection(connectionString))
+        DMAViewModel dma = dMABLL.GetDMAByID(id);
+
+        if(dma.Company != null)
         {
-
-            string sqlQuery = "select t.Company from t_Site_Companies t";
-
-            connection.Open();
-
-            using (SqlCommand command = new SqlCommand(sqlQuery, connection))
-            {
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        string dma = "";
-                        try
-                        {
-                            dma = reader["Company"].ToString();
-                        }
-                        catch (Exception ex)
-                        {
-                            dma = "";
-                        }
-                        list.Add(dma);
-                    }
-                }
-            }
+            cboCompanies.Text = dma.Company;
+            txtStatus.Text = dma.Status;
+            txtDistrict.Text = dma.District;
+            txtWard.Text = dma.Ward;
+            amountDHTKH.Text = dma.AmountDHTKH.ToString();
+            amountPool.Text = dma.AmountPool.ToString();
+            amoutValve.Text = dma.AmountValve.ToString();
+            amountTCH.Text = dma.AmountTCH.ToString();
+            nrw.Text = dma.NRW.ToString();
+            txtDescription.Text = dma.Description;
         }
+    }
 
-        return list;
+    protected void SetDefaultControlValue()
+    {
+        cboCompanies.SelectedIndex = -1;
+        cboCompanies.Text = string.Empty;
+        txtStatus.Text = string.Empty;
+        txtDistrict.Text = string.Empty;
+        txtWard.Text = string.Empty;
+        amountDHTKH.Text = string.Empty;
+        amountPool.Text = string.Empty;
+        amoutValve.Text = string.Empty;
+        amountTCH.Text = string.Empty;
+    }
+
+    protected DMAViewModel GetControlValue()
+    {
+        DMAViewModel dma = new DMAViewModel();
+
+        dma.Company = cboCompanies.Text;
+        dma.Description = txtDescription.Text;
+        dma.Status = txtStatus.Text;
+        dma.District = txtDistrict.Text;
+        dma.Ward = txtWard.Text;
+        dma.AmountDHTKH =int.Parse( amountDHTKH.Text);
+        dma.AmountPool = int.Parse(amountPool.Text);
+        dma.AmountValve = int.Parse(amoutValve.Text);
+        dma.AmountTCH = int.Parse(amountTCH.Text);
+        dma.NRW = double.Parse(nrw.Text);
+
+        return dma;
     }
 }
