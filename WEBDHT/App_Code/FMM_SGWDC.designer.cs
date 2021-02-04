@@ -1128,9 +1128,15 @@ public partial class Logger : INotifyPropertyChanging, INotifyPropertyChanged
 	private System.Nullable<bool> _Installed;
 	
 	private string _Description;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
+
+	private Nullable<DateTime> _DateAccreditation;
+
+	private Nullable<DateTime> _DateInstallBattery;
+
+	private Nullable<int> _YearBattery;
+
+	#region Extensibility Method Definitions
+	partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnSerialChanging(string value);
@@ -1149,8 +1155,15 @@ public partial class Logger : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnInstalledChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
-    #endregion
-	
+
+	partial void OnDateAccreditationChanging(Nullable<DateTime> value);
+	partial void OnDateAccreditationChanged();
+	partial void OnDateInstallBatteryChanging(Nullable<DateTime> value);
+	partial void OnDateInstallBatteryChanged();
+	partial void OnYearBatteryChanging(Nullable<int> value);
+	partial void OnYearBatteryChanged();
+	#endregion
+
 	public Logger()
 	{
 		OnCreated();
@@ -1315,7 +1328,67 @@ public partial class Logger : INotifyPropertyChanging, INotifyPropertyChanged
 			}
 		}
 	}
-	
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DateAccreditation", DbType = "Datetime")]
+	public Nullable<DateTime> DateAccreditation
+	{
+		get
+		{
+			return this._DateAccreditation;
+		}
+		set
+		{
+			if ((this._DateAccreditation != value))
+			{
+				this.OnDateAccreditationChanging(value);
+				this.SendPropertyChanging();
+				this._DateAccreditation = value;
+				this.SendPropertyChanged("DateAccreditation");
+				this.OnDateAccreditationChanged();
+			}
+		}
+	}
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_YearBattery", DbType = "Int")]
+	public Nullable<int> YearBattery
+	{
+		get
+		{
+			return this._YearBattery;
+		}
+		set
+		{
+			if ((this._YearBattery != value))
+			{
+				this.OnYearBatteryChanging(value);
+				this.SendPropertyChanging();
+				this._YearBattery = value;
+				this.SendPropertyChanged("YearBattery");
+				this.OnYearBatteryChanged();
+			}
+		}
+	}
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DateInstallBattery", DbType = "Datetime")]
+	public Nullable<DateTime> DateInstallBattery
+	{
+		get
+		{
+			return this._DateInstallBattery;
+		}
+		set
+		{
+			if ((this._DateInstallBattery != value))
+			{
+				this.OnDateInstallBatteryChanging(value);
+				this.SendPropertyChanging();
+				this._DateInstallBattery = value;
+				this.SendPropertyChanged("DateInstallBattery");
+				this.OnDateInstallBatteryChanged();
+			}
+		}
+	}
+
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;

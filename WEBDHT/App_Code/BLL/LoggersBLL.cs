@@ -201,6 +201,9 @@ public class LoggersBLL
         dbLogger.ReceiptDate = logger.ReceiptDate;
         dbLogger.Serial = logger.Serial;
         dbLogger.Status = logger.Status;
+        dbLogger.DateAccreditation = logger.DateAccreditation;
+        dbLogger.DateInstallBattery = logger.DateInstallBattery;
+        dbLogger.YearBattery = logger.YearBattery;
         try
         {
             DataContext.SubmitChanges();

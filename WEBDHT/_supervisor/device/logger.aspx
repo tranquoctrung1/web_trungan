@@ -34,11 +34,28 @@
                                 EnableLoadOnDemand="True" Filter="StartsWith"
                                 HighlightTemplatedItems="True" DataSourceID="SerialsDataSource"
                                 OnSelectedIndexChanged="cboSerials_SelectedIndexChanged"
-                                AutoPostBack="True" AccessKey="S" TabIndex="1">
+                                AutoPostBack="True" AccessKey="S" TabIndex="1" DataTextField="Serial" DataValueField="Serial">
+                                 <HeaderTemplate>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="width: 150px">Serial</td>
+                                        </tr>
+                                    </table>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="width: 150px">
+                                                <%#DataBinder.Eval(Container.DataItem,"Serial") %>
+                                            </td>
+                                            
+                                        </tr>
+                                    </table>
+                                </ItemTemplate>
                             </telerik:RadComboBox>
                             <asp:ObjectDataSource ID="SerialsDataSource" runat="server"
-                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllSerials"
-                                TypeName="TransmittersBLL"></asp:ObjectDataSource>
+                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll"
+                                TypeName="LoggersBLL"></asp:ObjectDataSource>
                         </div>
                     </div>
 
@@ -74,14 +91,31 @@
                         </div>
                     </div>
 
-                    <div class="group-text">
+                     <div class="group-text">
                         <div class="row">
-                            <span>Ghi chú</span>
+                            <span>Ngày lắp pin</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadTextBox ID="txtDescription" runat="server" Height="50px"
-                                TextMode="MultiLine" TabIndex="8" Style="top: 0px; left: 0px">
-                            </telerik:RadTextBox>
+                            <telerik:RadDatePicker ID="dtmInstallBattery" runat="server" Culture="en-GB"
+                                TabIndex="2">
+                                <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" ViewSelectorText="x"></Calendar>
+
+                                <DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" EnableSingleInputRendering="True"
+                                    LabelWidth="64px" TabIndex="2">
+                                </DateInput>
+
+                                <DatePopupButton ImageUrl="" HoverImageUrl="" TabIndex="-1"></DatePopupButton>
+                            </telerik:RadDatePicker>
+                        </div>
+                    </div>
+                    <div class="group-text">
+                        <div class="row">
+                            <span>Tuổi thọ pin</span>
+                        </div>
+                        <div class="row m-b">
+                            <telerik:RadNumericTextBox ID="yearBattery" runat="server" TabIndex="5">
+                                <NumberFormat DecimalDigits="0" ZeroPattern="n" />
+                            </telerik:RadNumericTextBox>
                         </div>
                     </div>
                 </div>
@@ -158,7 +192,33 @@
                             </div>
                         </div>
                     </div>
+                     <div class="group-text">
+                        <div class="row">
+                            <span>Ngày kiểm định</span>
+                        </div>
+                        <div class="row m-b">
+                            <telerik:RadDatePicker ID="dtmAccreditation" runat="server" Culture="en-GB"
+                                TabIndex="2">
+                                <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" ViewSelectorText="x"></Calendar>
 
+                                <DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" EnableSingleInputRendering="True"
+                                    LabelWidth="64px" TabIndex="2">
+                                </DateInput>
+
+                                <DatePopupButton ImageUrl="" HoverImageUrl="" TabIndex="-1"></DatePopupButton>
+                            </telerik:RadDatePicker>
+                        </div>
+                    </div>
+                    <div class="group-text">
+                        <div class="row">
+                            <span>Ghi chú</span>
+                        </div>
+                        <div class="row m-b">
+                            <telerik:RadTextBox ID="txtDescription" runat="server" Height="50px"
+                                TextMode="MultiLine" TabIndex="8" Style="top: 0px; left: 0px">
+                            </telerik:RadTextBox>
+                        </div>
+                    </div>
 
                 </div>
                 
@@ -208,6 +268,9 @@
                     <telerik:AjaxUpdatedControl ControlID="cboStatus" />
                     <telerik:AjaxUpdatedControl ControlID="chkInstalled" />
                     <telerik:AjaxUpdatedControl ControlID="txtDescription" />
+                    <telerik:AjaxUpdatedControl ControlID="dtmInstallBattery" />
+                    <telerik:AjaxUpdatedControl ControlID="yearBattery" />
+                    <telerik:AjaxUpdatedControl ControlID="dtmAccreditation" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="btnAdd">
@@ -221,6 +284,9 @@
                     <telerik:AjaxUpdatedControl ControlID="cboStatus" />
                     <telerik:AjaxUpdatedControl ControlID="chkInstalled" />
                     <telerik:AjaxUpdatedControl ControlID="txtDescription" />
+                    <telerik:AjaxUpdatedControl ControlID="dtmInstallBattery" />
+                    <telerik:AjaxUpdatedControl ControlID="yearBattery" />
+                    <telerik:AjaxUpdatedControl ControlID="dtmAccreditation" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="btnDelete">
