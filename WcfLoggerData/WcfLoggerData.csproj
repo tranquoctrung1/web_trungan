@@ -113,7 +113,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\CheckAccreditationAlarmLoggerAction.cs" />
+    <Compile Include="Action\CheckAccreditationLoggerAction.cs" />
+    <Compile Include="Action\CheckYearBatteryAction.cs" />
+    <Compile Include="Action\CheckYearBatteryAlarmAction.cs" />
     <Compile Include="Action\DataChannelChartAction.cs" />
+    <Compile Include="Action\GetAlarmForLoggerAction.cs" />
     <Compile Include="Action\GetChannelByGroupChannelAction.cs" />
     <Compile Include="Action\GetChannelByLoggerAction.cs" />
     <Compile Include="Action\GetChannelConfigAction.cs" />
@@ -166,6 +171,7 @@
     <Compile Include="Action\GetStatisticSiteDMAAction.cs" />
     <Compile Include="Action\GetTimeOfFirstChannel.cs" />
     <Compile Include="Action\GetValueAlarmAction.cs" />
+    <Compile Include="Action\InsertAndUpdateHistoryAlarmLoggerAction.cs" />
     <Compile Include="Action\InsertHistoryAlarmAction.cs" />
     <Compile Include="Action\UpdateHistoryAlarmAction.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -199,15 +205,18 @@
     <Compile Include="Controllers\GetDisplayGroupController.cs" />
     <Compile Include="Controllers\GetGroupChannelByLoggerController.cs" />
     <Compile Include="Controllers\GetGroupChannelController.cs" />
+    <Compile Include="Controllers\GetHistoryAlarmForLoggerController.cs" />
     <Compile Include="Controllers\GetMultipleDataController.cs" />
     <Compile Include="Controllers\GetSiteByUIDController.cs" />
     <Compile Include="Controllers\GetSitesByDisplayGroupController.cs" />
     <Compile Include="Controllers\GetStatisticSiteDMAController.cs" />
     <Compile Include="Controllers\GetTimeController.cs" />
     <Compile Include="Controllers\GetValueAlarmController.cs" />
+    <Compile Include="Controllers\InsertAndUpdateAlarmLoggerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AlarmForLoggerViewModel.cs" />
     <Compile Include="Models\AlarmForPointViewModel.cs" />
     <Compile Include="Models\ChannelByGroupChannelViewModel.cs" />
     <Compile Include="Models\ChannelByLoggerViewModel.cs" />
@@ -230,6 +239,7 @@
     <Compile Include="Models\DataReportYearlySiteViewModel.cs" />
     <Compile Include="Models\GroupChannelByLoggerViewModel.cs" />
     <Compile Include="Models\GroupChannelViewModel.cs" />
+    <Compile Include="Models\DeviceLoggerViewModel.cs" />
     <Compile Include="Models\LevelAlarmViewModel.cs" />
     <Compile Include="Models\SiteByDisplayGroupViewModel.cs" />
     <Compile Include="Models\SiteResultByUIDViewModel.cs" />
@@ -282,12 +292,14 @@
     <Folder Include="Views\GetDisplayGroup\" />
     <Folder Include="Views\GetGroupChannelByLogger\" />
     <Folder Include="Views\GetGroupChannel\" />
+    <Folder Include="Views\GetHistoryAlarmForLogger\" />
     <Folder Include="Views\GetMultipleData\" />
     <Folder Include="Views\GetSiteByUID\" />
     <Folder Include="Views\GetSitesByDisplayGroup\" />
     <Folder Include="Views\GetStatisticSiteDMA\" />
     <Folder Include="Views\GetTime\" />
     <Folder Include="Views\GetValueAlarm\" />
+    <Folder Include="Views\InsertAndUpdateAlarmLogger\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
