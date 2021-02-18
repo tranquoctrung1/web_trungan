@@ -27,6 +27,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WEBDHT", "WEBDHT\", "{E0F52
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfLoggerData", "WcfLoggerData\WcfLoggerData.csproj", "{B3B2834D-D138-4031-9CCD-A03BD8384465}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfAlarmData", "WcfAlarmData\WcfAlarmData.csproj", "{79B402F5-EF93-4361-BC17-600C07A776C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{B3B2834D-D138-4031-9CCD-A03BD8384465}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3B2834D-D138-4031-9CCD-A03BD8384465}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3B2834D-D138-4031-9CCD-A03BD8384465}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79B402F5-EF93-4361-BC17-600C07A776C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79B402F5-EF93-4361-BC17-600C07A776C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79B402F5-EF93-4361-BC17-600C07A776C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79B402F5-EF93-4361-BC17-600C07A776C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
