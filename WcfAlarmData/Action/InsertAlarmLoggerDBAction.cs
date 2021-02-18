@@ -21,10 +21,10 @@ namespace WcfAlarmData.Action
 
                 for(int i = 0; i < list.Count - 1; i++)
                 {
-                    sqlQuery += $"('{list[i].Serial}', '{list[i].Type}', '{list[i].StartDate}', NULL, '{list[i].IsFinish}', '{list[i].Content}'),";
+                    sqlQuery += $"('{list[i].Serial}', '{list[i].Type}', '{list[i].StartDate}', NULL, '{list[i].IsFinish}', N'{list[i].Content}'),";
                 }
 
-                sqlQuery += $"('{list[list.Count - 1].Serial}', '{list[list.Count - 1].Type}', '{list[list.Count - 1].StartDate}', NULL, '{list[list.Count - 1].IsFinish}', '{list[list.Count - 1].Content}')";
+                sqlQuery += $"('{list[list.Count - 1].Serial}', '{list[list.Count - 1].Type}', '{list[list.Count - 1].StartDate}', NULL, '{list[list.Count - 1].IsFinish}', N'{list[list.Count - 1].Content}')";
                 connect.Connected();
 
                 nRows = connect.ExcuteNonQuery(sqlQuery);

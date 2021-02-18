@@ -17,7 +17,7 @@ namespace WcfAlarmData.Action
 
             try
             {
-                string sqlQuery = $"update t_History_Alarm set EndDateAlarm = '{DateTime.Now}', IsFinish = 'true' where ChannelId = '{channelid}' and IsFinish = 'false'";
+                string sqlQuery = $"update t_History_Alarm set EndDateAlarm = '{DateTime.Now}', IsFinish = 1 where ChannelId = '{channelid}' and IsFinish = 0";
                 connect.Connected();
 
                 nRows = connect.ExcuteNonQuery(sqlQuery);

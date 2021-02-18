@@ -9,66 +9,29 @@ namespace WcfLoggerData.Action
 {
     public class CheckAccreditationLoggerAction
     {
-        public bool CheckAccreditationLogger(string id)
+        public int CheckAccreditationLogger(DateTime dateAccreditation)
         {
-            bool isUpdate = false;
-            Nullable<DateTime> dateAccreditation = null;
-
-            Connect connect = new Connect();
-
-            try
+            int result = 0;
+            
+            if(dateAccreditation != null)
             {
-                string sqlQuery = $"select DateAccreditation from t_Devices_Loggers where Serial = '{id}'";
-
-                connect.Connected();
-
-                SqlDataReader reader = connect.Select(sqlQuery);
-
-                if(reader.HasRows)
+                if((dateAccreditation - DateTime.Now).TotalDays >=  0 && (dateAccreditation - DateTime.Now).TotalDays <= 7)
                 {
-                    while(reader.Read())
-                    {
-                        try
-                        {
-                            dateAccreditation = DateTime.Parse(reader["DateAccreditation"].ToString());
-                        }
-                        catch(Exception ex)
-                        {
-                            dateAccreditation = null;
-                        }
-                    }
+                    result = 1;
                 }
-                else
+                else if((DateTime.Now - dateAccreditation).TotalDays > 7)
                 {
-                    isUpdate = false;
-                }
-
-                if(dateAccreditation != null)
-                {
-                    if(Math.Abs((dateAccreditation.Value - DateTime.Now).TotalDays ) <= 7)
-                    {
-                        isUpdate = true;
-                    }
-                    else
-                    {
-                        isUpdate = false;
-                    }
-                }
-                else
-                {
-                    isUpdate = false;
+                    result  = 2;
                 }
             }
-            catch(SqlException ex)
+            else
             {
-                throw ex;
-            }
-            finally
-            {
-                connect.DisConnected();
+                result = 0;
             }
 
-            return isUpdate;
+            // return 0 is update, 1 is insert for almost check accreditation and 2 is insert for  out of date check accreditation
+
+           return result;
         }
 
     }

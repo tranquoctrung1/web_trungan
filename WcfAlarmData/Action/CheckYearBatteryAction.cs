@@ -10,72 +10,30 @@ namespace WcfLoggerData.Action
 {
     public class CheckYearBatteryAction
     {
-        public bool CheckYearBattery(string id)
+        public int  CheckYearBattery(DateTime dateInstallBattery, int yearBattery)
         {
             // comparing time now is not into 7 days alarm of battery year
-            bool isUpdate = false;
-
-            Nullable<DateTime> dateInstallBattery = null;
-            Nullable<int> yearBattery =  null;
-
-            Connect connect = new Connect();
-            try
+            int result = 0;
+           
+            if(dateInstallBattery != null && yearBattery != null)
             {
-                string sqlQuery = $"select DateInstallBattery, YearBattery from t_Devices_Loggers where Serial = '{id}'";
-
-                connect.Connected();
-
-                SqlDataReader reader = connect.Select(sqlQuery);
-
-                if(reader.HasRows)
+                if((dateInstallBattery.AddMonths(yearBattery) - DateTime.Now).TotalDays >= 0 && (dateInstallBattery.AddMonths(yearBattery)  -  DateTime.Now).TotalDays <= 7)
                 {
-                    while(reader.Read())
-                    {
-                        try
-                        {
-                            dateInstallBattery = DateTime.Parse(reader["DateInstallBattery"].ToString());
-                        }
-                        catch(Exception ex)
-                        {
-                            dateInstallBattery = null;
-                        }
-                        try
-                        {
-                            yearBattery = int.Parse(reader["YearBattery"].ToString());
-                        }
-                        catch (Exception ex)
-                        {
-                            yearBattery = null;
-                        }
-                    }
+                    result = 1;
                 }
-
-                if(dateInstallBattery != null && yearBattery != null)
+                else if((DateTime.Now  - dateInstallBattery.AddMonths(yearBattery)).TotalDays > 7)
                 {
-                    if(Math.Abs((dateInstallBattery.Value.AddMonths(yearBattery.Value)  -  DateTime.Now).TotalDays) <= 7)
-                    {
-                        isUpdate = true;
-                    }
-                    else
-                    {
-                        isUpdate = false;
-                    }
-                }
-                else
-                {
-                    isUpdate = false;
+                    result = 2;
                 }
             }
-            catch(SqlException ex)
+            else
             {
-                throw ex;
-            }
-            finally
-            {
-                connect.DisConnected();
+                result = 0;
             }
 
-            return isUpdate;
+             // return 0 is update check battery year alarm, 1 is insert almost check year battery and 2 is insert out of date check year battery
+            
+            return result;
         }
     }
 }

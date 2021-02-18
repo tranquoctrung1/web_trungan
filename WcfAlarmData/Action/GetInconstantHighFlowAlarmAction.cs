@@ -54,7 +54,7 @@ namespace WcfLoggerData.Action
                             }
                             else
                             {
-                                if (percent <= listLevelAlarm[i + 1].Value && percent >= listLevelAlarm[i].Value)
+                                if (percent < listLevelAlarm[i - 1].Value && percent >= listLevelAlarm[i].Value)
                                 {
                                     result = listLevelAlarm[i].Level;
                                     break;

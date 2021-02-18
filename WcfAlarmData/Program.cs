@@ -20,6 +20,16 @@ namespace WcfAlarmData
 
             Console.WriteLine($"The Rows Insert is: {nRowInsert}");
             Console.WriteLine($"The Rows Update is: {nRowUpdate}");
+
+            //InsertAndUpdateAlarmForLoggerAction insertAndUpdateAlarmForLoggerAction = new InsertAndUpdateAlarmForLoggerAction();
+
+            //int[] resultAlarmForLoggerAction = insertAndUpdateAlarmForLoggerAction.InsertAndUpdateAlarmForLogger();
+
+            //int nRowInsertForLogger = resultAlarmForLoggerAction[0];
+            //int nRowUpdateForLogger = resultAlarmForLoggerAction[1];
+
+            //Console.WriteLine($"The Rows Insert For Logger is: {nRowInsertForLogger}");
+            //Console.WriteLine($"The Rows Update For Logger is: {nRowUpdateForLogger}");
         }
     }
 }

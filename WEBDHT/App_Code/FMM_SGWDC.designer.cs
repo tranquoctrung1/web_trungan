@@ -3629,9 +3629,14 @@ public partial class ChannelConfig : INotifyPropertyChanging, INotifyPropertyCha
 	private System.Nullable<double> _LastValue;
 	
 	private string _Description;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
+
+	private Nullable<bool> _Pressure1;
+	private Nullable<bool> _Pressure2;
+	private Nullable<bool> _ForwardFlow;
+	private Nullable<bool> _ReverseFlow;
+
+	#region Extensibility Method Definitions
+	partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnIdChanging(string value);
@@ -3648,8 +3653,20 @@ public partial class ChannelConfig : INotifyPropertyChanging, INotifyPropertyCha
     partial void OnLastValueChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
-    #endregion
-	
+
+	partial void OnPressure1Changing(Nullable<bool> value);
+	partial void OnPressure1Changed();
+
+	partial void OnPressure2Changing(Nullable<bool> value);
+	partial void OnPressure2Changed();
+
+	partial void OnForwardFlowChanging(Nullable<bool> value);
+	partial void OnForwardFlowChanged();
+
+	partial void OnReverseFlowChanging(Nullable<bool> value);
+	partial void OnReverseFlowChanged();
+	#endregion
+
 	public ChannelConfig()
 	{
 		OnCreated();
@@ -3794,7 +3811,87 @@ public partial class ChannelConfig : INotifyPropertyChanging, INotifyPropertyCha
 			}
 		}
 	}
-	
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Pressure1", DbType = "Bit")]
+	public Nullable<bool> Pressure1
+	{
+		get
+		{
+			return this._Pressure1;
+		}
+		set
+		{
+			if ((this._Pressure1 != value))
+			{
+				this.OnPressure1Changing(value);
+				this.SendPropertyChanging();
+				this._Pressure1 = value;
+				this.SendPropertyChanged("Pressure1");
+				this.OnPressure1Changed();
+			}
+		}
+	}
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Pressure2", DbType = "Bit")]
+	public Nullable<bool> Pressure2
+	{
+		get
+		{
+			return this._Pressure2;
+		}
+		set
+		{
+			if ((this._Pressure2 != value))
+			{
+				this.OnPressure2Changing(value);
+				this.SendPropertyChanging();
+				this._Pressure2 = value;
+				this.SendPropertyChanged("Pressure2");
+				this.OnPressure2Changed();
+			}
+		}
+	}
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ForwardFlow", DbType = "Bit")]
+	public Nullable<bool> ForwardFlow
+	{
+		get
+		{
+			return this._ForwardFlow;
+		}
+		set
+		{
+			if ((this._ForwardFlow != value))
+			{
+				this.OnForwardFlowChanging(value);
+				this.SendPropertyChanging();
+				this._ForwardFlow = value;
+				this.SendPropertyChanged("ForwardFlow");
+				this.OnForwardFlowChanged();
+			}
+		}
+	}
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ReverseFlow", DbType = "Bit")]
+	public Nullable<bool> ReverseFlow
+	{
+		get
+		{
+			return this._ReverseFlow;
+		}
+		set
+		{
+			if ((this._ReverseFlow != value))
+			{
+				this.OnReverseFlowChanging(value);
+				this.SendPropertyChanging();
+				this._ReverseFlow = value;
+				this.SendPropertyChanged("ReverseFlow");
+				this.OnReverseFlowChanged();
+			}
+		}
+	}
+
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;

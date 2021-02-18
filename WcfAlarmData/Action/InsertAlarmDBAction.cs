@@ -23,9 +23,9 @@ namespace WcfAlarmData.Action
 
                     for (int i = 0; i < list.Count - 1; i++)
                     {
-                        sqlQuery += $"('{list[i].ChannelId}', '{list[i].Location}', '{list[i].StartDateAlarm}', NULL, '{list[i].TypeAlarm}', '{list[i].Level}', '{list[i].IsFinish}', '{list[i].Content}'),";
+                        sqlQuery += $"('{list[i].ChannelId}', N'{list[i].Location}', '{list[i].StartDateAlarm}', NULL, '{list[i].TypeAlarm}', N'{list[i].Level}', '{list[i].IsFinish}', N'{list[i].Content}'),";
                     }
-                    sqlQuery += $"('{list[list.Count - 1].ChannelId}', '{list[list.Count - 1].Location}', '{list[list.Count - 1].StartDateAlarm}', NULL, '{list[list.Count - 1].TypeAlarm}', '{list[list.Count - 1].Level}', '{list[list.Count - 1].IsFinish}', '{list[list.Count - 1].Content}')";
+                    sqlQuery += $"('{list[list.Count - 1].ChannelId}', N'{list[list.Count - 1].Location}', '{list[list.Count - 1].StartDateAlarm}', NULL, '{list[list.Count - 1].TypeAlarm}', N'{list[list.Count - 1].Level}', '{list[list.Count - 1].IsFinish}', N'{list[list.Count - 1].Content}')";
                     connect.Connected();
 
 

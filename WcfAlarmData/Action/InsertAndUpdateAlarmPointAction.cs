@@ -36,17 +36,26 @@ namespace WcfAlarmData.Action
             BinarySearch binarySearch = new BinarySearch();
 
             var listSites = getListSitesAction.getListSites();
-        
+
             foreach (var site in listSites)
             {
                 var channels = getChannelByLoggerAction.GetChannelByLogger(site.LoggerID);
 
                 foreach (var channel in channels)
                 {
-                    string highFlowAlarm = getInconstantHighFlowAlarmAction.GetInconstantHighFlowAlarm(channel.ChannelId);
-                    string lowFlowAlarm = getInconstantLowFlowAlarmAction.GetInconstantLowFlowAlarm(channel.ChannelId);
-                    string inconstantMNF = getMinNightFlowAlarmAction.GetMinNightFlowAlarm(channel.ChannelId);
-                    string inconstantPress = getInconstantPressureAlarmAction.GetInconstantPressureAlarm(channel.ChannelId);
+                    bool isChannelFlow = false;
+                    bool isChannelPressure = false;
+
+                    if (channel.Flow1 == true || channel.Flow2 == true)
+                    {
+                        isChannelFlow = true;
+                    }
+                    if (channel.Press1 == true || channel.Press2 == true)
+                    {
+                        isChannelPressure = true;
+                    }
+
+                 
                     bool delaySendData = getDelaySendDataAction.GetDelaySendData(channel.ChannelId);
 
 
@@ -61,33 +70,45 @@ namespace WcfAlarmData.Action
                         level = "";
                         check = true;
                     }
-                    else if (highFlowAlarm.Trim() != "")
+                    else if(isChannelPressure == true)
                     {
-                        content = "High Flow";
-                        level = highFlowAlarm;
-                        type = 2;
-                        check = true;
+                        string inconstantPress = getInconstantPressureAlarmAction.GetInconstantPressureAlarm(channel.ChannelId);
+
+                        if (inconstantPress.Trim() != "")
+                        {
+                            content = "Inconstant Pressure";
+                            level = inconstantPress;
+                            type = 4;
+                            check = true;
+                        }
                     }
-                    else if (lowFlowAlarm.Trim() != "")
+                    else if(isChannelFlow == true)
                     {
-                        content = "Low Flow";
-                        level = lowFlowAlarm;
-                        type = 3;
-                        check = true;
-                    }
-                    else if (inconstantMNF.Trim() != "")
-                    {
-                        content = "Min Night Flow";
-                        level = inconstantMNF;
-                        type = 5;
-                        check = true;
-                    }
-                    else if (inconstantPress.Trim() != "")
-                    {
-                        content = "Inconstant Pressure";
-                        level = inconstantPress;
-                        type = 4;
-                        check = true;
+                        string highFlowAlarm = getInconstantHighFlowAlarmAction.GetInconstantHighFlowAlarm(channel.ChannelId);
+                        string lowFlowAlarm = getInconstantLowFlowAlarmAction.GetInconstantLowFlowAlarm(channel.ChannelId);
+                        string inconstantMNF = getMinNightFlowAlarmAction.GetMinNightFlowAlarm(channel.ChannelId);
+
+                        if (highFlowAlarm.Trim() != "")
+                        {
+                            content = "High Flow";
+                            level = highFlowAlarm;
+                            type = 2;
+                            check = true;
+                        }
+                        else if (lowFlowAlarm.Trim() != "")
+                        {
+                            content = "Low Flow";
+                            level = lowFlowAlarm;
+                            type = 3;
+                            check = true;
+                        }
+                        else if (inconstantMNF.Trim() != "")
+                        {
+                            content = "Min Night Flow";
+                            level = inconstantMNF;
+                            type = 5;
+                            check = true;
+                        }
                     }
 
                     if (check == true)
@@ -109,6 +130,7 @@ namespace WcfAlarmData.Action
                             isFind = binarySearch.BinarySearchInterative(listAll, el.StartDateAlarm.Value);
                             if(isFind == -1)
                             {
+                                nRowUpdate += updateAlarmForPointAction.UpdateAlarmForPoint(channel.ChannelId);
                                 list.Add(el);
                             }
                         }

@@ -44,11 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\CheckAccreditationLoggerAction.cs" />
     <Compile Include="Action\CheckExistsAlarmAction.cs" />
+    <Compile Include="Action\CheckYearBatteryAction.cs" />
     <Compile Include="Action\GetAllAlarmForPointAction.cs" />
+    <Compile Include="Action\GetAllAlarmLoggerAction.cs" />
     <Compile Include="Action\GetChannelByLoggerAction.cs" />
     <Compile Include="Action\GetCurrentTimeAction.cs" />
     <Compile Include="Action\GetDelaySendDataAction.cs" />
+    <Compile Include="Action\GetDeviceLoggerAction.cs" />
     <Compile Include="Action\GetHistoryAlarmForPointAction.cs" />
     <Compile Include="Action\GetInconstantHighFlowAlarmAction.cs" />
     <Compile Include="Action\GetInconstantLowFlowAlarmAction.cs" />
@@ -63,14 +67,19 @@
     <Compile Include="Action\GetQitAction.cs" />
     <Compile Include="Action\GetLoggerByChannelIdAction.cs" />
     <Compile Include="Action\InsertAlarmDBAction.cs" />
-    <Compile Include="Action\InsertAlarmPointAction.cs" />
+    <Compile Include="Action\InsertAlarmLoggerDBAction.cs" />
+    <Compile Include="Action\InsertAndUpdateAlarmForLoggerAction.cs" />
+    <Compile Include="Action\InsertAndUpdateAlarmPointAction.cs" />
+    <Compile Include="Action\UpdateAlarmForLoggerDBAction.cs" />
     <Compile Include="Action\UpdateAlarmForPointAction.cs" />
     <Compile Include="ConnectDB\Connect.cs" />
+    <Compile Include="Model\AlarmForLoggerViewModel.cs" />
     <Compile Include="Model\AlarmForPointViewModel.cs" />
     <Compile Include="Model\ChannelByLoggerViewModel.cs" />
     <Compile Include="Model\ChannelViewModel.cs" />
     <Compile Include="Model\DataComplexViewModel.cs" />
     <Compile Include="Model\LevelAlarmViewModel.cs" />
+    <Compile Include="Model\LoggerViewModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ULT\BinarySearch.cs" />
