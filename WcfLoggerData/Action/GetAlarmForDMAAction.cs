@@ -8,65 +8,73 @@ using WcfLoggerData.Models;
 
 namespace WcfLoggerData.Action
 {
-    public class GetHistoryAlarmAction
+    public class GetAlarmForDMAAction
     {
-        public List<AlarmForPointViewModel> GetHistoryAlarm()
+        public List<AlarmForDMAViewModel> GetAllAlarmForDMA()
         {
-            List<AlarmForPointViewModel> list = new List<AlarmForPointViewModel>();
+            List<AlarmForDMAViewModel> list = new List<AlarmForDMAViewModel>();
             Connect connect = new Connect();
 
             try
             {
-                string sqlQuery = $"select ChannelId, Location, StartDateAlarm, EndDateAlarm, TypeAlarm, [Level], IsFinish from t_History_Alarm order by ChannelId";
+                string sqlQuery = $"select DMAId, Description, StartDate, EndDate, Type, Content, [Level], IsFinish from t_Histoty_Alarm_DMA";
+
                 connect.Connected();
 
                 SqlDataReader reader = connect.Select(sqlQuery);
-
-                if(reader.HasRows)
+                if (reader.HasRows)
                 {
-                    while(reader.Read())
+                    while (reader.Read())
                     {
-                        AlarmForPointViewModel el = new AlarmForPointViewModel();
+                        AlarmForDMAViewModel el = new AlarmForDMAViewModel();
 
                         try
                         {
-                            el.ChannelId = reader["ChannelId"].ToString();
-                        }
-                        catch(Exception ex)
-                        {
-                            el.ChannelId = "";
-                        }
-                        try
-                        {
-                            el.Location = reader["Location"].ToString();
+                            el.Company = reader["DMAId"].ToString();
                         }
                         catch (Exception ex)
                         {
-                            el.Location = "";
+                            el.Company = "";
                         }
                         try
                         {
-                            el.StartDateAlarm = DateTime.Parse(reader["StartDateAlarm"].ToString());
+                            el.Description = reader["Description"].ToString();
                         }
                         catch (Exception ex)
                         {
-                            el.StartDateAlarm = null;
+                            el.Description = "";
                         }
                         try
                         {
-                            el.EndDateAlarm = DateTime.Parse(reader["EndDateAlarm"].ToString());
+                            el.StartDate = DateTime.Parse(reader["StartDate"].ToString());
                         }
                         catch (Exception ex)
                         {
-                            el.EndDateAlarm = null;
+                            el.StartDate = null;
                         }
                         try
                         {
-                            el.TypeAlarm = reader["TypeAlarm"].ToString();
+                            el.EndDate = DateTime.Parse(reader["EndDate"].ToString());
                         }
                         catch (Exception ex)
                         {
-                            el.TypeAlarm = null;
+                            el.EndDate = null;
+                        }
+                        try
+                        {
+                            el.Type = int.Parse(reader["Type"].ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            el.Type = null;
+                        }
+                        try
+                        {
+                            el.Content = reader["Content"].ToString();
+                        }
+                        catch (Exception ex)
+                        {
+                            el.Content = "";
                         }
                         try
                         {
@@ -74,7 +82,7 @@ namespace WcfLoggerData.Action
                         }
                         catch (Exception ex)
                         {
-                            el.Level = null;
+                            el.Level = "";
                         }
                         try
                         {
@@ -89,7 +97,7 @@ namespace WcfLoggerData.Action
                     }
                 }
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }

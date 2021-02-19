@@ -112,7 +112,7 @@ namespace WcfLoggerData.Action
                     result = "";
                 }
             }
-
+            
             return result;
         }
     }

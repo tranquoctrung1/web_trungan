@@ -26,7 +26,7 @@ namespace WcfLoggerData.Controllers
             GetInconstantPressureAlarmAction getInconstantPressureAlarmAction = new GetInconstantPressureAlarmAction();
             GetCurrentTimeAction getCurrentTimeAction = new GetCurrentTimeAction();
 
-            GetHistoryAlarmAction getHistoryAlarmAction = new GetHistoryAlarmAction();
+            GetAlarmForPointAction getHistoryAlarmAction = new GetAlarmForPointAction();
 
             //list = getHistoryAlarmAction.GetHistoryAlarm();
 

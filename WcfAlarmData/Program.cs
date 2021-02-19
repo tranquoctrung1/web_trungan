@@ -11,25 +11,30 @@ namespace WcfAlarmData
     {
         static void Main(string[] args)
         {
-            InsertAndUpdateAlarmPointAction insertAction = new InsertAndUpdateAlarmPointAction();
+            // alarm for point
+            //InsertAndUpdateAlarmPointAction insertAction = new InsertAndUpdateAlarmPointAction();
 
-            int[] resultAlarmForPointAction = insertAction.InsertAndUpdateAlarmPoint();
+            //int[] resultAlarmForPointAction = insertAction.InsertAndUpdateAlarmPoint();
 
-            int nRowInsert = resultAlarmForPointAction[0];
-            int nRowUpdate = resultAlarmForPointAction[1];
+            //int nRowInsert = resultAlarmForPointAction[0];
+            //int nRowUpdate = resultAlarmForPointAction[1];
 
-            Console.WriteLine($"The Rows Insert is: {nRowInsert}");
-            Console.WriteLine($"The Rows Update is: {nRowUpdate}");
+            //Console.WriteLine($"The Rows Insert is: {nRowInsert}");
+            //Console.WriteLine($"The Rows Update is: {nRowUpdate}");
 
-            //InsertAndUpdateAlarmForLoggerAction insertAndUpdateAlarmForLoggerAction = new InsertAndUpdateAlarmForLoggerAction();
+            // alarm for logger
+            InsertAndUpdateAlarmForLoggerAction insertAndUpdateAlarmForLoggerAction = new InsertAndUpdateAlarmForLoggerAction();
 
-            //int[] resultAlarmForLoggerAction = insertAndUpdateAlarmForLoggerAction.InsertAndUpdateAlarmForLogger();
+            int[] resultAlarmForLoggerAction = insertAndUpdateAlarmForLoggerAction.InsertAndUpdateAlarmForLogger();
 
-            //int nRowInsertForLogger = resultAlarmForLoggerAction[0];
-            //int nRowUpdateForLogger = resultAlarmForLoggerAction[1];
+            int nRowInsertForLogger = resultAlarmForLoggerAction[0];
+            int nRowUpdateForLogger = resultAlarmForLoggerAction[1];
 
-            //Console.WriteLine($"The Rows Insert For Logger is: {nRowInsertForLogger}");
-            //Console.WriteLine($"The Rows Update For Logger is: {nRowUpdateForLogger}");
+            Console.WriteLine($"The Rows Insert For Logger is: {nRowInsertForLogger}");
+            Console.WriteLine($"The Rows Update For Logger is: {nRowUpdateForLogger}");
+
+            // alarm for dma
+
         }
     }
 }
