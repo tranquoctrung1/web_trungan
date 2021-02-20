@@ -8,30 +8,28 @@ namespace WcfAlarmData.Model
 {
     public class DMAViewModel
     {
-        string id;
-        string siteId;
-        string tel;
-        Nullable<byte> pressure;
-        Nullable<byte> forward;
-        Nullable<byte> reverse;
-        Nullable<Int16> interval;
-        Nullable<DateTime> beginTime;
-        Nullable<byte> zoomInit;
-        Nullable<byte> zoomOn;
-        Nullable<byte> pressure1;
-        Nullable<int> delayTime;
+        string company;
+        Nullable<bool> production;
+        string description;
+        string status;
+        string disctrict;
+        string ward;
+        Nullable<int> amountDHTKH;
+        Nullable<int> amountValve;
+        Nullable<int> amountPool;
+        Nullable<int> amountTCH;
+        Nullable<double> nRW;
 
-        public string Id { get => id; set => id = value; }
-        public string SiteId { get => siteId; set => siteId = value; }
-        public string Tel { get => tel; set => tel = value; }
-        public byte? Pressure { get => pressure; set => pressure = value; }
-        public byte? Forward { get => forward; set => forward = value; }
-        public byte? Reverse { get => reverse; set => reverse = value; }
-        public short? Interval { get => interval; set => interval = value; }
-        public DateTime? BeginTime { get => beginTime; set => beginTime = value; }
-        public byte? ZoomInit { get => zoomInit; set => zoomInit = value; }
-        public byte? ZoomOn { get => zoomOn; set => zoomOn = value; }
-        public byte? Pressure1 { get => pressure1; set => pressure1 = value; }
-        public int? DelayTime { get => delayTime; set => delayTime = value; }
+        public string Company { get => company; set => company = value; }
+        public bool? Production { get => production; set => production = value; }
+        public string Description { get => description; set => description = value; }
+        public string Status { get => status; set => status = value; }
+        public string Disctrict { get => disctrict; set => disctrict = value; }
+        public string Ward { get => ward; set => ward = value; }
+        public int? AmountDHTKH { get => amountDHTKH; set => amountDHTKH = value; }
+        public int? AmountValve { get => amountValve; set => amountValve = value; }
+        public int? AmountPool { get => amountPool; set => amountPool = value; }
+        public int? AmountTCH { get => amountTCH; set => amountTCH = value; }
+        public double? NRW { get => nRW; set => nRW = value; }
     }
 }

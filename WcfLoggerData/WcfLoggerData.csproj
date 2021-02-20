@@ -113,11 +113,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Action\CheckAccreditationAlarmLoggerAction.cs" />
-    <Compile Include="Action\CheckAccreditationLoggerAction.cs" />
-    <Compile Include="Action\CheckYearBatteryAction.cs" />
-    <Compile Include="Action\CheckYearBatteryAlarmAction.cs" />
     <Compile Include="Action\DataChannelChartAction.cs" />
+    <Compile Include="Action\GetAlarmForDMAAction.cs" />
     <Compile Include="Action\GetAlarmForLoggerAction.cs" />
     <Compile Include="Action\GetChannelByGroupChannelAction.cs" />
     <Compile Include="Action\GetChannelByLoggerAction.cs" />
@@ -152,16 +149,10 @@
     <Compile Include="Action\GetDisplayGroupAction.cs" />
     <Compile Include="Action\GetGroupChannelAction.cs" />
     <Compile Include="Action\GetGroupChannelByLoggerAction.cs" />
-    <Compile Include="Action\GetHistoryAlarmAction.cs" />
-    <Compile Include="Action\GetInconstantHighFlowAlarmAction.cs" />
-    <Compile Include="Action\GetInconstantLowFlowAlarmAction.cs" />
-    <Compile Include="Action\GetInconstantPressureAlarmAction.cs" />
+    <Compile Include="Action\GetAlarmForPointAction.cs" />
     <Compile Include="Action\GetLevelAlarmAction.cs" />
     <Compile Include="Action\GetListSitesAction.cs" />
     <Compile Include="Action\GetLoggerAction.cs" />
-    <Compile Include="Action\GetMaxPressureAction.cs" />
-    <Compile Include="Action\GetMinNightFlowAction.cs" />
-    <Compile Include="Action\GetMinNightFlowAlarmAction.cs" />
     <Compile Include="Action\GetMinPressureAction.cs" />
     <Compile Include="Action\GetMultipleDataAction.cs" />
     <Compile Include="Action\GetQitAction.cs" />
@@ -171,9 +162,6 @@
     <Compile Include="Action\GetStatisticSiteDMAAction.cs" />
     <Compile Include="Action\GetTimeOfFirstChannel.cs" />
     <Compile Include="Action\GetValueAlarmAction.cs" />
-    <Compile Include="Action\InsertAndUpdateHistoryAlarmLoggerAction.cs" />
-    <Compile Include="Action\InsertHistoryAlarmAction.cs" />
-    <Compile Include="Action\UpdateHistoryAlarmAction.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ConnectDB\Connect.cs" />
     <Compile Include="Controllers\GetAlarmForPointController.cs" />
@@ -216,6 +204,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AlarmForDMAViewModel.cs" />
     <Compile Include="Models\AlarmForLoggerViewModel.cs" />
     <Compile Include="Models\AlarmForPointViewModel.cs" />
     <Compile Include="Models\ChannelByGroupChannelViewModel.cs" />

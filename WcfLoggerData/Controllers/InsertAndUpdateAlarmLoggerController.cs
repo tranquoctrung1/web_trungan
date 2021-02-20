@@ -15,9 +15,10 @@ namespace WcfLoggerData.Controllers
         [System.Web.Http.HttpGet]
         public int InsertAndUpdateAlarmLogger()
         {
-            InsertAndUpdateHistoryAlarmLoggerAction action = new InsertAndUpdateHistoryAlarmLoggerAction();
+            //InsertAndUpdateHistoryAlarmLoggerAction action = new InsertAndUpdateHistoryAlarmLoggerAction();
 
-            return action.InsertAndUpdateHistoryAlarmLogger();
+            //return action.InsertAndUpdateHistoryAlarmLogger();
+            return 0;
         }
     }
 }

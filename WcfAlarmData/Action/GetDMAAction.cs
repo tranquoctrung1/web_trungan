@@ -17,7 +17,7 @@ namespace WcfAlarmData.Action
             Connect connect = new Connect();
             try
             {
-                string sqlQuery = $"select Id, SiteId, Tel, Pressure, Forward, Reverse, Interval, BeginTime, ZoomInit, ZoomOn, Pressure1, DelayTime from t_Devices_SitesConfigs order by Id";
+                string sqlQuery = $"select Company, Production, Description, Status, District, Ward, AmountDHTKH, AmountValve, AmountPool, AmountTCH, NRW from  t_Site_Companies where Company is not null order by Company ";
 
                 connect.Connected();
 
@@ -29,100 +29,93 @@ namespace WcfAlarmData.Action
                         DMAViewModel el = new DMAViewModel();
                         try
                         {
-                            el.Id = reader["Id"].ToString();
+                            el.Company = reader["Company"].ToString();
                         }
                         catch(Exception ex)
                         {
-                            el.Id = "";
+                            el.Company = "";
                         }
                         try
                         {
-                            el.SiteId = reader["SiteId"].ToString();
+                            el.Production =bool.Parse( reader["Production"].ToString());
                         }
                         catch (Exception ex)
                         {
-                            el.SiteId = "";
+                            el.Production = null;
                         }
                         try
                         {
-                            el.Tel = reader["Tel"].ToString();
+                            el.Description = reader["Description"].ToString();
                         }
                         catch (Exception ex)
                         {
-                            el.Tel = "";
+                            el.Description = "";
                         }
                         try
                         {
-                            el.Forward = byte.Parse(reader["Forward"].ToString());
+                            el.Status = reader["Status"].ToString();
                         }
                         catch (Exception ex)
                         {
-                            el.Forward = null;
+                            el.Status = "";
                         }
                         try
                         {
-                            el.Pressure = byte.Parse(reader["Pressure"].ToString());
+                            el.Disctrict = reader["Disctrict"].ToString();
                         }
                         catch (Exception ex)
                         {
-                            el.Pressure = null;
+                            el.Disctrict = "";
                         }
                         try
                         {
-                            el.Reverse = byte.Parse(reader["Reverse"].ToString());
+                            el.Ward = reader["Ward"].ToString();
                         }
                         catch (Exception ex)
                         {
-                            el.Reverse = null;
+                            el.Ward = "";
                         }
                         try
                         {
-                            el.Interval = short.Parse(reader["Interval"].ToString());
+                            el.AmountDHTKH = int.Parse(reader["AmountDHTKH"].ToString());
                         }
                         catch (Exception ex)
                         {
-                            el.Interval = null;
+                            el.AmountDHTKH = null;
                         }
                         try
                         {
-                            el.BeginTime = DateTime.Parse(reader["BeginTime"].ToString());
+                            el.AmountValve = int.Parse(reader["AmountValve"].ToString());
                         }
                         catch (Exception ex)
                         {
-                            el.BeginTime = null;
+                            el.AmountValve = null;
                         }
                         try
                         {
-                            el.ZoomInit = byte.Parse(reader["ZoomInit"].ToString());
+                            el.AmountPool = int.Parse(reader["AmountPool"].ToString());
                         }
                         catch (Exception ex)
                         {
-                            el.ZoomInit = null;
+                            el.AmountPool = null;
                         }
                         try
                         {
-                            el.ZoomOn = byte.Parse(reader["ZoomOn"].ToString());
+                            el.AmountTCH = int.Parse(reader["AmountTCH"].ToString());
                         }
                         catch (Exception ex)
                         {
-                            el.ZoomOn = null;
+                            el.AmountTCH = null;
                         }
                         try
                         {
-                            el.Pressure1 = byte.Parse(reader["Pressure1"].ToString());
+                            el.NRW = double.Parse(reader["Pressure1"].ToString());
                         }
                         catch (Exception ex)
                         {
-                            el.Pressure1 = null;
+                            el.NRW = null;
                         }
-                        try
-                        {
-                            el.DelayTime = int.Parse(reader["DelayTime"].ToString());
-                        }
-                        catch (Exception ex)
-                        {
-                            el.DelayTime = null;
-                        }
+                        
 
                         list.Add(el);
                     }
