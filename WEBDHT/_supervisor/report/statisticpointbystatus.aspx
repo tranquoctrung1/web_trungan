@@ -96,7 +96,7 @@
                 <img id="loading" class="hide" src="../../2.gif" />
             </div>
         </tbody>
-        <tfoot>
+        <tfoot  class="text-center">
             <tr>
                 <th>Mã Point</th>
                 <th>Mã Point Cũ</th>
@@ -120,6 +120,7 @@
 
         let loadingElement = document.getElementById('loading');
         let reload = document.getElementById('reload');
+        let table;
 
         let data = [];
 
@@ -150,6 +151,7 @@
                 hostname = "http://localhost:57880";
 
             let url = `${hostname}/api/getstatisticsitebystatus`;
+            console.log(url)
 
             axios.get(url).then((res) => {
 
@@ -158,9 +160,10 @@
                 loadingElement.classList.add('hide');
                 createBody(res.data);
 
-                $('#example').DataTable({
+                table = $('#example').DataTable({
                     "pagingType": "full_numbers"
                 });
+
             }).catch(err => console.log(err))
 
         }
@@ -197,19 +200,19 @@
         }
 
         function OnClientSelectedIndexChanged(sender, eventArgs) {
-            var oldItem = sender.__oldSelectedItem;
             var newItem = eventArgs.get_item();
 
-            let dataFilter = data.filter(item => item.Status.toLowerCase() === newItem.get_text().toLowerCase());
-
-            createBody(dataFilter);
+            table.search(newItem.get_text()).draw();
         }
+
+
+        getData();
 
         reload.addEventListener('click', function () {
             createBody(data);
         })
 
-        getData();
+       
     </script>
 </asp:Content>
 
