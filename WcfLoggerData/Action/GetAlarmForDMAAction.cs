@@ -20,7 +20,7 @@ namespace WcfLoggerData.Action
 
             try
             {
-                string sqlQuery = $"select DMAId, Description, StartDate, EndDate, Type, Content, [Level], IsFinish from t_Histoty_Alarm_DMA where StartDate between convert(nvarchar, '{timeStart}', 120) and convert(nvarchar, '{timeEnd}',  120)";
+                string sqlQuery = $"select DMAId, Description, StartDate, EndDate, Type, Content, [Level], IsFinish from t_Histoty_Alarm_DMA where StartDate between convert(nvarchar, '{timeStart}', 120) and convert(nvarchar, '{timeEnd}',  120) order by StartDate desc";
 
                 connect.Connected();
 

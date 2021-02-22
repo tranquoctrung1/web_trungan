@@ -19,7 +19,7 @@ namespace WcfLoggerData.Action
             Connect connect = new Connect();
             try
             {
-                string sqlQuery = $"select Serial, Type, StartDate, EndDate, IsFinish, [Content] from t_History_Alarm_Logger where IsFinish = 0 or StartDate between convert(nvarchar, '{startDate}', 120) and convert(nvarchar, '{endDate}', 120) order by IsFinish";
+                string sqlQuery = $"select Serial, Type, StartDate, EndDate, IsFinish, [Content] from t_History_Alarm_Logger where  StartDate between convert(nvarchar, '{startDate}', 120) and convert(nvarchar, '{endDate}', 120) order by StartDate desc";
                 connect.Connected();
 
                 SqlDataReader reader = connect.Select(sqlQuery);

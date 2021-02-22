@@ -531,6 +531,16 @@
                                     </a>
                                 </li>
                                     <li>
+                                    <a href="/_supervisor/alarm/AlarmTableForLogger.aspx">
+                                        <asp:Label ID="lbTableAlarmForLogger" runat="server" Text="Bảng Cảnh Báo Cho Logger"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/_supervisor/alarm/AlarmTableForDMA.aspx">
+                                        <asp:Label ID="lbTableAlarmForDMA" runat="server" Text="Bảng Cảnh Báo Cho DMA"></asp:Label>
+                                    </a>
+                                </li>
+                                    <li>
                                         <a href="/_supervisor/alarm/SettingAlarm.aspx">
                                             <asp:Label ID="lbSettingAlarm" runat="server" Text="Cài Đặt Cảnh Báo"></asp:Label>
                                         </a>
@@ -3711,7 +3721,7 @@
                 let urlGetValeAlarm = `${hostname}/api/getalarmforpoint?start=${totalSecondStart}&end=${totalSecondEnd}`;
 
                 var uid = document.getElementById("ContentPlaceHolder1_lbUserName").value;
-                var urlAlarm = urlGetValeAlarm + uid;
+                var urlAlarm = urlGetValeAlarm;
                 $.getJSON(urlAlarm, function (d) {
 
                     var countAlarm = document.getElementById('countAlarm');

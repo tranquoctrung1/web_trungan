@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="AlarmTableForPoint.aspx.cs" Inherits="_supervisor_alarm_AlarmTableForPoint" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="AlarmTableForDMA.aspx.cs" Inherits="_supervisor_alarm_AlarmTableForDMA" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../css/Config.css" rel="stylesheet">
@@ -55,7 +55,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main-content2">
         <div id="main-content-title">
-            <h2 class="title">Bảng Cảnh Báo Cho Point</h2>
+            <h2 class="title">Bảng Cảnh Báo Cho DMA</h2>
         </div>
         <div class="container-fluid m-t">
             <div class="row">
@@ -93,7 +93,7 @@
                             <button class="btn btn-info m-r" onclick="view(); return false;">Xem</button>
                         </div>
                         <div class="col-sm-4 search-area m-b">
-                            <input class="form-control me-2" type="text" placeholder="Vị trí" id="txtSearch">
+                            <input class="form-control me-2" type="text" placeholder="Mã DMA" id="txtSearch">
                             <button class="btn btn-success m-l" type="submit" onclick="searchHandle(); return false;">Tìm Kiếm</button>
                         </div>
 
@@ -103,12 +103,12 @@
                             <thead>
                                 <tr>
                                     <th scope="col"></th>
-                                    <th scope="col">Mã Kênh</th>
-                                    <th scope="col">Vị Trí</th>
+                                    <th scope="col">Mã DMA</th>
+                                    <th scope="col">Mô Tả</th>
                                     <th scope="col">Thời Gian Bắt Đầu</th>
                                     <th scope="col">Thời Gian Kết Thúc</th>
                                     <th scope="col">Nội Dung</th>
-                                    <th scope="col">Cấp Cảnh Báo</th>
+                                    <th scope="col">Level</th>
                                 </tr>
                             </thead>
                             <tbody id="body">
@@ -164,7 +164,7 @@
             let totalSecondStart = startDate.getTime() / 1000;
             let totalSecondEnd = date.getTime() / 1000;
 
-            let url = `${hostname}/api/getalarmforpoint?start=${totalSecondStart}&end=${totalSecondEnd}`;
+            let url = `${hostname}/api/getalarmfordma?start=${totalSecondStart}&end=${totalSecondEnd}`;
 
             axios.get(url).then((res) => {
                 data = res.data;
@@ -207,13 +207,13 @@
                             content += `<td><i class="fa fa-check-circle" aria-hidden="true" style="color: lime"></i></td>`;
                         }
 
-                        content += `<td>${item.ChannelId}</td>`;
+                        content += `<td>${item.Company}</td>`;
 
-                        content += `<td>${item.Location}</td>`;
+                        content += `<td>${item.Description}</td>`;
 
-                        content += `<td>${convertDateTime(item.StartDateAlarm)}</td>`;
+                        content += `<td>${convertDateTime(item.StartDate)}</td>`;
 
-                        content += `<td>${convertDateTime(item.EndDateAlarm)}</td>`;
+                        content += `<td>${convertDateTime(item.EndDate)}</td>`;
 
                         content += `<td>${item.Content}</td>`;
 
@@ -257,7 +257,7 @@
         function searchHandle() {
             let txtSearch = document.getElementById('txtSearch');
 
-            filterData = data.filter((item) => item.Location.toLowerCase().indexOf(txtSearch.value.toLowerCase()) !== -1);
+            filterData = data.filter((item) => item.Company.toLowerCase().indexOf(txtSearch.value.toLowerCase()) !== -1);
 
             createBody(filterData);
 
@@ -288,7 +288,7 @@
             let totalSecondStart = timeStart.getTime() / 1000;
             let totalSecondEnd = timeEnd.getTime() / 1000;
 
-            let url = `${hostname}/api/getalarmforpoint?start=${totalSecondStart}&end=${totalSecondEnd}`;
+            let url = `${hostname}/api/getalarmfordma?start=${totalSecondStart}&end=${totalSecondEnd}`;
 
             axios.get(url).then((res) => {
                 data = res.data;
@@ -324,3 +324,5 @@
     </script>
 
 </asp:Content>
+
+
