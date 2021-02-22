@@ -1598,7 +1598,7 @@
                                 var urlGetChannelDataDaily = hostname + '/api/GetChannelDataDaily/?siteid=';
                                 var urlGetGroupChannel = hostname + '/api/GetGroupChannel/';
                                 var urlUpdateGroupChannel = hostname + '/api/UpdateGroupChannel/';
-                                var urlGetValeAlarm = hostname + '/api/GetValueAlarm/?uid=';
+                                //var urlGetValeAlarm = hostname + '/api/GetValueAlarm/?uid=';
                                 var urlConfirmAlarm = hostname + '/api/ConfirmAlarm/';
                                 var urlGetDisplayGroups = hostname + '/api/GetDisplayGroup';
                                 var urlGetSiteByDisplayGroup = hostname + '/api/GetSitesByDisplayGroup/?displaygroup=';
@@ -3692,6 +3692,24 @@
             });
 
             setInterval(function () {
+
+                var hostname = window.location.origin;
+                if (hostname.indexOf("localhost") < 0)
+                    hostname = hostname + "/VivaServices/";
+                else
+                    hostname = "http://localhost:57880";
+
+                let now = Date.now();
+                now = new Date(now);
+                let date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+                let temp = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+                let startDate = new Date(temp.setDate(temp.getDate() - 1));
+
+                let totalSecondStart = startDate.getTime() / 1000;
+                let totalSecondEnd = date.getTime() / 1000;
+
+                let urlGetValeAlarm = `${hostname}/api/getalarmforpoint?start=${totalSecondStart}&end=${totalSecondEnd}`;
+
                 var uid = document.getElementById("ContentPlaceHolder1_lbUserName").value;
                 var urlAlarm = urlGetValeAlarm + uid;
                 $.getJSON(urlAlarm, function (d) {

@@ -655,7 +655,18 @@
             hostname = hostname + "/VivaServices/";
         else
             hostname = "http://localhost:57880";
-        var urlGetValeAlarm = hostname + '/api/getvaluealarm/?uid=';
+
+        let now = Date.now();
+        now = new Date(now);
+        let date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+        let temp = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+        let startDate = new Date(temp.setDate(temp.getDate() - 1));
+
+        let totalSecondStart = startDate.getTime() / 1000;
+        let totalSecondEnd = date.getTime() / 1000;
+
+        let urlGetValeAlarm = `${hostname}/api/getalarmforpoint?start=${totalSecondStart}&end=${totalSecondEnd}`;
+
 
         $(function () {
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {

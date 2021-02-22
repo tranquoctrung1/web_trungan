@@ -1690,7 +1690,7 @@
                                 var urlGetChannelDataDaily = hostname + '/api/GetChannelDataDaily/?siteid=';
                                 var urlGetGroupChannel = hostname + '/api/GetGroupChannel/';
                                 var urlUpdateGroupChannel = hostname + '/api/UpdateGroupChannel/';
-                                var urlGetValeAlarm = hostname + '/api/GetValueAlarm/?uid=';
+                                //var urlGetValeAlarm = hostname + '/api/GetValueAlarm/?uid=';
                                 var urlConfirmAlarm = hostname + '/api/ConfirmAlarm/';
                                 var urlGetDisplayGroups = hostname + '/api/GetDisplayGroup';
                                 var urlGetSiteByDisplayGroup = hostname + '/api/GetSitesByDisplayGroup/?displaygroup=';
