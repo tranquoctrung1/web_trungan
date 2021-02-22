@@ -516,11 +516,16 @@
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li>
+                                    <%--<li>
                                         <a href="/_supervisor/alarm/AlarmTable.aspx">
                                             <asp:Label ID="lbTableAlarm" runat="server" Text="Bảng Cảnh Báo"></asp:Label>
                                         </a>
-                                    </li>
+                                    </li>--%>
+                                     <li>
+                                    <a href="/_supervisor/alarm/AlarmTableForPoint.aspx">
+                                        <asp:Label ID="lbTableAlarmForPoint" runat="server" Text="Bảng Cảnh Báo Cho Point"></asp:Label>
+                                    </a>
+                                </li>
                                     <li>
                                         <a href="/_supervisor/alarm/SettingAlarm.aspx">
                                             <asp:Label ID="lbSettingAlarm" runat="server" Text="Cài Đặt Cảnh Báo"></asp:Label>

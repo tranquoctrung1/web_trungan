@@ -21,7 +21,7 @@ namespace WcfLoggerData.Action
 
             try
             {
-                string sqlQuery = $"select ChannelId, Location, StartDateAlarm, EndDateAlarm, TypeAlarm, [Level], IsFinish, [Content] from t_History_Alarm order by ChannelId where StartDateAlarm between convert(nvarchar, '{timeStart}', 120) and convert(nvarchar, '{timeEnd}', 120) order by StartDateAlarm desc";
+                string sqlQuery = $"select ChannelId, Location, StartDateAlarm, EndDateAlarm, TypeAlarm, [Level], IsFinish, [Content] from t_History_Alarm where StartDateAlarm between convert(nvarchar, '{timeStart}', 120) and convert(nvarchar, '{timeEnd}', 120) order by StartDateAlarm desc";
                 connect.Connected();
 
                 SqlDataReader reader = connect.Select(sqlQuery);

@@ -10,14 +10,17 @@ namespace WcfLoggerData.Action
 {
     public class GetAlarmForDMAAction
     {
-        public List<AlarmForDMAViewModel> GetAllAlarmForDMA()
+        public List<AlarmForDMAViewModel> GetAllAlarmForDMA(string start, string end)
         {
+            DateTime timeStart = new DateTime(1970, 01, 01).AddSeconds(int.Parse(start)).AddHours(7);
+            DateTime timeEnd = new DateTime(1970, 01, 01).AddSeconds(int.Parse(end)).AddHours(7);
+
             List<AlarmForDMAViewModel> list = new List<AlarmForDMAViewModel>();
             Connect connect = new Connect();
 
             try
             {
-                string sqlQuery = $"select DMAId, Description, StartDate, EndDate, Type, Content, [Level], IsFinish from t_Histoty_Alarm_DMA";
+                string sqlQuery = $"select DMAId, Description, StartDate, EndDate, Type, Content, [Level], IsFinish from t_Histoty_Alarm_DMA where StartDate between convert(nvarchar, '{timeStart}', 120) and convert(nvarchar, '{timeEnd}',  120)";
 
                 connect.Connected();
 

@@ -10,16 +10,16 @@ using WcfLoggerData.Models;
 
 namespace WcfLoggerData.Controllers
 {
-    public class GetAlarmForPointController : ApiController
+    public class GetAlarmForDMAController : ApiController
     {
+        // GET: GetAlarmForDMA
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        // GET: GetAlarmForPoint
-        public List<AlarmForPointViewModel> GetAlarmForPoint(string start, string end)
-        {
-            GetAlarmForPointAction action = new GetAlarmForPointAction();
 
-            return action.GetHistoryAlarm(start, end);
-            
+        public  List<AlarmForDMAViewModel> GetAlarmForDMA(string start, string end)
+        {
+            GetAlarmForDMAAction action = new GetAlarmForDMAAction();
+
+            return action.GetAllAlarmForDMA(start, end);
         }
     }
-}
+}   

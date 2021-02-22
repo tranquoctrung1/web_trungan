@@ -164,6 +164,8 @@
     <Compile Include="Action\GetValueAlarmAction.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ConnectDB\Connect.cs" />
+    <Compile Include="Controllers\GetAlarmForDMAController.cs" />
+    <Compile Include="Controllers\GetAlarmForLoggerController.cs" />
     <Compile Include="Controllers\GetAlarmForPointController.cs" />
     <Compile Include="Controllers\GetChannelByGroupChannelController.cs" />
     <Compile Include="Controllers\GetChannelByLoggerController.cs" />
@@ -253,6 +255,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\GetAlarmForDMA\" />
+    <Folder Include="Views\GetAlarmForLogger\" />
     <Folder Include="Views\GetAlarmForPoint\" />
     <Folder Include="Views\GetChannelByGroupChannel\" />
     <Folder Include="Views\GetChannelByLogger\" />
