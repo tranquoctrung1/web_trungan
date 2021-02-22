@@ -157,7 +157,7 @@
                         </div>
                     </div>
 
-                    <div class="group-text">
+                    <%-- <div class="group-text">
                         <div class="row">
                             <span>Chỉ số đồng hồ cũ</span>
                         </div>
@@ -167,7 +167,7 @@
                                 <NumberFormat DecimalDigits="0" ZeroPattern="n" />
                             </telerik:RadNumericTextBox>
                         </div>
-                    </div>
+                    </div>--%>
 
                     <div class="group-text">
                         <div class="row">
@@ -197,7 +197,7 @@
                         </div>
                     </div>
 
-                    <div class="group-text">
+                    <%-- <div class="group-text">
                         <div class="row">
                             <span>Chỉ số đồng hồ mới</span>
                         </div>
@@ -206,9 +206,9 @@
                                 <NumberFormat DecimalDigits="0" ZeroPattern="n" />
                             </telerik:RadNumericTextBox>
                         </div>
-                    </div>
+                    </div>--%>
 
-                    <div class="group-text">
+                    <%--                    <div class="group-text">
                         <div class="row">
                             <span>Chiều đồng hồ</span>
                         </div>
@@ -238,9 +238,9 @@
                                 OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll"
                                 TypeName="SiteMeterDirectionsBLL"></asp:ObjectDataSource>
                         </div>
-                    </div>
+                    </div>--%>
 
-                    <div class="group-text">
+                    <%--<div class="group-text">
                         <div class="row">
                             <span>Công ty sản xuất</span>
                         </div>
@@ -268,9 +268,9 @@
                                 </ItemTemplate>
                             </telerik:RadComboBox>
                         </div>
-                    </div>
+                    </div>--%>
 
-                    <div class="group-text">
+                    <%--<div class="group-text">
                         <div class="row">
                             <span>Công ty cung cấp 1</span>
                         </div>
@@ -299,10 +299,10 @@
                             </telerik:RadComboBox>
                             <asp:CheckBox ID="chkIstDoNotCalculateReverse" runat="server" TabIndex="32" />
                         </div>
-                    </div>
+                    </div>--%>
 
 
-                    <div class="group-text">
+                    <%-- <div class="group-text">
                         <div class="row">
                             <span>Công ty cung cấp 2</span>
                         </div>
@@ -327,9 +327,9 @@
                             </telerik:RadComboBox>
                             <asp:CheckBox ID="chkQndDoNotCalculateReverse" runat="server" TabIndex="34" />
                         </div>
-                    </div>
+                    </div>--%>
 
-                    <div class="group-text">
+                    <%-- <div class="group-text">
                         <div class="row">
                             <span>Ghi chú</span>
                         </div>
@@ -337,7 +337,7 @@
                             <telerik:RadTextBox ID="txtDescription" runat="server" Height="50px" TabIndex="35" TextMode="MultiLine">
                             </telerik:RadTextBox>
                         </div>
-                    </div>
+                    </div>--%>
                     <div class="group-text">
                         <div class="row">
                             <span>DMA vào</span>
@@ -393,7 +393,7 @@
                     </div>
 
 
-                    <div class="group-text">
+                    <%--  <div class="group-text">
                         <div class="row">
                             <span>Vật liệu</span>
                         </div>
@@ -401,8 +401,7 @@
                             <telerik:RadTextBox ID="txtCoverMaterial" Enabled="false" runat="server" TabIndex="37">
                             </telerik:RadTextBox>
                         </div>
-                    </div>
-                    
+                    </div>--%>
                 </div>
                 <div class="col-sm-4">
                     <div class="group-text">
@@ -435,7 +434,7 @@
                         </div>
                         <div class="row m-b">
                             <telerik:RadComboBox ID="cboDistricts" runat="server" AllowCustomText="True" DataSourceID="DistrictsDataSource" HighlightTemplatedItems="True"
-                                EnableLoadOnDemand="True" Filter="StartsWith" DataTextField="IdDistrict" DataValueField="IdDistrict" >
+                                EnableLoadOnDemand="True" Filter="StartsWith" DataTextField="IdDistrict" DataValueField="IdDistrict">
                                 <HeaderTemplate>
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
@@ -591,7 +590,7 @@
                         </div>
                     </div>
 
-                    <div class="group-text">
+                    <%--<div class="group-text">
                         <div class="row">
                             <span>Cấp đồng hồ</span>
                         </div>
@@ -621,9 +620,9 @@
                                 OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll"
                                 TypeName="SiteLevelsBLL"></asp:ObjectDataSource>
                         </div>
-                    </div>
+                    </div>--%>
 
-                    <div class="group-text">
+                    <%--<div class="group-text">
                         <div class="row">
                             <span>Nhóm đồng hồ 1</span>
                         </div>
@@ -653,9 +652,9 @@
                                 OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll"
                                 TypeName="SiteGroupsBLL"></asp:ObjectDataSource>
                         </div>
-                    </div>
+                    </div>--%>
 
-                    <div class="group-text">
+                    <%--<div class="group-text">
                         <div class="row">
                             <span>Nhóm đồng hồ 2</span>
                         </div>
@@ -689,9 +688,9 @@
                                 OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll"
                                 TypeName="SiteGroup2sBLL"></asp:ObjectDataSource>
                         </div>
-                    </div>
+                    </div>--%>
 
-                    <div class="group-text">
+                    <%-- <div class="group-text">
                         <div class="row">
                             <span>Nhóm đồng hồ 3</span>
                         </div>
@@ -717,9 +716,9 @@
                             <asp:ObjectDataSource ID="SiteGroup3sDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll" TypeName="SiteGroup3sBLL"></asp:ObjectDataSource>
 
                         </div>
-                    </div>
+                    </div>--%>
 
-                    <div class="group-text">
+                    <%--<div class="group-text">
                         <div class="row">
                             <span>Nhóm đồng hồ 4</span>
                         </div>
@@ -745,10 +744,10 @@
                             <asp:ObjectDataSource ID="SiteGroup4sDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll" TypeName="SiteGroup4sBLL"></asp:ObjectDataSource>
 
                         </div>
-                    </div>
+                    </div>--%>
 
 
-                    <div class="group-text">
+                    <%--<div class="group-text">
                         <div class="row">
                             <span>Nhóm đồng hồ 5</span>
                         </div>
@@ -774,9 +773,9 @@
                             <asp:ObjectDataSource ID="SiteGroup5sDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll" TypeName="SiteGroup5sBLL"></asp:ObjectDataSource>
 
                         </div>
-                    </div>
+                    </div>--%>
 
-                    <div class="group-text">
+                    <%-- <div class="group-text">
                         <div class="row">
                             <span>Ngày bàn giao</span>
                         </div>
@@ -790,10 +789,10 @@
                             </telerik:RadDatePicker>
 
                         </div>
-                    </div>
+                    </div>--%>
 
 
-                    <div class="group-text">
+                    <%-- <div class="group-text">
                         <div class="row">
                             <span>Số tấm</span>
                         </div>
@@ -802,9 +801,9 @@
                             </telerik:RadTextBox>
 
                         </div>
-                    </div>
+                    </div>--%>
 
-                    <div class="group-text">
+                    <%-- <div class="group-text">
                         <div class="row">
                             <span>Cao</span>
                         </div>
@@ -813,8 +812,7 @@
                             </telerik:RadTextBox>
 
                         </div>
-                    </div>
-
+                    </div>--%>
                 </div>
                 <div class="col-sm-4">
                     <div class="group-text">
@@ -827,7 +825,7 @@
                             </telerik:RadNumericTextBox>
                         </div>
                     </div>
-                    <div class="group-text">
+                    <%-- <div class="group-text">
                         <div class="row">
                             <span>Nhóm hiển thị</span>
                         </div>
@@ -841,7 +839,7 @@
                                 OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllViewGroups"
                                 TypeName="SitesBLL"></asp:ObjectDataSource>
                         </div>
-                    </div>
+                    </div>--%>
 
                     <%--<div class="group-text">
                         <div class="row">
@@ -939,7 +937,7 @@
                     </div>
 
 
-                    <div class="group-text">
+                    <%--  <div class="group-text">
                         <div class="row">
                             <span>Ngày thay acquy</span>
                         </div>
@@ -955,7 +953,7 @@
                                 <DatePopupButton HoverImageUrl="" ImageUrl="" TabIndex="-1" />
                             </telerik:RadDatePicker>
                         </div>
-                    </div>
+                    </div>--%>
 
                     <div class="group-text">
                         <div class="row">
@@ -1058,7 +1056,7 @@
                         </div>
                     </div>
 
-                    <div class="group-text change-height">
+                    <%--  <div class="group-text change-height">
                         <div class="row m-b">
                             <span>Tài sản</span>
                             <asp:CheckBox ID="chkProperty" runat="server" TabIndex="27" />
@@ -1084,9 +1082,9 @@
                             <span>Bàn giao</span>
                             <asp:CheckBox ID="chkTakeovered" runat="server" TabIndex="23" />
                         </div>
-                    </div>
+                    </div>--%>
 
-                    <div class="group-text">
+                    <%--  <div class="group-text">
                         <div class="row">
                             <span>Mã nắp hầm</span>
                         </div>
@@ -1101,9 +1099,9 @@
                                 OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllCoverIDs"
                                 TypeName="SiteCoversBLL"></asp:ObjectDataSource>
                         </div>
-                    </div>
+                    </div>--%>
 
-                    <div class="group-text">
+                    <%--<div class="group-text">
                         <div class="row">
                             <span>Dài</span>
                         </div>
@@ -1111,8 +1109,8 @@
                             <telerik:RadTextBox ID="txtCoverL" Enabled="false" runat="server" TabIndex="39">
                             </telerik:RadTextBox>
                         </div>
-                    </div>
-                    <div class="group-text">
+                    </div>--%>
+                    <%-- <div class="group-text">
                         <div class="row">
                             <span>Rộng</span>
                         </div>
@@ -1120,7 +1118,8 @@
                             <telerik:RadTextBox ID="txtCoverW" Enabled="false" runat="server" TabIndex="40">
                             </telerik:RadTextBox>
                         </div>
-                    </div>
+                    </div>--%>
+
                     <div class="group-text">
                         <div class="row">
                             <span>Upload</span>

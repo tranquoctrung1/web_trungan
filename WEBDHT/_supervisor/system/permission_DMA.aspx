@@ -23,7 +23,7 @@
                         <div class="row m-b">
                             <telerik:RadComboBox ID="cboStaffs" runat="server" AllowCustomText="True"
                                 DataSourceID="StaffDataSource" DataTextField="Id" DataValueField="Id"
-                                DropDownWidth="300" EnableLoadOnDemand="True" Filter="StartsWith" AutoPostBack="true"
+                                DropDownWidth="400" EnableLoadOnDemand="True" Filter="StartsWith" AutoPostBack="true"
                                 HighlightTemplatedItems="True" TabIndex="7" OnSelectedIndexChanged="cboStaffs_SelectedIndexChanged">
                                 <HeaderTemplate>
                                     <table cellpadding="0" cellspacing="0">
@@ -31,6 +31,7 @@
                                             <td style="width: 50px">Mã NV</td>
                                             <td style="width: 100px">Họ</td>
                                             <td style="width: 150px">Tên</td>
+                                            <td style="width: 150px">Tài Khoản</td>
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
@@ -45,6 +46,9 @@
                                             </td>
                                             <td style="width: 150px">
                                                 <%#DataBinder.Eval(Container.DataItem,"LastName") %>
+                                            </td>
+                                            <td style="width: 150px">
+                                                <%#DataBinder.Eval(Container.DataItem,"Uid") %>
                                             </td>
                                         </tr>
                                     </table>

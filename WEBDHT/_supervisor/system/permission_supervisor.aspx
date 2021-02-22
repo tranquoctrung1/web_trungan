@@ -32,6 +32,7 @@
                                             <td style="width: 50px">Mã NV</td>
                                             <td style="width: 100px">Họ</td>
                                             <td style="width: 150px">Tên</td>
+                                            <td style="width: 150px">Tài Khoản</td>
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
@@ -46,6 +47,9 @@
                                             </td>
                                             <td style="width: 150px">
                                                 <%#DataBinder.Eval(Container.DataItem,"LastName") %>
+                                            </td>
+                                             <td style="width: 150px">
+                                                <%#DataBinder.Eval(Container.DataItem,"Uid") %>
                                             </td>
                                         </tr>
                                     </table>

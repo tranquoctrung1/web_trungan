@@ -2154,7 +2154,7 @@ public partial class UserStaff : INotifyPropertyChanging, INotifyPropertyChanged
 	private string _FirstName;
 	
 	private string _LastName;
-	
+
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);

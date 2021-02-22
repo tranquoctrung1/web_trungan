@@ -159,6 +159,7 @@
     <Compile Include="Action\GetSiteByUIDAction.cs" />
     <Compile Include="Action\GetSitesByDisplayGroupAction.cs" />
     <Compile Include="Action\GetStatisticMeterAction.cs" />
+    <Compile Include="Action\GetStatisticSiteByStatusAction.cs" />
     <Compile Include="Action\GetStatisticSiteDMAAction.cs" />
     <Compile Include="Action\GetTimeOfFirstChannel.cs" />
     <Compile Include="Action\GetValueAlarmAction.cs" />
@@ -199,6 +200,7 @@
     <Compile Include="Controllers\GetMultipleDataController.cs" />
     <Compile Include="Controllers\GetSiteByUIDController.cs" />
     <Compile Include="Controllers\GetSitesByDisplayGroupController.cs" />
+    <Compile Include="Controllers\GetStatisticSiteByStatusController.cs" />
     <Compile Include="Controllers\GetStatisticSiteDMAController.cs" />
     <Compile Include="Controllers\GetTimeController.cs" />
     <Compile Include="Controllers\GetValueAlarmController.cs" />
@@ -289,6 +291,7 @@
     <Folder Include="Views\GetMultipleData\" />
     <Folder Include="Views\GetSiteByUID\" />
     <Folder Include="Views\GetSitesByDisplayGroup\" />
+    <Folder Include="Views\GetStatisticSiteByStatus\" />
     <Folder Include="Views\GetStatisticSiteDMA\" />
     <Folder Include="Views\GetTime\" />
     <Folder Include="Views\GetValueAlarm\" />

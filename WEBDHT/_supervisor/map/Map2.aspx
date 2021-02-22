@@ -366,6 +366,11 @@
                                             <asp:Label ID="lbRDERLogger" runat="server" Text="Hồ Sơ Thiết Bị Logger"></asp:Label>
                                         </a>
                                     </li>
+                                     <li>
+                                    <a href="/_supervisor/report/statisticpointbystatus.aspx">
+                                        <asp:Label ID="lbStatisitcPointByStatus" runat="server" Text="Point Theo Trình Trạng"></asp:Label>
+                                    </a>
+                                </li>
                                 </ul>
                             </li>
                             <li class="treeview">
@@ -540,11 +545,11 @@
                                         <asp:Label ID="lbTableAlarmForDMA" runat="server" Text="Bảng Cảnh Báo Cho DMA"></asp:Label>
                                     </a>
                                 </li>
-                                    <li>
+                                   <%-- <li>
                                         <a href="/_supervisor/alarm/SettingAlarm.aspx">
                                             <asp:Label ID="lbSettingAlarm" runat="server" Text="Cài Đặt Cảnh Báo"></asp:Label>
                                         </a>
-                                    </li>
+                                    </li>--%>
                                     <li>
                                     <a href="/_supervisor/alarm/SettingAlarmForPoint.aspx">
                                         <asp:Label ID="lbSettingAlarmForPont" runat="server" Text="Cài Đặt Cảnh Báo Cho Point"></asp:Label>
@@ -636,6 +641,11 @@
                                     <li>
                                         <a href="/_supervisor/system/permission_staff.aspx">
                                             <asp:Label ID="lbPermissionStaff" runat="server" Text="Phân quyền Staff"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/system/permission_consumer.aspx">
+                                            <asp:Label ID="lbPermissionConsumer" runat="server" Text="Phân quyền Consumer"></asp:Label>
                                         </a>
                                     </li>
                                 </ul>

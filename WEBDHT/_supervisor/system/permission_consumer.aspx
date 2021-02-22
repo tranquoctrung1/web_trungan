@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="permission_staff.aspx.cs" Inherits="_supervisor_system_permission_staff" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master"  AutoEventWireup="true" CodeFile="permission_consumer.aspx.cs" Inherits="_supervisor_system_permission_consumer" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
@@ -19,13 +19,13 @@
                 <div class="col-sm-6">
                     <div class="group-text">
                         <div class="row">
-                            <span>Mã nhân viên</span>
+                            <span>Mã khách hàng</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadComboBox ID="cboStaffs" runat="server" AllowCustomText="True"
-                                DataSourceID="StaffDataSource" DataTextField="Id" DataValueField="Id"
+                            <telerik:RadComboBox ID="cboConsumer" runat="server" AllowCustomText="True"
+                                DataSourceID="ConsumerDataSource" DataTextField="Id" DataValueField="Id"
                                 DropDownWidth="400" EnableLoadOnDemand="True" Filter="StartsWith" AutoPostBack="true"
-                                HighlightTemplatedItems="True" TabIndex="7" OnSelectedIndexChanged="cboStaffs_SelectedIndexChanged">
+                                HighlightTemplatedItems="True" TabIndex="7" OnSelectedIndexChanged="cboConsumer_SelectedIndexChanged">
                                 <HeaderTemplate>
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
@@ -55,8 +55,8 @@
                                     </table>
                                 </ItemTemplate>
                             </telerik:RadComboBox>
-                            <asp:ObjectDataSource ID="StaffDataSource" runat="server"
-                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetStaffStaff"
+                            <asp:ObjectDataSource ID="ConsumerDataSource" runat="server"
+                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetStaffConsumer"
                                 TypeName="UserStaffsBLL"></asp:ObjectDataSource>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
 
     <telerik:RadAjaxManagerProxy ID="RadAjaxManagerProxy1" runat="server">
         <AjaxSettings>
-            <telerik:AjaxSetting AjaxControlID="cboStaffs">
+            <telerik:AjaxSetting AjaxControlID="cboConsumer">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="cboSiteIds" />
                 </UpdatedControls>
@@ -116,7 +116,7 @@
             <telerik:AjaxSetting AjaxControlID="btnAdd">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="ntf" />
-                    <telerik:AjaxUpdatedControl ControlID="cboStaffs" />
+                    <telerik:AjaxUpdatedControl ControlID="cboConsumer" />
                     <telerik:AjaxUpdatedControl ControlID="cboSiteIds" />
                 </UpdatedControls>
             </telerik:AjaxSetting>

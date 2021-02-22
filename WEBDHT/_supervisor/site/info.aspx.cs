@@ -54,7 +54,7 @@ public partial class _supervisor_site_info : BasePage
         txtLocation.Text = string.Empty;
         nmrLogitude.Value = null;
         nmrLatitude.Value = null;
-        cboViewGroups.Text = string.Empty;
+        //cboViewGroups.Text = string.Empty;
         //cboStaffs.Text = string.Empty;
         cboMeters.Text = string.Empty;
         cboTransmitters.Text = string.Empty;
@@ -66,38 +66,38 @@ public partial class _supervisor_site_info : BasePage
         dtmMeterChanged.SelectedDate = null;
         dtmTransmitterChanged.SelectedDate = null;
         dtmLoggerChanged.SelectedDate = null;
-        dtmBatteryChanged.SelectedDate = null;
+        //dtmBatteryChanged.SelectedDate = null;
         dtmLoggerBatteryChanged.SelectedDate = null;
         dtmTransmitterBatteryChanged.SelectedDate = null;
-        nmrIndex.Value = null;
-        nmrIndex1.Value = null;
+       // nmrIndex.Value = null;
+        //nmrIndex1.Value = null;
         txtChangeDescription.Text = null;
-        cboLevels.Text = string.Empty;
-        cboGroups.Text = string.Empty;
-        cboGroup2s.Text = string.Empty;
-        cboGroup3s.Text = string.Empty;
-        cboGroup4s.Text = string.Empty;
-        cboGroup5s.Text = string.Empty;
+        //cboLevels.Text = string.Empty;
+        //boGroups.Text = string.Empty;
+        //cboGroup2s.Text = string.Empty;
+        //cboGroup3s.Text = string.Empty;
+        //cboGroup4s.Text = string.Empty;
+        //cboGroup5s.Text = string.Empty;
         cboCompanies.Text = string.Empty;
-        dtmTakeovered.SelectedDate = null;
-        chkTakeovered.Checked = false;
+        //dtmTakeovered.SelectedDate = null;
+        //chkTakeovered.Checked = false;
         cboStatus.Text = string.Empty;
         cboAvailabilities.Text = string.Empty;
-        chkDisplay.Checked = false;
-        chkProperty.Checked = false;
-        chkUsingLogger.Checked = false;
-        cboMeterDirections.Text = string.Empty;
-        cboProductionCompanies.Text = string.Empty;
-        cboQndDistributionCompanies.Text = string.Empty;
-        cboIstDistributionCompanies.Text = string.Empty;
-        txtDescription.Text = string.Empty;
+        //chkDisplay.Checked = false;
+        //chkProperty.Checked = false;
+        //chkUsingLogger.Checked = false;
+        //cboMeterDirections.Text = string.Empty;
+        //cboProductionCompanies.Text = string.Empty;
+        //cboQndDistributionCompanies.Text = string.Empty;
+        //cboIstDistributionCompanies.Text = string.Empty;
+        //txtDescription.Text = string.Empty;
         txtAddress.Text = string.Empty;
-        cboCoverIDs.Text = string.Empty;
-        txtCoverW.Text = string.Empty;
-        txtCoverL.Text = string.Empty;
-        txtCoverH.Text = string.Empty;
-        txtCoverMaterial.Text = string.Empty;
-        txtCoverNL.Text = string.Empty;
+        //cboCoverIDs.Text = string.Empty;
+        //txtCoverW.Text = string.Empty;
+        //txtCoverL.Text = string.Empty;
+        //txtCoverH.Text = string.Empty;
+        //txtCoverMaterial.Text = string.Empty;
+        //txtCoverNL.Text = string.Empty;
         cboDistricts.Text = string.Empty;
         cboCompaniesOut.Text = string.Empty;
 
@@ -179,48 +179,48 @@ public partial class _supervisor_site_info : BasePage
     {
         Site site = new Site();
         site.Availability = cboAvailabilities.Text;
-        site.ChangeIndex = nmrIndex.Value;
+        //site.ChangeIndex = nmrIndex.Value;
         site.Company = cboCompanies.Text;
-        site.DateOfBatteryChange = dtmBatteryChanged.SelectedDate;
+        //site.DateOfBatteryChange = dtmBatteryChanged.SelectedDate;
         site.DateOfLoggerBatteryChange = dtmLoggerBatteryChanged.SelectedDate;
         site.DateOfLoggerChange = dtmLoggerChanged.SelectedDate;
         site.DateOfMeterChange = dtmMeterChanged.SelectedDate;
         site.DateOfTransmitterBatteryChange = dtmTransmitterBatteryChanged.SelectedDate;
         site.DateOfTransmitterChange = dtmTransmitterChanged.SelectedDate;
-        site.Description = txtDescription.Text;
+        //site.Description = txtDescription.Text;
         site.DescriptionOfChange = txtChangeDescription.Text;
-        site.Display = chkDisplay.Checked;
-        site.Group = cboGroups.Text;
+        //site.Display = chkDisplay.Checked;
+        //site.Group = cboGroups.Text;
         site.Id = cboIds.Text;
-        site.IstDistributionCompany = cboIstDistributionCompanies.Text;
-        site.IstDoNotCalculateReverse = chkIstDoNotCalculateReverse.Checked;
+        //site.IstDistributionCompany = cboIstDistributionCompanies.Text;
+        //site.IstDoNotCalculateReverse = chkIstDoNotCalculateReverse.Checked;
         site.Latitude = nmrLatitude.Value;
-        site.Level = cboLevels.Text;
+        //site.Level = cboLevels.Text;
         site.Location = txtLocation.Text;
         site.Logger = cboLoggers.Text ;
         site.Longitude = nmrLogitude.Value;
         site.Meter = cboMeters.Text;
-        site.MeterDirection = cboMeterDirections.Text;
+        //site.MeterDirection = cboMeterDirections.Text;
         site.OldId = cboOldIds.Text;
-        site.ProductionCompany = cboProductionCompanies.Text;
-        site.Property = chkProperty.Checked;
-        site.QndDistributionCompany = cboQndDistributionCompanies.Text;
-        site.QndDoNotCalculateReverse = chkQndDoNotCalculateReverse.Checked;
+        //site.ProductionCompany = cboProductionCompanies.Text;
+        //site.Property = chkProperty.Checked;
+        //site.QndDistributionCompany = cboQndDistributionCompanies.Text;
+        //site.QndDoNotCalculateReverse = chkQndDoNotCalculateReverse.Checked;
         //site.StaffId = cboStaffs.Text;
         site.StaffId = "";
         site.Status = cboStatus.Text;
-        site.TakeoverDate = dtmTakeovered.SelectedDate;
-        site.Takeovered = chkTakeovered.Checked;
+        //site.TakeoverDate = dtmTakeovered.SelectedDate;
+        //site.Takeovered = chkTakeovered.Checked;
         site.Transmitter = cboTransmitters.Text;
-        site.UsingLogger = chkUsingLogger.Checked;
-        site.ViewGroup = cboViewGroups.Text;
-        site.ChangeIndex1 = nmrIndex1.Value;
-        site.Group2 = cboGroup2s.Text;
-        site.Group3 = cboGroup3s.Text;
-        site.Group4 = cboGroup4s.Text;
-        site.Group5 = cboGroup5s.Text;
+        //site.UsingLogger = chkUsingLogger.Checked;
+       // site.ViewGroup = cboViewGroups.Text;
+        //site.ChangeIndex1 = nmrIndex1.Value;
+        //site.Group2 = cboGroup2s.Text;
+        //site.Group3 = cboGroup3s.Text;
+        //site.Group4 = cboGroup4s.Text;
+        //site.Group5 = cboGroup5s.Text;
         site.Address = txtAddress.Text;
-        site.CoverID = cboCoverIDs.Text;
+        //site.CoverID = cboCoverIDs.Text;
         site.District = cboDistricts.Text;
         site.DMAOut = cboCompaniesOut.Text;
         return site;
@@ -229,76 +229,76 @@ public partial class _supervisor_site_info : BasePage
     {
         cboAvailabilities.Text = site.Availability;
         cboAvailabilities.SelectedIndex = -1;
-        nmrIndex.Value = site.ChangeIndex;
+        //nmrIndex.Value = site.ChangeIndex;
         cboCompanies.Text = site.Company;
         cboCompanies.SelectedIndex = -1;
-        dtmBatteryChanged.SelectedDate = site.DateOfBatteryChange;
+        //dtmBatteryChanged.SelectedDate = site.DateOfBatteryChange;
         dtmLoggerBatteryChanged.SelectedDate = site.DateOfLoggerBatteryChange;
         dtmLoggerChanged.SelectedDate = site.DateOfLoggerChange;
         dtmMeterChanged.SelectedDate = site.DateOfMeterChange;
         dtmTransmitterBatteryChanged.SelectedDate = site.DateOfTransmitterBatteryChange;
         dtmTransmitterChanged.SelectedDate = site.DateOfTransmitterChange;
-        txtDescription.Text = site.Description;
+       // txtDescription.Text = site.Description;
         txtChangeDescription.Text = site.DescriptionOfChange;
-        chkDisplay.Checked = site.Display ?? false;
-        cboGroups.SelectedIndex = -1;
-        cboGroups.Text = site.Group;
+       // chkDisplay.Checked = site.Display ?? false;
+       // cboGroups.SelectedIndex = -1;
+       // cboGroups.Text = site.Group;
         cboIds.SelectedIndex = -1;
         cboIds.Text = site.Id;
-        cboIstDistributionCompanies.SelectedIndex = -1;
-        cboIstDistributionCompanies.Text = site.IstDistributionCompany;
-        chkIstDoNotCalculateReverse.Checked = site.IstDoNotCalculateReverse ?? false;
+       //cboIstDistributionCompanies.SelectedIndex = -1;
+       // cboIstDistributionCompanies.Text = site.IstDistributionCompany;
+        //chkIstDoNotCalculateReverse.Checked = site.IstDoNotCalculateReverse ?? false;
         nmrLatitude.Value = site.Latitude;
-        cboLevels.SelectedIndex = -1;
-        cboLevels.Text = site.Level;
+       // cboLevels.SelectedIndex = -1;
+       // cboLevels.Text = site.Level;
         txtLocation.Text = site.Location;
         cboLoggers.SelectedIndex = -1;
         cboLoggers.Text = site.Logger;
         nmrLogitude.Value = site.Longitude;
         cboMeters.SelectedIndex = -1;
         cboMeters.Text = site.Meter;
-        cboMeterDirections.SelectedIndex = -1;
-        cboMeterDirections.Text = site.MeterDirection;
+        //cboMeterDirections.SelectedIndex = -1;
+        //cboMeterDirections.Text = site.MeterDirection;
         cboOldIds.SelectedIndex = -1;
         cboOldIds.Text = site.OldId;
-        cboProductionCompanies.SelectedIndex = -1;
-        cboProductionCompanies.Text = site.ProductionCompany;
-        chkProperty.Checked = site.Property ?? false;
-        cboIstDistributionCompanies.SelectedIndex = -1;
-        cboIstDistributionCompanies.Text = site.IstDistributionCompany;
-        cboQndDistributionCompanies.SelectedIndex = -1;
-        cboQndDistributionCompanies.Text = site.QndDistributionCompany;
-        chkQndDoNotCalculateReverse.Checked = site.QndDoNotCalculateReverse ?? false;
+       // cboProductionCompanies.SelectedIndex = -1;
+        //cboProductionCompanies.Text = site.ProductionCompany;
+        //chkProperty.Checked = site.Property ?? false;
+        //cboIstDistributionCompanies.SelectedIndex = -1;
+        //cboIstDistributionCompanies.Text = site.IstDistributionCompany;
+        //cboQndDistributionCompanies.SelectedIndex = -1;
+        //cboQndDistributionCompanies.Text = site.QndDistributionCompany;
+        //chkQndDoNotCalculateReverse.Checked = site.QndDoNotCalculateReverse ?? false;
         //cboStaffs.SelectedIndex = -1;
         //cboStaffs.Text = site.StaffId;
         cboStatus.SelectedIndex = -1;
         cboStatus.Text = site.Status;
-        dtmTakeovered.SelectedDate = site.TakeoverDate;
-        chkTakeovered.Checked = site.Takeovered ?? false;
+        //dtmTakeovered.SelectedDate = site.TakeoverDate;
+        //chkTakeovered.Checked = site.Takeovered ?? false;
         cboTransmitters.SelectedIndex = -1;
         cboTransmitters.Text = site.Transmitter;
-        chkUsingLogger.Checked = site.UsingLogger ?? false;
-        cboViewGroups.SelectedIndex = -1;
-        cboViewGroups.Text = site.ViewGroup;
-        nmrIndex1.Value = site.ChangeIndex1;
-        cboGroup2s.SelectedIndex = -1;
-        cboGroup2s.Text = site.Group2;
-        cboGroup3s.SelectedIndex = -1;
-        cboGroup3s.Text = site.Group3;
-        cboGroup4s.SelectedIndex = -1;
-        cboGroup4s.Text = site.Group4;
-        cboGroup5s.SelectedIndex = -1;
-        cboGroup5s.Text = site.Group5;
+       // chkUsingLogger.Checked = site.UsingLogger ?? false;
+        //cboViewGroups.SelectedIndex = -1;
+        //cboViewGroups.Text = site.ViewGroup;
+        //nmrIndex1.Value = site.ChangeIndex1;
+        //cboGroup2s.SelectedIndex = -1;
+        //cboGroup2s.Text = site.Group2;
+        //cboGroup3s.SelectedIndex = -1;
+        //cboGroup3s.Text = site.Group3;
+        //cboGroup4s.SelectedIndex = -1;
+        //cboGroup4s.Text = site.Group4;
+        //cboGroup5s.SelectedIndex = -1;
+        //cboGroup5s.Text = site.Group5;
         txtAddress.Text = site.Address;
 
 
-        cboCoverIDs.SelectedIndex = -1;
-        cboCoverIDs.Text = string.Empty;
-        txtCoverW.Text = string.Empty;
-        txtCoverL.Text = string.Empty;
-        txtCoverH.Text = string.Empty;
-        txtCoverMaterial.Text = string.Empty;
-        txtCoverNL.Text = string.Empty;
+        //cboCoverIDs.SelectedIndex = -1;
+        //cboCoverIDs.Text = string.Empty;
+        //txtCoverW.Text = string.Empty;
+        //txtCoverL.Text = string.Empty;
+        //txtCoverH.Text = string.Empty;
+        //txtCoverMaterial.Text = string.Empty;
+        //txtCoverNL.Text = string.Empty;
         var cover = _siteCoversBLL.GetCoverByID(site.CoverID);
         if (cover != null)
         {
@@ -527,28 +527,28 @@ public partial class _supervisor_site_info : BasePage
 
     protected void cboCoverIDs_SelectedIndexChanged(object sender, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
     {
-        var cover = _siteCoversBLL.GetCoverByID(cboCoverIDs.Text);
-        if (cover != null)
-        {
-            SetCoverControlValues(cover);
-        }
-        else
-        {
-            txtCoverW.Text = string.Empty;
-            txtCoverL.Text = string.Empty;
-            txtCoverH.Text = string.Empty;
-            txtCoverMaterial.Text = string.Empty;
-            txtCoverNL.Text = string.Empty;
-        }
+        //var cover = _siteCoversBLL.GetCoverByID(cboCoverIDs.Text);
+        //if (cover != null)
+        //{
+        //    SetCoverControlValues(cover);
+        //}
+        //else
+        //{
+        //    txtCoverW.Text = string.Empty;
+        //    txtCoverL.Text = string.Empty;
+        //    txtCoverH.Text = string.Empty;
+        //    txtCoverMaterial.Text = string.Empty;
+        //    txtCoverNL.Text = string.Empty;
+        //}
     }
 
     public void SetCoverControlValues(Cover cover)
     {
-        cboCoverIDs.Text = cover.CoverID;
-        txtCoverH.Text = cover.CoverH.ToString();
-        txtCoverL.Text = cover.CoverL.ToString();
-        txtCoverMaterial.Text = cover.CoverMaterial.ToString();
-        txtCoverNL.Text = cover.CoverNL.ToString();
-        txtCoverW.Text = cover.CoverW.ToString();
+        //cboCoverIDs.Text = cover.CoverID;
+        //txtCoverH.Text = cover.CoverH.ToString();
+        //txtCoverL.Text = cover.CoverL.ToString();
+        //txtCoverMaterial.Text = cover.CoverMaterial.ToString();
+        //txtCoverNL.Text = cover.CoverNL.ToString();
+        //txtCoverW.Text = cover.CoverW.ToString();
     }
 }

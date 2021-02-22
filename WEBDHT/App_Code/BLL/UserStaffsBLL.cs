@@ -51,14 +51,14 @@ public class UserStaffsBLL
 
     [System.ComponentModel.DataObjectMethod
    (System.ComponentModel.DataObjectMethodType.Select)]
-    public List<UserStaff> GetStaffSupervisor()
+    public List<Staff> GetStaffSupervisor()
     {
-        List<UserStaff> list = new List<UserStaff>();
+        List<Staff> list = new List<Staff>();
         Connect connect = new Connect();
 
         try
         {
-            string sqlQuery = "select [Id], [FirstName], [LastName] from [t_User_Staffs] s join [t_User_Users] u on s.[Id] = u.[StaffId] where u.Role = 'supervisor'";
+            string sqlQuery = "select [Id], [FirstName], [LastName], [Uid] from [t_User_Staffs] s join [t_User_Users] u on s.[Id] = u.[StaffId] where u.Role = 'supervisor'";
 
             connect.Connected();
 
@@ -68,7 +68,7 @@ public class UserStaffsBLL
             {
                 while(reader.Read())
                 {
-                    UserStaff el = new UserStaff();
+                    Staff el = new Staff();
                     try
                     {
                         el.FirstName = reader["FirstName"].ToString();
@@ -93,6 +93,14 @@ public class UserStaffsBLL
                     {
                         el.LastName = "";
                     }
+                    try
+                    {
+                        el.Uid = reader["UId"].ToString();
+                    }
+                    catch(Exception ex)
+                    {
+                        el.Uid = "";
+                    }
 
                     list.Add(el);
                 }
@@ -113,14 +121,14 @@ public class UserStaffsBLL
 
     [System.ComponentModel.DataObjectMethod
    (System.ComponentModel.DataObjectMethodType.Select)]
-    public List<UserStaff> GetStaffDMA()
+    public List<Staff> GetStaffDMA()
     {
-        List<UserStaff> list = new List<UserStaff>();
+        List<Staff> list = new List<Staff>();
         Connect connect = new Connect();
 
         try
         {
-            string sqlQuery = "select [Id], [FirstName], [LastName] from [t_User_Staffs] s join [t_User_Users] u on s.[Id] = u.[StaffId] where u.Role = 'DMA'";
+            string sqlQuery = "select [Id], [FirstName], [LastName], [Uid] from [t_User_Staffs] s join [t_User_Users] u on s.[Id] = u.[StaffId] where u.Role = 'DMA'";
 
             connect.Connected();
 
@@ -130,7 +138,7 @@ public class UserStaffsBLL
             {
                 while (reader.Read())
                 {
-                    UserStaff el = new UserStaff();
+                    Staff el = new Staff();
                     try
                     {
                         el.FirstName = reader["FirstName"].ToString();
@@ -154,6 +162,14 @@ public class UserStaffsBLL
                     catch (Exception ex)
                     {
                         el.LastName = "";
+                    }
+                    try
+                    {
+                        el.Uid = reader["UId"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Uid = "";
                     }
 
                     list.Add(el);
@@ -175,14 +191,14 @@ public class UserStaffsBLL
 
     [System.ComponentModel.DataObjectMethod
    (System.ComponentModel.DataObjectMethodType.Select)]
-    public List<UserStaff> GetStaffStaff()
+    public List<Staff> GetStaffStaff()
     {
-        List<UserStaff> list = new List<UserStaff>();
+        List<Staff> list = new List<Staff>();
         Connect connect = new Connect();
 
         try
         {
-            string sqlQuery = "select [Id], [FirstName], [LastName] from [t_User_Staffs] s join [t_User_Users] u on s.[Id] = u.[StaffId] where u.Role = 'staff'";
+            string sqlQuery = "select [Id], [FirstName], [LastName], [Uid] from [t_User_Staffs] s join [t_User_Users] u on s.[Id] = u.[StaffId] where u.Role = 'staff'";
 
             connect.Connected();
 
@@ -192,7 +208,7 @@ public class UserStaffsBLL
             {
                 while (reader.Read())
                 {
-                    UserStaff el = new UserStaff();
+                    Staff el = new Staff();
                     try
                     {
                         el.FirstName = reader["FirstName"].ToString();
@@ -216,6 +232,14 @@ public class UserStaffsBLL
                     catch (Exception ex)
                     {
                         el.LastName = "";
+                    }
+                    try
+                    {
+                        el.Uid = reader["UId"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Uid = "";
                     }
 
                     list.Add(el);
@@ -237,14 +261,14 @@ public class UserStaffsBLL
 
     [System.ComponentModel.DataObjectMethod
    (System.ComponentModel.DataObjectMethodType.Select)]
-    public List<UserStaff> GetStaffConsumer()
+    public List<Staff> GetStaffConsumer()
     {
-        List<UserStaff> list = new List<UserStaff>();
+        List<Staff> list = new List<Staff>();
         Connect connect = new Connect();
 
         try
         {
-            string sqlQuery = "select [Id], [FirstName], [LastName] from [t_User_Staffs] s join [t_User_Users] u on s.[Id] = u.[StaffId] where u.Role = 'consumer'";
+            string sqlQuery = "select [Id], [FirstName], [LastName], [Uid] from [t_User_Staffs] s join [t_User_Users] u on s.[Id] = u.[StaffId] where u.Role = 'consumer'";
 
             connect.Connected();
 
@@ -254,7 +278,7 @@ public class UserStaffsBLL
             {
                 while (reader.Read())
                 {
-                    UserStaff el = new UserStaff();
+                    Staff el = new Staff();
                     try
                     {
                         el.FirstName = reader["FirstName"].ToString();
@@ -278,6 +302,14 @@ public class UserStaffsBLL
                     catch (Exception ex)
                     {
                         el.LastName = "";
+                    }
+                    try
+                    {
+                        el.Uid = reader["UId"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Uid = "";
                     }
 
                     list.Add(el);

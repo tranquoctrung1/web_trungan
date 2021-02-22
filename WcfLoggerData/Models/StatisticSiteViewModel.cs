@@ -56,5 +56,7 @@ namespace WcfLoggerData.Models
         public string LoggerId { get; set; }
         public string District { get; set; }
         public string ApprovalDecision { get; set; }
+
+        public string DMAOut { get; set; }
     }
 }
