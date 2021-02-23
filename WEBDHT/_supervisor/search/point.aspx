@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="statisticpointbystatus.aspx.cs" Inherits="_supervisor_report_statisticpointbystatus" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="point.aspx.cs" Inherits="_supervisor_search_point" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <link href="../../css/Config.css" rel="stylesheet">
@@ -22,42 +22,44 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div id="main-content2">
         <div id="main-content-title">
-            <h2 class="title">Thống Kê Point Theo Tình Trạng</h2>
+            <h2 class="title">Tìm Kiếm Point</h2>
         </div>
-      <%-- <div class="container-fluid m-t">
+       <%--<div class="container-fluid m-t">
             <div class="row">
                 <div class="col-sm-10">
                     <div class="group-text">
                           <div class="row">
-                            <span>Tình Trạng</span>
+                            <span>Quận</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadComboBox ID="cboStatus" Runat="server" AllowCustomText="True" 
+                            <telerik:RadComboBox ID="cboDistrict" Runat="server" AllowCustomText="True" 
                                 EnableLoadOnDemand="True" Filter="StartsWith" 
-                                HighlightTemplatedItems="True" DataSourceID="StatusDataSource" 
-                                DataTextField="Status" DataValueField="Status" DropDownWidth="400px" 
+                                HighlightTemplatedItems="True" DataSourceID="DistrictDataSource" 
+                                DataTextField="IdDistrict" DataValueField="IdDistrict" DropDownWidth="400px" 
                                 TabIndex="10" onclientselectedindexchanged="OnClientSelectedIndexChanged"
                                 AutoPostBack="false">
                                 <HeaderTemplate>
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
-                                            <td style="width:150px">Trạng Thái</td>
-                                            <td style="width:250px">Mô tả</td>
+                                            <td style="width:100px">Mã Quận</td>
+                                            <td style="width:150px">Tên</td>
+                                            <td style="width:150px">Mô tả</td>
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
-                                            <td style="width:150px"><%#DataBinder.Eval(Container.DataItem,"Status") %></td>
-                                            <td style="width:250px"><%#DataBinder.Eval(Container.DataItem,"Description") %></td>
+                                            <td style="width:100px"><%#DataBinder.Eval(Container.DataItem,"IdDistrict") %></td>
+                                            <td style="width:150px"><%#DataBinder.Eval(Container.DataItem,"Name") %></td>
+                                            <td style="width:150px"><%#DataBinder.Eval(Container.DataItem,"Description") %></td>
                                         </tr>
                                     </table
                                 </ItemTemplate>
                             </telerik:RadComboBox>
-                            <asp:ObjectDataSource ID="StatusDataSource" runat="server" 
-                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll" 
-                                TypeName="SiteStatusBLL">
+                            <asp:ObjectDataSource ID="DistrictDataSource" runat="server" 
+                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetDistricts" 
+                                TypeName="DistrictBLL">
                             </asp:ObjectDataSource>
                            
                         </div>
@@ -70,6 +72,42 @@
                             <span>&nbsp</span>
                         </div>
                             <button class="btn btn-primary" id="reload">Tải lại</button>
+                        </div>
+                    </div>
+                <div class="col-sm-10">
+                    <div class="group-text">
+                          <div class="row">
+                            <span>DMA</span>
+                        </div>
+                        <div class="row m-b">
+                            <telerik:RadComboBox ID="cboDMA" Runat="server" AllowCustomText="True" 
+                                EnableLoadOnDemand="True" Filter="StartsWith" 
+                                HighlightTemplatedItems="True" DataSourceID="DMADataSource" 
+                                DataTextField="Company" DataValueField="Company" DropDownWidth="400px" 
+                                TabIndex="10" onclientselectedindexchanged="OnClientDMASelectedIndexChanged"
+                                AutoPostBack="false">
+                                <HeaderTemplate>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="width:150px">Mã DMA</td>
+                                            <td style="width:250px">Mô tả</td>
+                                        </tr>
+                                    </table>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="width:150px"><%#DataBinder.Eval(Container.DataItem,"Company") %></td>
+                                            <td style="width:250px"><%#DataBinder.Eval(Container.DataItem,"Description") %></td>
+                                        </tr>
+                                    </table
+                                </ItemTemplate>
+                            </telerik:RadComboBox>
+                            <asp:ObjectDataSource ID="DMADataSource" runat="server" 
+                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetDMAs" 
+                                TypeName="DMABLL">
+                            </asp:ObjectDataSource>
+                           
                         </div>
                     </div>
             </div>
@@ -166,7 +204,7 @@
 
                 talbe = $('#example').DataTable({
                     initComplete: function () {
-                        this.api().columns([6, 7, 8, 9]).every(function () {
+                        this.api().columns([6,7,8,9]).every(function () {
                             var column = this;
                             var select = $('<select><option value=""></option></select>')
                                 .appendTo($(column.footer()).empty())
@@ -222,12 +260,25 @@
             body.innerHTML = content;
         }
 
-        //function OnClientSelectedIndexChanged(sender, eventArgs) {
-        //    var newItem = eventArgs.get_item();
+    <%-- function OnClientSelectedIndexChanged(sender, eventArgs) {
 
-        //    table.search(newItem.get_text()).draw();
-        //}
+            let cboDMA = $find("<%=cboDMA.ClientID %>");
+            cboDMA.set_text("");
 
+            var newItem = eventArgs.get_item();
+
+            table.search(newItem.get_text()).draw();
+        }
+
+
+        function OnClientDMASelectedIndexChanged(sender, eventArgs) {
+
+            let cboDistrict = $find("<%=cboDistrict.ClientID %>");
+            cboDistrict.set_text("");
+            var newItem = eventArgs.get_item();
+
+            table.search(newItem.get_text()).draw();
+        }--%>
 
         getData();
 

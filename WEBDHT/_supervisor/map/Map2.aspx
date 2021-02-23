@@ -172,16 +172,16 @@
                                     <img src="../../App_Themes/logo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8" runat="server" id="imgLogo">
                                 </a>
                             </li>--%>
-                            <li>
+                           <%-- <li>
                                 <a href="/_supervisor/map/Map.aspx">
                                     <i class="fa fa-home"></i>
                                     <asp:Label ID="lbMap" runat="server" Text="Bản Đồ Tổng Thể"></asp:Label>
                                 </a>
-                            </li>
+                            </li>--%>
                             <li>
                                 <a href="/_supervisor/map/Map2.aspx">
                                     <i class="fa fa-home"></i>
-                                    <asp:Label ID="lbMap2" runat="server" Text="Bản Đồ Tổng Thể 2"></asp:Label>
+                                    <asp:Label ID="lbMap2" runat="server" Text="Bản Đồ Tổng Thể"></asp:Label>
                                 </a>
                             </li>
                             <li>
@@ -373,6 +373,21 @@
                                 </li>
                                 </ul>
                             </li>
+                            <li class="treeview">
+                            <a href="#TimKiem"><i class="fa fa-search"></i>
+                                <asp:Label ID="lbSearch" runat="server" Text="Tìm Kiếm"></asp:Label>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                 <li>
+                                    <a href="/_supervisor/search/point.aspx">
+                                        <asp:Label ID="lbSearchPoint" runat="server" Text="Tìm Kiếm Point"></asp:Label>
+                                    </a>
+                                </li>
+                            </ul>
+                             </li>
                             <li class="treeview">
                                 <a href="#NhapLieu"><i class="fa fa-pencil-square-o"></i>
                                     <asp:Label ID="lbNhapLieu" runat="server" Text="Nhập Liệu"></asp:Label>
