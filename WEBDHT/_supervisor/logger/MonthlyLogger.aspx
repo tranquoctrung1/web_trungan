@@ -22,10 +22,10 @@
         <div id="main-content-title">
             <h2 class="title">Sản Lượng Tháng Theo Point</h2>
         </div>
-        <div class="container-fluid m-t">
+        <div class="container-fluid m-t"> 
             <div class="row">
                 <div class="col-sm-4">
-                    <div class="group-text">+
+                    <div class="group-text">
                         <div class="row">
                             <span>Mã point</span>
                         </div>

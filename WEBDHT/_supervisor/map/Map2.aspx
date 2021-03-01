@@ -43,6 +43,7 @@
             .auto-style2 {
                 width: 18px;
             }
+            
 
             .tCenter {
                 text-align: center

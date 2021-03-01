@@ -61,7 +61,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-5">
                             <div class="m-b col-sm-6 ">
                                 <span>Ngày bắt đầu: </span>
                                 <telerik:RadDatePicker ID="dtmStart" runat="server" Culture="en-GB"
@@ -89,8 +89,9 @@
                                 </telerik:RadDatePicker>
                             </div>
                         </div>
-                        <div class="col-sm-2 m-b">
+                        <div class="col-sm-3 m-b">
                             <button class="btn btn-info m-r" onclick="view(); return false;">Xem</button>
+                            <button class="btn btn-info m-r" onclick="turn(); return false;" id="btnTurnAlarm" data-turn="-1"></button>
                         </div>
                         <div class="col-sm-4 search-area m-b">
                             <input class="form-control me-2" type="text" placeholder="Vị trí" id="txtSearch">
@@ -314,8 +315,48 @@
             return result;
         }
 
+        function getTurnHistotyAlarm() {
+            let url = `${hostname}/api/getturnhistoryalarm?type=Point`;
+
+            axios.get(url).then((res) => {
+                if (res.data == false || res.data == "false") {
+                    let btnTurnAlarm = document.getElementById('btnTurnAlarm');
+                    btnTurnAlarm.innerHTML = "Bật cảnh báo";
+                    btnTurnAlarm.dataset.turn = "true"
+                }
+                else if (res.data == true || res.data == "true") {
+                    let btnTurnAlarm = document.getElementById('btnTurnAlarm');
+                    btnTurnAlarm.innerHTML = "Tắt cảnh báo";
+                    btnTurnAlarm.dataset.turn = "false"
+                }
+            }).catch(err => console.log(err))
+        }
+
+        function turn() {
+            let btnTurnAlarm = document.getElementById('btnTurnAlarm');
+
+            let url = `${hostname}/api/updateturnhistoryalarm?ison=${btnTurnAlarm.dataset.turn}&type=Point`;
+
+            axios.post(url).then((res) => {
+                if (res.data.toString() == "1") {
+                    if (btnTurnAlarm.dataset.turn == "true") {
+                        btnTurnAlarm.innerHTML = "Tắt cảnh báo";
+                        btnTurnAlarm.dataset.turn = "false"
+                        alert("Bật cảnh báo thành công")
+                    }
+                    else {
+                        btnTurnAlarm.innerHTML = "Bật cảnh báo";
+                        btnTurnAlarm.dataset.turn = "true"
+                        let body = document.getElementById('body');
+                        body.innerHTML = `<tr><td  colspan="7"> Không có dữ liệu</td></tr>`;
+                        alert("Tắt cảnh báo thành công")
+                    }
+                }
+            }).catch(err => console.log(err))
+        }
 
         window.addEventListener('load', (event) => {
+            getTurnHistotyAlarm();
             // call get data
             getData();
           

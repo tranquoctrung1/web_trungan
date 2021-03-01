@@ -162,7 +162,9 @@
     <Compile Include="Action\GetStatisticSiteByStatusAction.cs" />
     <Compile Include="Action\GetStatisticSiteDMAAction.cs" />
     <Compile Include="Action\GetTimeOfFirstChannel.cs" />
+    <Compile Include="Action\GetTurnHistoryAlarmAction.cs" />
     <Compile Include="Action\GetValueAlarmAction.cs" />
+    <Compile Include="Action\UpdateTurnHistoryAlarmAction.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ConnectDB\Connect.cs" />
     <Compile Include="Controllers\GetAlarmForDMAController.cs" />
@@ -203,8 +205,10 @@
     <Compile Include="Controllers\GetStatisticSiteByStatusController.cs" />
     <Compile Include="Controllers\GetStatisticSiteDMAController.cs" />
     <Compile Include="Controllers\GetTimeController.cs" />
+    <Compile Include="Controllers\GetTurnHistoryAlarmController.cs" />
     <Compile Include="Controllers\GetValueAlarmController.cs" />
     <Compile Include="Controllers\InsertAndUpdateAlarmLoggerController.cs" />
+    <Compile Include="Controllers\UpdateTurnHistoryAlarmController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -241,6 +245,7 @@
     <Compile Include="Models\StatisticSiteDMAViewModel.cs" />
     <Compile Include="Models\StatisticSiteViewModel.cs" />
     <Compile Include="Models\StatisticTransmitterViewModel.cs" />
+    <Compile Include="Models\TurnHistoryAlarmViewModel.cs" />
     <Compile Include="Models\ValueAlarmViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -294,8 +299,10 @@
     <Folder Include="Views\GetStatisticSiteByStatus\" />
     <Folder Include="Views\GetStatisticSiteDMA\" />
     <Folder Include="Views\GetTime\" />
+    <Folder Include="Views\GetTurnHistoryAlarm\" />
     <Folder Include="Views\GetValueAlarm\" />
     <Folder Include="Views\InsertAndUpdateAlarmLogger\" />
+    <Folder Include="Views\UpdateTurnHistoryAlarm\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
