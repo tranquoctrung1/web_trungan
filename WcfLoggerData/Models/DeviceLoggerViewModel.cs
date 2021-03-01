@@ -18,6 +18,8 @@ namespace WcfLoggerData.Models
         Nullable<DateTime> dateAccreditation;
         Nullable<DateTime> dateInstallBattery;
         Nullable<int> yearBattery;
+        string company;
+        string district;
 
         public string Serial { get => serial; set => serial = value; }
         public DateTime? ReceiptDate { get => receiptDate; set => receiptDate = value; }
@@ -30,5 +32,7 @@ namespace WcfLoggerData.Models
         public DateTime? DateAccreditation { get => dateAccreditation; set => dateAccreditation = value; }
         public DateTime? DateInstallBattery { get => dateInstallBattery; set => dateInstallBattery = value; }
         public int? YearBattery { get => yearBattery; set => yearBattery = value; }
+        public string Company { get => company; set => company = value; }
+        public string District { get => district; set => district = value; }
     }
 }

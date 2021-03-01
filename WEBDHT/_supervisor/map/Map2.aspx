@@ -372,6 +372,16 @@
                                         <asp:Label ID="lbStatisitcPointByStatus" runat="server" Text="Point Theo Trình Trạng"></asp:Label>
                                     </a>
                                 </li>
+                                     <li>
+                                    <a href="/_supervisor/report/statisticLogger.aspx">
+                                        <asp:Label ID="lbStatisitcLoggerByStatus" runat="server" Text="Logger Theo Tình Trạng"></asp:Label>
+                                    </a>
+                                </li>
+                                     <li>
+                                    <a href="/_supervisor/report/statisticDateExpireLogger.aspx">
+                                        <asp:Label ID="lbStatisitcLoggerByDateExpireBattery" runat="server" Text="Logger Theo Thời Gian Pin"></asp:Label>
+                                    </a>
+                                </li>
                                 </ul>
                             </li>
                             <li class="treeview">
