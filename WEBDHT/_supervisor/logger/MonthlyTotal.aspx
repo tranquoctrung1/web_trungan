@@ -268,7 +268,6 @@
         }
 
         function btnExportOnClick(e) {
-            let siteIDCbo = $find('<%=cboSiteIds.ClientID %>');
             let start = $find('<%=dtmStart.ClientID %>');
             let end = $find('<%=dtmEnd.ClientID %>');
 
@@ -299,7 +298,7 @@
             let url = tableToExcel('dataTable', `SL`);
             let a = $("<a />", {
                 href: url,
-                download: `San_Luong_Thang_${siteIDCbo.get_text()}_Tu_${convertDate2(start.get_selectedDate())}_Den_${convertDate2(end.get_selectedDate())}.xls`
+                download: `San_Luong_Thang_Tu_${convertDate2(start.get_selectedDate())}_Den_${convertDate2(end.get_selectedDate())}.xls`
             }).appendTo("body").get(0).click();
 
         }
