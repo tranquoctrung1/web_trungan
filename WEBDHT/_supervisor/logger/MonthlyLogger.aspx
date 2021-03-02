@@ -96,6 +96,7 @@
             <div class="row">
                 <div class="text-center col-sm-12 m-t m-b no-padding" style="clear: both;">
                     <button class="btn btn-primary" id="btnView" onclick="btnViewOnClick(); return false;">Xem</button>
+                    <button class="btn btn-success" id="btnExport" onclick="btnExportOnClick(); return false;">Xuất Excel</button>
                 </div>
             </div>
         </div>
@@ -306,5 +307,47 @@
                 return true;
             return false;
         }
+
+        function convertDate2(date) {
+            return `${date.getFullYear()}_${date.getMonth() + 1}_${date.getDate()}_${date.getHours()}_${date.getMinutes()}_${date.getSeconds()}`;
+        }
+
+        function btnExportOnClick(e) {
+            let siteIDCbo = $find('<%=cboSiteIds.ClientID %>');
+            let start = $find('<%=dtmStart.ClientID %>');
+            let end = $find('<%=dtmEnd.ClientID %>');
+
+            var tableToExcel = (function () {
+                var uri = 'data:application/vnd.ms-excel;base64,',
+                    template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>',
+                    base64 = function (s) {
+                        return window.btoa(unescape(encodeURIComponent(s)))
+                    },
+                    format = function (s, c) {
+                        return s.replace(/{(\w+)}/g, function (m, p) {
+                            return c[p];
+                        })
+                    }
+                return function (table, name) {
+                    if (!table.nodeType) table = document.getElementById(table)
+                    var ctx = {
+                        worksheet: name || 'Worksheet',
+                        table: table.innerHTML
+                    }
+                    //window.location.href = uri + base64(format(template, ctx))
+                    var blob = new Blob([format(template, ctx)]);
+                    var blobURL = window.URL.createObjectURL(blob);
+                    return blobURL;
+                }
+            })()
+
+            let url = tableToExcel('dataTable', `SL`);
+            let a = $("<a />", {
+                href: url,
+                download: `San_Luong_Thang_${siteIDCbo.get_text()}_Tu_${convertDate2(start.get_selectedDate())}_Den_${convertDate2(end.get_selectedDate())}.xls`
+            }).appendTo("body").get(0).click();
+
+        }
+
     </script>
 </asp:Content>
