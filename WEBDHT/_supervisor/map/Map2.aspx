@@ -43,7 +43,7 @@
             .auto-style2 {
                 width: 18px;
             }
-            
+
 
             .tCenter {
                 text-align: center
@@ -173,7 +173,7 @@
                                     <img src="../../App_Themes/logo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8" runat="server" id="imgLogo">
                                 </a>
                             </li>--%>
-                           <%-- <li>
+                            <%-- <li>
                                 <a href="/_supervisor/map/Map.aspx">
                                     <i class="fa fa-home"></i>
                                     <asp:Label ID="lbMap" runat="server" Text="Bản Đồ Tổng Thể"></asp:Label>
@@ -317,11 +317,11 @@
                                             <asp:Label ID="lbRSIMarkSize" runat="server" Text="Thống Kê Tùy Chọn Hiệu Cỡ"></asp:Label>
                                         </a>
                                     </li>--%>
-                                    <li>
+                                    <%-- <li>
                                         <a href="/_supervisor/report/rsi_has_changed.aspx">
                                             <asp:Label ID="lbRSIChange" runat="server" Text="Hoạt Động Phát Sinh Trong Kỳ"></asp:Label>
                                         </a>
-                                    </li>
+                                    </li>--%>
                                     <%--<li>
                                         <a href="/_supervisor/report/rde_meter.aspx">
                                             <asp:Label ID="lbRDEMeter" runat="server" Text="Thống Kê Đồng Hồ"></asp:Label>
@@ -367,28 +367,58 @@
                                             <asp:Label ID="lbRDERLogger" runat="server" Text="Hồ Sơ Thiết Bị Logger"></asp:Label>
                                         </a>
                                     </li>--%>
-                                     <li>
-                                    <a href="/_supervisor/report/statisticpointbystatus.aspx">
-                                        <asp:Label ID="lbStatisitcPointByStatus" runat="server" Text="Point Theo Trình Trạng"></asp:Label>
-                                    </a>
-                                </li>
-                                     <li>
-                                    <a href="/_supervisor/report/statisticLogger.aspx">
-                                        <asp:Label ID="lbStatisitcLoggerByStatus" runat="server" Text="Logger Theo Tình Trạng"></asp:Label>
-                                    </a>
-                                </li>
-                                     <li>
-                                    <a href="/_supervisor/report/statisticDateExpireLogger.aspx">
-                                        <asp:Label ID="lbStatisitcLoggerByDateExpireBattery" runat="server" Text="Logger Theo Thời Gian Pin"></asp:Label>
-                                    </a>
-                                </li>
-                                     <li>
-                                    <a href="/_supervisor/report/statisticDMA.aspx">
-                                        <asp:Label ID="lbStatisticDMA" runat="server" Text="DMA Theo Tình Trạng"></asp:Label>
-                                    </a>
-                                </li>
+                                    <li>
+                                        <a href="/_supervisor/report/statisticpointbystatus.aspx">
+                                            <asp:Label ID="lbStatisitcPointByStatus" runat="server" Text="Point Theo Trình Trạng"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/report/statisticLogger.aspx">
+                                            <asp:Label ID="lbStatisitcLoggerByStatus" runat="server" Text="Logger Theo Tình Trạng"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/report/statisticDateExpireLogger.aspx">
+                                            <asp:Label ID="lbStatisitcLoggerByDateExpireBattery" runat="server" Text="Logger Theo Thời Gian Pin"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/report/statisticDMA.aspx">
+                                            <asp:Label ID="lbStatisticDMA" runat="server" Text="DMA Theo Tình Trạng"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/report/statisitcAccreditationMeter.aspx">
+                                            <asp:Label ID="lbStatisticAccreditationMeter" runat="server" Text="Kiểm Định Đồng Hồ"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/report/statisticMeterChanged.aspx">
+                                            <asp:Label ID="lbStatisticMeterChanged" runat="server" Text="Thay Đồng Hồ"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/report/statisticTransmitterChanged.aspx">
+                                            <asp:Label ID="lbStatisticTransmitterChanged" runat="server" Text="Thay Bộ Hiển Thị"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/report/statisticLoggerChanged.aspx">
+                                            <asp:Label ID="lbStatisticLoggerChanged" runat="server" Text="Thay Logger"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/report/statisticBatteryChanged.aspx">
+                                            <asp:Label ID="lbStatisticBatteryChanged" runat="server" Text="Thay Pin Bộ Hiển Thị"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/report/statisticBatteryChangedLogger.aspx">
+                                            <asp:Label ID="lbStatisticBatteryChangedLogger" runat="server" Text="Thay Pin Logger"></asp:Label>
+                                        </a>
+                                    </li>
                                 </ul>
-                           <%-- </li>
+                                <%-- </li>
                             <li class="treeview">
                             <a href="#TimKiem"><i class="fa fa-search"></i>
                                 <asp:Label ID="lbSearch" runat="server" Text="Tìm Kiếm"></asp:Label>
@@ -561,31 +591,31 @@
                                             <asp:Label ID="lbTableAlarm" runat="server" Text="Bảng Cảnh Báo"></asp:Label>
                                         </a>
                                     </li>--%>
-                                     <li>
-                                    <a href="/_supervisor/alarm/AlarmTableForPoint.aspx">
-                                        <asp:Label ID="lbTableAlarmForPoint" runat="server" Text="Bảng Cảnh Báo Cho Point"></asp:Label>
-                                    </a>
-                                </li>
                                     <li>
-                                    <a href="/_supervisor/alarm/AlarmTableForLogger.aspx">
-                                        <asp:Label ID="lbTableAlarmForLogger" runat="server" Text="Bảng Cảnh Báo Cho Logger"></asp:Label>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/_supervisor/alarm/AlarmTableForDMA.aspx">
-                                        <asp:Label ID="lbTableAlarmForDMA" runat="server" Text="Bảng Cảnh Báo Cho DMA"></asp:Label>
-                                    </a>
-                                </li>
-                                   <%-- <li>
+                                        <a href="/_supervisor/alarm/AlarmTableForPoint.aspx">
+                                            <asp:Label ID="lbTableAlarmForPoint" runat="server" Text="Bảng Cảnh Báo Cho Point"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/alarm/AlarmTableForLogger.aspx">
+                                            <asp:Label ID="lbTableAlarmForLogger" runat="server" Text="Bảng Cảnh Báo Cho Logger"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/_supervisor/alarm/AlarmTableForDMA.aspx">
+                                            <asp:Label ID="lbTableAlarmForDMA" runat="server" Text="Bảng Cảnh Báo Cho DMA"></asp:Label>
+                                        </a>
+                                    </li>
+                                    <%-- <li>
                                         <a href="/_supervisor/alarm/SettingAlarm.aspx">
                                             <asp:Label ID="lbSettingAlarm" runat="server" Text="Cài Đặt Cảnh Báo"></asp:Label>
                                         </a>
                                     </li>--%>
                                     <li>
-                                    <a href="/_supervisor/alarm/SettingAlarmForPoint.aspx">
-                                        <asp:Label ID="lbSettingAlarmForPont" runat="server" Text="Cài Đặt Cảnh Báo Cho Point"></asp:Label>
-                                    </a>
-                                </li>
+                                        <a href="/_supervisor/alarm/SettingAlarmForPoint.aspx">
+                                            <asp:Label ID="lbSettingAlarmForPont" runat="server" Text="Cài Đặt Cảnh Báo Cho Point"></asp:Label>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 
@@ -607,7 +637,6 @@
                                             <asp:Label ID="lbSeoerateDMA" runat="server" Text="Phân DMA"></asp:Label>
                                         </a>
                                     </li>--%>
-
                                 </ul>
                             </li>
                             <li class="treeview">

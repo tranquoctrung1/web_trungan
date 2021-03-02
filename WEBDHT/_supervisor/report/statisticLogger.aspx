@@ -26,37 +26,6 @@
         <div id="main-content-title">
             <h2 class="title">Thống Kê Logger Theo Tình Trạng</h2>
         </div>
-        <%--<div class="container-fluid m-t">
-            <div class="m-b col-sm-5 ">
-                <span>Ngày bắt đầu: </span>
-                <telerik:RadDatePicker ID="dtmStart" runat="server" Culture="en-GB"
-                    TabIndex="2">
-                    <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" ViewSelectorText="x"></Calendar>
-
-                    <DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" EnableSingleInputRendering="True"
-                        LabelWidth="64px" TabIndex="2">
-                    </DateInput>
-
-                    <DatePopupButton ImageUrl="" HoverImageUrl="" TabIndex="-1"></DatePopupButton>
-                </telerik:RadDatePicker>
-            </div>
-            <div class="m-b col-sm-5 ">
-                <span>Ngày kết thúc: </span>
-                <telerik:RadDatePicker ID="dtmEnd" runat="server" Culture="en-GB"
-                    TabIndex="2">
-                    <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" ViewSelectorText="x"></Calendar>
-
-                    <DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" EnableSingleInputRendering="True"
-                        LabelWidth="64px" TabIndex="2">
-                    </DateInput>
-
-                    <DatePopupButton ImageUrl="" HoverImageUrl="" TabIndex="-1"></DatePopupButton>
-                </telerik:RadDatePicker>
-            </div>
-             <div class="m-b col-sm-2 ">
-                 <button class="btn btn-info" onclick="view(); return false">Xem</button>
-             </div>
-        </div>--%>
         <div class="container-fluid m-t">
             <table id="example" class="display" style="width: 100%">
                 <thead>

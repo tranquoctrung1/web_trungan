@@ -5,20 +5,18 @@
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../css/Config.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
     <style>
-        .table-statistic-site 
-        {
+        /*.table-statistic-site {
             height: 300px;
             overflow: scroll
         }
 
-        .table-statistic-site table 
-        {
-            width: 100%
-        }
+            .table-statistic-site table {
+                width: 100%
+            }*/
 
-        .RadForm.rfdScrollBars body::-webkit-scrollbar, .RadForm.rfdScrollBars textarea::-webkit-scrollbar, .RadForm.rfdScrollBars div::-webkit-scrollbar
-        {
+        .RadForm.rfdScrollBars body::-webkit-scrollbar, .RadForm.rfdScrollBars textarea::-webkit-scrollbar, .RadForm.rfdScrollBars div::-webkit-scrollbar {
             height: 2px !important;
             width: 2px !important
         }
@@ -61,36 +59,37 @@
             </div>
             <div class="text-center col-sm-12 m-t m-b no-padding" style="clear: both;">
                 <asp:Button ID="btnView" runat="server" Text="Xem"
-                    OnClientClick="return btnView_Click()" CssClass="btn btn-primary">
-                </asp:Button>
+                    OnClientClick="return btnView_Click()" CssClass="btn btn-primary"></asp:Button>
             </div>
         </div>
         <%--<telerik:RadNotification ID="ntf" runat="server" Title="Message">
         </telerik:RadNotification>--%>
-         <div class="container-fluid m-t">
-             <div class="row">
-                 <div class="col-sm-12 table-statistic-site">
-                     <div class="loading-area hide" id="loading">
-                            <div class="box-loading">
-                                <img src="../../2.gif" />
-                            </div>
+        <div class="container-fluid m-t">
+            <div class="row">
+                <div class="col-sm-12 table-statistic-site">
+                    <div class="loading-area hide" id="loading">
+                        <div class="box-loading">
+                            <img src="../../2.gif" />
                         </div>
-                    <table class="table-striped table-bordered table-hover text-center">
-                            <thead id="headBody">
-                                
-                            </thead>
-                            <tbody id="dataTable">
-                            </tbody>
-                        </table>
+                    </div>
+                    <table class="table-striped table-bordered table-hover text-center" id="example">
+                        <thead id="headBody">
+                        </thead>
+                        <tbody id="dataTable">
+                        </tbody>
+                        <tfoot class="text-center" id="footer">
+                        </tfoot>
+                    </table>
                 </div>
-             </div>
-             <%-- <rsweb:ReportViewer ID="rpt" runat="server" AsyncRendering="False"
+            </div>
+            <%-- <rsweb:ReportViewer ID="rpt" runat="server" AsyncRendering="False"
                     SizeToReportContent="True">
                 </rsweb:ReportViewer>--%>
-             </div>
+        </div>
     </div>
 
-     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
     <script>
 
         function btnView_Click() {
@@ -250,8 +249,31 @@
             }
 
             createHeadForAccredited(data);
-
+            createFooterForAccredited(data);
             body.innerHTML = content;
+
+            $('#example').DataTable({
+                initComplete: function () {
+                    this.api().columns([1,2,3,4,5,6,7]).every(function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    });
+                }
+            });
         }
 
         function createHeadForAccredited(data) {
@@ -260,8 +282,7 @@
 
             head.innerHTML = "";
             if (checkExistsData(data)) {
-                content += `<thead>
-                            <tr>
+                content += `<tr>
                                 <th>STT</th>
                                 <th>Mã Point</th>
                                 <th>Vị Trí</th>
@@ -271,10 +292,30 @@
                                 <th>Ngày Hết Hạn</th>
                                 <th>Giấy Kiểm Định</th>
                                 <th>Ghi Chú</th>
-                            </tr>
-                            </thead>`
+                            </tr>`
             }
             head.innerHTML = content;
+        }
+
+        function createFooterForAccredited(data) {
+            let footer = document.getElementById('footer');
+            let content = "";
+
+            footer.innerHTML = "";
+            if (checkExistsData(data)) {
+                content += ` <tr>
+                                <th>STT</th>
+                                <th>Mã Point</th>
+                                <th>Vị Trí</th>
+                                <th>Hiệu</th>
+                                <th>Cỡ</th>
+                                <th>Ngày Kiểm Định</th>
+                                <th>Ngày Hết Hạn</th>
+                                <th>Giấy Kiểm Định</th>
+                                <th>Ghi Chú</th>
+                            </tr>`
+            }
+            footer.innerHTML = content;
         }
 
         function createBodyForMeterChanged(data) {
@@ -373,8 +414,32 @@
             }
 
             createHeadForMeterChanged(data);
+            createFooterMeterChanged(data);
 
             body.innerHTML = content;
+
+            $('#example').DataTable({
+                initComplete: function () {
+                    this.api().columns([1, 2, 3, 4, 5, 6, 7,8,9,10,11,12,13]).every(function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    });
+                }
+            });
         }
 
         function createHeadForMeterChanged(data) {
@@ -383,8 +448,7 @@
 
             head.innerHTML = "";
             if (checkExistsData(data)) {
-                content += `<thead>
-                            <tr>
+                content += `<tr>
                                 <th>STT</th>
                                 <th>Mã Point</th>
                                 <th>Vị Trí</th>
@@ -400,10 +464,36 @@
                                 <th>Giấy Kiểm Định</th>
                                 <th>Ngày Hết Hạn KĐ</th>
                                 <th>Ghi Chú</th>
-                            </tr>
-                            </thead>`
+                            </tr>`
             }
             head.innerHTML = content;
+        }
+
+        function createFooterMeterChanged(data) {
+            let footer = document.getElementById('footer');
+            let content = "";
+
+            footer.innerHTML = "";
+            if (checkExistsData(data)) {
+                content += ` <tr>
+                                <th>STT</th>
+                                <th>Mã Point</th>
+                                <th>Vị Trí</th>
+                                <th>Đồng Hồ Cũ</th>
+                                <th>Bổ Hiển Thị Cũ</th>
+                                <th>Mã ĐH</th>
+                                <th>Đồng Hồ</th>
+                                <th>Mã BHT</th>
+                                <th>Bổ Hiển Thị</th>
+                                <th>Hiệu</th>
+                                <th>Cỡ</th>
+                                <th>Ngày Thay</th>
+                                <th>Giấy Kiểm Định</th>
+                                <th>Ngày Hết Hạn KĐ</th>
+                                <th>Ghi Chú</th>
+                            </tr>`
+            }
+            footer.innerHTML = content;
         }
 
         function createBodyForTransmitterChanged(data) {
@@ -442,7 +532,7 @@
                             else {
                                 content += `<td></td>`;
                             }
-                            
+
                             content += `<td></td>`;
                             if (item.Meter != null && item.Meter != undefined && item.Meter.toString().trim() != "") {
                                 content += `<td>${item.Meter}</td>`;
@@ -513,8 +603,7 @@
 
             head.innerHTML = "";
             if (checkExistsData(data)) {
-                content += `<thead>
-                            <tr>
+                content += `<tr>
                                 <th>STT</th>
                                 <th>Mã Point</th>
                                 <th>Vị Trí</th>
@@ -530,10 +619,36 @@
                                 <th>Giấy Kiểm Định</th>
                                 <th>Ngày Hết Hạn KĐ</th>
                                 <th>Ghi Chú</th>
-                            </tr>
-                            </thead>`
+                            </tr>`
             }
             head.innerHTML = content;
+        }
+
+        function createFooterForTransmitterChanged(data) {
+            let footer = document.getElementById('footer');
+            let content = "";
+
+            footer.innerHTML = "";
+            if (checkExistsData(data)) {
+                content += `  <tr>
+                                <th>STT</th>
+                                <th>Mã Point</th>
+                                <th>Vị Trí</th>
+                                <th>Đồng Hồ Cũ</th>
+                                <th>Bổ Hiển Thị Cũ</th>
+                                <th>Mã ĐH</th>
+                                <th>Đồng Hồ</th>
+                                <th>Mã BHT</th>
+                                <th>Bổ Hiển Thị</th>
+                                <th>Hiệu</th>
+                                <th>Cỡ</th>
+                                <th>Ngày Thay</th>
+                                <th>Giấy Kiểm Định</th>
+                                <th>Ngày Hết Hạn KĐ</th>
+                                <th>Ghi Chú</th>
+                            </tr>`
+            }
+            footer.innerHTML = content;
         }
 
         function createBodyForLoggerChanged(data) {
@@ -637,8 +752,7 @@
 
             head.innerHTML = "";
             if (checkExistsData(data)) {
-                content += `<thead>
-                            <tr>
+                content += `<tr>
                                 <th>STT</th>
                                 <th>Mã Point</th>
                                 <th>Vị Trí</th>
@@ -654,10 +768,36 @@
                                 <th>Giấy Kiểm Định</th>
                                 <th>Ngày Hết Hạn KĐ</th>
                                 <th>Ghi Chú</th>
-                            </tr>
-                            </thead>`
+                            </tr>`
             }
             head.innerHTML = content;
+        }
+
+        function createFooterForLoggerChanged(data) {
+            let footer = document.getElementById('footer');
+            let content = "";
+
+            footer.innerHTML = "";
+            if (checkExistsData(data)) {
+                content += ` <tr>
+                                <th>STT</th>
+                                <th>Mã Point</th>
+                                <th>Vị Trí</th>
+                                <th>Đồng Hồ Cũ</th>
+                                <th>Bổ Hiển Thị Cũ</th>
+                                <th>Mã ĐH</th>
+                                <th>Đồng Hồ</th>
+                                <th>Mã BHT</th>
+                                <th>Bổ Hiển Thị</th>
+                                <th>Hiệu</th>
+                                <th>Cỡ</th>
+                                <th>Ngày Thay</th>
+                                <th>Giấy Kiểm Định</th>
+                                <th>Ngày Hết Hạn KĐ</th>
+                                <th>Ghi Chú</th>
+                            </tr>`
+            }
+            footer.innerHTML = content;
         }
 
         function createBodyForBatteryChanged(data) {
@@ -761,8 +901,7 @@
 
             head.innerHTML = "";
             if (checkExistsData(data)) {
-                content += `<thead>
-                            <tr>
+                content += `<tr>
                                 <th>STT</th>
                                 <th>Mã Point</th>
                                 <th>Vị Trí</th>
@@ -778,10 +917,36 @@
                                 <th>Giấy Kiểm Định</th>
                                 <th>Ngày Hết Hạn KĐ</th>
                                 <th>Ghi Chú</th>
-                            </tr>
-                            </thead>`
+                            </tr>`
             }
             head.innerHTML = content;
+        }
+
+        function createFooterForBatteryChanged(data) {
+            let footer = document.getElementById('footer');
+            let content = "";
+
+            footer.innerHTML = "";
+            if (checkExistsData(data)) {
+                content += ` <tr>
+                                <th>STT</th>
+                                <th>Mã Point</th>
+                                <th>Vị Trí</th>
+                                <th>Đồng Hồ Cũ</th>
+                                <th>Bổ Hiển Thị Cũ</th>
+                                <th>Mã ĐH</th>
+                                <th>Đồng Hồ</th>
+                                <th>Mã BHT</th>
+                                <th>Bổ Hiển Thị</th>
+                                <th>Hiệu</th>
+                                <th>Cỡ</th>
+                                <th>Ngày Thay</th>
+                                <th>Giấy Kiểm Định</th>
+                                <th>Ngày Hết Hạn KĐ</th>
+                                <th>Ghi Chú</th>
+                            </tr>`
+            }
+            footer.innerHTML = content;
         }
 
         function convertDate(date) {

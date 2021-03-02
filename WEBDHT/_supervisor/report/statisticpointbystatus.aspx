@@ -24,57 +24,6 @@
         <div id="main-content-title">
             <h2 class="title">Thống Kê Point Theo Tình Trạng</h2>
         </div>
-      <%-- <div class="container-fluid m-t">
-            <div class="row">
-                <div class="col-sm-10">
-                    <div class="group-text">
-                          <div class="row">
-                            <span>Tình Trạng</span>
-                        </div>
-                        <div class="row m-b">
-                            <telerik:RadComboBox ID="cboStatus" Runat="server" AllowCustomText="True" 
-                                EnableLoadOnDemand="True" Filter="StartsWith" 
-                                HighlightTemplatedItems="True" DataSourceID="StatusDataSource" 
-                                DataTextField="Status" DataValueField="Status" DropDownWidth="400px" 
-                                TabIndex="10" onclientselectedindexchanged="OnClientSelectedIndexChanged"
-                                AutoPostBack="false">
-                                <HeaderTemplate>
-                                    <table cellpadding="0" cellspacing="0">
-                                        <tr>
-                                            <td style="width:150px">Trạng Thái</td>
-                                            <td style="width:250px">Mô tả</td>
-                                        </tr>
-                                    </table>
-                                </HeaderTemplate>
-                                <ItemTemplate>
-                                    <table cellpadding="0" cellspacing="0">
-                                        <tr>
-                                            <td style="width:150px"><%#DataBinder.Eval(Container.DataItem,"Status") %></td>
-                                            <td style="width:250px"><%#DataBinder.Eval(Container.DataItem,"Description") %></td>
-                                        </tr>
-                                    </table
-                                </ItemTemplate>
-                            </telerik:RadComboBox>
-                            <asp:ObjectDataSource ID="StatusDataSource" runat="server" 
-                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll" 
-                                TypeName="SiteStatusBLL">
-                            </asp:ObjectDataSource>
-                           
-                        </div>
-                    </div>
-                    
-                </div>
-                    <div class="col-sm-2">
-                        <div class="group-text">
-                             <div class="row">
-                            <span>&nbsp</span>
-                        </div>
-                            <button class="btn btn-primary" id="reload">Tải lại</button>
-                        </div>
-                    </div>
-            </div>
-        </div>--%>
-
          <div class="container-fluid m-t">
             <table id="example" class="display" style="width:100%">
         <thead>
