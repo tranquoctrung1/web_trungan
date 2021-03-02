@@ -106,7 +106,7 @@ public partial class _supervisor_DMA_AddDMA : System.Web.UI.Page
         if(dma.Company != null)
         {
             cboCompanies.Text = dma.Company;
-            txtStatus.Text = dma.Status;
+            cboStatus.Text = dma.Status;
             cboDistrict.Text = dma.District;
             txtWard.Text = dma.Ward;
             amountDHTKH.Text = dma.AmountDHTKH.ToString();
@@ -122,7 +122,7 @@ public partial class _supervisor_DMA_AddDMA : System.Web.UI.Page
     {
         cboCompanies.SelectedIndex = -1;
         cboCompanies.Text = string.Empty;
-        txtStatus.Text = string.Empty;
+        cboStatus.Text = string.Empty;
         cboDistrict.Text = string.Empty;
         txtWard.Text = string.Empty;
         amountDHTKH.Text = string.Empty;
@@ -137,14 +137,55 @@ public partial class _supervisor_DMA_AddDMA : System.Web.UI.Page
 
         dma.Company = cboCompanies.Text;
         dma.Description = txtDescription.Text;
-        dma.Status = txtStatus.Text;
+        dma.Status = cboStatus.Text;
         dma.District = cboDistrict.Text;
         dma.Ward = txtWard.Text;
-        dma.AmountDHTKH =int.Parse( amountDHTKH.Text);
-        dma.AmountPool = int.Parse(amountPool.Text);
-        dma.AmountValve = int.Parse(amoutValve.Text);
-        dma.AmountTCH = int.Parse(amountTCH.Text);
-        dma.NRW = double.Parse(nrw.Text);
+        try
+        {
+            dma.AmountDHTKH =int.Parse( amountDHTKH.Text);
+
+        }
+        catch
+        {
+            dma.AmountDHTKH = null;
+        }
+        try
+        {
+            dma.AmountPool = int.Parse(amountPool.Text);
+
+        }
+        catch
+        {
+            dma.AmountPool = null;
+        }
+        try
+        {
+            dma.AmountValve = int.Parse(amoutValve.Text);
+
+        }
+        catch
+        {
+            dma.AmountValve = null;
+        }
+        try
+        {
+            dma.AmountTCH = int.Parse(amountTCH.Text);
+
+        }
+        catch
+        {
+            dma.AmountTCH = null;
+        }
+        try
+        {
+            dma.NRW = int.Parse(nrw.Text);
+
+        }
+        catch
+        {
+            dma.NRW = null;
+        }
+       
 
         return dma;
     }

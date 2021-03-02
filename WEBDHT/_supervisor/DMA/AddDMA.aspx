@@ -144,8 +144,31 @@
                             <span>Tình Trạng</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadTextBox ID="txtStatus" runat="server">
-                            </telerik:RadTextBox>
+                             <telerik:RadComboBox ID="cboStatus" runat="server" AllowCustomText="True"
+                                EnableLoadOnDemand="True" Filter="StartsWith" AutoPostBack="true"
+                                HighlightTemplatedItems="True" DataSourceID="StatusDMADataSource"
+                                DataTextField="Status" DataValueField="Status" DropDownWidth="275px"
+                                TabIndex="1">
+                                <HeaderTemplate>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="width: 70px">Tình trạng</td>
+                                            <td style="width: 150px">Mô tả</td>
+                                        </tr>
+                                    </table>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="width: 70px"><%#DataBinder.Eval(Container.DataItem,"Status") %></td>
+                                            <td style="width: 150px"><%#DataBinder.Eval(Container.DataItem,"Description") %></td>
+                                        </tr>
+                                    </table>
+                                </ItemTemplate>
+                            </telerik:RadComboBox>
+                            <asp:ObjectDataSource ID="StatusDMADataSource" runat="server"
+                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll"
+                                TypeName="StatusDMABLL"></asp:ObjectDataSource>
                         </div>
                     </div>
 
@@ -183,7 +206,7 @@
 
                     <div class="group-text">
                         <div class="row">
-                            <span>Mô tả</span>
+                            <span>Ghi chú</span>
                         </div>
                         <div class="row m-b">
                             <telerik:RadTextBox ID="txtDescription" runat="server" TextMode="MultiLine">
@@ -238,7 +261,7 @@
                     <telerik:AjaxUpdatedControl ControlID="amountPool" />
                     <telerik:AjaxUpdatedControl ControlID="nrw" />
 
-                    <telerik:AjaxUpdatedControl ControlID="txtStatus" />
+                    <telerik:AjaxUpdatedControl ControlID="cboStatus" />
                     <telerik:AjaxUpdatedControl ControlID="txtWard" />
                     <telerik:AjaxUpdatedControl ControlID="amoutValve" />
                     <telerik:AjaxUpdatedControl ControlID="amountTCH" />
@@ -253,7 +276,7 @@
                     <telerik:AjaxUpdatedControl ControlID="amountPool" />
                     <telerik:AjaxUpdatedControl ControlID="nrw" />
 
-                    <telerik:AjaxUpdatedControl ControlID="txtStatus" />
+                    <telerik:AjaxUpdatedControl ControlID="cboStatus" />
                     <telerik:AjaxUpdatedControl ControlID="txtWard" />
                     <telerik:AjaxUpdatedControl ControlID="amoutValve" />
                     <telerik:AjaxUpdatedControl ControlID="amountTCH" />

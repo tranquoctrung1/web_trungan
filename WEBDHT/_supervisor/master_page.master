@@ -245,7 +245,7 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                 <li>
+                                 <%--<li>
                                     <a href="/_supervisor/report/rsi_sgwdc.aspx">
                                         <asp:Label ID="lbReportRSI" runat="server" Text="Điểm Lắp Đặt Theo DMA"></asp:Label>
                                     </a>
@@ -264,13 +264,13 @@
                                     <a href="/_supervisor/report/rsi_marks_size.aspx">
                                         <asp:Label ID="lbRSIMarkSize" runat="server" Text="Thống Kê Tùy Chọn Hiệu Cỡ"></asp:Label>
                                     </a>
-                                </li>
+                                </li>--%>
                                 <li>
                                     <a href="/_supervisor/report/rsi_has_changed.aspx">
                                         <asp:Label ID="lbRSIChange" runat="server" Text="Hoạt Động Phát Sinh Trong Kỳ"></asp:Label>
                                     </a>
                                 </li>
-                                <li>
+                                <%--<li>
                                     <a href="/_supervisor/report/rde_meter.aspx">
                                         <asp:Label ID="lbRDEMeter" runat="server" Text="Thống Kê Đồng Hồ"></asp:Label>
                                     </a>
@@ -314,7 +314,7 @@
                                     <a href="/_supervisor/report/rde_elogger.aspx">
                                         <asp:Label ID="lbRDERLogger" runat="server" Text="Hồ Sơ Thiết Bị Logger"></asp:Label>
                                     </a>
-                                </li>
+                                </li>--%>
                                  <li>
                                     <a href="/_supervisor/report/statisticpointbystatus.aspx">
                                         <asp:Label ID="lbStatisitcPointByStatus" runat="server" Text="Point Theo Trình Trạng"></asp:Label>
@@ -330,9 +330,14 @@
                                         <asp:Label ID="lbStatisitcLoggerByDateExpireBattery" runat="server" Text="Logger Theo Thời Gian Pin"></asp:Label>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="/_supervisor/report/statisticDMA.aspx">
+                                        <asp:Label ID="lbStatisticDMA" runat="server" Text="DMA Theo Tình Trạng"></asp:Label>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
-                         <li class="treeview">
+                        <%-- <li class="treeview">
                             <a href="#TimKiem"><i class="fa fa-search"></i>
                                 <asp:Label ID="lbSearch" runat="server" Text="Tìm Kiếm"></asp:Label>
                                 <span class="pull-right-container">
@@ -346,7 +351,7 @@
                                     </a>
                                 </li>
                             </ul>
-                             </li>
+                             </li>--%>
                         <li class="treeview">
                             <a href="#NhapLieu"><i class="fa fa-pencil-square-o"></i>
                                 <asp:Label ID="lbNhapLieu" runat="server" Text="Nhập Liệu"></asp:Label>

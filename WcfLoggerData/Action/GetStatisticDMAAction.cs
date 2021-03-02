@@ -2,42 +2,41 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WcfAlarmData.ConnectDB;
-using WcfAlarmData.Model;
+using System.Web;
+using WcfLoggerData.ConnectDB;
+using WcfLoggerData.Models;
 
-namespace WcfAlarmData.Action
+namespace WcfLoggerData.Action
 {
-    class GetDMAAction
+    public class GetStatisticDMAAction
     {
-        public List<DMAViewModel> GetDMA()
+        public List<StatisticDMAViewModel> GetStatisticDMA()
         {
-            List<DMAViewModel> list = new List<DMAViewModel>();
+            List<StatisticDMAViewModel> list = new List<StatisticDMAViewModel>();
             Connect connect = new Connect();
             try
             {
-                string sqlQuery = $"select Company, Production, Description, Status, District, Ward, AmountDHTKH, AmountValve, AmountPool, AmountTCH, NRW from  t_Site_Companies where Company is not null order by Company ";
+                string sqlQuery = $"select Company, Production, Description, Status, District, Ward, AmountDHTKH, AmountValve, AmountPool, AmountTCH, NRW, d.IdStaff from  t_Site_Companies  s left join t_DMA_DMA d on d.IdDMA = s.Company where Company is not null order by Company ";
 
                 connect.Connected();
 
                 SqlDataReader reader = connect.Select(sqlQuery);
-                if(reader.HasRows)
+                if (reader.HasRows)
                 {
-                    while(reader.Read())
+                    while (reader.Read())
                     {
-                        DMAViewModel el = new DMAViewModel();
+                        StatisticDMAViewModel el = new StatisticDMAViewModel();
                         try
                         {
                             el.Company = reader["Company"].ToString();
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
                             el.Company = "";
                         }
                         try
                         {
-                            el.Production =bool.Parse( reader["Production"].ToString());
+                            el.Production = bool.Parse(reader["Production"].ToString());
                         }
                         catch (Exception ex)
                         {
@@ -115,13 +114,21 @@ namespace WcfAlarmData.Action
                         {
                             el.NRW = null;
                         }
-                        
+                        try
+                        {
+                            el.StaffId = reader["IdStaff"].ToString();
+                        }
+                        catch (Exception ex)
+                        {
+                            el.StaffId = "";
+                        }
+
 
                         list.Add(el);
                     }
                 }
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }

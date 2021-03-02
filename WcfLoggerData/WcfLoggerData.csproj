@@ -160,6 +160,7 @@
     <Compile Include="Action\GetSitesByDisplayGroupAction.cs" />
     <Compile Include="Action\GetStatisticDateExpireBatteryLoggerAction.cs" />
     <Compile Include="Action\GetStatisticDeviceLoggerAction.cs" />
+    <Compile Include="Action\GetStatisticDMAAction.cs" />
     <Compile Include="Action\GetStatisticMeterAction.cs" />
     <Compile Include="Action\GetStatisticSiteByStatusAction.cs" />
     <Compile Include="Action\GetStatisticSiteDMAAction.cs" />
@@ -206,6 +207,7 @@
     <Compile Include="Controllers\GetSitesByDisplayGroupController.cs" />
     <Compile Include="Controllers\GetStatisticDateExpireBatteryLoggerController.cs" />
     <Compile Include="Controllers\GetStatisticDeviceLoggerController.cs" />
+    <Compile Include="Controllers\GetStatisticDMAController.cs" />
     <Compile Include="Controllers\GetStatisticSiteByStatusController.cs" />
     <Compile Include="Controllers\GetStatisticSiteDMAController.cs" />
     <Compile Include="Controllers\GetTimeController.cs" />
@@ -244,6 +246,7 @@
     <Compile Include="Models\LevelAlarmViewModel.cs" />
     <Compile Include="Models\SiteByDisplayGroupViewModel.cs" />
     <Compile Include="Models\SiteResultByUIDViewModel.cs" />
+    <Compile Include="Models\StatisticDMAViewModel.cs" />
     <Compile Include="Models\StatisticLoggerViewModel.cs" />
     <Compile Include="Models\StatisticMeterViewModel.cs" />
     <Compile Include="Models\StatisticSiteDMAViewModel.cs" />
@@ -302,6 +305,7 @@
     <Folder Include="Views\GetSitesByDisplayGroup\" />
     <Folder Include="Views\GetStatisticDateExpireBatteryLogger\" />
     <Folder Include="Views\GetStatisticDeviceLogger\" />
+    <Folder Include="Views\GetStatisticDMA\" />
     <Folder Include="Views\GetStatisticSiteByStatus\" />
     <Folder Include="Views\GetStatisticSiteDMA\" />
     <Folder Include="Views\GetTime\" />
