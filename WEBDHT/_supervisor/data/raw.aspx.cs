@@ -19,7 +19,6 @@ public partial class _supervisor_data_raw : BasePage
         }
         cboIds.Focus();
         ntf.VisibleOnPageLoad = false;
-
     }
     protected void cboIds_SelectedIndexChanged(object sender, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
     {
@@ -119,7 +118,6 @@ public partial class _supervisor_data_raw : BasePage
                 }
                 catch (Exception ex)
                 {
-
                     //throw ex; 
                 }
             }

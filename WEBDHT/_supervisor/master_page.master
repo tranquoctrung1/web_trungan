@@ -390,21 +390,21 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                 <li>
+                                <%-- <li>
                                     <a href="/_supervisor/data/raw.aspx">
                                         <asp:Label ID="lbDataRaw" runat="server" Text="Nhập Tay Chỉ Số"></asp:Label>
                                     </a>
-                                </li>
+                                </li>--%>
                                 <li>
                                     <a href="/_supervisor/data/logger.aspx">
                                         <asp:Label ID="lbDataLogger" runat="server" Text="Nhập Tay Sản Lượng"></asp:Label>
                                     </a>
                                 </li>
-                                <li>
+                               <%-- <li>
                                     <a href="/_supervisor/data/change.aspx">
                                         <asp:Label ID="lbDataChange" runat="server" Text="Sữa Dữ Liệu Nhập Tay"></asp:Label>
                                     </a>
-                                </li>
+                                </li>--%>
                             </ul>
                         </li>
                        <%-- <li class="treeview">
