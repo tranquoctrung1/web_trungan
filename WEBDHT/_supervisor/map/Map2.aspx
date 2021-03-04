@@ -503,7 +503,7 @@
                                             <asp:Label ID="lbMonthlyQuantityManager" runat="server" Text="Sản Lượng Tháng Theo DMA"></asp:Label>
                                         </a>
                                     </li>
-                                    <li>
+                                   <%-- <li>
                                         <a href="/_supervisor/logger/HourlyTotal.aspx">
                                             <asp:Label ID="lbHourlyQuantityTotal" runat="server" Text="Sản Lượng Giờ Tổng Công Ty"></asp:Label>
                                         </a>
@@ -517,7 +517,7 @@
                                         <a href="/_supervisor/logger/MonthlyTotal.aspx">
                                             <asp:Label ID="lbMonthlyQuantityTotal" runat="server" Text="Sản Lượng Tháng Tổng Công Ty"></asp:Label>
                                         </a>
-                                    </li>
+                                    </li>--%>
                                 </ul>
                             </li>
 
@@ -559,7 +559,7 @@
                                             <asp:Label ID="lbChartMonthlyManager" runat="server" Text="Đồ Thị Tháng Theo DMA"></asp:Label>
                                         </a>
                                     </li>
-                                    <li>
+                                  <%--  <li>
                                         <a href="/_supervisor/chartP/ChartTotalHourly.aspx">
                                             <asp:Label ID="lbChartHourlyTotal" runat="server" Text="Đồ Thị Giờ Tổng"></asp:Label>
                                         </a>
@@ -573,7 +573,7 @@
                                         <a href="/_supervisor/chartP/ChartMonthlyTotal.aspx">
                                             <asp:Label ID="lbChartMonthlyTotal" runat="server" Text="Đồ Thị Tháng Tổng"></asp:Label>
                                         </a>
-                                    </li>
+                                    </li>--%>
                                 </ul>
                             </li>
 
