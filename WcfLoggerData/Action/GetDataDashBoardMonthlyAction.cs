@@ -25,15 +25,15 @@ namespace WcfLoggerData.Action
 
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
-                string store = "p_Calculate_One_Site_Montly_Output";
+                string store = "p_Calculate_Monthly_Site";
 
                 sqlConnection.Open();
                 using (SqlCommand sqlCommand = new SqlCommand(store, sqlConnection))
                 {
                     sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                    sqlCommand.Parameters.Add(new SqlParameter("@SiteId", siteid));
-                    sqlCommand.Parameters.Add(new SqlParameter("@Start", timeStart));
-                    sqlCommand.Parameters.Add(new SqlParameter("@End", timeEnd));
+                    sqlCommand.Parameters.Add(new SqlParameter("@siteid", siteid));
+                    sqlCommand.Parameters.Add(new SqlParameter("@start", timeStart));
+                    sqlCommand.Parameters.Add(new SqlParameter("@end", timeEnd));
 
                     SqlDataReader reader = sqlCommand.ExecuteReader();
 
