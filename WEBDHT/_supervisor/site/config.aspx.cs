@@ -82,7 +82,7 @@ public partial class _supervisor_site_config : BasePage
         cboSiteIds.SelectedIndex = -1;
         cboSiteIds.Text = string.Empty;
         tmStart.SelectedDate = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy"), cultureInfo).AddHours(7);
-        txtLoggerId.Text = string.Empty;
+        cboSerials.Text = string.Empty;
         txtChannelId1.Text = string.Empty;
         txtChannelId2.Text = string.Empty;
         txtChannelId3.Text = string.Empty;
@@ -117,7 +117,7 @@ public partial class _supervisor_site_config : BasePage
             ntf.Text = _msgEmptySiteId;
             return;
         }
-        if (string.IsNullOrEmpty(txtLoggerId.Text))
+        if (string.IsNullOrEmpty(cboSerials.Text))
         {
             ntf.Text = _msgEmptyLoggerId;
             return;
@@ -172,7 +172,7 @@ public partial class _supervisor_site_config : BasePage
     }
     private void SetSiteConfigControlValues(SiteConfig siteConfig)
     {
-        txtLoggerId.Text = siteConfig.Id;
+        cboSerials.Text = siteConfig.Id;
         nmrInterval.Value = siteConfig.Interval;
         tmStart.SelectedDate = siteConfig.BeginTime;
 
@@ -395,7 +395,7 @@ public partial class _supervisor_site_config : BasePage
         //siteConfig.Reverse = rdoReverseFlow1.Checked ? 1 : rdoReverseFlow2.Checked ? 2 : rdoReverseFlow3.Checked ? 3 : rdoReverseFlow4.Checked? 4 : default(byte?);
         //siteConfig.Pressure = rdoPress1.Checked ? 1 : rdoPress2.Checked ? 2 : rdoPress3.Checked ? 3 : rdoPress4.Checked ? 4 : default(byte?);
         //siteConfig.Pressure1 = rdoPress11.Checked ? 1 : rdoPress12.Checked ? 2 : rdoPress13.Checked ? 3 : rdoPress14.Checked ? 4 : default(byte?);
-        siteConfig.Id = txtLoggerId.Text;
+        siteConfig.Id = cboSerials.Text;
         siteConfig.Interval = (short?)nmrInterval.Value;
         siteConfig.SiteId = cboSiteIds.Text;
         return siteConfig;
@@ -403,40 +403,40 @@ public partial class _supervisor_site_config : BasePage
     private List<ChannelConfig> GetChannelConfigControlValues()
     {
         List<ChannelConfig> channelConfigs = new List<ChannelConfig>();
-        if (!string.IsNullOrEmpty(txtChannelId1.Text) && txtChannelId1.Text.Split('_')[0] == txtLoggerId.Text)
+        if (!string.IsNullOrEmpty(txtChannelId1.Text) && txtChannelId1.Text.Split('_')[0] == cboSerials.Text)
         {
             ChannelConfig config1 = new ChannelConfig();
             config1.Id = txtChannelId1.Text;
             config1.Name = txtChannelName1.Text;
             config1.Unit = cboUnit1.Text;
-            config1.LoggerId = txtLoggerId.Text;
+            config1.LoggerId = cboSerials.Text;
             channelConfigs.Add(config1);
         }
-        if (!string.IsNullOrEmpty(txtChannelId2.Text) && txtChannelId2.Text.Split('_')[0] == txtLoggerId.Text)
+        if (!string.IsNullOrEmpty(txtChannelId2.Text) && txtChannelId2.Text.Split('_')[0] == cboSerials.Text)
         {
             ChannelConfig config2 = new ChannelConfig();
             config2.Id = txtChannelId2.Text;
             config2.Name = txtChannelName2.Text;
             config2.Unit = cboUnit2.Text;
-            config2.LoggerId = txtLoggerId.Text;
+            config2.LoggerId = cboSerials.Text;
             channelConfigs.Add(config2);
         }
-        if (!string.IsNullOrEmpty(txtChannelId3.Text) && txtChannelId3.Text.Split('_')[0] == txtLoggerId.Text)
+        if (!string.IsNullOrEmpty(txtChannelId3.Text) && txtChannelId3.Text.Split('_')[0] == cboSerials.Text)
         {
             ChannelConfig config3 = new ChannelConfig();
             config3.Id = txtChannelId3.Text;
             config3.Name = txtChannelName3.Text;
             config3.Unit = cboUnit3.Text;
-            config3.LoggerId = txtLoggerId.Text;
+            config3.LoggerId = cboSerials.Text;
             channelConfigs.Add(config3);
         }
-        if (!string.IsNullOrEmpty(txtChannelId4.Text) && txtChannelId4.Text.Split('_')[0] == txtLoggerId.Text)
+        if (!string.IsNullOrEmpty(txtChannelId4.Text) && txtChannelId4.Text.Split('_')[0] == cboSerials.Text)
         {
             ChannelConfig config4 = new ChannelConfig();
             config4.Id = txtChannelId4.Text;
             config4.Name = txtChannelName4.Text;
             config4.Unit = cboUnit4.Text;
-            config4.LoggerId = txtLoggerId.Text;
+            config4.LoggerId = cboSerials.Text;
             channelConfigs.Add(config4);
         }
         return channelConfigs;

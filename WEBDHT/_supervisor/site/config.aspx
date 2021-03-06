@@ -83,8 +83,31 @@
                             <span>Id logger</span>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadTextBox ID="txtLoggerId" runat="server">
-                            </telerik:RadTextBox>
+                            <telerik:RadComboBox ID="cboSerials" runat="server" AllowCustomText="True"
+                                EnableLoadOnDemand="True" Filter="StartsWith"
+                                HighlightTemplatedItems="True" DataSourceID="SerialsDataSource"
+                                AutoPostBack="True" AccessKey="S" TabIndex="1" DataTextField="Serial" DataValueField="Serial">
+                                 <HeaderTemplate>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="width: 150px">Serial</td>
+                                        </tr>
+                                    </table>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="width: 150px">
+                                                <%#DataBinder.Eval(Container.DataItem,"Serial") %>
+                                            </td>
+                                            
+                                        </tr>
+                                    </table>
+                                </ItemTemplate>
+                            </telerik:RadComboBox>
+                            <asp:ObjectDataSource ID="SerialsDataSource" runat="server"
+                                OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll"
+                                TypeName="LoggersBLL"></asp:ObjectDataSource>
                         </div>
                     </div>
                     <div class="group-text">
@@ -516,7 +539,7 @@
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="ntf" />
                     <telerik:AjaxUpdatedControl ControlID="cboSiteIds" />
-                    <telerik:AjaxUpdatedControl ControlID="txtLoggerId" />
+                    <telerik:AjaxUpdatedControl ControlID="cboSerials" />
                     <telerik:AjaxUpdatedControl ControlID="nmrInterval" />
                     <telerik:AjaxUpdatedControl ControlID="tmStart" />
                     <telerik:AjaxUpdatedControl ControlID="txtChannelId1" />
@@ -553,7 +576,7 @@
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="ntf" />
                     <telerik:AjaxUpdatedControl ControlID="cboSiteIds" />
-                    <telerik:AjaxUpdatedControl ControlID="txtLoggerId" />
+                    <telerik:AjaxUpdatedControl ControlID="cboSerials" />
                     <telerik:AjaxUpdatedControl ControlID="nmrInterval" />
                     <telerik:AjaxUpdatedControl ControlID="tmStart" />
                     <telerik:AjaxUpdatedControl ControlID="txtChannelId1" />
