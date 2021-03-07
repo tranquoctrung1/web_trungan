@@ -16,7 +16,7 @@ namespace WcfLoggerData.Action
             Connect connect = new Connect();
             try
             {
-                string sqlQuery = $"select  s.Company, s.Latitude, s.Longitude, s.Id as SiteId, s.Location , t.Id as LoggerId from t_Site_Sites s join t_Devices_SitesConfigs t on t.SiteId = s.Id where exists (select * from t_Devices_ChannelsConfigs dc where dc.LoggerId = t.Id)";
+                string sqlQuery = $"select  s.Company, s.Latitude, s.Longitude, s.Id as SiteId, s.Location , t.Id as LoggerId from t_Site_Sites s join t_Devices_SitesConfigs t on t.SiteId = s.Id "; //where exists (select * from t_Devices_ChannelsConfigs dc where dc.LoggerId = t.Id)
 
                 connect.Connected();
 

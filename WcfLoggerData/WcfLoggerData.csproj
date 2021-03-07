@@ -147,6 +147,7 @@
     <Compile Include="Action\GetDataStatisticTransmitterAction.cs" />
     <Compile Include="Action\GetDataTransmitterChangedAction.cs" />
     <Compile Include="Action\GetDisplayGroupAction.cs" />
+    <Compile Include="Action\GetDistrictAction.cs" />
     <Compile Include="Action\GetGroupChannelAction.cs" />
     <Compile Include="Action\GetGroupChannelByLoggerAction.cs" />
     <Compile Include="Action\GetAlarmForPointAction.cs" />
@@ -156,6 +157,7 @@
     <Compile Include="Action\GetMinPressureAction.cs" />
     <Compile Include="Action\GetMultipleDataAction.cs" />
     <Compile Include="Action\GetQitAction.cs" />
+    <Compile Include="Action\GetSiteByDistrictAction.cs" />
     <Compile Include="Action\GetSiteByUIDAction.cs" />
     <Compile Include="Action\GetSitesByDisplayGroupAction.cs" />
     <Compile Include="Action\GetStatisticDateExpireBatteryLoggerAction.cs" />
@@ -165,6 +167,10 @@
     <Compile Include="Action\GetStatisticSiteByStatusAction.cs" />
     <Compile Include="Action\GetStatisticSiteDMAAction.cs" />
     <Compile Include="Action\GetTimeOfFirstChannel.cs" />
+    <Compile Include="Action\GetTotalSiteActionAction.cs" />
+    <Compile Include="Action\GetTotalSiteAction.cs" />
+    <Compile Include="Action\GetTotalSiteErrorAction.cs" />
+    <Compile Include="Action\GetTotalSiteHasDataAction.cs" />
     <Compile Include="Action\GetTurnHistoryAlarmAction.cs" />
     <Compile Include="Action\GetValueAlarmAction.cs" />
     <Compile Include="Action\UpdateTurnHistoryAlarmAction.cs" />
@@ -177,6 +183,7 @@
     <Compile Include="Controllers\GetChannelByLoggerController.cs" />
     <Compile Include="Controllers\GetChannelDataChartController.cs" />
     <Compile Include="Controllers\GetChannelDataDailyController.cs" />
+    <Compile Include="Controllers\GetCurrentTimeController.cs" />
     <Compile Include="Controllers\GetDataChartController.cs" />
     <Compile Include="Controllers\GetDataComplexController.cs" />
     <Compile Include="Controllers\GetDataDashBoardDailySiteController.cs" />
@@ -199,10 +206,12 @@
     <Compile Include="Controllers\GetDataStatisticSiteController.cs" />
     <Compile Include="Controllers\GetDataStatisticTransmitterController.cs" />
     <Compile Include="Controllers\GetDisplayGroupController.cs" />
+    <Compile Include="Controllers\GetDistrictController.cs" />
     <Compile Include="Controllers\GetGroupChannelByLoggerController.cs" />
     <Compile Include="Controllers\GetGroupChannelController.cs" />
     <Compile Include="Controllers\GetHistoryAlarmForLoggerController.cs" />
     <Compile Include="Controllers\GetMultipleDataController.cs" />
+    <Compile Include="Controllers\GetSiteByDistrictController.cs" />
     <Compile Include="Controllers\GetSiteByUIDController.cs" />
     <Compile Include="Controllers\GetSitesByDisplayGroupController.cs" />
     <Compile Include="Controllers\GetStatisticDateExpireBatteryLoggerController.cs" />
@@ -211,6 +220,10 @@
     <Compile Include="Controllers\GetStatisticSiteByStatusController.cs" />
     <Compile Include="Controllers\GetStatisticSiteDMAController.cs" />
     <Compile Include="Controllers\GetTimeController.cs" />
+    <Compile Include="Controllers\GetTotalSiteActionController.cs" />
+    <Compile Include="Controllers\GetTotalSiteController.cs" />
+    <Compile Include="Controllers\GetTotalSiteErrorController.cs" />
+    <Compile Include="Controllers\GetTotalSiteHasDataController.cs" />
     <Compile Include="Controllers\GetTurnHistoryAlarmController.cs" />
     <Compile Include="Controllers\GetValueAlarmController.cs" />
     <Compile Include="Controllers\InsertAndUpdateAlarmLoggerController.cs" />
@@ -240,6 +253,7 @@
     <Compile Include="Models\DataReportMonthlySiteViewModel.cs" />
     <Compile Include="Models\DataReportMonthlyTotalViewModel.cs" />
     <Compile Include="Models\DataReportYearlySiteViewModel.cs" />
+    <Compile Include="Models\DistrictViewModel.cs" />
     <Compile Include="Models\GroupChannelByLoggerViewModel.cs" />
     <Compile Include="Models\GroupChannelViewModel.cs" />
     <Compile Include="Models\DeviceLoggerViewModel.cs" />
@@ -276,6 +290,7 @@
     <Folder Include="Views\GetChannelByLogger\" />
     <Folder Include="Views\GetChannelDataChart\" />
     <Folder Include="Views\GetChannelDataDaily\" />
+    <Folder Include="Views\GetCurrentTime\" />
     <Folder Include="Views\GetDataChart\" />
     <Folder Include="Views\GetDataDailyManager\" />
     <Folder Include="Views\GetDataDashBoardDailySite\" />
@@ -297,10 +312,12 @@
     <Folder Include="Views\GetDataStatisticSite\" />
     <Folder Include="Views\GetDataStatisticTransmitter\" />
     <Folder Include="Views\GetDisplayGroup\" />
+    <Folder Include="Views\GetDistrict\" />
     <Folder Include="Views\GetGroupChannelByLogger\" />
     <Folder Include="Views\GetGroupChannel\" />
     <Folder Include="Views\GetHistoryAlarmForLogger\" />
     <Folder Include="Views\GetMultipleData\" />
+    <Folder Include="Views\GetSiteByDistrict\" />
     <Folder Include="Views\GetSiteByUID\" />
     <Folder Include="Views\GetSitesByDisplayGroup\" />
     <Folder Include="Views\GetStatisticDateExpireBatteryLogger\" />
@@ -309,6 +326,10 @@
     <Folder Include="Views\GetStatisticSiteByStatus\" />
     <Folder Include="Views\GetStatisticSiteDMA\" />
     <Folder Include="Views\GetTime\" />
+    <Folder Include="Views\GetTotalSiteAction\" />
+    <Folder Include="Views\GetTotalSiteError\" />
+    <Folder Include="Views\GetTotalSiteHasData\" />
+    <Folder Include="Views\GetTotalSite\" />
     <Folder Include="Views\GetTurnHistoryAlarm\" />
     <Folder Include="Views\GetValueAlarm\" />
     <Folder Include="Views\InsertAndUpdateAlarmLogger\" />

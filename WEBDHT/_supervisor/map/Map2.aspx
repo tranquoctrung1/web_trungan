@@ -802,7 +802,7 @@
                                 </a>
                                 <a href="#" class="icon-right width-filter-icon custom-tooltip" data-toggle="control-sidebar" id="icon_collap_filter_menu" onclick="customFilter()">
                                     <img src="../../App_Themes/filter.png" />
-                                    <span class="tooltiptext">LỌC SITES</span>
+                                    <span class="tooltiptext">LỌC POINT</span>
                                 </a>
 
                                 <div id="map_canvas">
@@ -1003,22 +1003,31 @@
                                             </div>
                                         </div>
 
-                                        <div>
+                                       <%-- <div>
                                             <h4 class="text-white">
                                                 <asp:Label Text="Danh sách nhóm kênh" ID="txtListGroupChannel" runat="server" />
                                             </h4>
-                                        </div>
-                                        <div id="plhListGroupChannel"></div>
+                                        </div>--%>
+                                     <%--   <div id="plhListGroupChannel">
+                                            <div class="checkbox"><div><input type="checkbox" onclick="UpdateFlowChannel(this)" id="flowCheckBox" class="custom-checkbox" checked="checked">Lưu Lượng</div></div>
+                                            <div class="checkbox"><div><input type="checkbox" onclick="UpdatePressureChannel(this)" id="pressureCheckBox" class="custom-checkbox" checked="checked">Áp Lực</div></div>
+                                        </div>--%>
                                     </div>
                                     <div class="tab-content" id="tab_menu_3">
                                         <div>
                                             <h4 class="text-white">
-                                                <asp:Label Text="Lọc sites" ID="lbFilterSites" runat="server" />
+                                                <asp:Label Text="Lọc point theo DMA" ID="lbFilterSites" runat="server" />
                                             </h4>
                                         </div>
                                         <div id="filterSitesArea">
                                         </div>
-
+                                         <div>
+                                            <h4 class="text-white">
+                                                <asp:Label Text="Lọc point theo Quận" ID="lbFilterSitesDistrict" runat="server" />
+                                            </h4>
+                                        </div>
+                                        <div id="filterSitesDistrictArea">
+                                        </div>
                                     </div>
 
                                 </div>
@@ -1301,6 +1310,8 @@
                                 function customPositionIcon() {
                                     $("#tab_menu_2").addClass("cls-display-none");
                                     $("#tab_menu_1").removeClass("cls-display-none");
+                                    $("#tab_menu_3").addClass("cls-display-none");
+                                    $("#tab_menu_4").addClass("cls-display-none");
                                     if (isClickIconSearch) {
                                         $("#icon_collap_rightmenu").addClass("width-search-icon");
                                         $("#icon_collap_rightmenu").removeClass("custom-width-search-icon");
@@ -1682,6 +1693,9 @@
                                 var urlConfirmAlarm = hostname + '/api/ConfirmAlarm/';
                                 var urlGetDisplayGroups = hostname + '/api/GetDisplayGroup';
                                 var urlGetSiteByDisplayGroup = hostname + '/api/GetSitesByDisplayGroup/?displaygroup=';
+                                var urlGetCurrentTime = hostname + '/api/getcurrenttime/?channelid='
+                                var urlGetDistrict = hostname + '/api/getdistrict';
+                                var urlGetSiteByDistrict = hostname + '/api/getsitebydistrict/?district='
 
                                 //var urlMRed = 'http://i748.photobucket.com/albums/xx123/bttrung1988/mRed_zpscf7a64f6.png';
                                 var urlMRed = ' ~/App_Themes/red.png';
@@ -1964,6 +1978,7 @@
                                                                 break;
                                                         }
 
+
                                                         //TREEVIEW CHANNEL NODE
                                                         var cNode = new Telerik.Web.UI.RadTreeNode();
                                                         cNode.set_text(c.ChannelName);
@@ -2014,12 +2029,12 @@
                                                         if (c.GroupChannelStatus) {
                                                             if (c.Press1 == true || c.Press2 == true) {
                                                                 if (!alreadyPressureDisplay && strDate != 'NO DATA') {
-                                                                    dLabelPressHtml = '<tr ><td colspan="6" style=" text-align: center;   background-color: white; padding-top: 3px; padding-bottom: 3px"><span>' + strDate + '</span></td></tr>';
+                                                                    dLabelPressHtml = '<tr><td colspan="6" style=" text-align: center;   background-color: white; padding-top: 3px; padding-bottom: 3px"><span>' + strDate + '</span></td></tr>';
                                                                     alreadyPressureDisplay = true;
                                                                 }
                                                             }
                                                             if (c.DisplayLabel) {
-                                                                dLabelDisplayHtml += '<tr style="background-color:white"><td colspan="4"  style="text-align:left; padding-right: 5px"><span>' + c.ChannelName + ' </span></td><td></td><td colspan="2" style="text-align:left;color:red"><span>' + val + ' (' + c.Unit + ')' + '</span></td></tr>';
+                                                                dLabelDisplayHtml += '<tr style="background-color:white" ><td colspan="4"  style="text-align:left; padding-right: 5px"><span>' + c.ChannelName + ' </span></td><td></td><td colspan="2" style="text-align:left;color:red"><span>' + val + ' (' + c.Unit + ')' + '</span></td></tr>';
                                                             }
                                                             displayByGroupChannel = 1;
                                                         }
@@ -2102,6 +2117,7 @@
                                     });
 
                                     FillDiaplayGroups();
+                                    FillDistrict();
                                 }
 
 
@@ -2140,8 +2156,56 @@
                                     })
                                 }
 
+                                function FillDistrict() {
+                                    let filterSitesDistrictArea = document.getElementById('filterSitesDistrictArea');
+
+                                    filterSitesDistrictArea.innerHTML = "";
+
+                                    let content = "";
+
+                                    $.getJSON({ url: urlGetDistrict }, function (dc) {
+
+                                        for (let dg of dc) {
+                                            if (dg != null) {
+                                                content += `<div class="checkbox">
+                                                <div>
+                                                    <input type="checkbox" class="custom-checkbox" checked="checked" value="${dg.IdDistrict.trim()}" id="${dg.IdDistrict.trim()}" onclick="checkBoxDistrict_Click(this)">
+                                                    <label style="color: white !important; font-weight: 500"> ${dg.IdDistrict.trim()}</label>
+                                                </div>
+                                                </div>`
+                                            }
+                                        }
+
+                                        filterSitesDistrictArea.innerHTML = content;
+
+                                    })
+                                }
+
+
                                 function checkBox_Click(e) {
                                     $.getJSON({ url: urlGetSiteByDisplayGroup + e.value }, function (dc) {
+
+                                        for (let item of dc) {
+                                            if (e.checked == true) {
+                                                markers.forEach(function (marker) {
+                                                    if (marker.options.id == `m_${item.SiteID}`) {
+                                                        map.addLayer(marker);
+                                                    }
+                                                })
+                                            }
+                                            else {
+                                                markers.forEach(function (marker) {
+                                                    if (marker.options.id == `m_${item.SiteID}`) {
+                                                        map.removeLayer(marker);
+                                                    }
+                                                })
+                                            }
+                                        }
+                                    })
+                                }
+
+                                function checkBoxDistrict_Click(e) {
+                                    $.getJSON({ url: urlGetSiteByDistrict + e.value }, function (dc) {
 
                                         for (let item of dc) {
                                             if (e.checked == true) {
@@ -2202,6 +2266,7 @@
                                                             img = image_nor;
                                                             break;
                                                     }
+
                                                     //MAP INFOWINDOW CONTENT
                                                     if (c.LastIndex != null && c.LastIndex != 'undefined') {
                                                         index -= c.LastIndex;
@@ -2220,11 +2285,7 @@
                                                     else {
                                                         val = 'NO DATA';
                                                     }
-                                                    dInfoHtml += "<tr><td> " + c.ChannelName + "</td>"
-                                                        + '<td style="text-align:right;color:red">' + val + "</td>"
-                                                        + '<td style="color:red">' + c.Unit + "</td>"
-                                                        + "<td>" + strDate + "</td>"
-                                                        + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
+                                                    
                                                     //MAP LABEL CONTENT
                                                     var htmlImg = "";
                                                     if (c.Status1 == true) {
@@ -2243,6 +2304,13 @@
                                                         if (c.Press1 == true || c.Press2 == true) {
                                                             if (!alreadyPressureDisplay && strDate != 'NO DATA') {
                                                                 dLabelPressHtml = '<tr ><td colspan="6" style=" text-align: center;   background-color: white; padding-top: 3px; padding-bottom: 3px"><span>' + strDate + '</span></td></tr>';
+
+                                                                dInfoHtml += "<tr><td> " + c.ChannelName + "</td>"
+                                                                    + '<td style="text-align:right;color:red">' + val + "</td>"
+                                                                    + '<td style="color:red">' + c.Unit + "</td>"
+                                                                    + "<td>" + strDate + "</td>"
+                                                                    + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
+
                                                                 alreadyPressureDisplay = true;
                                                             }
                                                         }
@@ -2252,6 +2320,12 @@
                                                                 dLabelDisplayHtml += '<td style="text-align:left; padding-right: 5px"><span>' + c.ChannelName + ' </span></td>';
                                                                 dLabelDisplayHtml += '<td style="text-align:left;"><span style="color:red"> ' + val + ' (' + c.Unit + ')' + '</span></td>';
                                                                 dLabelDisplayHtml += '</tr>';
+
+                                                                dInfoHtml += "<tr><td> " + c.ChannelName + "</td>"
+                                                                    + '<td style="text-align:right;color:red">' + val + "</td>"
+                                                                    + '<td style="color:red">' + c.Unit + "</td>"
+                                                                    + "<td>" + strDate + "</td>"
+                                                                    + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
                                                             }
                                                             if (statusRemoveAlLL) {
                                                                 if (c.Press1 == true || c.Press2 == true || c.Flow1 == true || c.Flow2 == true) {
@@ -2259,6 +2333,12 @@
                                                                     dLabelDisplayHtml += '<td style="text-align:left; padding-right: 5px"><span>' + c.ChannelName + ' </span></td>';
                                                                     dLabelDisplayHtml += '<td style="text-align:left;"><span style="color:red"> ' + val + ' (' + c.Unit + ')' + '</span></td>';
                                                                     dLabelDisplayHtml += '</tr>';
+
+                                                                    dInfoHtml += "<tr><td> " + c.ChannelName + "</td>"
+                                                                        + '<td style="text-align:right;color:red">' + val + "</td>"
+                                                                        + '<td style="color:red">' + c.Unit + "</td>"
+                                                                        + "<td>" + strDate + "</td>"
+                                                                        + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
                                                                 }
                                                             }
                                                             if (statusRemoveApLuc) {
@@ -2267,6 +2347,12 @@
                                                                     dLabelDisplayHtml += '<td style="text-align:left; padding-right: 5px"><span>' + c.ChannelName + ' </span></td>';
                                                                     dLabelDisplayHtml += '<td style="text-align:left;"><span style="color:red"> ' + val + ' (' + c.Unit + ')' + '</span></td>';
                                                                     dLabelDisplayHtml += '</tr>';
+
+                                                                    dInfoHtml += "<tr><td> " + c.ChannelName + "</td>"
+                                                                        + '<td style="text-align:right;color:red">' + val + "</td>"
+                                                                        + '<td style="color:red">' + c.Unit + "</td>"
+                                                                        + "<td>" + strDate + "</td>"
+                                                                        + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
                                                                 }
                                                             }
                                                             if (statusRemoveLuuLuong) {
@@ -2275,6 +2361,12 @@
                                                                     dLabelDisplayHtml += '<td style="text-align:left; padding-right: 5px"><span>' + c.ChannelName + ' </span></td>';
                                                                     dLabelDisplayHtml += '<td style="text-align:left;"><span style="color:red"> ' + val + ' (' + c.Unit + ')' + '</span></td>';
                                                                     dLabelDisplayHtml += '</tr>';
+
+                                                                    dInfoHtml += "<tr><td> " + c.ChannelName + "</td>"
+                                                                        + '<td style="text-align:right;color:red">' + val + "</td>"
+                                                                        + '<td style="color:red">' + c.Unit + "</td>"
+                                                                        + "<td>" + strDate + "</td>"
+                                                                        + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
                                                                 }
                                                             }
                                                         }
@@ -2722,22 +2814,20 @@
                                     });
                                 }
 
-                                function UpdateStGroupChannel(name, index) {
-                                    var status = 1;
-                                    var flag = document.getElementById("ckbGroupChannel_" + index + "").checked;
-                                    if (flag) {
-                                        status = 1;
-                                    } else {
-                                        status = 0;
-                                    }
+                                //function UpdateFlowChannel(e) {
+                                //    let flow = document.getElementsByClassName('ll');
+                                //    console.log(flow)
+                                //    if (e.checked == true) {
+                                //        flow.style.display = "block"
+                                //    }
+                                //    else {
+                                //        flow.style.display = "none"
+                                //    }
+                                //}
 
-                                    var url = urlUpdateGroupChannel + name + "/" + status;
-                                    $.getJSON(url, function (d) { });
-                                    //omarkers = [];
-                                    //markers = [];
-                                    //window_init();
-                                    updateMap();
-                                }
+                                //function UpdatePressureChannel() {
+
+                                //}
 
                                 function closePopupSiteInfo() {
                                 }
@@ -3068,27 +3158,36 @@
                                     window.setSize(chartWidth, chartHeight);
                                     window.show();
                                     window.center();
-                                    end = new Date();
-                                    start = new Date();
-                                    start = new Date(start.setDate(start.getDate() - 3));
-                                    var cDtStart = $find("<%=radDateTimePickerStart.ClientID %>");
-                                    var cDtEnd = $find("<%=radDateTimePickerEnd.ClientID %>");
-                                    cDtStart.set_selectedDate(start);
-                                    cDtEnd.set_selectedDate(end);
-                                    //start = toOADate(start);
-                                    //end = toOADate(end);
-                                    //start = start.toString().replace('.', '_');
-                                    //end = end.toString().replace('.', '_');
-                                    start = start.getTime() / 1000;
-                                    end = end.getTime() / 1000;
-                                    var channel = { id: channelId, namePath: namePath, unit: unit };
-                                    channels = [];
-                                    channels.push(channel);
-                                    colors = [];
-                                    mreds = [];
-                                    mblues = [];
-                                    drawChart(channels[0], start, end);
+                                    let url = urlGetCurrentTime + channelId;
+                                    $.getJSON(url, function (dc) {
+                                        let date = new Date(convertDateFromApi(dc));
 
+                                        let start;
+                                        let end = date;
+                                        if (end.getFullYear() != 1970 && end.getMonth() != 01 && end.getDate() != 01) {
+                                            let temp = new Date(convertDateFromApi(dc));
+                                            start = new Date(temp.setDate(temp.getDate() - 2));
+                                        }
+                                        else {
+                                            end = new Date(Date.now());
+                                            let temp = new Date(Date.now());
+                                            start = new Date(temp.setDate(temp.getDate() - 2));
+                                        }
+
+                                        var cDtStart = $find("<%=radDateTimePickerStart.ClientID %>");
+                                        var cDtEnd = $find("<%=radDateTimePickerEnd.ClientID %>");
+                                        cDtStart.set_selectedDate(start);
+                                        cDtEnd.set_selectedDate(end);
+                                        start = start.getTime() / 1000;
+                                        end = end.getTime() / 1000;
+                                        var channel = { id: channelId, namePath: namePath, unit: unit };
+                                        channels = [];
+                                        channels.push(channel);
+                                        colors = [];
+                                        mreds = [];
+                                        mblues = [];
+                                        drawChart(channels[0], start, end);
+                                    })
                                 };
                                 // this method is called when chart is first inited as we listen for "dataUpdated" event
                                 function zoomChart() {
@@ -3537,13 +3636,31 @@
                 <!-- Main Footer -->
                 <footer class="main-footer">
                     <!-- To the right -->
-                    <div class="pull-right hidden-xs">
+                    <div class="container">
+                        <div class="row text-center" style="font-weight: bold">
+                            <div class="col-sm-3"> 
+                                Tổng số Point: <span style="color: lawngreen" id="totalSite"></span>
+                            </div>
+                            <div class="col-sm-3">
+                                 Tổng số Point hoạt động: <span style="color: green" id="totalSiteAction"></span>
+                            </div>
+                            <div class="col-sm-3">
+                                 Tổng số Point có dữ liệu: <span style="color: blue" id="totalSiteHasData"></span>    
+                            </div>
+                            <div class="col-sm-3">
+                                 Tổng số Point cảnh báo: <span style="color: red" id="totalSiteWarning"></span>   
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                  <%--  <div class="pull-right hidden-xs">
                         <a href="#" class="label label-success">Design By TAWACO VIET NAM</a>
                     </div>
                     <!-- Default to the left -->
                     <strong>
                         <asp:Label ID="lbPageTitle" runat="server" Text="Viwater hệ thống SCADA quản lý mạng lưới cấp nước"></asp:Label>
-                    </strong>
+                    </strong>--%>
                 </footer>
                 <!-- Main Footer -->
             </div>
@@ -3592,7 +3709,7 @@
                     $("#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder1_RadPane2").css("height", strh);//resize map height
                     $("#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder1_RadPane2").css("width", screenwidth);//resize map width
                     $("#ctl00_ContentPlaceHolder1_RadSplitter1").css("height", strh)
-                    $("#ctl00_ContentPlaceHolder1_RadSplitter1").css("width", strw)
+                    $("#ctl00_ContentPlaceHolder1_RadSplitter1").css("width", strw) 
                     $("#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder1_RadPane1").css("width", "0px");//hide menu in radslide
 
                     $(".SiteSubMenu").click(function (e) {
@@ -3692,20 +3809,20 @@
                         $("#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder1_RadPane2").css("width", strw);//resize map width
                     });
 
-                    var url = urlGetGroupChannel;
-                    $.getJSON(url, function (d) {
-                        var index = 0;
-                        $.each(d, function (i, val) {
-                            var id = "ckbGroupChannel_" + index.toString();
-                            if (val.Status == 1) {
-                                $("#plhListGroupChannel").append("<div class='checkbox'><div><input type='checkbox' onclick='UpdateStGroupChannel(`" + val.GroupChannel + "`, " + index + ")' id='" + id + "' class='custom-checkbox' checked='checked'>" + val.GroupChannel + "</div></div>");
-                            } else {
-                                $("#plhListGroupChannel").append("<div class='checkbox'><div><input type='checkbox' onclick='UpdateStGroupChannel(`" + val.GroupChannel + "`, " + index + ")' id='" + id + "' class='custom-checkbox' >" + val.GroupChannel + "</div></div>");
+                    //var url = urlGetGroupChannel;
+                    //$.getJSON(url, function (d) {
+                    //    var index = 0;
+                    //    $.each(d, function (i, val) {
+                    //        var id = "ckbGroupChannel_" + index.toString();
+                    //        if (val.Status == 1) {
+                    //            $("#plhListGroupChannel").append("<div class='checkbox'><div><input type='checkbox' onclick='UpdateStGroupChannel(`" + val.GroupChannel + "`, " + index + ")' id='" + id + "' class='custom-checkbox' checked='checked'>" + val.GroupChannel + "</div></div>");
+                    //        } else {
+                    //            $("#plhListGroupChannel").append("<div class='checkbox'><div><input type='checkbox' onclick='UpdateStGroupChannel(`" + val.GroupChannel + "`, " + index + ")' id='" + id + "' class='custom-checkbox' >" + val.GroupChannel + "</div></div>");
 
-                            }
-                            index++;
-                        });
-                    });
+                    //        }
+                    //        index++;
+                    //    });
+                    //});
                 })
             }
             $(document).ready(function () {
@@ -3796,6 +3913,40 @@
 
                     var countAlarm = document.getElementById('countAlarm');
                     countAlarm.innerHTML = d.length.toString();
+                })
+
+                let urlGetTotalSite = `${hostname}/api/gettotalsite`;
+                let urlGetTotalSiteAcion = `${hostname}/api/gettotalsiteaction`;
+                let urlGetTotalSiteHasData = `${hostname}/api/gettotalsitehasdata`;
+                let urlGetTotalSiteError = `${hostname}/api/gettotalsiteerror`;
+
+                $.getJSON(urlGetTotalSite, function (d) {
+                    if (d != null) {
+                        document.getElementById('totalSite').innerHTML = d.toString();
+
+                    }
+                  
+                })
+                $.getJSON(urlGetTotalSiteAcion, function (d) {
+                    if (d != null) {
+                        document.getElementById('totalSiteAction').innerHTML = d.toString();
+
+                    }
+
+                })
+                $.getJSON(urlGetTotalSiteHasData, function (d) {
+                    if (d != null) {
+                        document.getElementById('totalSiteHasData').innerHTML = d.toString();
+
+                    }
+
+                })
+                $.getJSON(urlGetTotalSiteError, function (d) {
+                    if (d != null) {
+                        document.getElementById('totalSiteWarning').innerHTML = d.toString();
+
+                    }
+
                 })
 
             }, 2000)
