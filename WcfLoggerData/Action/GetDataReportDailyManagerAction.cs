@@ -23,14 +23,14 @@ namespace WcfLoggerData.Action
             Connect connect = new Connect();
             try
             {
-                string store = "p_Calculate_One_Company_Output";
+                string store = "p_Calculate_Daily_Data_DMA";
 
                 connect.Connected();
 
                 SqlCommand command = connect.ExcuteStoreProceduce(store);
-                command.Parameters.Add(new SqlParameter("@Company", managerid));
-                command.Parameters.Add(new SqlParameter("@StartDate", timeStart));
-                command.Parameters.Add(new SqlParameter("@EndDate", timeEnd));
+                command.Parameters.Add(new SqlParameter("@dmaid", managerid));
+                command.Parameters.Add(new SqlParameter("@start", timeStart));
+                command.Parameters.Add(new SqlParameter("@end", timeEnd));
 
                 SqlDataReader reader = command.ExecuteReader();
 

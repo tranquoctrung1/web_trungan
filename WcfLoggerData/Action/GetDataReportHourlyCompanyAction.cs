@@ -23,14 +23,14 @@ namespace WcfLoggerData.Action
             Connect connect = new Connect();
             try
             {
-                string store = "p_Calculate_One_Company_Hourly_Output";
+                string store = "p_Calculate_Hourly_Data_DMA";
 
                 connect.Connected();
 
                 SqlCommand command = connect.ExcuteStoreProceduce(store);
-                command.Parameters.Add(new SqlParameter("@Company", company));
-                command.Parameters.Add(new SqlParameter("@StartDate", timeStart));
-                command.Parameters.Add(new SqlParameter("@EndDate", timeEnd));
+                command.Parameters.Add(new SqlParameter("@dmaid", company));
+                command.Parameters.Add(new SqlParameter("@start", timeStart));
+                command.Parameters.Add(new SqlParameter("@end", timeEnd));
 
                 command.CommandTimeout = 3600;
 

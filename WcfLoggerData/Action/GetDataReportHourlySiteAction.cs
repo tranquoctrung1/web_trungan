@@ -23,14 +23,14 @@ namespace WcfLoggerData.Action
             Connect connect = new Connect();
             try
             {
-                string store = "p_Calculate_One_Site_Hourly_Output";
+                string store = "p_Calculate_Hourly_Site";
 
                 connect.Connected();
 
                 SqlCommand command = connect.ExcuteStoreProceduce(store);
-                command.Parameters.Add(new SqlParameter("@SiteId", siteid));
-                command.Parameters.Add(new SqlParameter("@Start", timeStart));
-                command.Parameters.Add(new SqlParameter("@End", timeEnd));
+                command.Parameters.Add(new SqlParameter("@siteid", siteid));
+                command.Parameters.Add(new SqlParameter("@start", timeStart));
+                command.Parameters.Add(new SqlParameter("@end", timeEnd));
 
                 SqlDataReader reader = command.ExecuteReader();
 
