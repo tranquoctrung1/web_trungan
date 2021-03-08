@@ -73,9 +73,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12">
+               <%-- <div class="col-sm-12">
                     <div id="tree"></div>
-                </div>
+                </div>--%>
                 <div class="text-center col-sm-12 m-t m-b no-padding" style="clear: both;">
                     <asp:Button ID="btnUpdate" runat="server" Text="Cập Nhật"
                         OnClick="btnUpdate_Click" CssClass="btn btn-success"></asp:Button>
@@ -118,94 +118,94 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
 
-        var tree = [
-            {
-                text: "Parent 1",
-                nodes: [
-                    {
-                        text: "Child 1",
-                        nodes: [
-                            {
-                                text: "Grandchild 1"
-                            },
-                            {
-                                text: "Grandchild 2"
-                            }
-                        ]
-                    },
-                    {
-                        text: "Child 2"
-                    }
-                ]
-            },
-            {
-                text: "Parent 2",
-                nodes: [
-                    {
-                        text: "Child 1",
-                        nodes: [
-                            {
-                                text: "Grandchild 1"
-                            },
-                            {
-                                text: "Grandchild 2"
-                            }
-                        ]
-                    },
-                    {
-                        text: "Child 2"
-                    }
-                ]
-            },
-            {
-                text: "Parent 3",
-                nodes: [
-                    {
-                        text: "Child 1",
-                        nodes: [
-                            {
-                                text: "Grandchild 1"
-                            },
-                            {
-                                text: "Grandchild 2"
-                            }
-                        ]
-                    },
-                    {
-                        text: "Child 2"
-                    }
-                ]
-            },
-            {
-                text: "Parent 4",
-                nodes: [
-                    {
-                        text: "Child 1",
-                        nodes: [
-                            {
-                                text: "Grandchild 1"
-                            },
-                            {
-                                text: "Grandchild 2"
-                            }
-                        ]
-                    },
-                    {
-                        text: "Child 2"
-                    }
-                ]
-            },
-            {
-                text: "Parent 5"
-            }
-        ];
+        //var tree = [
+        //    {
+        //        text: "Parent 1",
+        //        nodes: [
+        //            {
+        //                text: "Child 1",
+        //                nodes: [
+        //                    {
+        //                        text: "Grandchild 1"
+        //                    },
+        //                    {
+        //                        text: "Grandchild 2"
+        //                    }
+        //                ]
+        //            },
+        //            {
+        //                text: "Child 2"
+        //            }
+        //        ]
+        //    },
+        //    {
+        //        text: "Parent 2",
+        //        nodes: [
+        //            {
+        //                text: "Child 1",
+        //                nodes: [
+        //                    {
+        //                        text: "Grandchild 1"
+        //                    },
+        //                    {
+        //                        text: "Grandchild 2"
+        //                    }
+        //                ]
+        //            },
+        //            {
+        //                text: "Child 2"
+        //            }
+        //        ]
+        //    },
+        //    {
+        //        text: "Parent 3",
+        //        nodes: [
+        //            {
+        //                text: "Child 1",
+        //                nodes: [
+        //                    {
+        //                        text: "Grandchild 1"
+        //                    },
+        //                    {
+        //                        text: "Grandchild 2"
+        //                    }
+        //                ]
+        //            },
+        //            {
+        //                text: "Child 2"
+        //            }
+        //        ]
+        //    },
+        //    {
+        //        text: "Parent 4",
+        //        nodes: [
+        //            {
+        //                text: "Child 1",
+        //                nodes: [
+        //                    {
+        //                        text: "Grandchild 1"
+        //                    },
+        //                    {
+        //                        text: "Grandchild 2"
+        //                    }
+        //                ]
+        //            },
+        //            {
+        //                text: "Child 2"
+        //            }
+        //        ]
+        //    },
+        //    {
+        //        text: "Parent 5"
+        //    }
+        //];
 
-        function getTree() {
-            // Some logic to retrieve, or generate tree structure
-            return tree;
-        }
+        //function getTree() {
+        //    // Some logic to retrieve, or generate tree structure
+        //    return tree;
+        //}
 
-        $('#tree').treeview({ data: getTree() });
+        //$('#tree').treeview({ data: getTree() });
 
     </script>
 </asp:Content>

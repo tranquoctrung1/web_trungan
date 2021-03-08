@@ -167,6 +167,8 @@
     <Compile Include="Action\GetStatisticSiteByStatusAction.cs" />
     <Compile Include="Action\GetStatisticSiteDMAAction.cs" />
     <Compile Include="Action\GetTimeOfFirstChannel.cs" />
+    <Compile Include="Action\GetTotalDMAAction.cs" />
+    <Compile Include="Action\GetTotalDMAErrorAction.cs" />
     <Compile Include="Action\GetTotalSiteActionAction.cs" />
     <Compile Include="Action\GetTotalSiteAction.cs" />
     <Compile Include="Action\GetTotalSiteErrorAction.cs" />
@@ -220,6 +222,8 @@
     <Compile Include="Controllers\GetStatisticSiteByStatusController.cs" />
     <Compile Include="Controllers\GetStatisticSiteDMAController.cs" />
     <Compile Include="Controllers\GetTimeController.cs" />
+    <Compile Include="Controllers\GetTotalDMAController.cs" />
+    <Compile Include="Controllers\GetTotalDMAErrorController.cs" />
     <Compile Include="Controllers\GetTotalSiteActionController.cs" />
     <Compile Include="Controllers\GetTotalSiteController.cs" />
     <Compile Include="Controllers\GetTotalSiteErrorController.cs" />
@@ -326,6 +330,8 @@
     <Folder Include="Views\GetStatisticSiteByStatus\" />
     <Folder Include="Views\GetStatisticSiteDMA\" />
     <Folder Include="Views\GetTime\" />
+    <Folder Include="Views\GetTotalDMAError\" />
+    <Folder Include="Views\GetTotalDMA\" />
     <Folder Include="Views\GetTotalSiteAction\" />
     <Folder Include="Views\GetTotalSiteError\" />
     <Folder Include="Views\GetTotalSiteHasData\" />
