@@ -15,6 +15,9 @@ namespace WcfLoggerData.Action
             List<ChannelByLoggerViewModel> list = new List<ChannelByLoggerViewModel>();
             Connect connect = new Connect();
 
+            GetCurrentTimeAction getCurrentTimeAction = new GetCurrentTimeAction();
+            GetLastValueAction getLastValueAction = new GetLastValueAction();
+
             try
             {
                 string sqlQuery = $"select t.Id as ChannelId, t.Name as ChannelName, ds.Pressure, ds.Pressure1, ds.Forward, ds.Reverse, t.LastTimeStamp, t.LastValue, t.Unit, gc.Status as GroupChannelStatus, ds.DelayTime, t.BaseMin, t.BaseMax from t_Devices_ChannelsConfigs t left join t_Devices_SitesConfigs ds on t.LoggerId = ds.Id join t_GroupChannel gc on gc.GroupChannel = t.GroupChannel where ds.Id = '{loggerid}'";
@@ -85,7 +88,7 @@ namespace WcfLoggerData.Action
                         }
                         try
                         {
-                            el.Timestamp = DateTime.Parse(reader["LastTimeStamp"].ToString());
+                            el.Timestamp = getCurrentTimeAction.GetCurrentTime(el.ChannelId);
                         }
                         catch (Exception ex)
                         {
@@ -93,7 +96,7 @@ namespace WcfLoggerData.Action
                         }
                         try
                         {
-                            el.Val = double.Parse(reader["LastValue"].ToString());
+                            el.Val = getLastValueAction.GetLastValue(el.ChannelId);
                         }
                         catch (Exception ex)
                         {

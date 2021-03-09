@@ -115,7 +115,9 @@
   <ItemGroup>
     <Compile Include="Action\DataChannelChartAction.cs" />
     <Compile Include="Action\GetAlarmForDMAAction.cs" />
+    <Compile Include="Action\GetAlarmForDMAByUidAction.cs" />
     <Compile Include="Action\GetAlarmForLoggerAction.cs" />
+    <Compile Include="Action\GetAlarmForPointByUidAction.cs" />
     <Compile Include="Action\GetChannelByGroupChannelAction.cs" />
     <Compile Include="Action\GetChannelByLoggerAction.cs" />
     <Compile Include="Action\GetChannelConfigAction.cs" />
@@ -125,6 +127,7 @@
     <Compile Include="Action\GetDataBatterryChangedAciton.cs" />
     <Compile Include="Action\GetDataBatteryLoggerChangedAction.cs" />
     <Compile Include="Action\GetDataBatteryTransmitterChangedAction.cs" />
+    <Compile Include="Action\GetDataComplexByUidAction.cs" />
     <Compile Include="Action\GetDataDashBoardDailySiteAction.cs" />
     <Compile Include="Action\GetDataDashBoardHourlySiteAction.cs" />
     <Compile Include="Action\GetDataDashBoardMonthlyAction.cs" />
@@ -148,9 +151,11 @@
     <Compile Include="Action\GetDataTransmitterChangedAction.cs" />
     <Compile Include="Action\GetDisplayGroupAction.cs" />
     <Compile Include="Action\GetDistrictAction.cs" />
+    <Compile Include="Action\GetDistrictBySupervisorIdAction.cs" />
     <Compile Include="Action\GetGroupChannelAction.cs" />
     <Compile Include="Action\GetGroupChannelByLoggerAction.cs" />
     <Compile Include="Action\GetAlarmForPointAction.cs" />
+    <Compile Include="Action\GetLastValueAction.cs" />
     <Compile Include="Action\GetLevelAlarmAction.cs" />
     <Compile Include="Action\GetListSitesAction.cs" />
     <Compile Include="Action\GetLoggerAction.cs" />
@@ -174,17 +179,21 @@
     <Compile Include="Action\GetTotalSiteErrorAction.cs" />
     <Compile Include="Action\GetTotalSiteHasDataAction.cs" />
     <Compile Include="Action\GetTurnHistoryAlarmAction.cs" />
+    <Compile Include="Action\GetUserByUidAction.cs" />
     <Compile Include="Action\GetValueAlarmAction.cs" />
     <Compile Include="Action\UpdateTurnHistoryAlarmAction.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ConnectDB\Connect.cs" />
+    <Compile Include="Controllers\GetAlarmForDMAByUidController.cs" />
     <Compile Include="Controllers\GetAlarmForDMAController.cs" />
     <Compile Include="Controllers\GetAlarmForLoggerController.cs" />
+    <Compile Include="Controllers\GetAlarmForPointByUidController.cs" />
     <Compile Include="Controllers\GetAlarmForPointController.cs" />
     <Compile Include="Controllers\GetChannelByGroupChannelController.cs" />
     <Compile Include="Controllers\GetChannelByLoggerController.cs" />
     <Compile Include="Controllers\GetChannelDataChartController.cs" />
     <Compile Include="Controllers\GetChannelDataDailyController.cs" />
+    <Compile Include="Controllers\GetComplexDataByUidController.cs" />
     <Compile Include="Controllers\GetCurrentTimeController.cs" />
     <Compile Include="Controllers\GetDataChartController.cs" />
     <Compile Include="Controllers\GetDataComplexController.cs" />
@@ -208,6 +217,7 @@
     <Compile Include="Controllers\GetDataStatisticSiteController.cs" />
     <Compile Include="Controllers\GetDataStatisticTransmitterController.cs" />
     <Compile Include="Controllers\GetDisplayGroupController.cs" />
+    <Compile Include="Controllers\GetDistrictBySupervisorController.cs" />
     <Compile Include="Controllers\GetDistrictController.cs" />
     <Compile Include="Controllers\GetGroupChannelByLoggerController.cs" />
     <Compile Include="Controllers\GetGroupChannelController.cs" />
@@ -271,6 +281,7 @@
     <Compile Include="Models\StatisticSiteViewModel.cs" />
     <Compile Include="Models\StatisticTransmitterViewModel.cs" />
     <Compile Include="Models\TurnHistoryAlarmViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\ValueAlarmViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -287,13 +298,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\GetAlarmForDMAByUid\" />
     <Folder Include="Views\GetAlarmForDMA\" />
     <Folder Include="Views\GetAlarmForLogger\" />
+    <Folder Include="Views\GetAlarmForPointByUid\" />
     <Folder Include="Views\GetAlarmForPoint\" />
     <Folder Include="Views\GetChannelByGroupChannel\" />
     <Folder Include="Views\GetChannelByLogger\" />
     <Folder Include="Views\GetChannelDataChart\" />
     <Folder Include="Views\GetChannelDataDaily\" />
+    <Folder Include="Views\GetComplexDataByUid\" />
     <Folder Include="Views\GetCurrentTime\" />
     <Folder Include="Views\GetDataChart\" />
     <Folder Include="Views\GetDataDailyManager\" />
@@ -316,6 +330,7 @@
     <Folder Include="Views\GetDataStatisticSite\" />
     <Folder Include="Views\GetDataStatisticTransmitter\" />
     <Folder Include="Views\GetDisplayGroup\" />
+    <Folder Include="Views\GetDistrictBySupervisor\" />
     <Folder Include="Views\GetDistrict\" />
     <Folder Include="Views\GetGroupChannelByLogger\" />
     <Folder Include="Views\GetGroupChannel\" />

@@ -12,11 +12,40 @@ namespace WcfLoggerData.Action
     {
         public List<SiteResultByUIDViewModel> GetSiteResultByUID(string uid)
         {
+
+            GetUserByUidAction action = new GetUserByUidAction();
+
+            UserViewModel u = action.GetUser(uid);
+
+            string sqlQuery = $"";
+
+            if (u.Role == "supervisor")
+            {
+                sqlQuery = $"select  s.Company, s.Latitude, s.Longitude, s.Id as SiteId, s.Location , t.Id as LoggerId from t_Site_Sites s join t_Devices_SitesConfigs t on t.SiteId = s.Id  join [t_Supervisor_District] sd on sd.IdDistrict = s.District where sd.IdStaff = '{u.StaffId}'";
+            }
+            else if(u.Role == "DMA")
+            {
+                sqlQuery = $"select  s.Company, s.Latitude, s.Longitude, s.Id as SiteId, s.Location , t.Id as LoggerId from t_Site_Sites s join t_Devices_SitesConfigs t on t.SiteId = s.Id  join [t_DMA_DMA] dd on dd.IdDMA = s.Company where dd.IdStaff = '{u.StaffId}'";
+            }
+            else if(u.Role == "staff")
+            {
+                sqlQuery = $"select  s.Company, s.Latitude, s.Longitude, s.Id as SiteId, s.Location , t.Id as LoggerId from t_Site_Sites s join t_Devices_SitesConfigs t on t.SiteId = s.Id  join [t_Staff_Site] ts on ts.IdSite = s.Id where ts.IdStaff = '{u.StaffId}'";
+            }
+            else if(u.Role == "consumer")
+            {
+                sqlQuery = $"select  s.Company, s.Latitude, s.Longitude, s.Id as SiteId, s.Location , t.Id as LoggerId from t_Site_Sites s join t_Devices_SitesConfigs t on t.SiteId = s.Id  join [t_Site_Consumer] sc on sc.SiteId = s.Id where sc.ConsumerId = '{u.StaffId}'";
+            }
+            else
+            {
+                sqlQuery = $"select  s.Company, s.Latitude, s.Longitude, s.Id as SiteId, s.Location , t.Id as LoggerId from t_Site_Sites s join t_Devices_SitesConfigs t on t.SiteId = s.Id "; //where exists (select * from t_Devices_ChannelsConfigs dc where dc.LoggerId = t.Id)
+            }
+
             List<SiteResultByUIDViewModel> list = new List<SiteResultByUIDViewModel>();
             Connect connect = new Connect();
+
             try
             {
-                string sqlQuery = $"select  s.Company, s.Latitude, s.Longitude, s.Id as SiteId, s.Location , t.Id as LoggerId from t_Site_Sites s join t_Devices_SitesConfigs t on t.SiteId = s.Id "; //where exists (select * from t_Devices_ChannelsConfigs dc where dc.LoggerId = t.Id)
+                
 
                 connect.Connected();
 

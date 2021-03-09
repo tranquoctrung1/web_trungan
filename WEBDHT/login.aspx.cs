@@ -11,8 +11,11 @@ public partial class login : BasePage
     private string _msgWrong = "Sai ký danh hoặc mật khẩu.";
     private string _msgEmptyUid = "Chưa nhập ký danh.";
     private string _msgEmptyPwd = "Chưa nhập mật khẩu.";
-    private string _urlDefault = "~/_supervisor/DashBoard/DashBoard.aspx";
-    private string _urlCustomer = "~/_customer/output.aspx";
+    private string _urlMapAdmin = "~/_supervisor/map/Map2.aspx?uid=";
+    private string _urlMapSupervisor = "~/_supervisores/map/Map2.aspx?uid=";
+    private string _urlMapDMA = "~/_dma/map/Map2.aspx?uid=";
+    private string _urlMapStaff = "~/_staff/map/Map2.aspx?uid=";
+    private string _urlMapConsumer = "~/_consumer/map/Map2.aspx?uid=";
     UsersBLL _usersBLL = new UsersBLL();
     StringUTL _stringUTL = new StringUTL();
     protected void Page_Load(object sender, EventArgs e)
@@ -76,13 +79,25 @@ public partial class login : BasePage
                 dbUser.LogCount += 1;
             }
             _usersBLL.Update(dbUser);
-            if (dbUser.Role != "customer" && dbUser.Role != "customer_boo")
+            if (dbUser.Role == "supervisor")
             {
-                Response.Redirect(_urlDefault);
+                Response.Redirect(_urlMapSupervisor + dbUser.Uid);
+            }
+            else if (dbUser.Role == "DMA")
+            {
+                Response.Redirect(_urlMapDMA + dbUser.Uid);
+            }
+            else if (dbUser.Role == "staff")
+            {
+                Response.Redirect(_urlMapStaff + dbUser.Uid);
+            }
+            else if (dbUser.Role == "consumer")
+            {
+                Response.Redirect(_urlMapConsumer + dbUser.Uid);
             }
             else
             {
-                Response.Redirect(_urlCustomer);
+                Response.Redirect(_urlMapAdmin + dbUser.Uid);
             }
         }
         else

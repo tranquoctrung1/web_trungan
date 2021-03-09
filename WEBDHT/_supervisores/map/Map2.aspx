@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Empty.master" AutoEventWireup="true" CodeFile="Map2.aspx.cs" Inherits="_supervisor_map_Map2" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/Empty.master" AutoEventWireup="true" CodeFile="Map2.aspx.cs" Inherits="_supervisores_map_Map2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
@@ -164,300 +164,26 @@
                 </header>
                 <aside class="main-sidebar box-shadow menu-main-mobile" id="tab-icon-menu">
 
-                    <!-- sidebar: style can be found in sidebar.less -->
                     <div class="sidebar">
                         <ul class="sidebar-menu" data-widget="tree">
-                            <!-- Optionally, you can add icons to the links -->
-                            <%--<li class="treeview">
-                                <a class="logo brand-link" href="/">
-                                    <img src="../../App_Themes/logo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8" runat="server" id="imgLogo">
-                                </a>
-                            </li>--%>
-                            <%-- <li>
-                                <a href="/_supervisor/map/Map.aspx">
-                                    <i class="fa fa-home"></i>
-                                    <asp:Label ID="lbMap" runat="server" Text="Bản Đồ Tổng Thể"></asp:Label>
-                                </a>
-                            </li>--%>
                             <li>
-                                <a href="/_supervisor/map/Map2.aspx">
+                                <a href="/_supervisores/map/Map2.aspx">
                                     <i class="fa fa-home"></i>
                                     <asp:Label ID="lbMap2" runat="server" Text="Bản Đồ Tổng Thể"></asp:Label>
                                 </a>
                             </li>
                             <li>
-                                <a href="/_supervisor/DashBoard/DashBoard.aspx">
+                                <a href="/_supervisores/DashBoard/DashBoard.aspx">
                                     <i class="fa fa-table"></i>
                                     <asp:Label ID="lbDashBoard" runat="server" Text="DashBoard"></asp:Label>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="/_supervisor/logger/datalogger.aspx">
+                                <a href="/_supervisores/logger/datalogger.aspx">
                                     <i class="fa fa-table"></i>
                                     <asp:Label ID="lbDataLoggerTable" runat="server" Text="Dữ Liệu Logger"></asp:Label>
                                 </a>
-                            </li>
-                            <li class="treeview">
-                                <a href="#ThietBi"><i class="fa fa-flag"></i>
-                                    <asp:Label ID="lbDevice" runat="server" Text="Thiết Bị"></asp:Label>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li>
-                                        <a href="/_supervisor/device/meter.aspx">
-                                            <asp:Label ID="lbMeter" runat="server" Text="Đồng Hồ"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/device/transmitter.aspx">
-                                            <asp:Label ID="lbTransmitter" runat="server" Text="Bộ Hiển Thị"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/device/logger.aspx">
-                                            <asp:Label ID="lbLogger" runat="server" Text="Logger"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/device/cover.aspx">
-                                            <asp:Label ID="lbCover" runat="server" Text="Nắp Hầm"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/file/meter.aspx">
-                                            <asp:Label ID="lbDownloadMeterFile" runat="server" Text="Download File Đồng Hồ"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/device/delete_useless_meters.aspx">
-                                            <asp:Label ID="lbDeleteMeterNotUse" runat="server" Text="Xóa Đồng Hồ Không Sử Dụng"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/device/delete_useless_transmitters.aspx">
-                                            <asp:Label ID="lbDeleteTransmitterNotUse" runat="server" Text="Xóa Bộ Hiển Thị Không Sử Dụng"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/device/delete_useless_loggers.aspx">
-                                            <asp:Label ID="lbDeleteLoggerNotUse" runat="server" Text="Xóa Logger Không Sử Dụng"></asp:Label>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="treeview">
-                                <a href="#ViTriLapDat"><i class="fa fa-map-marker"></i>
-                                    <asp:Label ID="blEAndsL" runat="server" Text="Điểm Lắp Đặt"></asp:Label>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li>
-                                        <a href="/_supervisor/site/info.aspx">
-                                            <asp:Label ID="lbInfo" runat="server" Text="Thông Tin Điểm Lắp Đặt"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/site/config.aspx">
-                                            <asp:Label ID="lbConfig" runat="server" Text="Cấu Hình Logger"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/site/change_meter.aspx">
-                                            <asp:Label ID="lbChangeMeter" runat="server" Text="Thay Đồng Hồ"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/site/change_transmitter.aspx">
-                                            <asp:Label ID="lbChangeTransmitter" runat="server" Text="Thay Bộ Hiển Thị"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/site/change_logger.aspx">
-                                            <asp:Label ID="lbChangeLogger" runat="server" Text="Thay Logger"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/file/site.aspx">
-                                            <asp:Label ID="lbDownloadFileConfig" runat="server" Text="Download File Điểm Lắp Đặt"></asp:Label>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="treeview">
-                                <a href="#ThongKe"><i class="fa fa-balance-scale"></i>
-                                    <asp:Label ID="lbThongKe" runat="server" Text="Thống Kê"></asp:Label>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <%--<li>
-                                        <a href="/_supervisor/report/rsi_sgwdc.aspx">
-                                            <asp:Label ID="lbReportRSI" runat="server" Text="Điểm Lắp Đặt Theo DMA"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/rsi_marks_size_sgwdc.aspx">
-                                            <asp:Label ID="lbReportRSIMark" runat="server" Text="Theo Hiệu Cỡ (DMA)"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/rsi_.aspx">
-                                            <asp:Label ID="lbRSI_" runat="server" Text="Thống Kê Tùy Chọn Điểm Lắp Đặt"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/rsi_marks_size.aspx">
-                                            <asp:Label ID="lbRSIMarkSize" runat="server" Text="Thống Kê Tùy Chọn Hiệu Cỡ"></asp:Label>
-                                        </a>
-                                    </li>--%>
-                                    <%-- <li>
-                                        <a href="/_supervisor/report/rsi_has_changed.aspx">
-                                            <asp:Label ID="lbRSIChange" runat="server" Text="Hoạt Động Phát Sinh Trong Kỳ"></asp:Label>
-                                        </a>
-                                    </li>--%>
-                                    <%--<li>
-                                        <a href="/_supervisor/report/rde_meter.aspx">
-                                            <asp:Label ID="lbRDEMeter" runat="server" Text="Thống Kê Đồng Hồ"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/rde_transmitter.aspx">
-                                            <asp:Label ID="lbRDETransmitter" runat="server" Text="Thống Kê Bộ Hiển Thị"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/rde_logger.aspx">
-                                            <asp:Label ID="lbRDELogger" runat="server" Text="Thống Kê Bộ Logger"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/rsi_history.aspx">
-                                            <asp:Label ID="lbRSIHistory" runat="server" Text="Lịch Sử Điểm Lắp Đặt"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/rsi_expiry.aspx">
-                                            <asp:Label ID="lbRSIExpiry" runat="server" Text="Thời Gian Đồng Hồ Hoạt Động"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/rsi_meter_accrediation.aspx">
-                                            <asp:Label ID="lbRSIMeterAccredaition" runat="server" Text="Đồng Hồ Đến Hạn Kiểm Định"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/rde_emeter.aspx">
-                                            <asp:Label ID="lbRDEEmeter" runat="server" Text="Hồ Sơ Thiết Bị Đồng Hồ"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/rde_etransmitter.aspx">
-                                            <asp:Label ID="lbRDERTransmitter" runat="server" Text="Hồ Sơ Thiết Bị Bộ Hiển Thị"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/rde_elogger.aspx">
-                                            <asp:Label ID="lbRDERLogger" runat="server" Text="Hồ Sơ Thiết Bị Logger"></asp:Label>
-                                        </a>
-                                    </li>--%>
-                                    <li>
-                                        <a href="/_supervisor/report/statisticpointbystatus.aspx">
-                                            <asp:Label ID="lbStatisitcPointByStatus" runat="server" Text="Point Theo Trình Trạng"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/statisticLogger.aspx">
-                                            <asp:Label ID="lbStatisitcLoggerByStatus" runat="server" Text="Logger Theo Tình Trạng"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/statisticDateExpireLogger.aspx">
-                                            <asp:Label ID="lbStatisitcLoggerByDateExpireBattery" runat="server" Text="Logger Theo Thời Gian Pin"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/statisticDMA.aspx">
-                                            <asp:Label ID="lbStatisticDMA" runat="server" Text="DMA Theo Tình Trạng"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/statisitcAccreditationMeter.aspx">
-                                            <asp:Label ID="lbStatisticAccreditationMeter" runat="server" Text="Kiểm Định Đồng Hồ"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/statisticMeterChanged.aspx">
-                                            <asp:Label ID="lbStatisticMeterChanged" runat="server" Text="Thay Đồng Hồ"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/statisticTransmitterChanged.aspx">
-                                            <asp:Label ID="lbStatisticTransmitterChanged" runat="server" Text="Thay Bộ Hiển Thị"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/statisticLoggerChanged.aspx">
-                                            <asp:Label ID="lbStatisticLoggerChanged" runat="server" Text="Thay Logger"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/statisticBatteryChanged.aspx">
-                                            <asp:Label ID="lbStatisticBatteryChanged" runat="server" Text="Thay Pin Bộ Hiển Thị"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/report/statisticBatteryChangedLogger.aspx">
-                                            <asp:Label ID="lbStatisticBatteryChangedLogger" runat="server" Text="Thay Pin Logger"></asp:Label>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <%-- </li>
-                            <li class="treeview">
-                            <a href="#TimKiem"><i class="fa fa-search"></i>
-                                <asp:Label ID="lbSearch" runat="server" Text="Tìm Kiếm"></asp:Label>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                 <li>
-                                    <a href="/_supervisor/search/point.aspx">
-                                        <asp:Label ID="lbSearchPoint" runat="server" Text="Tìm Kiếm Point"></asp:Label>
-                                    </a>
-                                </li>
-                            </ul>
-                             </li>--%>
-                            <li class="treeview">
-                                <a href="#NhapLieu"><i class="fa fa-pencil-square-o"></i>
-                                    <asp:Label ID="lbNhapLieu" runat="server" Text="Nhập Liệu"></asp:Label>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                   <%-- <li>
-                                        <a href="/_supervisor/data/raw.aspx">
-                                            <asp:Label ID="lbDataRaw" runat="server" Text="Nhập Tay Chỉ Số"></asp:Label>
-                                        </a>
-                                    </li>--%>
-                                    <li>
-                                        <a href="/_supervisor/data/logger.aspx">
-                                            <asp:Label ID="lbDataLogger" runat="server" Text="Nhập Tay Sản Lượng"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <%--<li>
-                                        <a href="/_supervisor/data/change.aspx">
-                                            <asp:Label ID="lbDataChange" runat="server" Text="Sữa Dữ Liệu Nhập Tay"></asp:Label>
-                                        </a>
-                                    </li>--%>
-                                </ul>
                             </li>
 
                             <li class="treeview">
@@ -469,55 +195,25 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="/_supervisor/logger/datalogger.aspx">
+                                        <a href="/_supervisores/logger/datalogger.aspx">
                                             <asp:Label ID="lbDataLoggerComplex" runat="server" Text="Dữ Liệu Logger"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisor/logger/HourlyLogger.aspx">
+                                        <a href="/_supervisores/logger/HourlyLogger.aspx">
                                             <asp:Label ID="lbQuantityHourlyLogger" runat="server" Text="Sản Lượng Giờ Theo Point"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisor/logger/DailyLogger.aspx">
+                                        <a href="/_supervisores/logger/DailyLogger.aspx">
                                             <asp:Label ID="lbDailyQuantityPoint" runat="server" Text="Sản Lượng Ngày Theo Point"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisor/logger/MonthlyLogger.aspx">
+                                        <a href="/_supervisores/logger/MonthlyLogger.aspx">
                                             <asp:Label ID="lbmonthlyQuantityLogger" runat="server" Text="Sản Lượng Tháng Theo Point"></asp:Label>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="/_supervisor/logger/HourlyManager.aspx">
-                                            <asp:Label ID="lbQuantityHourlyManager" runat="server" Text="Sản Lượng Giờ Theo DMA"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/logger/DailyManager.aspx">
-                                            <asp:Label ID="lbDailyQuantityManager" runat="server" Text="Sản Lượng Ngày Theo DMA"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/logger/MonthlyCompany.aspx">
-                                            <asp:Label ID="lbMonthlyQuantityManager" runat="server" Text="Sản Lượng Tháng Theo DMA"></asp:Label>
-                                        </a>
-                                    </li>
-                                   <%-- <li>
-                                        <a href="/_supervisor/logger/HourlyTotal.aspx">
-                                            <asp:Label ID="lbHourlyQuantityTotal" runat="server" Text="Sản Lượng Giờ Tổng Công Ty"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/logger/DailyTotal.aspx">
-                                            <asp:Label ID="lbDailyQuantityTotal" runat="server" Text="Sản Lượng Ngày Tổng Công Ty"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/logger/MonthlyTotal.aspx">
-                                            <asp:Label ID="lbMonthlyQuantityTotal" runat="server" Text="Sản Lượng Tháng Tổng Công Ty"></asp:Label>
-                                        </a>
-                                    </li>--%>
                                 </ul>
                             </li>
 
@@ -530,50 +226,20 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="/_supervisor/chartP/ChartPoint.aspx">
+                                        <a href="/_supervisores/chartP/ChartPoint.aspx">
                                             <asp:Label ID="lbPointChart" runat="server" Text="Đồ Thị Giờ Theo Point"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisor/chartP/ChartPointDay.aspx">
+                                        <a href="/_supervisores/chartP/ChartPointDay.aspx">
                                             <asp:Label ID="lbChartPointDaily" runat="server" Text="Đồ Thị Ngày Theo Point"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisor/chartP/ChartPointMonthly.aspx">
+                                        <a href="/_supervisores/chartP/ChartPointMonthly.aspx">
                                             <asp:Label ID="lbChartPointMonthly" runat="server" Text="Đồ Thị Tháng Theo Point"></asp:Label>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="/_supervisor/chartP/ChartManagerHourly.aspx">
-                                            <asp:Label ID="lbChartHourlyManager" runat="server" Text="Đồ Thị Giờ Theo DMA"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/chartP/ChartManagerDaily.aspx">
-                                            <asp:Label ID="lbChartDailyManager" runat="server" Text="Đồ Thị Ngày Theo DMA"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/chartP/ChartManagerMonthly.aspx">
-                                            <asp:Label ID="lbChartMonthlyManager" runat="server" Text="Đồ Thị Tháng Theo DMA"></asp:Label>
-                                        </a>
-                                    </li>
-                                  <%--  <li>
-                                        <a href="/_supervisor/chartP/ChartTotalHourly.aspx">
-                                            <asp:Label ID="lbChartHourlyTotal" runat="server" Text="Đồ Thị Giờ Tổng"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/chartP/ChartDailyTotal.aspx">
-                                            <asp:Label ID="lbChartDailyTotal" runat="server" Text="Đồ Thị Ngày Tổng"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/chartP/ChartMonthlyTotal.aspx">
-                                            <asp:Label ID="lbChartMonthlyTotal" runat="server" Text="Đồ Thị Tháng Tổng"></asp:Label>
-                                        </a>
-                                    </li>--%>
                                 </ul>
                             </li>
 
@@ -586,57 +252,22 @@
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <%--<li>
-                                        <a href="/_supervisor/alarm/AlarmTable.aspx">
-                                            <asp:Label ID="lbTableAlarm" runat="server" Text="Bảng Cảnh Báo"></asp:Label>
-                                        </a>
-                                    </li>--%>
+
                                     <li>
-                                        <a href="/_supervisor/alarm/AlarmTableForPoint.aspx">
+                                        <a href="/_supervisores/alarm/AlarmTableForPoint.aspx">
                                             <asp:Label ID="lbTableAlarmForPoint" runat="server" Text="Bảng Cảnh Báo Cho Point"></asp:Label>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="/_supervisor/alarm/AlarmTableForLogger.aspx">
-                                            <asp:Label ID="lbTableAlarmForLogger" runat="server" Text="Bảng Cảnh Báo Cho Logger"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/alarm/AlarmTableForDMA.aspx">
-                                            <asp:Label ID="lbTableAlarmForDMA" runat="server" Text="Bảng Cảnh Báo Cho DMA"></asp:Label>
-                                        </a>
-                                    </li>
                                      <li>
-                                        <a href="/_supervisor/alarm/SettingAlarm.aspx">
+                                        <a href="/_supervisores/alarm/SettingAlarm.aspx">
                                             <asp:Label ID="lbSettingAlarm" runat="server" Text="Cài Đặt Cảnh Báo"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisor/alarm/SettingAlarmForPoint.aspx">
+                                        <a href="/_supervisores/alarm/SettingAlarmForPoint.aspx">
                                             <asp:Label ID="lbSettingAlarmForPont" runat="server" Text="Cài Đặt Cảnh Báo Cho Point"></asp:Label>
                                         </a>
                                     </li>
-                                </ul>
-                            </li>
-
-                            <li class="treeview">
-                                <a href="#DMA"><i class="fa fa-plus-square"></i>
-                                    <asp:Label ID="lbDMA" runat="server" Text="DMA"></asp:Label>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li>
-                                        <a href="/_supervisor/DMA/AddDMA.aspx">
-                                            <asp:Label ID="lbAddDMA" runat="server" Text="Thêm DMA"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <%--<li>
-                                        <a href="/_supervisor/DMA/SeparateDMA.aspx">
-                                            <asp:Label ID="lbSeoerateDMA" runat="server" Text="Phân DMA"></asp:Label>
-                                        </a>
-                                    </li>--%>
                                 </ul>
                             </li>
                             <li class="treeview">
@@ -648,36 +279,11 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="/_supervisor/District/AddDistrict.aspx">
+                                        <a href="/_supervisores/District/AddDistrict.aspx">
                                             <asp:Label ID="lbAddDistrict" runat="server" Text="Thêm Quận"></asp:Label>
                                         </a>
                                     </li>
-                                    <%--<li>
-                                        <a href="/_supervisor/District/SeparateDistrict.aspx">
-                                            <asp:Label ID="lbSeparateDistrict" runat="server" Text="Phân Quận"></asp:Label>
-                                        </a>
-                                    </li>--%>
-                                </ul>
-                            </li>
-                            <li class="treeview">
-                                <a href="#QuanLyNguoiDung"><i class="fa fa-users"></i>
-                                    <asp:Label ID="lbAdminPanel" runat="server" Text="Admin Panel"></asp:Label>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-
-                                    <li>
-                                        <a href="/_supervisor/admin/cre_user.aspx">
-                                            <asp:Label ID="lbCreateUsers" runat="server" Text="Tạo Mới Người Dùng"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/admin/cre_staff.aspx">
-                                            <asp:Label ID="lbCreateStaff" runat="server" Text="Tạo Mới Nhân Viên"></asp:Label>
-                                        </a>
-                                    </li>
+                                   
                                 </ul>
                             </li>
                             <li class="treeview">
@@ -688,26 +294,18 @@
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
+                                   
                                     <li>
-                                        <a href="/_supervisor/system/permission_supervisor.aspx">
-                                            <asp:Label ID="lbPermissionSupervisor" runat="server" Text="Phân quyền Supervisor"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisor/system/permission_DMA.aspx">
+                                        <a href="/_supervisores/system/permission_DMA.aspx">
                                             <asp:Label ID="lbPermissionDMA" runat="server" Text="Phân quyền DMA"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisor/system/permission_staff.aspx">
+                                        <a href="/_supervisores/system/permission_staff.aspx">
                                             <asp:Label ID="lbPermissionStaff" runat="server" Text="Phân quyền Staff"></asp:Label>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="/_supervisor/system/permission_consumer.aspx">
-                                            <asp:Label ID="lbPermissionConsumer" runat="server" Text="Phân quyền Consumer"></asp:Label>
-                                        </a>
-                                    </li>
+                                  
                                 </ul>
                             </li>
 
@@ -723,7 +321,7 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="/_supervisor/account/change_password.aspx">
+                                        <a href="/_supervisores/account/change_password.aspx">
                                             <%--<i class="fa fa-gear icon"></i>--%>
                                             <asp:Label ID="lbChangePassword" runat="server" Text="Đổi Mật Khẩu"></asp:Label>
                                         </a>
@@ -1014,13 +612,13 @@
                                         </div>--%>
                                     </div>
                                     <div class="tab-content" id="tab_menu_3">
-                                        <div>
+                                        <%--<div>
                                             <h4 class="text-white">
                                                 <asp:Label Text="Lọc point theo DMA" ID="lbFilterSites" runat="server" />
                                             </h4>
                                         </div>
                                         <div id="filterSitesArea">
-                                        </div>
+                                        </div>--%>
                                          <div>
                                             <h4 class="text-white">
                                                 <asp:Label Text="Lọc point theo Quận" ID="lbFilterSitesDistrict" runat="server" />
@@ -1694,7 +1292,7 @@
                                 var urlGetDisplayGroups = hostname + '/api/GetDisplayGroup';
                                 var urlGetSiteByDisplayGroup = hostname + '/api/GetSitesByDisplayGroup/?displaygroup=';
                                 var urlGetCurrentTime = hostname + '/api/getcurrenttime/?channelid='
-                                var urlGetDistrict = hostname + '/api/getdistrict';
+                                var urlGetDistrict = hostname + '/api/getdistrictbysupervisor?id=';
                                 var urlGetSiteByDistrict = hostname + '/api/getsitebydistrict/?district='
 
                                 //var urlMRed = 'http://i748.photobucket.com/albums/xx123/bttrung1988/mRed_zpscf7a64f6.png';
@@ -1810,6 +1408,11 @@
                                     //MAP
                                     var qs = getQueryStrings();
                                     var uid = qs["uid"];
+                                    if (uid == undefined || uid == null) {
+                                        uid = localStorage.getItem("supervisor");
+                                    }
+
+                                    localStorage.setItem("supervisor", uid);
 
                                     map = L.map('map_canvas', {
                                         contextmenu: true,
@@ -2116,7 +1719,7 @@
                                         })
                                     });
 
-                                    FillDiaplayGroups();
+                                    //FillDiaplayGroups();
                                     FillDistrict();
                                 }
 
@@ -2131,30 +1734,30 @@
                                 }
 
 
-                                function FillDiaplayGroups() {
-                                    let filterSitesArea = document.getElementById('filterSitesArea');
+                                //function FillDiaplayGroups() {
+                                //    let filterSitesArea = document.getElementById('filterSitesArea');
 
-                                    filterSitesArea.innerHTML = "";
+                                //    filterSitesArea.innerHTML = "";
 
-                                    let content = "";
+                                //    let content = "";
 
-                                    $.getJSON({ url: urlGetDisplayGroups }, function (dc) {
+                                //    $.getJSON({ url: urlGetDisplayGroups }, function (dc) {
 
-                                        for (let dg of dc) {
-                                            if (dg.trim() != "" && dg != null) {
-                                                content += `<div class="checkbox">
-                                                <div>
-                                                    <input type="checkbox" class="custom-checkbox" checked="checked" value="${dg.trim()}" id="${dg.trim()}" onclick="checkBox_Click(this)">
-                                                    <label style="color: white !important; font-weight: 500"> ${dg.trim()}</label>
-                                                </div>
-                                                </div>`
-                                            }
-                                        }
+                                //        for (let dg of dc) {
+                                //            if (dg.trim() != "" && dg != null) {
+                                //                content += `<div class="checkbox">
+                                //                <div>
+                                //                    <input type="checkbox" class="custom-checkbox" checked="checked" value="${dg.trim()}" id="${dg.trim()}" onclick="checkBox_Click(this)">
+                                //                    <label style="color: white !important; font-weight: 500"> ${dg.trim()}</label>
+                                //                </div>
+                                //                </div>`
+                                //            }
+                                //        }
 
-                                        filterSitesArea.innerHTML = content;
+                                //        filterSitesArea.innerHTML = content;
 
-                                    })
-                                }
+                                //    })
+                                //}
 
                                 function FillDistrict() {
                                     let filterSitesDistrictArea = document.getElementById('filterSitesDistrictArea');
@@ -2163,7 +1766,7 @@
 
                                     let content = "";
 
-                                    $.getJSON({ url: urlGetDistrict }, function (dc) {
+                                    $.getJSON({ url: urlGetDistrict + localStorage.getItem("supervisor") }, function (dc) {
 
                                         for (let dg of dc) {
                                             if (dg != null) {
@@ -2182,27 +1785,27 @@
                                 }
 
 
-                                function checkBox_Click(e) {
-                                    $.getJSON({ url: urlGetSiteByDisplayGroup + e.value }, function (dc) {
+                                //function checkBox_Click(e) {
+                                //    $.getJSON({ url: urlGetSiteByDisplayGroup + e.value }, function (dc) {
 
-                                        for (let item of dc) {
-                                            if (e.checked == true) {
-                                                markers.forEach(function (marker) {
-                                                    if (marker.options.id == `m_${item.SiteID}`) {
-                                                        map.addLayer(marker);
-                                                    }
-                                                })
-                                            }
-                                            else {
-                                                markers.forEach(function (marker) {
-                                                    if (marker.options.id == `m_${item.SiteID}`) {
-                                                        map.removeLayer(marker);
-                                                    }
-                                                })
-                                            }
-                                        }
-                                    })
-                                }
+                                //        for (let item of dc) {
+                                //            if (e.checked == true) {
+                                //                markers.forEach(function (marker) {
+                                //                    if (marker.options.id == `m_${item.SiteID}`) {
+                                //                        map.addLayer(marker);
+                                //                    }
+                                //                })
+                                //            }
+                                //            else {
+                                //                markers.forEach(function (marker) {
+                                //                    if (marker.options.id == `m_${item.SiteID}`) {
+                                //                        map.removeLayer(marker);
+                                //                    }
+                                //                })
+                                //            }
+                                //        }
+                                //    })
+                                //}
 
                                 function checkBoxDistrict_Click(e) {
                                     $.getJSON({ url: urlGetSiteByDistrict + e.value }, function (dc) {
@@ -2285,7 +1888,7 @@
                                                     else {
                                                         val = 'NO DATA';
                                                     }
-                                                    
+
                                                     //MAP LABEL CONTENT
                                                     var htmlImg = "";
                                                     if (c.Status1 == true) {
@@ -3158,6 +2761,7 @@
                                     window.setSize(chartWidth, chartHeight);
                                     window.show();
                                     window.center();
+
                                     let url = urlGetCurrentTime + channelId;
                                     $.getJSON(url, function (dc) {
                                         let date = new Date(convertDateFromApi(dc));
@@ -3636,7 +3240,7 @@
                 <!-- Main Footer -->
                 <footer class="main-footer">
                     <!-- To the right -->
-                    <div class="container">
+                    <%--<div class="container">
                         <div class="row text-center" style="font-weight: bold">
                             <div class="col-sm-3"> 
                                 Tổng số Point: <span style="color: lawngreen" id="totalSite"></span>
@@ -3658,15 +3262,15 @@
                             </div>
                         </div>
                     </div>
-                    
+                    --%>
 
-                  <%--  <div class="pull-right hidden-xs">
+                    <div class="pull-right hidden-xs">
                         <a href="#" class="label label-success">Design By TAWACO VIET NAM</a>
                     </div>
                     <!-- Default to the left -->
                     <strong>
                         <asp:Label ID="lbPageTitle" runat="server" Text="Viwater hệ thống SCADA quản lý mạng lưới cấp nước"></asp:Label>
-                    </strong>--%>
+                    </strong>
                 </footer>
                 <!-- Main Footer -->
             </div>
@@ -3715,7 +3319,7 @@
                     $("#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder1_RadPane2").css("height", strh);//resize map height
                     $("#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder1_RadPane2").css("width", screenwidth);//resize map width
                     $("#ctl00_ContentPlaceHolder1_RadSplitter1").css("height", strh)
-                    $("#ctl00_ContentPlaceHolder1_RadSplitter1").css("width", strw) 
+                    $("#ctl00_ContentPlaceHolder1_RadSplitter1").css("width", strw)
                     $("#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder1_RadPane1").css("width", "0px");//hide menu in radslide
 
                     $(".SiteSubMenu").click(function (e) {
@@ -3894,66 +3498,6 @@
                 $("#btnConfirmAlarm").addClass("btn-info");
             });
 
-            function getStatisticFotter() {
-                var hostname = window.location.origin;
-                if (hostname.indexOf("localhost") < 0)
-                    hostname = hostname + "/VivaServices/";
-                else
-                    hostname = "http://localhost:57880";
-
-                let urlGetTotalSite = `${hostname}/api/gettotalsite`;
-                let urlGetTotalSiteAcion = `${hostname}/api/gettotalsiteaction`;
-                let urlGetTotalSiteHasData = `${hostname}/api/gettotalsitehasdata`;
-                let urlGetTotalSiteError = `${hostname}/api/gettotalsiteerror`;
-                let urlGetTotalDMA = `${hostname}/api/gettotaldma`;
-                let urlGetTotalDMAError = `${hostname}/api/gettotaldmaerror`;
-
-                $.getJSON(urlGetTotalSite, function (d) {
-                    if (d != null) {
-                        document.getElementById('totalSite').innerHTML = d.toString();
-
-                    }
-
-                })
-                $.getJSON(urlGetTotalSiteAcion, function (d) {
-                    if (d != null) {
-                        document.getElementById('totalSiteAction').innerHTML = d.toString();
-
-                    }
-
-                })
-                $.getJSON(urlGetTotalSiteHasData, function (d) {
-                    if (d != null) {
-                        document.getElementById('totalSiteHasData').innerHTML = d.toString();
-
-                    }
-
-                })
-                $.getJSON(urlGetTotalSiteError, function (d) {
-                    if (d != null) {
-                        document.getElementById('totalSiteWarning').innerHTML = d.toString();
-
-                    }
-
-                })
-                $.getJSON(urlGetTotalDMA, function (d) {
-                    if (d != null) {
-                        document.getElementById('totalDMA').innerHTML = d.toString();
-
-                    }
-
-                })
-                $.getJSON(urlGetTotalDMAError, function (d) {
-                    if (d != null) {
-                        document.getElementById('totalDMAWarning').innerHTML = d.toString();
-
-                    }
-
-                })
-            }
-
-            getStatisticFotter();
-
             setInterval(function () {
 
                 var hostname = window.location.origin;
@@ -3981,9 +3525,57 @@
                     countAlarm.innerHTML = d.length.toString();
                 })
 
-                getStatisticFotter();
+                //let urlGetTotalSite = `${hostname}/api/gettotalsite`;
+                //let urlGetTotalSiteAcion = `${hostname}/api/gettotalsiteaction`;
+                //let urlGetTotalSiteHasData = `${hostname}/api/gettotalsitehasdata`;
+                //let urlGetTotalSiteError = `${hostname}/api/gettotalsiteerror`;
+                //let urlGetTotalDMA = `${hostname}/api/gettotaldma`;
+                //let urlGetTotalDMAError = `${hostname}/api/gettotaldmaerror`;
 
-            }, 5*60*1000)
+                //$.getJSON(urlGetTotalSite, function (d) {
+                //    if (d != null) {
+                //        document.getElementById('totalSite').innerHTML = d.toString();
+
+                //    }
+
+                //})
+                //$.getJSON(urlGetTotalSiteAcion, function (d) {
+                //    if (d != null) {
+                //        document.getElementById('totalSiteAction').innerHTML = d.toString();
+
+                //    }
+
+                //})
+                //$.getJSON(urlGetTotalSiteHasData, function (d) {
+                //    if (d != null) {
+                //        document.getElementById('totalSiteHasData').innerHTML = d.toString();
+
+                //    }
+
+                //})
+                //$.getJSON(urlGetTotalSiteError, function (d) {
+                //    if (d != null) {
+                //        document.getElementById('totalSiteWarning').innerHTML = d.toString();
+
+                //    }
+
+                //})
+                //$.getJSON(urlGetTotalDMA, function (d) {
+                //    if (d != null) {
+                //        document.getElementById('totalDMA').innerHTML = d.toString();
+
+                //    }
+
+                //})
+                //$.getJSON(urlGetTotalDMAError, function (d) {
+                //    if (d != null) {
+                //        document.getElementById('totalDMAWarning').innerHTML = d.toString();
+
+                //    }
+
+                //})
+
+            }, 5 *60*1000)
 
         </script>
 
