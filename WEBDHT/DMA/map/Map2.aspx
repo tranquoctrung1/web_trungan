@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#"  MasterPageFile="~/Empty.master" AutoEventWireup="true" CodeFile="Map2.aspx.cs" Inherits="_supervisores_map_Map2" %>
-
+﻿<%@ Page Language="C#" MasterPageFile="~/Empty.master" AutoEventWireup="true" CodeFile="Map2.aspx.cs" Inherits="DMA_map_Map2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
     <head>
@@ -165,27 +164,44 @@
                 <aside class="main-sidebar box-shadow menu-main-mobile" id="tab-icon-menu">
 
                     <div class="sidebar">
-                        <ul class="sidebar-menu" data-widget="tree">
+                         <ul class="sidebar-menu" data-widget="tree">
                             <li>
-                                <a href="/_supervisores/map/Map2.aspx">
+                                <a href="/DMA/map/Map2.aspx">
                                     <i class="fa fa-home"></i>
                                     <asp:Label ID="lbMap2" runat="server" Text="Bản Đồ Tổng Thể"></asp:Label>
                                 </a>
                             </li>
                             <li>
-                                <a href="/_supervisores/DashBoard/DashBoard.aspx">
+                                <a href="/DMA/DashBoard/DashBoard.aspx">
                                     <i class="fa fa-table"></i>
                                     <asp:Label ID="lbDashBoard" runat="server" Text="DashBoard"></asp:Label>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="/_supervisores/logger/datalogger.aspx">
+                                <a href="/DMA/logger/datalogger.aspx">
                                     <i class="fa fa-table"></i>
                                     <asp:Label ID="lbDataLoggerTable" runat="server" Text="Dữ Liệu Logger"></asp:Label>
                                 </a>
                             </li>
 
+                            <li class="treeview">
+                            <a href="#ThongKe"><i class="fa fa-balance-scale"></i>
+                                <asp:Label ID="lbThongKe" runat="server" Text="Thống Kê"></asp:Label>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                
+                                <li>
+                                    <a href="/DMA/report/statisticDMA.aspx">
+                                        <asp:Label ID="lbStatisticDMA" runat="server" Text="DMA Theo Tình Trạng"></asp:Label>
+                                    </a>
+                                </li>
+                                 
+                            </ul>
+                        </li>
                             <li class="treeview">
                                 <a href="#SanLuong"><i class="fa fa-database"></i>
                                     <asp:Label ID="lbQuantity" runat="server" Text="Sản Lượng"></asp:Label>
@@ -195,25 +211,40 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="/_supervisores/logger/datalogger.aspx">
+                                        <a href="/DMA/logger/datalogger.aspx">
                                             <asp:Label ID="lbDataLoggerComplex" runat="server" Text="Dữ Liệu Logger"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisores/logger/HourlyLogger.aspx">
+                                        <a href="/DMA/logger/HourlyLogger.aspx">
                                             <asp:Label ID="lbQuantityHourlyLogger" runat="server" Text="Sản Lượng Giờ Theo Point"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisores/logger/DailyLogger.aspx">
+                                        <a href="/DMA/logger/DailyLogger.aspx">
                                             <asp:Label ID="lbDailyQuantityPoint" runat="server" Text="Sản Lượng Ngày Theo Point"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisores/logger/MonthlyLogger.aspx">
+                                        <a href="/DMA/logger/MonthlyLogger.aspx">
                                             <asp:Label ID="lbmonthlyQuantityLogger" runat="server" Text="Sản Lượng Tháng Theo Point"></asp:Label>
                                         </a>
                                     </li>
+                                     <li>
+                                    <a href="/DMA/logger/HourlyManager.aspx">
+                                        <asp:Label ID="lbQuantityHourlyManager" runat="server" Text="Sản Lượng Giờ Theo DMA"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/DMA/logger/DailyManager.aspx">
+                                        <asp:Label ID="lbDailyQuantityManager" runat="server" Text="Sản Lượng Ngày Theo DMA"></asp:Label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/DMA/logger/MonthlyCompany.aspx">
+                                        <asp:Label ID="lbMonthlyQuantityManager" runat="server" Text="Sản Lượng Tháng Theo DMA"></asp:Label>
+                                    </a>
+                                </li>
                                 </ul>
                             </li>
 
@@ -226,18 +257,33 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="/_supervisores/chartP/ChartPoint.aspx">
+                                        <a href="/DMA/chartP/ChartPoint.aspx">
                                             <asp:Label ID="lbPointChart" runat="server" Text="Đồ Thị Giờ Theo Point"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisores/chartP/ChartPointDay.aspx">
+                                        <a href="/DMA/chartP/ChartPointDay.aspx">
                                             <asp:Label ID="lbChartPointDaily" runat="server" Text="Đồ Thị Ngày Theo Point"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisores/chartP/ChartPointMonthly.aspx">
+                                        <a href="/DMA/chartP/ChartPointMonthly.aspx">
                                             <asp:Label ID="lbChartPointMonthly" runat="server" Text="Đồ Thị Tháng Theo Point"></asp:Label>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="/DMA/chartP/ChartManagerHourly.aspx">
+                                            <asp:Label ID="lbChartHourlyManager" runat="server" Text="Đồ Thị Giờ Theo DMA"></asp:Label>
+                                        </a>
+                                    </li>
+                                 <li>
+                                        <a href="/DMA/chartP/ChartManagerDaily.aspx">
+                                            <asp:Label ID="lbChartDailyManager" runat="server" Text="Đồ Thị Ngày Theo DMA"></asp:Label>
+                                        </a>
+                                    </li>
+                                <li>
+                                        <a href="/DMA/chartP/ChartManagerMonthly.aspx">
+                                            <asp:Label ID="lbChartMonthlyManager" runat="server" Text="Đồ Thị Tháng Theo DMA"></asp:Label>
                                         </a>
                                     </li>
                                 </ul>
@@ -252,38 +298,11 @@
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-
-                                    <li>
-                                        <a href="/_supervisores/alarm/AlarmTableForPoint.aspx">
-                                            <asp:Label ID="lbTableAlarmForPoint" runat="server" Text="Bảng Cảnh Báo Cho Point"></asp:Label>
-                                        </a>
-                                    </li>
-                                     <li>
-                                        <a href="/_supervisores/alarm/SettingAlarm.aspx">
-                                            <asp:Label ID="lbSettingAlarm" runat="server" Text="Cài Đặt Cảnh Báo"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisores/alarm/SettingAlarmForPoint.aspx">
-                                            <asp:Label ID="lbSettingAlarmForPont" runat="server" Text="Cài Đặt Cảnh Báo Cho Point"></asp:Label>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="treeview">
-                                <a href="#Quan"><i class="fa fa-plus-square"></i>
-                                    <asp:Label ID="lbDistrict" runat="server" Text="Quận"></asp:Label>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li>
-                                        <a href="/_supervisores/District/AddDistrict.aspx">
-                                            <asp:Label ID="lbAddDistrict" runat="server" Text="Thêm Quận"></asp:Label>
-                                        </a>
-                                    </li>
-                                   
+                                 <li>
+                                    <a href="/DMA/alarm/AlarmTableForDMA.aspx">
+                                        <asp:Label ID="lbTableAlarmForDMA" runat="server" Text="Bảng Cảnh Báo Cho DMA"></asp:Label>
+                                    </a>
+                                </li>
                                 </ul>
                             </li>
                             <li class="treeview">
@@ -294,21 +313,38 @@
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-                                   
                                     <li>
-                                        <a href="/_supervisores/system/permission_DMA.aspx">
-                                            <asp:Label ID="lbPermissionDMA" runat="server" Text="Phân quyền DMA"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisores/system/permission_staff.aspx">
+                                        <a href="/DMA/system/permission_staff.aspx">
                                             <asp:Label ID="lbPermissionStaff" runat="server" Text="Phân quyền Staff"></asp:Label>
                                         </a>
                                     </li>
-                                  
+                                    <li>
+                                        <a href="/DMA/system/permission_consumer.aspx">
+                                            <asp:Label ID="lbPermissionConsumer" runat="server" Text="Phân quyền Consumer"></asp:Label>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
-
+                             <li class="treeview">
+                            <a href="#DMA"><i class="fa fa-plus-square"></i>
+                                <asp:Label ID="lbDMA" runat="server" Text="DMA"></asp:Label>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="/DMA/DMA/AddDMA.aspx">
+                                        <asp:Label ID="lbAddDMA" runat="server" Text="Thêm DMA"></asp:Label>
+                                    </a>
+                                </li>
+                               <%--<li>
+                                    <a href="/DMA/DMA/SeparateDMA.aspx">
+                                        <asp:Label ID="lbSeoerateDMA" runat="server" Text="Phân DMA"></asp:Label>
+                                    </a>
+                                </li>--%>
+                            </ul>
+                        </li>
                             <li class="treeview">
                                 <a href="#DangXuat">
                                     <i class="fa fa-user-circle"></i>
@@ -321,7 +357,7 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="/_supervisores/account/change_password.aspx">
+                                        <a href="/DMA/account/change_password.aspx">
                                             <%--<i class="fa fa-gear icon"></i>--%>
                                             <asp:Label ID="lbChangePassword" runat="server" Text="Đổi Mật Khẩu"></asp:Label>
                                         </a>
@@ -612,20 +648,20 @@
                                         </div>--%>
                                     </div>
                                     <div class="tab-content" id="tab_menu_3">
-                                        <%--<div>
+                                        <div>
                                             <h4 class="text-white">
                                                 <asp:Label Text="Lọc point theo DMA" ID="lbFilterSites" runat="server" />
                                             </h4>
                                         </div>
                                         <div id="filterSitesArea">
-                                        </div>--%>
-                                         <div>
+                                        </div>
+                                         <%--<div>
                                             <h4 class="text-white">
                                                 <asp:Label Text="Lọc point theo Quận" ID="lbFilterSitesDistrict" runat="server" />
                                             </h4>
                                         </div>
                                         <div id="filterSitesDistrictArea">
-                                        </div>
+                                        </div>--%>
                                     </div>
 
                                 </div>
@@ -1289,7 +1325,7 @@
                                 var urlUpdateGroupChannel = hostname + '/api/UpdateGroupChannel/';
                                 //var urlGetValeAlarm = hostname + '/api/GetValueAlarm/?uid=';
                                 var urlConfirmAlarm = hostname + '/api/ConfirmAlarm/';
-                                var urlGetDisplayGroups = hostname + '/api/GetDisplayGroup';
+                                var urlGetDisplayGroups = hostname + '/api/GetDisplayGroupByUid?uid=';
                                 var urlGetSiteByDisplayGroup = hostname + '/api/GetSitesByDisplayGroup/?displaygroup=';
                                 var urlGetCurrentTime = hostname + '/api/getcurrenttime/?channelid='
                                 var urlGetDistrict = hostname + '/api/getdistrictbysupervisor?id=';
@@ -1409,10 +1445,10 @@
                                     var qs = getQueryStrings();
                                     var uid = qs["uid"];
                                     if (uid == undefined || uid == null) {
-                                        uid = localStorage.getItem("supervisor");
+                                        uid = localStorage.getItem("dma");
                                     }
 
-                                    localStorage.setItem("supervisor", uid);
+                                    localStorage.setItem("dma", uid);
 
                                     map = L.map('map_canvas', {
                                         contextmenu: true,
@@ -1719,8 +1755,8 @@
                                         })
                                     });
 
-                                    //FillDiaplayGroups();
-                                    FillDistrict();
+                                    FillDiaplayGroups();
+                                    //FillDistrict();
                                 }
 
 
@@ -1734,81 +1770,59 @@
                                 }
 
 
-                                //function FillDiaplayGroups() {
-                                //    let filterSitesArea = document.getElementById('filterSitesArea');
+                                function FillDiaplayGroups() {
+                                    let filterSitesArea = document.getElementById('filterSitesArea');
 
-                                //    filterSitesArea.innerHTML = "";
-
-                                //    let content = "";
-
-                                //    $.getJSON({ url: urlGetDisplayGroups }, function (dc) {
-
-                                //        for (let dg of dc) {
-                                //            if (dg.trim() != "" && dg != null) {
-                                //                content += `<div class="checkbox">
-                                //                <div>
-                                //                    <input type="checkbox" class="custom-checkbox" checked="checked" value="${dg.trim()}" id="${dg.trim()}" onclick="checkBox_Click(this)">
-                                //                    <label style="color: white !important; font-weight: 500"> ${dg.trim()}</label>
-                                //                </div>
-                                //                </div>`
-                                //            }
-                                //        }
-
-                                //        filterSitesArea.innerHTML = content;
-
-                                //    })
-                                //}
-
-                                function FillDistrict() {
-                                    let filterSitesDistrictArea = document.getElementById('filterSitesDistrictArea');
-
-                                    filterSitesDistrictArea.innerHTML = "";
+                                    filterSitesArea.innerHTML = "";
 
                                     let content = "";
 
-                                    $.getJSON({ url: urlGetDistrict + localStorage.getItem("supervisor") }, function (dc) {
+                                    $.getJSON({ url: urlGetDisplayGroups + localStorage.getItem("dma") }, function (dc) {
 
                                         for (let dg of dc) {
-                                            if (dg != null) {
+                                            if (dg.trim() != "" && dg != null) {
                                                 content += `<div class="checkbox">
                                                 <div>
-                                                    <input type="checkbox" class="custom-checkbox" checked="checked" value="${dg.IdDistrict.trim()}" id="${dg.IdDistrict.trim()}" onclick="checkBoxDistrict_Click(this)">
-                                                    <label style="color: white !important; font-weight: 500"> ${dg.IdDistrict.trim()}</label>
+                                                    <input type="checkbox" class="custom-checkbox" checked="checked" value="${dg.trim()}" id="${dg.trim()}" onclick="checkBox_Click(this)">
+                                                    <label style="color: white !important; font-weight: 500"> ${dg.trim()}</label>
                                                 </div>
                                                 </div>`
                                             }
                                         }
 
-                                        filterSitesDistrictArea.innerHTML = content;
+                                        filterSitesArea.innerHTML = content;
 
                                     })
                                 }
 
+                                //function FillDistrict() {
+                                //    let filterSitesDistrictArea = document.getElementById('filterSitesDistrictArea');
 
-                                //function checkBox_Click(e) {
-                                //    $.getJSON({ url: urlGetSiteByDisplayGroup + e.value }, function (dc) {
+                                //    filterSitesDistrictArea.innerHTML = "";
 
-                                //        for (let item of dc) {
-                                //            if (e.checked == true) {
-                                //                markers.forEach(function (marker) {
-                                //                    if (marker.options.id == `m_${item.SiteID}`) {
-                                //                        map.addLayer(marker);
-                                //                    }
-                                //                })
-                                //            }
-                                //            else {
-                                //                markers.forEach(function (marker) {
-                                //                    if (marker.options.id == `m_${item.SiteID}`) {
-                                //                        map.removeLayer(marker);
-                                //                    }
-                                //                })
+                                //    let content = "";
+
+                                //    $.getJSON({ url: urlGetDistrict + localStorage.getItem("supervisor") }, function (dc) {
+
+                                //        for (let dg of dc) {
+                                //            if (dg != null) {
+                                //                content += `<div class="checkbox">
+                                //                <div>
+                                //                    <input type="checkbox" class="custom-checkbox" checked="checked" value="${dg.IdDistrict.trim()}" id="${dg.IdDistrict.trim()}" onclick="checkBoxDistrict_Click(this)">
+                                //                    <label style="color: white !important; font-weight: 500"> ${dg.IdDistrict.trim()}</label>
+                                //                </div>
+                                //                </div>`
                                 //            }
                                 //        }
+
+                                //        filterSitesDistrictArea.innerHTML = content;
+
                                 //    })
                                 //}
 
-                                function checkBoxDistrict_Click(e) {
-                                    $.getJSON({ url: urlGetSiteByDistrict + e.value }, function (dc) {
+
+                                function checkBox_Click(e) {
+                                    $.getJSON({ url: urlGetSiteByDisplayGroup + e.value }, function (dc) {
 
                                         for (let item of dc) {
                                             if (e.checked == true) {
@@ -1828,6 +1842,28 @@
                                         }
                                     })
                                 }
+
+                                //function checkBoxDistrict_Click(e) {
+                                //    $.getJSON({ url: urlGetSiteByDistrict + e.value }, function (dc) {
+
+                                //        for (let item of dc) {
+                                //            if (e.checked == true) {
+                                //                markers.forEach(function (marker) {
+                                //                    if (marker.options.id == `m_${item.SiteID}`) {
+                                //                        map.addLayer(marker);
+                                //                    }
+                                //                })
+                                //            }
+                                //            else {
+                                //                markers.forEach(function (marker) {
+                                //                    if (marker.options.id == `m_${item.SiteID}`) {
+                                //                        map.removeLayer(marker);
+                                //                    }
+                                //                })
+                                //            }
+                                //        }
+                                //    })
+                                //}
 
 
                                 function updateMap() {
@@ -3515,7 +3551,7 @@
                 let totalSecondStart = startDate.getTime() / 1000;
                 let totalSecondEnd = date.getTime() / 1000;
 
-                let urlGetValeAlarm = `${hostname}/api/getalarmforpointbyuid?uid=${localStorage.getItem("supervisor")}&start=${totalSecondStart}&end=${totalSecondEnd}`;
+                let urlGetValeAlarm = `${hostname}/api/getalarmfordmabyuid?uid=${localStorage.getItem("dma")}&start=${totalSecondStart}&end=${totalSecondEnd}`;
 
                 var uid = document.getElementById("ContentPlaceHolder1_lbUserName").value;
                 var urlAlarm = urlGetValeAlarm;

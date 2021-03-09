@@ -13,7 +13,7 @@ public partial class login : BasePage
     private string _msgEmptyPwd = "Chưa nhập mật khẩu.";
     private string _urlMapAdmin = "~/_supervisor/map/Map2.aspx?uid=";
     private string _urlMapSupervisor = "~/_supervisores/map/Map2.aspx?uid=";
-    private string _urlMapDMA = "~/_dma/map/Map2.aspx?uid=";
+    private string _urlMapDMA = "~/DMA/map/Map2.aspx?uid=";
     private string _urlMapStaff = "~/_staff/map/Map2.aspx?uid=";
     private string _urlMapConsumer = "~/_consumer/map/Map2.aspx?uid=";
     UsersBLL _usersBLL = new UsersBLL();

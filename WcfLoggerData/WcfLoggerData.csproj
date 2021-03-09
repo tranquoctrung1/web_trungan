@@ -150,6 +150,7 @@
     <Compile Include="Action\GetDataStatisticTransmitterAction.cs" />
     <Compile Include="Action\GetDataTransmitterChangedAction.cs" />
     <Compile Include="Action\GetDisplayGroupAction.cs" />
+    <Compile Include="Action\GetDisplayGroupByUidAction.cs" />
     <Compile Include="Action\GetDistrictAction.cs" />
     <Compile Include="Action\GetDistrictBySupervisorIdAction.cs" />
     <Compile Include="Action\GetGroupChannelAction.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Action\GetStatisticDateExpireBatteryLoggerAction.cs" />
     <Compile Include="Action\GetStatisticDeviceLoggerAction.cs" />
     <Compile Include="Action\GetStatisticDMAAction.cs" />
+    <Compile Include="Action\GetStatisticDMAByUidAction.cs" />
     <Compile Include="Action\GetStatisticMeterAction.cs" />
     <Compile Include="Action\GetStatisticSiteByStatusAction.cs" />
     <Compile Include="Action\GetStatisticSiteDMAAction.cs" />
@@ -216,6 +218,7 @@
     <Compile Include="Controllers\GetDataStatisticMeterController.cs" />
     <Compile Include="Controllers\GetDataStatisticSiteController.cs" />
     <Compile Include="Controllers\GetDataStatisticTransmitterController.cs" />
+    <Compile Include="Controllers\GetDisplayGroupByUidController.cs" />
     <Compile Include="Controllers\GetDisplayGroupController.cs" />
     <Compile Include="Controllers\GetDistrictBySupervisorController.cs" />
     <Compile Include="Controllers\GetDistrictController.cs" />
@@ -228,6 +231,7 @@
     <Compile Include="Controllers\GetSitesByDisplayGroupController.cs" />
     <Compile Include="Controllers\GetStatisticDateExpireBatteryLoggerController.cs" />
     <Compile Include="Controllers\GetStatisticDeviceLoggerController.cs" />
+    <Compile Include="Controllers\GetStatisticDMAByUidController.cs" />
     <Compile Include="Controllers\GetStatisticDMAController.cs" />
     <Compile Include="Controllers\GetStatisticSiteByStatusController.cs" />
     <Compile Include="Controllers\GetStatisticSiteDMAController.cs" />
@@ -329,6 +333,7 @@
     <Folder Include="Views\GetDataStatisticMeter\" />
     <Folder Include="Views\GetDataStatisticSite\" />
     <Folder Include="Views\GetDataStatisticTransmitter\" />
+    <Folder Include="Views\GetDisplayGroupByUid\" />
     <Folder Include="Views\GetDisplayGroup\" />
     <Folder Include="Views\GetDistrictBySupervisor\" />
     <Folder Include="Views\GetDistrict\" />
@@ -341,6 +346,7 @@
     <Folder Include="Views\GetSitesByDisplayGroup\" />
     <Folder Include="Views\GetStatisticDateExpireBatteryLogger\" />
     <Folder Include="Views\GetStatisticDeviceLogger\" />
+    <Folder Include="Views\GetStatisticDMAByUid\" />
     <Folder Include="Views\GetStatisticDMA\" />
     <Folder Include="Views\GetStatisticSiteByStatus\" />
     <Folder Include="Views\GetStatisticSiteDMA\" />
