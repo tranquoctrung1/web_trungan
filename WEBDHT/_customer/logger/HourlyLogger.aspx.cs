@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _customer_about : BasePage
+public partial class _customer_logger_HourlyLogger : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {

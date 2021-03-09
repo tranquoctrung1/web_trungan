@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#"  MasterPageFile="~/Empty.master" AutoEventWireup="true" CodeFile="Map2.aspx.cs" Inherits="_supervisores_map_Map2" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/Empty.master" AutoEventWireup="true" CodeFile="Map2.aspx.cs" Inherits="_customer_map_Map2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
@@ -167,20 +167,20 @@
                     <div class="sidebar">
                         <ul class="sidebar-menu" data-widget="tree">
                             <li>
-                                <a href="/_supervisores/map/Map2.aspx">
+                                <a href="/_customer/map/Map2.aspx">
                                     <i class="fa fa-home"></i>
                                     <asp:Label ID="lbMap2" runat="server" Text="Bản Đồ Tổng Thể"></asp:Label>
                                 </a>
                             </li>
                             <li>
-                                <a href="/_supervisores/DashBoard/DashBoard.aspx">
+                                <a href="/_customer/DashBoard/DashBoard.aspx">
                                     <i class="fa fa-table"></i>
                                     <asp:Label ID="lbDashBoard" runat="server" Text="DashBoard"></asp:Label>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="/_supervisores/logger/datalogger.aspx">
+                                <a href="/_customer/logger/datalogger.aspx">
                                     <i class="fa fa-table"></i>
                                     <asp:Label ID="lbDataLoggerTable" runat="server" Text="Dữ Liệu Logger"></asp:Label>
                                 </a>
@@ -195,22 +195,22 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="/_supervisores/logger/datalogger.aspx">
+                                        <a href="/_customer/logger/datalogger.aspx">
                                             <asp:Label ID="lbDataLoggerComplex" runat="server" Text="Dữ Liệu Logger"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisores/logger/HourlyLogger.aspx">
+                                        <a href="/_customer/logger/HourlyLogger.aspx">
                                             <asp:Label ID="lbQuantityHourlyLogger" runat="server" Text="Sản Lượng Giờ Theo Point"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisores/logger/DailyLogger.aspx">
+                                        <a href="/_customer/logger/DailyLogger.aspx">
                                             <asp:Label ID="lbDailyQuantityPoint" runat="server" Text="Sản Lượng Ngày Theo Point"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisores/logger/MonthlyLogger.aspx">
+                                        <a href="/_customer/logger/MonthlyLogger.aspx">
                                             <asp:Label ID="lbmonthlyQuantityLogger" runat="server" Text="Sản Lượng Tháng Theo Point"></asp:Label>
                                         </a>
                                     </li>
@@ -226,17 +226,17 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="/_supervisores/chartP/ChartPoint.aspx">
+                                        <a href="/_customer/chartP/ChartPoint.aspx">
                                             <asp:Label ID="lbPointChart" runat="server" Text="Đồ Thị Giờ Theo Point"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisores/chartP/ChartPointDay.aspx">
+                                        <a href="/_customer/chartP/ChartPointDay.aspx">
                                             <asp:Label ID="lbChartPointDaily" runat="server" Text="Đồ Thị Ngày Theo Point"></asp:Label>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/_supervisores/chartP/ChartPointMonthly.aspx">
+                                        <a href="/_customer/chartP/ChartPointMonthly.aspx">
                                             <asp:Label ID="lbChartPointMonthly" runat="server" Text="Đồ Thị Tháng Theo Point"></asp:Label>
                                         </a>
                                     </li>
@@ -254,61 +254,14 @@
                                 <ul class="treeview-menu">
 
                                     <li>
-                                        <a href="/_supervisores/alarm/AlarmTableForPoint.aspx">
+                                        <a href="/_customer/alarm/AlarmTableForPoint.aspx">
                                             <asp:Label ID="lbTableAlarmForPoint" runat="server" Text="Bảng Cảnh Báo Cho Point"></asp:Label>
-                                        </a>
-                                    </li>
-                                     <li>
-                                        <a href="/_supervisores/alarm/SettingAlarm.aspx">
-                                            <asp:Label ID="lbSettingAlarm" runat="server" Text="Cài Đặt Cảnh Báo"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisores/alarm/SettingAlarmForPoint.aspx">
-                                            <asp:Label ID="lbSettingAlarmForPont" runat="server" Text="Cài Đặt Cảnh Báo Cho Point"></asp:Label>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="treeview">
-                                <a href="#Quan"><i class="fa fa-plus-square"></i>
-                                    <asp:Label ID="lbDistrict" runat="server" Text="Quận"></asp:Label>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li>
-                                        <a href="/_supervisores/District/AddDistrict.aspx">
-                                            <asp:Label ID="lbAddDistrict" runat="server" Text="Thêm Quận"></asp:Label>
-                                        </a>
-                                    </li>
-                                   
-                                </ul>
-                            </li>
-                            <li class="treeview">
-                                <a href="#QuanLyHeThong"><i class="fa fa-users"></i>
-                                    <asp:Label ID="lbSystem" runat="server" Text="Quản Lý Hệ Thống"></asp:Label>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right fa-block" style="display: none;"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                   
-                                    <li>
-                                        <a href="/_supervisores/system/permission_DMA.aspx">
-                                            <asp:Label ID="lbPermissionDMA" runat="server" Text="Phân quyền DMA"></asp:Label>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/_supervisores/system/permission_staff.aspx">
-                                            <asp:Label ID="lbPermissionStaff" runat="server" Text="Phân quyền Staff"></asp:Label>
                                         </a>
                                     </li>
                                   
                                 </ul>
                             </li>
-
+                        
                             <li class="treeview">
                                 <a href="#DangXuat">
                                     <i class="fa fa-user-circle"></i>
@@ -321,7 +274,7 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="/_supervisores/account/change_password.aspx">
+                                        <a href="/_customer/account/change_password.aspx">
                                             <%--<i class="fa fa-gear icon"></i>--%>
                                             <asp:Label ID="lbChangePassword" runat="server" Text="Đổi Mật Khẩu"></asp:Label>
                                         </a>
@@ -619,7 +572,7 @@
                                         </div>
                                         <div id="filterSitesArea">
                                         </div>--%>
-                                         <%--<div>
+                                        <%-- <div>
                                             <h4 class="text-white">
                                                 <asp:Label Text="Lọc point theo Quận" ID="lbFilterSitesDistrict" runat="server" />
                                             </h4>
@@ -1409,10 +1362,10 @@
                                     var qs = getQueryStrings();
                                     var uid = qs["uid"];
                                     if (uid == undefined || uid == null) {
-                                        uid = localStorage.getItem("supervisor");
+                                        uid = localStorage.getItem("staff");
                                     }
 
-                                    localStorage.setItem("supervisor", uid);
+                                    localStorage.setItem("staff", uid);
 
                                     map = L.map('map_canvas', {
                                         contextmenu: true,
@@ -1496,21 +1449,21 @@
                                     L.control.watermark({ position: 'topright' }).addTo(map);
 
                                     // 
-                                    L.Control.Watermark = L.Control.extend({
-                                        onAdd: function (map) {
-                                            return icon_collap_filter_menu
-                                        },
+                                    //L.Control.Watermark = L.Control.extend({
+                                    //    onAdd: function (map) {
+                                    //        return icon_collap_filter_menu
+                                    //    },
 
-                                        onRemove: function (map) {
-                                            // Nothing to do here
-                                        }
-                                    });
+                                    //    onRemove: function (map) {
+                                    //        // Nothing to do here
+                                    //    }
+                                    //});
 
-                                    L.control.watermark = function (opts) {
-                                        return new L.Control.Watermark(opts);
-                                    }
+                                    //L.control.watermark = function (opts) {
+                                    //    return new L.Control.Watermark(opts);
+                                    //}
 
-                                    L.control.watermark({ position: 'topright' }).addTo(map);
+                                    //L.control.watermark({ position: 'topright' }).addTo(map);
 
                                     //TREEVIEW & MAP CONTENT
                                     var treeViewSite = $find("<%= radTreeViewSite.ClientID %>");
@@ -1720,7 +1673,7 @@
                                     });
 
                                     //FillDiaplayGroups();
-                                    FillDistrict();
+                                    //FillDistrict();
                                 }
 
 
@@ -1759,30 +1712,30 @@
                                 //    })
                                 //}
 
-                                function FillDistrict() {
-                                    let filterSitesDistrictArea = document.getElementById('filterSitesDistrictArea');
+                                //function FillDistrict() {
+                                //    let filterSitesDistrictArea = document.getElementById('filterSitesDistrictArea');
 
-                                    filterSitesDistrictArea.innerHTML = "";
+                                //    filterSitesDistrictArea.innerHTML = "";
 
-                                    let content = "";
+                                //    let content = "";
 
-                                    $.getJSON({ url: urlGetDistrict + localStorage.getItem("supervisor") }, function (dc) {
+                                //    $.getJSON({ url: urlGetDistrict + localStorage.getItem("staff") }, function (dc) {
 
-                                        for (let dg of dc) {
-                                            if (dg != null) {
-                                                content += `<div class="checkbox">
-                                                <div>
-                                                    <input type="checkbox" class="custom-checkbox" checked="checked" value="${dg.IdDistrict.trim()}" id="${dg.IdDistrict.trim()}" onclick="checkBoxDistrict_Click(this)">
-                                                    <label style="color: white !important; font-weight: 500"> ${dg.IdDistrict.trim()}</label>
-                                                </div>
-                                                </div>`
-                                            }
-                                        }
+                                //        for (let dg of dc) {
+                                //            if (dg != null) {
+                                //                content += `<div class="checkbox">
+                                //                <div>
+                                //                    <input type="checkbox" class="custom-checkbox" checked="checked" value="${dg.IdDistrict.trim()}" id="${dg.IdDistrict.trim()}" onclick="checkBoxDistrict_Click(this)">
+                                //                    <label style="color: white !important; font-weight: 500"> ${dg.IdDistrict.trim()}</label>
+                                //                </div>
+                                //                </div>`
+                                //            }
+                                //        }
 
-                                        filterSitesDistrictArea.innerHTML = content;
+                                //        filterSitesDistrictArea.innerHTML = content;
 
-                                    })
-                                }
+                                //    })
+                                //}
 
 
                                 //function checkBox_Click(e) {
@@ -1807,27 +1760,27 @@
                                 //    })
                                 //}
 
-                                function checkBoxDistrict_Click(e) {
-                                    $.getJSON({ url: urlGetSiteByDistrict + e.value }, function (dc) {
+                                //function checkBoxDistrict_Click(e) {
+                                //    $.getJSON({ url: urlGetSiteByDistrict + e.value }, function (dc) {
 
-                                        for (let item of dc) {
-                                            if (e.checked == true) {
-                                                markers.forEach(function (marker) {
-                                                    if (marker.options.id == `m_${item.SiteID}`) {
-                                                        map.addLayer(marker);
-                                                    }
-                                                })
-                                            }
-                                            else {
-                                                markers.forEach(function (marker) {
-                                                    if (marker.options.id == `m_${item.SiteID}`) {
-                                                        map.removeLayer(marker);
-                                                    }
-                                                })
-                                            }
-                                        }
-                                    })
-                                }
+                                //        for (let item of dc) {
+                                //            if (e.checked == true) {
+                                //                markers.forEach(function (marker) {
+                                //                    if (marker.options.id == `m_${item.SiteID}`) {
+                                //                        map.addLayer(marker);
+                                //                    }
+                                //                })
+                                //            }
+                                //            else {
+                                //                markers.forEach(function (marker) {
+                                //                    if (marker.options.id == `m_${item.SiteID}`) {
+                                //                        map.removeLayer(marker);
+                                //                    }
+                                //                })
+                                //            }
+                                //        }
+                                //    })
+                                //}
 
 
                                 function updateMap() {
@@ -3515,7 +3468,7 @@
                 let totalSecondStart = startDate.getTime() / 1000;
                 let totalSecondEnd = date.getTime() / 1000;
 
-                let urlGetValeAlarm = `${hostname}/api/getalarmforpointbyuid?uid=${localStorage.getItem("supervisor")}&start=${totalSecondStart}&end=${totalSecondEnd}`;
+                let urlGetValeAlarm = `${hostname}/api/getalarmforpointbyuid?uid=${localStorage.getItem("staff")}&start=${totalSecondStart}&end=${totalSecondEnd}`;
 
                 var uid = document.getElementById("ContentPlaceHolder1_lbUserName").value;
                 var urlAlarm = urlGetValeAlarm;

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _customer_change_password : BasePage
+public partial class _customer_account_change_password : System.Web.UI.Page
 {
     private string _msgEmptyOldPassword = "Chưa nhập mật khẩu cũ.";
     private string _msgEmptyNewPassword = "Chưa nhập mật khẩu mới.";
