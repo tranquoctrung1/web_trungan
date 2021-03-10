@@ -398,10 +398,10 @@
                                     <img src="../../App_Themes/setting.png" />
                                     <span class="tooltiptext">CẤU HÌNH</span>
                                 </a>
-                               <%-- <a href="#" class="icon-right width-filter-icon custom-tooltip" data-toggle="control-sidebar" id="icon_collap_filter_menu" onclick="customFilter()">
+                                <a href="#" class="icon-right width-filter-icon custom-tooltip" data-toggle="control-sidebar" id="icon_collap_filter_menu" onclick="customFilter()">
                                     <img src="../../App_Themes/filter.png" />
                                     <span class="tooltiptext">LỌC POINT</span>
-                                </a>--%>
+                                </a>
 
                                 <div id="map_canvas">
                                 </div>
@@ -619,13 +619,13 @@
                                         </div>
                                         <div id="filterSitesArea">
                                         </div>--%>
-                                         <%--<div>
+                                         <div>
                                             <h4 class="text-white">
                                                 <asp:Label Text="Lọc point theo Quận" ID="lbFilterSitesDistrict" runat="server" />
                                             </h4>
                                         </div>
                                         <div id="filterSitesDistrictArea">
-                                        </div>--%>
+                                        </div>
                                     </div>
 
                                 </div>

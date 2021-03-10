@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WcfAlarmData.Model;
 using WcfLoggerData.Models;
 
 namespace WcfLoggerData.Action
 {
     public class GetMinNightFlowAlarmAction
     {
-        public string GetMinNightFlowAlarm(string channelid)
+        public ReturnValueViewModel GetMinNightFlowAlarm(string channelid)
         {
             string result = "";
+            Nullable<double> currentValue = null;
+            Nullable<double> prevValue = null;
 
             GetMinNightFlowAction getMinNightFlowAction = new GetMinNightFlowAction();
             GetCurrentTimeAction getCurrentTimeAction = new GetCurrentTimeAction();
@@ -44,6 +47,8 @@ namespace WcfLoggerData.Action
                             if (percent >= listLevelAlarm[i].Value)
                             {
                                 result = listLevelAlarm[i].Level;
+                                currentValue = mnf;
+                                prevValue = premnf;
                                 break;
                             }
                         }
@@ -52,6 +57,8 @@ namespace WcfLoggerData.Action
                             if (percent > 0 && percent <= listLevelAlarm[i].Value)
                             {
                                 result = listLevelAlarm[i].Level;
+                                currentValue = mnf;
+                                prevValue = premnf;
                                 break;
                             }
                         }
@@ -60,6 +67,8 @@ namespace WcfLoggerData.Action
                             if (percent > listLevelAlarm[i + 1].Value && percent <= listLevelAlarm[i].Value)
                             {
                                 result = listLevelAlarm[i].Level;
+                                currentValue = mnf;
+                                prevValue = premnf;
                                 break;
                             }
                         }
@@ -71,7 +80,12 @@ namespace WcfLoggerData.Action
                 }
             }
 
-            return result;
+            ReturnValueViewModel returnValue = new ReturnValueViewModel();
+            returnValue.Result = result;
+            returnValue.CurrentValue = currentValue;
+            returnValue.PrevValue = prevValue;
+
+            return returnValue;
         }
     }
 }

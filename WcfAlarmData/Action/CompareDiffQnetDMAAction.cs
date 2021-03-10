@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WcfAlarmData.Model;
 using WcfLoggerData.Action;
 using WcfLoggerData.Models;
 
@@ -10,9 +11,11 @@ namespace WcfAlarmData.Action
 {
     class CompareDiffQnetDMAAction
     {
-        public string Compare(string dma)
+        public ReturnValueViewModel  Compare(string dma)
         {
             string result = "";
+            Nullable<double> currentValue = null;
+            Nullable<double> prevValue = null;
 
             DateTime toDay = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0,0,0);
             DateTime prev3Day = toDay.AddDays(-3);
@@ -37,6 +40,8 @@ namespace WcfAlarmData.Action
                         if (percent >= listLevelAlarm[i].Value)
                         {
                             result = listLevelAlarm[i].Level;
+                            currentValue = QnetD;
+                            prevValue = QnetMD;
                             break;
                         }
                     }
@@ -45,6 +50,8 @@ namespace WcfAlarmData.Action
                         if (percent > 0 && percent <= listLevelAlarm[i].Value)
                         {
                             result = listLevelAlarm[i].Level;
+                            currentValue = QnetD;
+                            prevValue = QnetMD;
                             break;
                         }
                     }
@@ -53,13 +60,20 @@ namespace WcfAlarmData.Action
                         if (percent < listLevelAlarm[i - 1].Value && percent >= listLevelAlarm[i].Value)
                         {
                             result = listLevelAlarm[i].Level;
+                            currentValue = QnetD;
+                            prevValue = QnetMD;
                             break;
                         }
                     }
                 }
             }
 
-            return result;
+            ReturnValueViewModel returnValue = new ReturnValueViewModel();
+            returnValue.Result = result;
+            returnValue.CurrentValue = currentValue;
+            returnValue.PrevValue = prevValue;
+
+            return returnValue;
         }
     }
 }

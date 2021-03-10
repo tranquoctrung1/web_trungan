@@ -30,10 +30,10 @@ namespace WcfAlarmData.Action
 
             foreach(var dma in listDMA)
             {
-                string diffDMA = compareDiffQnetDMAAction.Compare(dma.Company);
-                string diffDMAMonth = compareDiffQnetMonthDMAAction.Compare(dma.Company);
+                var diffDMA = compareDiffQnetDMAAction.Compare(dma.Company);
+                var diffDMAMonth = compareDiffQnetMonthDMAAction.Compare(dma.Company);
 
-                if(diffDMA != null && diffDMA.Trim() != "")
+                if(diffDMA != null && diffDMA.Result.Trim() != "")
                 {
                     AlarmForDMAViewModel el = new AlarmForDMAViewModel();
 
@@ -43,8 +43,8 @@ namespace WcfAlarmData.Action
                     el.EndDate = null;
                     el.IsFinish = false;
                     el.Type = 1;
-                    el.Content = "Q net theo ngày chênh lệch";
-                    el.Level = diffDMA;
+                    el.Content = "Q net theo ngày giá trị hiện taị " + diffDMA .CurrentValue.ToString() + " chênh lệch so với trung bình 3 ngày trước giá trị " + diffDMA.PrevValue.ToString();
+                    el.Level = diffDMA.Result;
 
                     if(el.StartDate != null)
                     {
@@ -62,7 +62,7 @@ namespace WcfAlarmData.Action
                 {
                     nRowUpdate += updateAlarmForDMAAction.Update(dma.Company, 1);
                 }
-                if(diffDMAMonth != null && diffDMAMonth.Trim() != "")
+                if(diffDMAMonth != null && diffDMAMonth.Result.Trim() != "")
                 {
                     AlarmForDMAViewModel el = new AlarmForDMAViewModel();
 
@@ -72,10 +72,11 @@ namespace WcfAlarmData.Action
                     el.EndDate = null;
                     el.IsFinish = false;
                     el.Type = 2;
-                    el.Content = "Q net theo tháng chênh lệch";
-                    el.Level = diffDMAMonth;
+                    el.Content = "Q net theo tháng giá trị hiện tại "+diffDMAMonth.CurrentValue.ToString() + " chênh lệch với trung bình 3 tháng trước giá trị " + diffDMAMonth.PrevValue.ToString();
+                    el.Level = diffDMAMonth.Result;
 
                     if (el.StartDate != null)
+
                     {
                         int isFind = -2;
 

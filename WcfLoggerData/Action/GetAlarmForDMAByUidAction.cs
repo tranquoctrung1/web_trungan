@@ -18,7 +18,7 @@ namespace WcfLoggerData.Action
             if (getTurnHistoryAlarmAction.GetTurnHistoryAlarm("DMA") != false)
             {
                 DateTime timeStart = new DateTime(1970, 01, 01).AddSeconds(int.Parse(start)).AddHours(7);
-                DateTime timeEnd = new DateTime(1970, 01, 01).AddSeconds(int.Parse(end)).AddHours(7);
+                DateTime timeEnd = new DateTime(1970, 01, 01).AddSeconds(int.Parse(end)).AddHours(7).AddDays(1);
 
                 GetUserByUidAction action = new GetUserByUidAction();
 

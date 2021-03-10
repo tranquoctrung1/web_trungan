@@ -33,18 +33,16 @@ namespace WcfAlarmData.Action
 
             foreach(var item in listLoggers)
             {
-                int resultForAccreditation = -1;
-                int resultForBatteryYear = -1;
                 if (item.DateAccreditation != null)
                 {
-                    resultForAccreditation = checkAccreditationLoggerAction.CheckAccreditationLogger(item.DateAccreditation.Value);
-                    if(resultForAccreditation != -1)
+                    var resultForAccreditation = checkAccreditationLoggerAction.CheckAccreditationLogger(item.DateAccreditation.Value);
+                    if(resultForAccreditation.Result != -1)
                     {
-                        if(resultForAccreditation == 0)
+                        if(resultForAccreditation.Result == 0)
                         {
                             nRowUpdate += updateAlarmForLoggerDBAction.Update(item.Serial, 1);
                         }
-                        else if(resultForAccreditation == 1)
+                        else if(resultForAccreditation.Result == 1)
                         {
                             AlarmForLoggerViewModel el = new AlarmForLoggerViewModel();
                             el.Serial = item.Serial;
@@ -52,7 +50,7 @@ namespace WcfAlarmData.Action
                             el.StartDate = DateTime.Now;
                             el.EndDate = null;
                             el.IsFinish = false;
-                            el.Content = $"Logger {item.Serial} sắp đến hạn kiểm định";
+                            el.Content = $"Logger {item.Serial} sắp đến hạn kiểm định còn lại "+ resultForAccreditation.DayRemain.ToString() + " ngày";
 
                             int isFind = binarySearch.BinarySearchInterativeForLogger(listAlarm, el.StartDate.Value);
 
@@ -61,7 +59,7 @@ namespace WcfAlarmData.Action
                                 list.Add(el);
                             }
                         }
-                        else if(resultForAccreditation == 2)
+                        else if(resultForAccreditation.Result == 2)
                         {
                             AlarmForLoggerViewModel el = new AlarmForLoggerViewModel();
                             el.Serial = item.Serial;
@@ -69,7 +67,7 @@ namespace WcfAlarmData.Action
                             el.StartDate = DateTime.Now;
                             el.EndDate = null;
                             el.IsFinish = false;
-                            el.Content = $"Logger {item.Serial} quá hạn kiểm định";
+                            el.Content = $"Logger {item.Serial} quá hạn kiểm định " + resultForAccreditation.DayRemain.ToString() + " ngày";
 
                             int isFind = binarySearch.BinarySearchInterativeForLogger(listAlarm, el.StartDate.Value);
 
@@ -82,15 +80,15 @@ namespace WcfAlarmData.Action
                 }
                 if(item.DateInstallBattery != null && item.YearBattery != null)
                 {
-                    resultForBatteryYear = checkYearBatteryAction.CheckYearBattery(item.DateInstallBattery.Value, item.YearBattery.Value);
+                   var resultForBatteryYear = checkYearBatteryAction.CheckYearBattery(item.DateInstallBattery.Value, item.YearBattery.Value);
 
-                    if(resultForBatteryYear != -1)
+                    if(resultForBatteryYear.Result != -1)
                     {
-                        if(resultForBatteryYear == 0)
+                        if(resultForBatteryYear.Result == 0)
                         {
                             nRowUpdate += updateAlarmForLoggerDBAction.Update(item.Serial, 2);
                         }
-                        else if(resultForBatteryYear == 1)
+                        else if(resultForBatteryYear.Result == 1)
                         {
                             AlarmForLoggerViewModel el = new AlarmForLoggerViewModel();
                             el.Serial = item.Serial;
@@ -98,7 +96,7 @@ namespace WcfAlarmData.Action
                             el.StartDate = DateTime.Now;
                             el.EndDate = null;
                             el.IsFinish = false;
-                            el.Content = $"Logger {item.Serial} sắp đến hạn kiểm định pin";
+                            el.Content = $"Logger {item.Serial} sắp đến hạn kiểm định pin còn lại " + resultForBatteryYear.DayRemain.ToString() + " ngày";
 
                             int isFind = binarySearch.BinarySearchInterativeForLogger(listAlarm, el.StartDate.Value);
 
@@ -107,7 +105,7 @@ namespace WcfAlarmData.Action
                                 list.Add(el);
                             }
                         }
-                        else if(resultForBatteryYear == 2)
+                        else if(resultForBatteryYear.Result == 2)
                         {
                             AlarmForLoggerViewModel el = new AlarmForLoggerViewModel();
                             el.Serial = item.Serial;
@@ -115,7 +113,7 @@ namespace WcfAlarmData.Action
                             el.StartDate = DateTime.Now;
                             el.EndDate = null;
                             el.IsFinish = false;
-                            el.Content = $"Logger {item.Serial} quá hạn kiểm định pin";
+                            el.Content = $"Logger {item.Serial} quá hạn kiểm định pin " + resultForBatteryYear.DayRemain.ToString() + " ngày";
 
                             int isFind = binarySearch.BinarySearchInterativeForLogger(listAlarm, el.StartDate.Value);
 

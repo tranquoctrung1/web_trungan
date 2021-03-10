@@ -72,40 +72,40 @@ namespace WcfAlarmData.Action
                     }
                     else if(isChannelPressure == true)
                     {
-                        string inconstantPress = getInconstantPressureAlarmAction.GetInconstantPressureAlarm(channel.ChannelId);
+                        var inconstantPress = getInconstantPressureAlarmAction.GetInconstantPressureAlarm(channel.ChannelId);
 
-                        if (inconstantPress.Trim() != "")
+                        if (inconstantPress.Result.Trim() != "")
                         {
-                            content = "Inconstant Pressure";
-                            level = inconstantPress;
+                            content = "Inconstant Pressure với giá trị hiện hành " + inconstantPress.CurrentValue.ToString()+" so với giá trị ngày hôm trước "+inconstantPress.PrevValue.ToString();
+                            level = inconstantPress.Result;
                             type = 4;
                             check = true;
                         }
                     }
                     else if(isChannelFlow == true)
                     {
-                        string highFlowAlarm = getInconstantHighFlowAlarmAction.GetInconstantHighFlowAlarm(channel.ChannelId);
-                        string lowFlowAlarm = getInconstantLowFlowAlarmAction.GetInconstantLowFlowAlarm(channel.ChannelId);
-                        string inconstantMNF = getMinNightFlowAlarmAction.GetMinNightFlowAlarm(channel.ChannelId);
+                        var highFlowAlarm = getInconstantHighFlowAlarmAction.GetInconstantHighFlowAlarm(channel.ChannelId);
+                        var lowFlowAlarm = getInconstantLowFlowAlarmAction.GetInconstantLowFlowAlarm(channel.ChannelId);
+                        var inconstantMNF = getMinNightFlowAlarmAction.GetMinNightFlowAlarm(channel.ChannelId);
 
-                        if (highFlowAlarm.Trim() != "")
+                        if (highFlowAlarm.Result.Trim() != "")
                         {
-                            content = "High Flow";
-                            level = highFlowAlarm;
+                            content = "High Flow với giá trị hiện hành " + highFlowAlarm.CurrentValue.ToString() + " so với giá trị ngày hôm trước " + highFlowAlarm.PrevValue.ToString();
+                            level = highFlowAlarm.Result;
                             type = 2;
                             check = true;
                         }
-                        else if (lowFlowAlarm.Trim() != "")
+                        else if (lowFlowAlarm.Result.Trim() != "")
                         {
-                            content = "Low Flow";
-                            level = lowFlowAlarm;
+                            content = "Low Flow với giá trị hiện hành " + lowFlowAlarm.CurrentValue.ToString() + " so với giá trị ngày hôm trước " + lowFlowAlarm.PrevValue.ToString();
+                            level = lowFlowAlarm.Result;
                             type = 3;
                             check = true;
                         }
-                        else if (inconstantMNF.Trim() != "")
+                        else if (inconstantMNF.Result.Trim() != "")
                         {
-                            content = "Min Night Flow";
-                            level = inconstantMNF;
+                            content = "Min Night Flow với giá trị hiện hành " + inconstantMNF.CurrentValue.ToString() + " so với giá trị ngày hôm trước " + inconstantMNF.PrevValue.ToString();
+                            level = inconstantMNF.Result;
                             type = 5;
                             check = true;
                         }

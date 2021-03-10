@@ -19,7 +19,7 @@ namespace WcfLoggerData.Action
             if (getTurnHistoryAlarmAction.GetTurnHistoryAlarm("Logger") != false)
             {
                 DateTime startDate = new DateTime(1970, 01, 01).AddSeconds(int.Parse(start)).AddHours(7);
-                DateTime endDate = new DateTime(1970, 01, 01).AddSeconds(int.Parse(end)).AddHours(7);
+                DateTime endDate = new DateTime(1970, 01, 01).AddSeconds(int.Parse(end)).AddHours(7).AddDays(1);
                 Connect connect = new Connect();
                 try
                 {

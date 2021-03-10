@@ -18,14 +18,14 @@ namespace WcfAlarmData.Action
 
             try
             {
-                string store = "p_Calculate_One_Company_Out_Output";
+                string store = "p_Calculate_Daily_Data_DMA";
 
                 connect.Connected();
 
                 SqlCommand command = connect.ExcuteStoreProceduce(store);
-                command.Parameters.Add(new SqlParameter("@Company", dma));
-                command.Parameters.Add(new SqlParameter("@StartDate", start));
-                command.Parameters.Add(new SqlParameter("@EndDate", end));
+                command.Parameters.Add(new SqlParameter("@dmaid", dma));
+                command.Parameters.Add(new SqlParameter("@start", start));
+                command.Parameters.Add(new SqlParameter("@end", end));
 
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)

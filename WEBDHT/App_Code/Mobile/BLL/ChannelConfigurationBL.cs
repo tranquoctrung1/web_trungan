@@ -22,7 +22,7 @@ public class ChannelConfigurationBL
         
         try
         {
-            string sqlQuery = "select t.[Id], t.[LoggerId], t.[Name], t.[Unit], t.[Description], t.[GroupChannel], t.[StatusViewAlarm], ds.[Pressure], ds.[Pressure1], ds.[Forward], ds.[Reverse] from [t_Devices_ChannelsConfigs] t join t_Devices_SitesConfigs ds on t.LoggerId = ds.Id ";
+            string sqlQuery = "select t.[Id], t.[LoggerId], t.[Name], t.[Unit], t.[Description], t.[GroupChannel], t.[StatusViewAlarm], ds.[Pressure], ds.[Pressure1], ds.[Forward], ds.[Reverse] from [t_Devices_ChannelsConfigs] t join t_Devices_SitesConfigs ds on t.LoggerId = ds.Id where ds.Id = '"+loggerid+"'";
 
             connect.Connected();
 

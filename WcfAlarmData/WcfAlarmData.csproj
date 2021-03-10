@@ -101,6 +101,8 @@
     <Compile Include="Model\DMAViewModel.cs" />
     <Compile Include="Model\LevelAlarmViewModel.cs" />
     <Compile Include="Model\LoggerViewModel.cs" />
+    <Compile Include="Model\ReturnValueLoggerViewModel.cs" />
+    <Compile Include="Model\ReturnValueViewModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ULT\BinarySearch.cs" />

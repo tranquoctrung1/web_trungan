@@ -49,6 +49,9 @@ namespace WcfAlarmData
             AlarmForLogger();
             AlarmForDMA();
 
+            Console.WriteLine("Running done in : " + DateTime.Now +". Please waiting to next time");
+
+
             // Force a garbage collection to occur for this demo.
             GC.Collect();
         }

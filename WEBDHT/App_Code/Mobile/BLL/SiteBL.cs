@@ -553,7 +553,7 @@ public class SiteBL
 
         try
         {
-            string sqlQuery = "select s.[Id], s.[OldId], s.[Location], s.[Longitude], s.[Latitude], s.[Logger], s.[Address], s.[District], s.[Company], s.[Status], s.[Availability], ds.[DelayTime]  from [t_Site_Sites] join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id]";
+            string sqlQuery = "select s.[Id], s.[OldId], s.[Location], s.[Longitude], s.[Latitude], s.[Logger], s.[Address], s.[District], s.[Company], s.[Status], s.[Availability], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id]";
 
             connect.Connected();
 
