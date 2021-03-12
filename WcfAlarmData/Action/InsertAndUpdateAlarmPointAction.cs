@@ -69,6 +69,9 @@ namespace WcfAlarmData.Action
                         type = 1;
                         level = "";
                         check = true;
+
+                        WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                        push.SubmitNotification(site.LoggerID, "Cảnh báo Lost Data từ " + site.Location, "Cảnh báo Lost Data");
                     }
                     else if(isChannelPressure == true)
                     {
@@ -80,6 +83,8 @@ namespace WcfAlarmData.Action
                             level = inconstantPress.Result;
                             type = 4;
                             check = true;
+                            WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                            push.SubmitNotification(site.LoggerID, "Cảnh báo Inconstant Pressure từ " + site.Location, "Cảnh báo Inconstant Pressure với giá trị hiện hành " + inconstantPress.CurrentValue.ToString() + " so với giá trị ngày hôm trước " + inconstantPress.PrevValue.ToString());
                         }
                     }
                     else if(isChannelFlow == true)
@@ -94,6 +99,8 @@ namespace WcfAlarmData.Action
                             level = highFlowAlarm.Result;
                             type = 2;
                             check = true;
+                            WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                            push.SubmitNotification(site.LoggerID, "Cảnh báo High Flow từ " + site.Location, "Cảnh báo High Flow với giá trị hiện hành " + highFlowAlarm.CurrentValue.ToString() + " so với giá trị ngày hôm trước " + highFlowAlarm.PrevValue.ToString());
                         }
                         else if (lowFlowAlarm.Result.Trim() != "")
                         {
@@ -101,6 +108,8 @@ namespace WcfAlarmData.Action
                             level = lowFlowAlarm.Result;
                             type = 3;
                             check = true;
+                            WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                            push.SubmitNotification(site.LoggerID, "Cảnh báo Low Flow từ " + site.Location,  "Cảnh báo Low Flow với giá trị hiện hành " + lowFlowAlarm.CurrentValue.ToString() + " so với giá trị ngày hôm trước " + lowFlowAlarm.PrevValue.ToString());
                         }
                         else if (inconstantMNF.Result.Trim() != "")
                         {
@@ -108,6 +117,8 @@ namespace WcfAlarmData.Action
                             level = inconstantMNF.Result;
                             type = 5;
                             check = true;
+                            WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                            push.SubmitNotification(site.LoggerID, "Cảnh báo Min Night Flow từ " + site.Location, "Cảnh báo Min Night Flow với giá trị hiện hành " + inconstantMNF.CurrentValue.ToString() + " so với giá trị ngày hôm trước " + inconstantMNF.PrevValue.ToString());
                         }
                     }
 

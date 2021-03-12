@@ -46,7 +46,10 @@ namespace WcfAlarmData.Action
                     el.Content = "Q net theo ngày giá trị hiện taị " + diffDMA .CurrentValue.ToString() + " chênh lệch so với trung bình 3 ngày trước giá trị " + diffDMA.PrevValue.ToString();
                     el.Level = diffDMA.Result;
 
-                    if(el.StartDate != null)
+                    //WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                    //push.SubmitNotification(dma.Company, "Q net theo ngày giá trị hiện taị " + diffDMA.CurrentValue.ToString() + " chênh lệch so với trung bình 3 ngày trước giá trị " + diffDMA.PrevValue.ToString());
+
+                    if (el.StartDate != null)
                     {
                         int isFind = -2;
 
@@ -74,6 +77,9 @@ namespace WcfAlarmData.Action
                     el.Type = 2;
                     el.Content = "Q net theo tháng giá trị hiện tại "+diffDMAMonth.CurrentValue.ToString() + " chênh lệch với trung bình 3 tháng trước giá trị " + diffDMAMonth.PrevValue.ToString();
                     el.Level = diffDMAMonth.Result;
+
+                    //WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                    //push.SubmitNotification(dma.Company, "Q net theo tháng giá trị hiện tại " + diffDMAMonth.CurrentValue.ToString() + " chênh lệch với trung bình 3 tháng trước giá trị " + diffDMAMonth.PrevValue.ToString());
 
                     if (el.StartDate != null)
 

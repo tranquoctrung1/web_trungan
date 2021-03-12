@@ -49,9 +49,12 @@ public class DataLoggerGetBL
         return result;
     }
 
-    public List<LoggerData> GetLoggerData(string channelid, DateTime start, DateTime end)
+    public List<LoggerData> GetLoggerData(string channelid, string start, string end)
     {
         List<LoggerData> list = new List<LoggerData>();
+
+        DateTime timeStart = new DateTime(1970, 01, 01).AddSeconds(int.Parse(start)).AddHours(7);
+        DateTime timeEnd = new DateTime(1970, 01, 01).AddSeconds(int.Parse(end)).AddHours(7);
 
         Connect connect = new Connect();
         try

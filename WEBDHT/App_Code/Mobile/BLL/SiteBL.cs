@@ -17,7 +17,7 @@ public class SiteBL
 
         try
         {
-            string sqlQuery = "select s.[Id], s.[OldId], s.[Location], s.[Longitude], s.[Latitude], s.[Logger], s.[Address], s.[District], s.[Company], s.[Status], s.[Availability], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_Site_Consumer] c on c.[SiteId] = s.[Id] where c.[ConsumerId] = '" + consumerid+"'";
+            string sqlQuery = "select s.[Id], s.[OldId], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company], s.[Status], s.[Availability], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_Site_Consumer] c on c.[SiteId] = s.[Id] where c.[ConsumerId] = '" + consumerid+"'";
 
             connect.Connected();
 
@@ -151,7 +151,7 @@ public class SiteBL
 
         try
         {
-            string sqlQuery = "select s.[Id], s.[OldId], s.[Location], s.[Longitude], s.[Latitude], s.[Logger], s.[Address], s.[District], s.[Company], s.[Status], s.[Availability], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_Site_Consumer] c on c.[SiteId] = s.[Id] where c.[ConsumerId] = '" + staffId + "'";
+            string sqlQuery = "select s.[Id], s.[OldId], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company], s.[Status], s.[Availability], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_Site_Consumer] c on c.[SiteId] = s.[Id] where c.[ConsumerId] = '" + staffId + "'";
 
             connect.Connected();
 
@@ -285,7 +285,7 @@ public class SiteBL
 
         try
         {
-            string sqlQuery = "select s.[Id], s.[OldId], s.[Location], s.[Longitude], s.[Latitude], s.[Logger], s.[Address], s.[District], s.[Company], s.[Status], s.[Availability], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_Supervisor_District] c on c.[IdDistrict] = s.[District] where c.[IdStaff] = '" + supervisorId + "'";
+            string sqlQuery = "select s.[Id], s.[OldId], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company], s.[Status], s.[Availability], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_Supervisor_District] c on c.[IdDistrict] = s.[District] where c.[IdStaff] = '" + supervisorId + "'";
 
             connect.Connected();
 
@@ -419,7 +419,7 @@ public class SiteBL
 
         try
         {
-            string sqlQuery = "select s.[Id], s.[OldId], s.[Location], s.[Longitude], s.[Latitude], s.[Logger], s.[Address], s.[District], s.[Company], s.[Status], s.[Availability], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_DMA_DMA] c on c.[IdDMA] = s.[Company] where c.[IdStaff] = '" + dmaid + "'";
+            string sqlQuery = "select s.[Id], s.[OldId], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company], s.[Status], s.[Availability], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_DMA_DMA] c on c.[IdDMA] = s.[Company] where c.[IdStaff] = '" + dmaid + "'";
 
             connect.Connected();
 
@@ -553,7 +553,7 @@ public class SiteBL
 
         try
         {
-            string sqlQuery = "select s.[Id], s.[OldId], s.[Location], s.[Longitude], s.[Latitude], s.[Logger], s.[Address], s.[District], s.[Company], s.[Status], s.[Availability], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id]";
+            string sqlQuery = "select s.[Id], s.[OldId], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company], s.[Status], s.[Availability], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id]";
 
             connect.Connected();
 
@@ -687,7 +687,7 @@ public class SiteBL
 
         try
         {
-            string sqlQuery = "select s.[Id], s.[OldId], s.[Location], s.[Longitude], s.[Latitude], s.[Logger], s.[Address], s.[District], s.[Company], s.[Status], s.[Availability], ds.[DelayTime]  from [t_Site_Sites] join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] where s.[Id] = '"+id+"'";
+            string sqlQuery = "select s.[Id], s.[OldId], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company], s.[Status], s.[Availability], ds.[DelayTime]  from [t_Site_Sites] join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] where s.[Id] = '"+id+"'";
 
             connect.Connected();
 

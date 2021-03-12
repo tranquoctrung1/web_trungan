@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetDataAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataAllResult" type="tns:ArrayOfGroupLogger" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGroupLogger">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GroupLogger" nillable="true" type="tns:GroupLogger" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GroupLogger">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayGroup" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lstDataAll" type="tns:ArrayOfDataAll" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDataAll">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataAll" nillable="true" type="tns:DataAll" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DataAll">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SiteId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteAliasName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoggerId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LabelAnchorX" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LabelAnchorY" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="lstGroupChannels" type="tns:ArrayOfGroupChannels" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfGroupChannels">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GroupChannels" nillable="true" type="tns:GroupChannels" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GroupChannels">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GroupChannel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Channels" type="tns:ArrayOfMChannel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMChannel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MChannel" nillable="true" type="tns:MChannel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MChannel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ChannelId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoggerId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChannelName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Unit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ForwardFlow" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReverseFlow" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndexTimeStamp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastIndex" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DisplayOnLabel" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="StrTimeStamp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="yyyy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mm" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Getchanneldetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="channel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isGraph" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetchanneldetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetchanneldetailResult" type="tns:ArrayOfLoggerData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLoggerData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LoggerData" nillable="true" type="tns:LoggerData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoggerData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TimeStamp" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" nillable="true" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LatLng">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LatLngResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LatLngResult" type="tns:toado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="toado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Lat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lng" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Logo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogoResult" type="tns:logo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="logo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Path" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="siteID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSiteResult" type="tns:mySite" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="mySite">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SiteID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Dologin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DologinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DologinResult" type="tns:myLogin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="myLogin">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ResetSampler">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="port" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="partnerid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetSamplerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResetSamplerResult" type="tns:result_sampler" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="result_sampler">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Knumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetChannelConfigByLoggerID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loggerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChannelConfigByLoggerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChannelConfigByLoggerIDResult" type="tns:ArrayOfTChannelConfigurations" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTChannelConfigurations">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="tChannelConfigurations" nillable="true" type="tns:tChannelConfigurations" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="tChannelConfigurations">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ChannelId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoggerId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelephoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartHour" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChannelName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Unit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pressure1" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pressure2" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ForwardFlow" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReverseFlow" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndexTimeStamp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastIndex" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DisplayOnLabel" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChannelOther" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="basemin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="basemax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupChannel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DisplayOnGraph" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Baseline" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDeviceTokenFromApp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeviceTokenFromAppResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDeviceTokenFromAppResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PushNotification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fcmToken" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="titleNoti" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bodyNoti" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PushNotificationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SendNotification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendNotificationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendNotificationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveTokenLogoutApp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveTokenLogoutAppResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveTokenLogoutAppResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitNotification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loggerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="body" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitNotificationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SubmitNotificationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateStatusPushNoti">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateStatusPushNotiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateStatusPushNotiResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChannelConfigurationsByLoggerID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loggerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChannelConfigurationsByLoggerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChannelConfigurationsByLoggerIDResult" type="tns:ArrayOfMChannel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChannelLoggerID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loggerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChannelLoggerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChannelLoggerIDResult" type="tns:ArrayOfMChannelNew" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMChannelNew">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MChannelNew" nillable="true" type="tns:MChannelNew" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MChannelNew">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ChannelId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoggerId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChannelName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDataAllSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataAll" />
+  </wsdl:message>
+  <wsdl:message name="GetDataAllSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetchanneldetailSoapIn">
+    <wsdl:part name="parameters" element="tns:Getchanneldetail" />
+  </wsdl:message>
+  <wsdl:message name="GetchanneldetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetchanneldetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="LatLngSoapIn">
+    <wsdl:part name="parameters" element="tns:LatLng" />
+  </wsdl:message>
+  <wsdl:message name="LatLngSoapOut">
+    <wsdl:part name="parameters" element="tns:LatLngResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoSoapIn">
+    <wsdl:part name="parameters" element="tns:Logo" />
+  </wsdl:message>
+  <wsdl:message name="LogoSoapOut">
+    <wsdl:part name="parameters" element="tns:LogoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSite" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DologinSoapIn">
+    <wsdl:part name="parameters" element="tns:Dologin" />
+  </wsdl:message>
+  <wsdl:message name="DologinSoapOut">
+    <wsdl:part name="parameters" element="tns:DologinResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResetSamplerSoapIn">
+    <wsdl:part name="parameters" element="tns:ResetSampler" />
+  </wsdl:message>
+  <wsdl:message name="ResetSamplerSoapOut">
+    <wsdl:part name="parameters" element="tns:ResetSamplerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChannelConfigByLoggerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChannelConfigByLoggerID" />
+  </wsdl:message>
+  <wsdl:message name="GetChannelConfigByLoggerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChannelConfigByLoggerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDeviceTokenFromAppSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDeviceTokenFromApp" />
+  </wsdl:message>
+  <wsdl:message name="GetDeviceTokenFromAppSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDeviceTokenFromAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="PushNotificationSoapIn">
+    <wsdl:part name="parameters" element="tns:PushNotification" />
+  </wsdl:message>
+  <wsdl:message name="PushNotificationSoapOut">
+    <wsdl:part name="parameters" element="tns:PushNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendNotificationSoapIn">
+    <wsdl:part name="parameters" element="tns:SendNotification" />
+  </wsdl:message>
+  <wsdl:message name="SendNotificationSoapOut">
+    <wsdl:part name="parameters" element="tns:SendNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveTokenLogoutAppSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveTokenLogoutApp" />
+  </wsdl:message>
+  <wsdl:message name="RemoveTokenLogoutAppSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveTokenLogoutAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitNotificationSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitNotification" />
+  </wsdl:message>
+  <wsdl:message name="SubmitNotificationSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStatusPushNotiSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateStatusPushNoti" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStatusPushNotiSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateStatusPushNotiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChannelConfigurationsByLoggerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChannelConfigurationsByLoggerID" />
+  </wsdl:message>
+  <wsdl:message name="GetChannelConfigurationsByLoggerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChannelConfigurationsByLoggerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChannelLoggerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChannelLoggerID" />
+  </wsdl:message>
+  <wsdl:message name="GetChannelLoggerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChannelLoggerIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MapSoap">
+    <wsdl:operation name="GetDataAll">
+      <wsdl:input message="tns:GetDataAllSoapIn" />
+      <wsdl:output message="tns:GetDataAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Getchanneldetail">
+      <wsdl:input message="tns:GetchanneldetailSoapIn" />
+      <wsdl:output message="tns:GetchanneldetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LatLng">
+      <wsdl:input message="tns:LatLngSoapIn" />
+      <wsdl:output message="tns:LatLngSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logo">
+      <wsdl:input message="tns:LogoSoapIn" />
+      <wsdl:output message="tns:LogoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSite">
+      <wsdl:input message="tns:GetSiteSoapIn" />
+      <wsdl:output message="tns:GetSiteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Dologin">
+      <wsdl:input message="tns:DologinSoapIn" />
+      <wsdl:output message="tns:DologinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetSampler">
+      <wsdl:input message="tns:ResetSamplerSoapIn" />
+      <wsdl:output message="tns:ResetSamplerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelConfigByLoggerID">
+      <wsdl:input message="tns:GetChannelConfigByLoggerIDSoapIn" />
+      <wsdl:output message="tns:GetChannelConfigByLoggerIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceTokenFromApp">
+      <wsdl:input message="tns:GetDeviceTokenFromAppSoapIn" />
+      <wsdl:output message="tns:GetDeviceTokenFromAppSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PushNotification">
+      <wsdl:input message="tns:PushNotificationSoapIn" />
+      <wsdl:output message="tns:PushNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendNotification">
+      <wsdl:input message="tns:SendNotificationSoapIn" />
+      <wsdl:output message="tns:SendNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTokenLogoutApp">
+      <wsdl:input message="tns:RemoveTokenLogoutAppSoapIn" />
+      <wsdl:output message="tns:RemoveTokenLogoutAppSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitNotification">
+      <wsdl:input message="tns:SubmitNotificationSoapIn" />
+      <wsdl:output message="tns:SubmitNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatusPushNoti">
+      <wsdl:input message="tns:UpdateStatusPushNotiSoapIn" />
+      <wsdl:output message="tns:UpdateStatusPushNotiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelConfigurationsByLoggerID">
+      <wsdl:input message="tns:GetChannelConfigurationsByLoggerIDSoapIn" />
+      <wsdl:output message="tns:GetChannelConfigurationsByLoggerIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelLoggerID">
+      <wsdl:input message="tns:GetChannelLoggerIDSoapIn" />
+      <wsdl:output message="tns:GetChannelLoggerIDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MapSoap" type="tns:MapSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDataAll">
+      <soap:operation soapAction="http://tempuri.org/GetDataAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Getchanneldetail">
+      <soap:operation soapAction="http://tempuri.org/Getchanneldetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LatLng">
+      <soap:operation soapAction="http://tempuri.org/LatLng" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logo">
+      <soap:operation soapAction="http://tempuri.org/Logo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSite">
+      <soap:operation soapAction="http://tempuri.org/GetSite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Dologin">
+      <soap:operation soapAction="http://tempuri.org/Dologin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetSampler">
+      <soap:operation soapAction="http://tempuri.org/ResetSampler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelConfigByLoggerID">
+      <soap:operation soapAction="http://tempuri.org/GetChannelConfigByLoggerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceTokenFromApp">
+      <soap:operation soapAction="http://tempuri.org/GetDeviceTokenFromApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushNotification">
+      <soap:operation soapAction="http://tempuri.org/PushNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNotification">
+      <soap:operation soapAction="http://tempuri.org/SendNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTokenLogoutApp">
+      <soap:operation soapAction="http://tempuri.org/RemoveTokenLogoutApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitNotification">
+      <soap:operation soapAction="http://tempuri.org/SubmitNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatusPushNoti">
+      <soap:operation soapAction="http://tempuri.org/UpdateStatusPushNoti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelConfigurationsByLoggerID">
+      <soap:operation soapAction="http://tempuri.org/GetChannelConfigurationsByLoggerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelLoggerID">
+      <soap:operation soapAction="http://tempuri.org/GetChannelLoggerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MapSoap12" type="tns:MapSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDataAll">
+      <soap12:operation soapAction="http://tempuri.org/GetDataAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Getchanneldetail">
+      <soap12:operation soapAction="http://tempuri.org/Getchanneldetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LatLng">
+      <soap12:operation soapAction="http://tempuri.org/LatLng" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logo">
+      <soap12:operation soapAction="http://tempuri.org/Logo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSite">
+      <soap12:operation soapAction="http://tempuri.org/GetSite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Dologin">
+      <soap12:operation soapAction="http://tempuri.org/Dologin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetSampler">
+      <soap12:operation soapAction="http://tempuri.org/ResetSampler" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelConfigByLoggerID">
+      <soap12:operation soapAction="http://tempuri.org/GetChannelConfigByLoggerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceTokenFromApp">
+      <soap12:operation soapAction="http://tempuri.org/GetDeviceTokenFromApp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushNotification">
+      <soap12:operation soapAction="http://tempuri.org/PushNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNotification">
+      <soap12:operation soapAction="http://tempuri.org/SendNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTokenLogoutApp">
+      <soap12:operation soapAction="http://tempuri.org/RemoveTokenLogoutApp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitNotification">
+      <soap12:operation soapAction="http://tempuri.org/SubmitNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatusPushNoti">
+      <soap12:operation soapAction="http://tempuri.org/UpdateStatusPushNoti" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelConfigurationsByLoggerID">
+      <soap12:operation soapAction="http://tempuri.org/GetChannelConfigurationsByLoggerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelLoggerID">
+      <soap12:operation soapAction="http://tempuri.org/GetChannelLoggerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Map">
+    <wsdl:port name="MapSoap" binding="tns:MapSoap">
+      <soap:address location="http://112.78.4.162:5520/map.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MapSoap12" binding="tns:MapSoap12">
+      <soap12:address location="http://112.78.4.162:5520/map.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

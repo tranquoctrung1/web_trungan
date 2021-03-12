@@ -52,6 +52,9 @@ namespace WcfAlarmData.Action
                             el.IsFinish = false;
                             el.Content = $"Logger {item.Serial} sắp đến hạn kiểm định còn lại "+ resultForAccreditation.DayRemain.ToString() + " ngày";
 
+                            //WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                            //push.SubmitNotification(item.Serial, "Logger {item.Serial} sắp đến hạn kiểm định còn lại " + resultForAccreditation.DayRemain.ToString() + " ngày");
+
                             int isFind = binarySearch.BinarySearchInterativeForLogger(listAlarm, el.StartDate.Value);
 
                             if(isFind == -1)
@@ -68,6 +71,9 @@ namespace WcfAlarmData.Action
                             el.EndDate = null;
                             el.IsFinish = false;
                             el.Content = $"Logger {item.Serial} quá hạn kiểm định " + resultForAccreditation.DayRemain.ToString() + " ngày";
+
+                            //WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                            //push.SubmitNotification(item.Serial, "Logger {item.Serial} quá hạn kiểm định " + resultForAccreditation.DayRemain.ToString() + " ngày");
 
                             int isFind = binarySearch.BinarySearchInterativeForLogger(listAlarm, el.StartDate.Value);
 
@@ -98,6 +104,9 @@ namespace WcfAlarmData.Action
                             el.IsFinish = false;
                             el.Content = $"Logger {item.Serial} sắp đến hạn kiểm định pin còn lại " + resultForBatteryYear.DayRemain.ToString() + " ngày";
 
+                            //WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                            //push.SubmitNotification(item.Serial, "Logger {item.Serial} sắp đến hạn kiểm định pin còn lại " + resultForBatteryYear.DayRemain.ToString() + " ngày");
+
                             int isFind = binarySearch.BinarySearchInterativeForLogger(listAlarm, el.StartDate.Value);
 
                             if (isFind == -1)
@@ -114,6 +123,9 @@ namespace WcfAlarmData.Action
                             el.EndDate = null;
                             el.IsFinish = false;
                             el.Content = $"Logger {item.Serial} quá hạn kiểm định pin " + resultForBatteryYear.DayRemain.ToString() + " ngày";
+
+                            //WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                            //push.SubmitNotification(item.Serial, "Logger {item.Serial} sắp đến hạn kiểm định pin còn lại " + resultForBatteryYear.DayRemain.ToString() + " ngày");
 
                             int isFind = binarySearch.BinarySearchInterativeForLogger(listAlarm, el.StartDate.Value);
 
