@@ -1978,7 +1978,6 @@
                                                                 break;
                                                         }
 
-
                                                         //TREEVIEW CHANNEL NODE
                                                         var cNode = new Telerik.Web.UI.RadTreeNode();
                                                         cNode.set_text(c.ChannelName);
@@ -1989,7 +1988,7 @@
                                                         spNode.get_nodes().add(cNode);
                                                         //MAP INFOWINDOW CONTENT
                                                         if (c.LastIndex != null && c.LastIndex != 'undefined') {
-                                                            index -= c.LastIndex;
+                                                            index += c.LastIndex;
                                                         }
                                                         if (c.Timestamp != null && c.Timestamp != 'undefined') {
                                                             parsedDate = new Date(convertDateFromApi(c.Timestamp));

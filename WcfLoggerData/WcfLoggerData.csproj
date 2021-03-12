@@ -156,6 +156,7 @@
     <Compile Include="Action\GetGroupChannelAction.cs" />
     <Compile Include="Action\GetGroupChannelByLoggerAction.cs" />
     <Compile Include="Action\GetAlarmForPointAction.cs" />
+    <Compile Include="Action\GetLastIndexValueAction.cs" />
     <Compile Include="Action\GetLastValueAction.cs" />
     <Compile Include="Action\GetLevelAlarmAction.cs" />
     <Compile Include="Action\GetListSitesAction.cs" />

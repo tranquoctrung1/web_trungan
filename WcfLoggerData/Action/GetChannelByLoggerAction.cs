@@ -17,6 +17,7 @@ namespace WcfLoggerData.Action
 
             GetCurrentTimeAction getCurrentTimeAction = new GetCurrentTimeAction();
             GetLastValueAction getLastValueAction = new GetLastValueAction();
+            GetLastIndexValueAction getLastIndexValueAction = new GetLastIndexValueAction();
 
             try
             {
@@ -101,6 +102,14 @@ namespace WcfLoggerData.Action
                         catch (Exception ex)
                         {
                             el.Val = null;
+                        }
+                        try
+                        {
+                            el.LastIndex = getLastIndexValueAction.GetLastIndexValue(el.ChannelId);
+                        }
+                        catch(Exception ex)
+                        {
+                            el.LastIndex = null;
                         }
                         try
                         {
