@@ -1944,11 +1944,11 @@
                                                             if (!alreadyPressureDisplay && strDate != 'NO DATA') {
                                                                 dLabelPressHtml = '<tr ><td colspan="6" style=" text-align: center;   background-color: white; padding-top: 3px; padding-bottom: 3px"><span>' + strDate + '</span></td></tr>';
 
-                                                                dInfoHtml += "<tr><td> " + c.ChannelName + "</td>"
-                                                                    + '<td style="text-align:right;color:red">' + val + "</td>"
-                                                                    + '<td style="color:red">' + c.Unit + "</td>"
-                                                                    + "<td>" + strDate + "</td>"
-                                                                    + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
+                                                                //dInfoHtml += "<tr><td> " + c.ChannelName + "</td>"
+                                                                //    + '<td style="text-align:right;color:red">' + val + "</td>"
+                                                                //    + '<td style="color:red">' + c.Unit + "</td>"
+                                                                //    + "<td>" + strDate + "</td>"
+                                                                //    + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
 
                                                                 alreadyPressureDisplay = true;
                                                             }
