@@ -3,18 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../css/Config.css" rel="stylesheet">
     <style type="text/css">
-       .group-text.change-size
-       {
-          
-           height: 55px
-       }
-       .row.m-b.out
-       {
-           display: flex;
-           justify-content: center;
-           align-items: center;
-           height: 33px !important
-       }
+        .group-text.change-size {
+            height: 55px
+        }
+
+        .row.m-b.out {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 33px !important
+        }
     </style>
     <script type="text/javascript">
         // preventing resubmition form application
@@ -87,7 +85,7 @@
                                 EnableLoadOnDemand="True" Filter="StartsWith"
                                 HighlightTemplatedItems="True" DataSourceID="SerialsDataSource"
                                 AutoPostBack="True" AccessKey="S" TabIndex="1" DataTextField="Serial" DataValueField="Serial">
-                                 <HeaderTemplate>
+                                <HeaderTemplate>
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td style="width: 150px">Serial</td>
@@ -100,7 +98,7 @@
                                             <td style="width: 150px">
                                                 <%#DataBinder.Eval(Container.DataItem,"Serial") %>
                                             </td>
-                                            
+
                                         </tr>
                                     </table>
                                 </ItemTemplate>
@@ -148,7 +146,7 @@
                             <span>Kênh ID</span>
                         </div>
                         <div class="row m-b">
-                           <telerik:RadTextBox ID="txtChannelId3" runat="server"
+                            <telerik:RadTextBox ID="txtChannelId3" runat="server"
                                 Style="top: 0px; left: 0px">
                             </telerik:RadTextBox>
                         </div>
@@ -180,7 +178,7 @@
                             <span>Tên</span>
                         </div>
                         <div class="row m-b">
-                             <telerik:RadTextBox ID="txtChannelName2" runat="server"
+                            <telerik:RadTextBox ID="txtChannelName2" runat="server"
                                 Style="top: 0px; left: 0px">
                             </telerik:RadTextBox>
                         </div>
@@ -212,7 +210,7 @@
                             <span>Đơn vị</span>
                         </div>
                         <div class="row m-b">
-                             <telerik:RadComboBox ID="cboUnit1" runat="server"
+                            <telerik:RadComboBox ID="cboUnit1" runat="server"
                                 DataSourceID="ChannelUnitsDataSource" DataTextField="Unit"
                                 DataValueField="Unit" AllowCustomText="True" EnableLoadOnDemand="True"
                                 Filter="StartsWith" HighlightTemplatedItems="True">
@@ -243,7 +241,7 @@
                             <span>Đơn vị</span>
                         </div>
                         <div class="row m-b">
-                             <telerik:RadComboBox ID="cboUnit2" runat="server"
+                            <telerik:RadComboBox ID="cboUnit2" runat="server"
                                 DataSourceID="ChannelUnitsDataSource" DataTextField="Unit"
                                 DataValueField="Unit" AllowCustomText="True" EnableLoadOnDemand="True"
                                 Filter="StartsWith" HighlightTemplatedItems="True">
@@ -274,7 +272,7 @@
                             <span>Đơn vị</span>
                         </div>
                         <div class="row m-b">
-                             <telerik:RadComboBox ID="cboUnit3" runat="server"
+                            <telerik:RadComboBox ID="cboUnit3" runat="server"
                                 DataSourceID="ChannelUnitsDataSource" DataTextField="Unit"
                                 DataValueField="Unit" AllowCustomText="True" EnableLoadOnDemand="True"
                                 Filter="StartsWith" HighlightTemplatedItems="True">
@@ -305,7 +303,7 @@
                             <span>Đơn vị</span>
                         </div>
                         <div class="row m-b">
-                             <telerik:RadComboBox ID="cboUnit4" runat="server"
+                            <telerik:RadComboBox ID="cboUnit4" runat="server"
                                 DataSourceID="ChannelUnitsDataSource" DataTextField="Unit"
                                 DataValueField="Unit" AllowCustomText="True" EnableLoadOnDemand="True"
                                 Filter="StartsWith" HighlightTemplatedItems="True">
@@ -334,7 +332,7 @@
                 </div>
                 <div class="col-sm-1 no-padding">
                     <div class="group-text change-size">
-                         <div class="row">
+                        <div class="row">
                             <span>&nbsp</span>
                         </div>
                         <div class="row m-b out">
@@ -342,8 +340,8 @@
                             <asp:RadioButton ID="rdoPress1" runat="server" GroupName="Channel1" CssClass="radiob" />
                         </div>
                     </div>
-                     <div class="group-text change-size" >
-                          <div class="row">
+                    <div class="group-text change-size">
+                        <div class="row">
                             <span>&nbsp</span>
                         </div>
                         <div class="row m-b out">
@@ -352,7 +350,7 @@
                         </div>
                     </div>
                     <div class="group-text change-size">
-                         <div class="row">
+                        <div class="row">
                             <span>&nbsp</span>
                         </div>
                         <div class="row m-b out">
@@ -361,7 +359,7 @@
                         </div>
                     </div>
                     <div class="group-text change-size">
-                         <div class="row">
+                        <div class="row">
                             <span>&nbsp</span>
                         </div>
                         <div class="row m-b out">
@@ -370,9 +368,9 @@
                         </div>
                     </div>
                 </div>
-                 <div class="col-sm-1 no-padding">
-                     <div class="group-text change-size">
-                          <div class="row">
+                <div class="col-sm-1 no-padding">
+                    <div class="group-text change-size">
+                        <div class="row">
                             <span>&nbsp</span>
                         </div>
                         <div class="row m-b out">
@@ -380,8 +378,8 @@
                             <asp:RadioButton ID="rdoPress11" runat="server" GroupName="Channel1" CssClass="radiob" />
                         </div>
                     </div>
-                     <div class="group-text change-size">
-                          <div class="row">
+                    <div class="group-text change-size">
+                        <div class="row">
                             <span>&nbsp</span>
                         </div>
                         <div class="row m-b out">
@@ -389,8 +387,8 @@
                             <asp:RadioButton ID="rdoPress12" runat="server" GroupName="Channel2" CssClass="radiob" />
                         </div>
                     </div>
-                     <div class="group-text change-size">
-                          <div class="row">
+                    <div class="group-text change-size">
+                        <div class="row">
                             <span>&nbsp</span>
                         </div>
                         <div class="row m-b out">
@@ -398,8 +396,8 @@
                             <asp:RadioButton ID="rdoPress13" runat="server" GroupName="Channel3" CssClass="radiob" />
                         </div>
                     </div>
-                     <div class="group-text change-size">
-                          <div class="row">
+                    <div class="group-text change-size">
+                        <div class="row">
                             <span>&nbsp</span>
                         </div>
                         <div class="row m-b out">
@@ -408,9 +406,9 @@
                         </div>
                     </div>
                 </div>
-                 <div class="col-sm-2">
-                      <div class="group-text change-size">
-                           <div class="row">
+                <div class="col-sm-2">
+                    <div class="group-text change-size">
+                        <div class="row">
                             <span>&nbsp</span>
                         </div>
                         <div class="row m-b out">
@@ -418,8 +416,8 @@
                             <asp:RadioButton ID="rdoForwardFlow1" runat="server" GroupName="Channel1" CssClass="radiob" />
                         </div>
                     </div>
-                     <div class="group-text change-size">
-                          <div class="row">
+                    <div class="group-text change-size">
+                        <div class="row">
                             <span>&nbsp</span>
                         </div>
                         <div class="row m-b out">
@@ -427,8 +425,8 @@
                             <asp:RadioButton ID="rdoForwardFlow2" runat="server" GroupName="Channel2" CssClass="radiob" />
                         </div>
                     </div>
-                     <div class="group-text change-size">
-                          <div class="row">
+                    <div class="group-text change-size">
+                        <div class="row">
                             <span>&nbsp</span>
                         </div>
                         <div class="row m-b out">
@@ -436,28 +434,28 @@
                             <asp:RadioButton ID="rdoForwardFlow3" runat="server" GroupName="Channel3" CssClass="radiob" />
                         </div>
                     </div>
-                     <div class="group-text change-size">
-                          <div class="row">
+                    <div class="group-text change-size">
+                        <div class="row">
                             <span>&nbsp</span>
-                        </div> 
+                        </div>
                         <div class="row m-b out">
                             <span>Lưu lượng thuận</span>
                             <asp:RadioButton ID="rdoForwardFlow4" runat="server" GroupName="Channel4" CssClass="radiob" />
                         </div>
                     </div>
                 </div>
-                 <div class="col-sm-2">
-                     <div class="group-text change-size">
-                          <div class="row">
+                <div class="col-sm-2">
+                    <div class="group-text change-size">
+                        <div class="row">
                             <span>&nbsp</span>
                         </div>
-                        <div class="row m-b out" >
+                        <div class="row m-b out">
                             <span>Lưu lượng nghịch</span>
                             <asp:RadioButton ID="rdoReverseFlow1" runat="server" GroupName="Channel1" CssClass="radiob" />
                         </div>
                     </div>
-                     <div class="group-text change-size">
-                          <div class="row">
+                    <div class="group-text change-size">
+                        <div class="row">
                             <span>&nbsp</span>
                         </div>
                         <div class="row m-b out">
@@ -465,8 +463,8 @@
                             <asp:RadioButton ID="rdoReverseFlow2" runat="server" GroupName="Channel2" CssClass="radiob" />
                         </div>
                     </div>
-                     <div class="group-text change-size">
-                          <div class="row ">
+                    <div class="group-text change-size">
+                        <div class="row ">
                             <span>&nbsp</span>
                         </div>
                         <div class="row m-b out">
@@ -474,8 +472,8 @@
                             <asp:RadioButton ID="rdoReverseFlow3" runat="server" GroupName="Channel3" CssClass="radiob" />
                         </div>
                     </div>
-                     <div class="group-text change-size">
-                          <div class="row">
+                    <div class="group-text change-size">
+                        <div class="row">
                             <span>&nbsp</span>
                         </div>
                         <div class="row m-b out">
@@ -487,11 +485,11 @@
                 </div>
             </div>
 
-             <div class="text-center col-sm-12 m-t m-b no-padding" style="clear: both;">
+            <div class="text-center col-sm-12 m-t m-b no-padding" style="clear: both;">
                 <asp:Button ID="btnAdd" runat="server" Text="Thêm/Sửa"
                     OnClick="btnAdd_Click" CssClass="btn btn-success"></asp:Button>
                 <asp:Button ID="btnDelete" runat="server"
-                    OnClick="btnDelete_Click" Text="Xóa cấu hình" 
+                    OnClick="btnDelete_Click" Text="Xóa cấu hình"
                     CssClass="btn btn-danger"></asp:Button>
             </div>
 
@@ -502,6 +500,7 @@
         <AjaxSettings>
             <telerik:AjaxSetting AjaxControlID="cboSiteIds">
                 <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="cboSerials" />
                     <telerik:AjaxUpdatedControl ControlID="txtLoggerId" />
                     <telerik:AjaxUpdatedControl ControlID="nmrInterval" />
                     <telerik:AjaxUpdatedControl ControlID="tmStart" />

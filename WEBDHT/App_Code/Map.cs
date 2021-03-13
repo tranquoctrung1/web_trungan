@@ -477,6 +477,15 @@ public class Map : System.Web.Services.WebService
     }
 
     [WebMethod]
+    public List<DataQuantityAndChartViewModel> GetDataQuantityAndChartChannel(string channelid, string start, string end)
+    {
+        QuantityChannelBLL quantityChannelBLL = new QuantityChannelBLL();
+
+        return quantityChannelBLL.dataQuantityAndChartChannel(channelid, start, end);
+    }
+
+
+    [WebMethod]
     public List<DataQuantityAndChartViewModel> GetDataQuantityAndChartDMA(string dmaid, string start, string end)
     {
         QuantityDMABLL quantityDMABLL = new QuantityDMABLL();

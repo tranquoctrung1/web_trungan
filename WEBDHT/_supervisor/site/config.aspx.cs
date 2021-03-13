@@ -173,6 +173,7 @@ public partial class _supervisor_site_config : BasePage
     private void SetSiteConfigControlValues(SiteConfig siteConfig)
     {
         cboSerials.Text = siteConfig.Id;
+        cboSerials.SelectedIndex = -1;
         nmrInterval.Value = siteConfig.Interval;
         tmStart.SelectedDate = siteConfig.BeginTime;
 

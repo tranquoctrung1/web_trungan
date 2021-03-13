@@ -123,7 +123,10 @@ public partial class _supervisor_device_logger : BasePage
         logger.Status = cboStatus.Text;
         logger.DateAccreditation = dtmAccreditation.SelectedDate;
         logger.DateInstallBattery = dtmInstallBattery.SelectedDate;
-        logger.YearBattery = int.Parse(yearBattery.Text);
+        if(yearBattery.Text != null && yearBattery.Text.Trim() != "")
+        {
+            logger.YearBattery = int.Parse(yearBattery.Text);
+        }
         return logger;
     }
     private void SetControlValues(Logger logger)
