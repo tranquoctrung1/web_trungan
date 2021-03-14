@@ -2,6 +2,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../css/Config.css" rel="stylesheet">
+    <link href="../../css/leaflet/leaflet.1.6.0.css" rel="stylesheet" />
+    <link href="../../css/leaflet/context-menu.min.css" rel="stylesheet" />
+
+    <script src="../../js/leaflet/leaflet.1.6.0.js"></script>
+    <script src="../../js/leaflet/context-menu.js"></script>
+    <script src="../../js/leaflet/kmllayer.js"></script>
+
 
     <style>
         .ruButton {
@@ -13,6 +20,19 @@
             display: flex;
             align-items: center;
         }
+        #showMap 
+        {
+            cursor: pointer
+        }
+
+
+        #map.show {
+            height: 300px;
+        }
+        #map.hide {
+            height: 0px;
+        }
+
     </style>
     <script type="text/javascript">
         //<![CDATA[
@@ -242,29 +262,24 @@
                         </div>
                     </div>
 
-                    
-
-                    <%--  <div class="group-text">
-                        <div class="row">
-                            <span>Vật liệu</span>
-                        </div>
-                        <div class="row m-b">
-                            <telerik:RadTextBox ID="txtCoverMaterial" Enabled="false" runat="server" TabIndex="37">
-                            </telerik:RadTextBox>
-                        </div>
-                    </div>--%>
                 </div>
                 <div class="col-sm-4">
                     <div class="group-text">
                         <div class="row">
                             <span>Vĩ độ</span>
+                            <i class="fa fa-map" aria-hidden="true" class="m-l" id="showMap" onclick="showMap()"></i>
                         </div>
                         <div class="row m-b">
-                            <telerik:RadNumericTextBox ID="nmrLatitude" runat="server" TabIndex="4">
+                            <telerik:RadNumericTextBox ID="nmrLatitude" runat="server" TabIndex="4" Width="90">
                                 <NumberFormat DecimalDigits="7" ZeroPattern="n" />
                             </telerik:RadNumericTextBox>
+                            
                         </div>
+                        
                     </div>
+
+                    <div id="map" class="show" style="width: 450px; height: 300px"></div>
+
                     <div class="group-text">
                         <div class="row">
                             <span>Mã point cũ</span>
@@ -758,5 +773,51 @@
             </telerik:AjaxSetting>
         </AjaxSettings>
     </telerik:RadAjaxManagerProxy>
+
+    <script>
+        var map;
+
+        map = L.map('map', {
+        }).setView([10.7611111, 106.675], 12);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidHJhbnF1b2N0cnVuZyIsImEiOiJja2J6eTA1bXQxZTY4MnVudGxtM3BjMzI4In0.c0ylnh0g8KaZ83XlK_qGqw', {
+            attribution: '<a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
+            maxZoom: 18,
+        }).addTo(map);
+
+        var marker;
+
+        function onMapClick(e) {
+           
+            marker = L.marker(e.latlng).addTo(map);
+            marker.bindPopup(`<strong>Vị trí: ${marker.getLatLng().lat}, ${marker.getLatLng().lng}</strong>`).openPopup();
+
+            let lat = document.getElementById('ctl00_ContentPlaceHolder1_nmrLatitude');
+            let long = document.getElementById('ctl00_ContentPlaceHolder1_nmrLogitude');
+
+            long.value = marker.getLatLng().lng;
+            lat.value = marker.getLatLng().lat;
+        }
+
+        map.on('click', onMapClick);
+
+
+        // hide map
+        document.getElementById('map').classList.add('hide')
+
+        function showMap() {
+
+            let showMap = document.getElementById('map');
+
+            if (showMap.classList.contains("hide")) {
+                showMap.classList.remove("hide")
+                showMap.classList.add("show")
+            }
+            else if (showMap.classList.contains("show")) {
+                showMap.classList.remove("show")
+                showMap.classList.add("hide")
+            }
+        }
+    </script>
 </asp:Content>
 
