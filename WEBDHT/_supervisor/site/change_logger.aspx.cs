@@ -98,9 +98,24 @@ public partial class _supervisor_site_change_logger : BasePage
         history.DateChanged = (DateTime)dtmDateChanged.SelectedDate;
         history.Description = txtDescription.Text;
         history.NewMeterIndex = nmrNewIndex.Value ?? 0;
-        history.NewMeterSerial = cboNewSerials.Text;
+        try
+        {
+            history.NewMeterSerial = cboNewSerials.Text;
+        }
+        catch
+        {
+            history.NewMeterSerial = "";
+        }
         history.OldMeterIndex = nmrOldIndex.Value ?? 0;
-        history.OldMeterSerial = cboOldSerials.Text;
+        try
+        {
+            history.OldMeterSerial = cboOldSerials.Text;
+        }
+        catch
+        {
+            history.OldMeterSerial = "";
+        }
+       
         history.SiteId = cboSiteIds.Text;
         return history;
     }

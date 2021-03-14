@@ -58,7 +58,7 @@ public partial class _supervisor_site_info : BasePage
         //cboStaffs.Text = string.Empty;
         cboMeters.Text = string.Empty;
         cboTransmitters.Text = string.Empty;
-        cboLoggers.Text = string.Empty;
+        txtLogger.Text = string.Empty;
         txtAccreditationDocument.Text = string.Empty;
         cboAccreditationTypes.Text = string.Empty;
         dtmAccredited.SelectedDate = null;
@@ -197,7 +197,7 @@ public partial class _supervisor_site_info : BasePage
         site.Latitude = nmrLatitude.Value;
         //site.Level = cboLevels.Text;
         site.Location = txtLocation.Text;
-        site.Logger = cboLoggers.Text ;
+        site.Logger = txtLogger.Text ;
         site.Longitude = nmrLogitude.Value;
         site.Meter = cboMeters.Text;
         //site.MeterDirection = cboMeterDirections.Text;
@@ -252,8 +252,7 @@ public partial class _supervisor_site_info : BasePage
        // cboLevels.SelectedIndex = -1;
        // cboLevels.Text = site.Level;
         txtLocation.Text = site.Location;
-        cboLoggers.SelectedIndex = -1;
-        cboLoggers.Text = site.Logger;
+        txtLogger.Text = site.Logger;
         nmrLogitude.Value = site.Longitude;
         cboMeters.SelectedIndex = -1;
         cboMeters.Text = site.Meter;
@@ -320,6 +319,11 @@ public partial class _supervisor_site_info : BasePage
     private void SetAllControlValues(string siteId)
     {
         var site = _sitesBLL.GetById(siteId);
+        SiteConfigsBLL _siteConfigBLL = new SiteConfigsBLL();
+
+        var siteConfig = _siteConfigBLL.GetBySiteId(site.Id);
+
+        site.Logger = siteConfig.Id;
         if (site != null)
         {
             SetSiteControlValues(site);
