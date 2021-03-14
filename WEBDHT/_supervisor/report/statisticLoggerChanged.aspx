@@ -50,14 +50,7 @@
                             <img src="../../2.gif" />
                         </div>
                     </div>
-                    <table class="table-striped table-bordered table-hover text-center" id="example">
-                        <thead id="headBody">
-                        </thead>
-                        <tbody id="dataTable">
-                        </tbody>
-                        <tfoot class="text-center" id="footer">
-                        </tfoot>
-                    </table>
+                    <div id="tablePlaceHolder"></div>
                 </div>
             </div>
         </div>
@@ -97,6 +90,8 @@
                     loadingElement.classList.add('hide');
                     loadingElement.classList.remove('show');
 
+                    createTablePlaceHolder();
+
                     createBodyForLoggerChanged(res.data);
 
                 }).catch(err => console.log(err))
@@ -119,6 +114,19 @@
             }
 
             return true;
+        }
+
+        function createTablePlaceHolder() {
+            let tablePlaceHolder = document.getElementById('tablePlaceHolder');
+
+            tablePlaceHolder.innerHTML = `<table class="table-striped table-bordered table-hover text-center" id="example">
+                        <thead id="headBody">
+                        </thead>
+                        <tbody id="dataTable">
+                        </tbody>
+                        <tfoot class="text-center" id="footer">
+                        </tfoot>
+                    </table>`;
         }
 
         function createBodyForLoggerChanged(data) {
