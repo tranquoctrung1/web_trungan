@@ -27,6 +27,176 @@ public class Map : System.Web.Services.WebService
         //Uncomment the following line if using designed components 
         //InitializeComponent(); 
     }
+
+    [WebMethod] 
+    public List<GroupLogger> GetLimitData(string username)
+    {
+        var siteBL = new SiteBL();
+        UserBL _userBL = new UserBL();
+
+        var user = _userBL.GetUser(username);
+        List<t_SiteCustomer> sites;
+        if (user.Role == "consumer")
+        {
+            sites = siteBL.GetSitesForMapByConsumerIdCustomLimit(user.StaffId);
+        }
+        else if (user.Role == "staff")
+        {
+            sites = siteBL.GetSitesForMapByStaffIdCustomLimit(user.StaffId);
+        }
+        else if (user.Role == "supervisor")
+        {
+            sites = siteBL.GetSiteForMapBySupervisorCustomLimit(user.StaffId);
+        }
+        else if (user.Role == "DMA")
+        {
+            sites = siteBL.GetSiteForMapByDMACustomLimit(user.StaffId);
+        }
+        else
+        {
+            sites = siteBL.GetSitesForMapCustomLimit().ToList();
+            // sites = null;
+        }
+        List<GroupLogger> groupLoggers = new List<GroupLogger>();
+        var index = 0;
+        foreach (var item in sites)
+        {
+            var flag = true;
+            GroupLogger groupLogger = new GroupLogger();
+            if (index == 0)
+            {
+                groupLogger.DisplayGroup = item.Company;
+                groupLogger.Name = "DH";
+                groupLoggers.Add(groupLogger);
+            }
+            else
+            {
+                foreach (var gr in groupLoggers)
+                {
+                    if (gr.DisplayGroup == item.Company)
+                    {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag)
+                {
+                    groupLogger.DisplayGroup = item.Company;
+                    groupLogger.Name = "DH";
+                    groupLoggers.Add(groupLogger);
+                }
+            }
+            index++;
+        }
+
+        foreach (var gr in groupLoggers)
+        {
+            var x = from s in sites
+                    where s.Company == gr.DisplayGroup
+                    select new DataAll
+                    {
+                        SiteId = s.Id,
+                        SiteAliasName = s.Address,
+                        Location = s.Location,
+                        Latitude = (s.Latitude == null ? 0 : (double)s.Latitude),
+                        Longitude = (s.Longitude == null ? 0 : (double)s.Longitude),
+                        LoggerId = s.Logger,
+                        District = s.District
+                    };
+            gr.lstDataAll = x.ToList();
+            var channelConfigurationBL = new ChannelConfigurationBL();
+            foreach (var item in gr.lstDataAll)
+            {
+
+                var groupchannel = channelConfigurationBL.GetChannelConfigurationsByLoggerID(item.LoggerId).ToList();
+                var countGroupCN = 0;
+                List<GroupChannels> groupChannels = new List<GroupChannels>();
+                foreach (var cn in groupchannel)
+                {
+                    var flag = true;
+                    GroupChannels groupChannel = new GroupChannels();
+                    if (countGroupCN == 0)
+                    {
+                        groupChannel.GroupChannel = cn.GroupChannel;
+                        groupChannels.Add(groupChannel);
+                    }
+                    else
+                    {
+                        foreach (var grc in groupChannels)
+                        {
+                            if (grc.GroupChannel == cn.GroupChannel)
+                            {
+                                flag = false;
+                                break;
+                            }
+                        }
+                        if (flag)
+                        {
+                            groupChannel.GroupChannel = cn.GroupChannel;
+                            groupChannels.Add(groupChannel);
+                        }
+                    }
+                    countGroupCN++;
+                }
+
+                item.lstGroupChannels = groupChannels;
+
+                var s = sites.Find(site => site.Logger == item.LoggerId);
+                int? setDelayTime = s.SetDelayTime != null ? s.SetDelayTime : 60;
+                double? setDiffValue = s.SetDiffValue != null ? s.SetDiffValue : 0.3;
+                int status = 0;
+
+                foreach (var itemCN in item.lstGroupChannels)
+                {
+                    var st = from c in channelConfigurationBL.GetChannelConfigurationsByLoggerID(item.LoggerId)
+                             where c.GroupChannel == itemCN.GroupChannel
+                             select new MChannel
+                             {
+                                 Status = setStatus(c.ChannelId, c.LastValue, c.TimeStamp, setDelayTime, setDiffValue, c.Pressure1, c.Pressure2),
+                             };
+                    foreach (var itemST in st)
+                    {
+                        if (itemST.Status > 1)
+                        {
+                            status = itemST.Status;
+                            break;
+                        }
+                    }
+                }
+                foreach (var itemCN in item.lstGroupChannels)
+                {
+                    var y = from c in channelConfigurationBL.GetChannelConfigurationsByLoggerID(item.LoggerId)
+                            where c.GroupChannel == itemCN.GroupChannel
+                            select new MChannel
+                            {
+                                ChannelId = c.ChannelId,
+                                LoggerId = c.LoggerId,
+                                ChannelName = c.ChannelName,
+                                Unit = c.Unit,
+                                Description = c.Description,
+                                ForwardFlow = c.ForwardFlow,
+                                ReverseFlow = c.ReverseFlow,
+
+                                TimeStamp = c.TimeStamp == null ? "NO DATA" : ((DateTime)c.TimeStamp).ToString("dd/MM/yyyy HH:mm"),
+                                yyyy = c.TimeStamp == null ? "NO DATA" : ((DateTime)c.TimeStamp).Year.ToString(),
+                                MM = c.TimeStamp == null ? "NO DATA" : ((DateTime)c.TimeStamp).Month.ToString(),
+                                dd = c.TimeStamp == null ? "NO DATA" : ((DateTime)c.TimeStamp).Day.ToString(),
+                                HH = c.TimeStamp == null ? "NO DATA" : ((DateTime)c.TimeStamp).Hour.ToString(),
+                                mm = c.TimeStamp == null ? "NO DATA" : ((DateTime)c.TimeStamp).Minute.ToString(),
+
+                                LastValue = c.LastValue == null ? "NO DATA" : ((double)c.LastValue).ToString("0.00"),
+                                LastIndex = c.LastIndex == null ? "" : ((double)c.LastIndex).ToString(),
+                                Status = status,
+                            };
+                    itemCN.Channels = y.ToList();
+                }
+            }
+        }
+
+        return groupLoggers;
+    }
+
+
     [WebMethod]
     public List<GroupLogger> GetDataAll(string username)
     {
@@ -66,7 +236,6 @@ public class Map : System.Web.Services.WebService
             {
                 groupLogger.DisplayGroup = item.Company;
                 groupLogger.Name = "DH";
-                groupLogger.District = item.District;
                 groupLoggers.Add(groupLogger);
             }
             else
@@ -101,8 +270,7 @@ public class Map : System.Web.Services.WebService
                         Latitude = (s.Latitude == null ? 0 : (double)s.Latitude),
                         Longitude = (s.Longitude == null ? 0 : (double)s.Longitude),
                         LoggerId = s.Logger,
-                        //LabelAnchorX = s.LabelAnchorX,
-                        //LabelAnchorY = s.LabelAnchorY
+                        District = s.District
                     };
             gr.lstDataAll = x.ToList();
             var channelConfigurationBL = new ChannelConfigurationBL();
@@ -469,11 +637,27 @@ public class Map : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public List<DataQuantityAndChartViewModel> GetDataQuantityAndChartPoint(string siteid, string start, string end)
+    public List<DataQuantityAndChartViewModel> GetDataQuantityAndChartPointHourly(string siteid, string start, string end)
     {
         QuantityPointBLL quantityPointBLL = new QuantityPointBLL();
 
         return quantityPointBLL.GetDataQuantityAndChart(siteid, start, end);
+    }
+
+    [WebMethod]
+    public List<DataQuantityAndChartViewModel> GetDataQuantityAndChartPointDaily(string siteid, string start, string end)
+    {
+        QuantityPointBLL quantityPointBLL = new QuantityPointBLL();
+
+        return quantityPointBLL.GetDataQuantityAndChartDaily(siteid, start, end);
+    }
+
+    [WebMethod]
+    public List<DataQuantityAndChartViewModel> GetDataQuantityAndChartPointMonthly(string siteid, string start, string end)
+    {
+        QuantityPointBLL quantityPointBLL = new QuantityPointBLL();
+
+        return quantityPointBLL.GetDataQuantityAndChartMonthly(siteid, start, end);
     }
 
     [WebMethod]
@@ -486,12 +670,30 @@ public class Map : System.Web.Services.WebService
 
 
     [WebMethod]
-    public List<DataQuantityAndChartViewModel> GetDataQuantityAndChartDMA(string dmaid, string start, string end)
+    public List<DataQuantityAndChartViewModel> GetDataQuantityAndChartDMAHourly(string dmaid, string start, string end)
     {
         QuantityDMABLL quantityDMABLL = new QuantityDMABLL();
 
         return quantityDMABLL.GetDataQuantityAndChartDMA(dmaid, start, end);
     }
+
+    [WebMethod]
+    public List<DataQuantityAndChartViewModel> GetDataQuantityAndChartDMADaily(string dmaid, string start, string end)
+    {
+        QuantityDMABLL quantityDMABLL = new QuantityDMABLL();
+
+        return quantityDMABLL.GetDataQuantityAndChartDMADaily(dmaid, start, end);
+    }
+
+    [WebMethod]
+    public List<DataQuantityAndChartViewModel> GetDataQuantityAndChartDMAMonthly(string dmaid, string start, string end)
+    {
+        QuantityDMABLL quantityDMABLL = new QuantityDMABLL();
+
+        return quantityDMABLL.GetDataQuantityAndChartDMAMonthly(dmaid, start, end);
+    }
+
+
 
 
     [WebMethod]
@@ -974,6 +1176,464 @@ public class Map : System.Web.Services.WebService
         return x.OrderBy(d => d.ChannelName).ToList();
     }
 
+
+    [WebMethod]
+    public Site GetPointByIdInfo(string siteId)
+    {
+        Site s = new Site();
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select s.[Id], s.[OldId], s.[Location] ,s.[Longitude], s.[Latitude], s.[Meter] , s.[Transmitter], ds.[Id] as Logger, s.[DateOfMeterChange] , s.[DateOfLoggerChange] , s.[DateOfTransmitterChange], s.[DateOfBatteryChange] , s.[DateOfTransmitterBatteryChange], s.[DateOfLoggerBatteryChange], s.[Company], s.[Status], s.[Availability], s.[Description], s.[Address], s.[District], s.[DMAOut] FROM [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.Id where s.Id = '"+siteId+"'";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if(reader.HasRows)
+            {
+                while(reader.Read())
+                {
+                    try
+                    {
+                        s.Id = reader["Id"].ToString();
+                    }
+                    catch(Exception ex)
+                    {
+                        s.Id = "";
+                    }
+                    try
+                    {
+                        s.OldId = reader["OldId"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        s.OldId = "";
+                    }
+                    try
+                    {
+                        s.Latitude = double.Parse(reader["Latitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        s.Latitude = null;
+                    }
+                    try
+                    {
+                        s.Longitude = double.Parse(reader["Longitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        s.Longitude = null;
+                    }
+                    try
+                    {
+                        s.Meter = reader["Meter"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        s.Meter = "";
+                    }
+                    try
+                    {
+                        s.Transmitter = reader["Transmitter"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        s.Transmitter = "";
+                    }
+                    try
+                    {
+                        s.Logger = reader["Logger"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        s.Logger = "";
+
+                    }
+                    try
+                    {
+                        s.DateOfMeterChange = DateTime.Parse( reader["DateOfMeterChange"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        s.DateOfMeterChange = null;
+                    }
+                    try
+                    {
+                        s.DateOfLoggerChange = DateTime.Parse(reader["DateOfLoggerChange"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        s.DateOfLoggerChange = null;
+                    }
+                    try
+                    {
+                        s.DateOfBatteryChange = DateTime.Parse(reader["DateOfBatteryChange"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        s.DateOfBatteryChange = null;
+                    }
+                    try
+                    {
+                        s.DateOfTransmitterBatteryChange = DateTime.Parse(reader["DateOfTransmitterBatteryChange"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        s.DateOfTransmitterBatteryChange = null;
+                    }
+                    try
+                    {
+                        s.DateOfLoggerBatteryChange = DateTime.Parse(reader["DateOfLoggerBatteryChange"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        s.DateOfLoggerBatteryChange = null;
+                    }
+                    try
+                    {
+                        s.Company = reader["Company"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        s.Company = "";
+                    }
+                    try
+                    {
+                        s.Status = reader["Status"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        s.Status = "";
+                    }
+                    try
+                    {
+                        s.Availability = reader["Availability"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        s.Availability = "";
+                    }
+                    try
+                    {
+                        s.Address = reader["Address"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        s.Address = "";
+                    }
+                    try
+                    {
+                        s.District = reader["District"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        s.District = "";
+                    }
+                    try
+                    {
+                        s.DMAOut = reader["DMAOut"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        s.DMAOut = "";
+                    }
+                }
+            }
+        }
+        catch(SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return s;
+    }
+
+    [WebMethod]
+
+    public Meter GetMeterBuIdInfo(string id)
+    {
+        Meter m = new Meter();
+        Connect connect = new Connect();
+        try
+        {
+            string sqlQuery = "select [Serial], [ReceiptDate], [AccreditedDate], [ExpiryDate], [AccreditationDocument], [AccreditationType], [Provider], [Marks], [Size], [Model], [Status], [Installed], [InitialIndex], [Description], [ApprovalDate], [Approved], [ApprovalDecision], [SerialTransmitter], [Nationality] from [t_Devices_Meters] where [Serial] = '"+id+"'";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if(reader.HasRows)
+            {
+                while(reader.Read())
+                {
+                    try
+                    {
+                        m.Serial = reader["Serial"].ToString();
+                    }
+                    catch(Exception ex)
+                    {
+                        m.Serial = "";
+                    }
+                    try
+                    {
+                        m.ReceiptDate =DateTime.Parse( reader["ReceiptDate"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        m.ReceiptDate = null;
+                    }
+                    try
+                    {
+                        m.AccreditedDate = DateTime.Parse(reader["AccreditedDate"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        m.AccreditedDate = null;
+                    }
+                    try
+                    {
+                        m.ExpiryDate = DateTime.Parse(reader["ExpiryDate"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        m.ExpiryDate = null;
+                    }
+                    try
+                    {
+                        m.AccreditationDocument =reader["AccreditationDocument"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        m.AccreditationDocument = "";
+                    }
+                    try
+                    {
+                        m.AccreditationType = reader["AccreditationType"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        m.AccreditationType = "";
+                    }
+                    try
+                    {
+                        m.Provider = reader["Provider"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        m.Provider = "";
+                    }
+                    try
+                    {
+                        m.Marks = reader["Marks"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        m.Marks = "";
+                    }
+                    try
+                    {
+                        m.Marks = reader["Marks"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        m.Marks = "";
+                    }
+                    try
+                    {
+                        m.Size =short.Parse( reader["Size"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        m.Size = null;
+                    }
+                    try
+                    {
+                        m.Status = reader["Status"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        m.Status = "";
+                    }
+                    try
+                    {
+                        m.Installed =bool.Parse( reader["Installed"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        m.Installed = null;
+                    }
+                    try
+                    {
+                        m.InitialIndex = double.Parse(reader["InitialIndex"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        m.InitialIndex = null;
+                    }
+                    try
+                    {
+                        m.Description = reader["Description"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        m.Description = "";
+                    }
+                    try
+                    {
+                        m.AccreditedDate = DateTime.Parse( reader["AccreditedDate"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        m.AccreditedDate = null;
+                    }
+                    try
+                    {
+                        m.Approved = bool.Parse(reader["Approved"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        m.Approved = null;
+                    }
+                    try
+                    {
+                        m.ApprovalDecision = reader["ApprovalDecision"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        m.ApprovalDecision = "";
+                    }
+                    try
+                    {
+                        m.SerialTransmitter = reader["SerialTransmitter"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        m.SerialTransmitter = "";
+                    }
+                    try
+                    {
+                        m.Nationality = reader["Nationality"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        m.Nationality = "";
+                    }
+                }
+            }
+
+        }
+        catch(SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return m;
+    }
+
+    [WebMethod]
+
+    public List<string> GetListMeter()
+    {
+        List<string> list = new List<string>();
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select Serial from t_Devices_Meters order by Serial";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if(reader.HasRows)
+            {
+                while(reader.Read())
+                {
+                    string el = "";
+
+                    try
+                    {
+                        el = reader["Serial"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el = "";
+                    }
+                    list.Add(el);
+                }
+            }
+        }
+        catch(SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return list;
+    }
+
+    [WebMethod]
+
+    public List<string> GetListTransmitter()
+    {
+        List<string> list = new List<string>();
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select Serial from t_Devices_Transmitters order by Serial";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    string el = "";
+
+                    try
+                    {
+                        el = reader["Serial"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el = "";
+                    }
+                    list.Add(el);
+                }
+            }
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return list;
+    }
+
     public class MLoggerConfig
     {
         public bool? Status1 { get; set; }
@@ -1089,7 +1749,6 @@ public class Map : System.Web.Services.WebService
         public string DisplayGroup { get; set; }
         public string Name { get; set; }
 
-        public string District { get; set; }
         public List<DataAll> lstDataAll { get; set; }
     }
     public class DataAll
@@ -1102,6 +1761,8 @@ public class Map : System.Web.Services.WebService
         public string LoggerId { get; set; }
         public double? LabelAnchorX { get; set; }
         public double? LabelAnchorY { get; set; }
+
+        public string District { get; set; }
         public List<GroupChannels> lstGroupChannels { get; set; }
     }
     public class GroupChannels

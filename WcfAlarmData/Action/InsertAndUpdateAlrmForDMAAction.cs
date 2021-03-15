@@ -43,7 +43,7 @@ namespace WcfAlarmData.Action
                     el.EndDate = null;
                     el.IsFinish = false;
                     el.Type = 1;
-                    el.Content = "Q net theo ngày giá trị hiện taị " + diffDMA .CurrentValue.ToString() + " chênh lệch so với trung bình 3 ngày trước giá trị " + diffDMA.PrevValue.ToString();
+                    el.Content = "Q net theo ngày giá trị hiện taị " + Math.Round(diffDMA.CurrentValue.Value, 2).ToString() + " chênh lệch so với trung bình 3 ngày trước giá trị " + Math.Round(diffDMA.PrevValue.Value,2).ToString();
                     el.Level = diffDMA.Result;
 
                     //WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
@@ -75,7 +75,7 @@ namespace WcfAlarmData.Action
                     el.EndDate = null;
                     el.IsFinish = false;
                     el.Type = 2;
-                    el.Content = "Q net theo tháng giá trị hiện tại "+diffDMAMonth.CurrentValue.ToString() + " chênh lệch với trung bình 3 tháng trước giá trị " + diffDMAMonth.PrevValue.ToString();
+                    el.Content = "Q net theo tháng giá trị hiện tại "+Math.Round(diffDMAMonth.CurrentValue.Value,2).ToString() + " chênh lệch với trung bình 3 tháng trước giá trị " +Math.Round(diffDMAMonth.PrevValue.Value,2).ToString();
                     el.Level = diffDMAMonth.Result;
 
                     //WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();

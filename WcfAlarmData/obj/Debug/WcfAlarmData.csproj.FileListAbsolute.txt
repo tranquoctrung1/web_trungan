@@ -4,3 +4,4 @@ D:\project\XNTD_WEBDHT\WEBDHT\WcfAlarmData\bin\Debug\WcfAlarmData.pdb
 D:\project\XNTD_WEBDHT\WEBDHT\WcfAlarmData\obj\Debug\WcfAlarmData.csproj.CoreCompileInputs.cache
 D:\project\XNTD_WEBDHT\WEBDHT\WcfAlarmData\obj\Debug\WcfAlarmData.exe
 D:\project\XNTD_WEBDHT\WEBDHT\WcfAlarmData\obj\Debug\WcfAlarmData.pdb
+D:\project\XNTD_WEBDHT\WEBDHT\WcfAlarmData\obj\Debug\WcfAlarmData.csprojAssemblyReference.cache
