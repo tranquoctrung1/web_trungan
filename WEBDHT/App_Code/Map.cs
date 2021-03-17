@@ -96,8 +96,8 @@ public class Map : System.Web.Services.WebService
                     select new DataAll
                     {
                         SiteId = s.Id,
-                        SiteAliasName = s.Address,
-                        Location = s.Location,
+                        SiteAliasName = s.Location,
+                        Location = s.Address,
                         Latitude = (s.Latitude == null ? 0 : (double)s.Latitude),
                         Longitude = (s.Longitude == null ? 0 : (double)s.Longitude),
                         LoggerId = s.Logger,
@@ -265,8 +265,8 @@ public class Map : System.Web.Services.WebService
                     select new DataAll
                     {
                         SiteId = s.Id,
-                        SiteAliasName = s.Address,
-                        Location = s.Location,
+                        SiteAliasName = s.Location,
+                        Location = s.Address,
                         Latitude = (s.Latitude == null ? 0 : (double)s.Latitude),
                         Longitude = (s.Longitude == null ? 0 : (double)s.Longitude),
                         LoggerId = s.Logger,
