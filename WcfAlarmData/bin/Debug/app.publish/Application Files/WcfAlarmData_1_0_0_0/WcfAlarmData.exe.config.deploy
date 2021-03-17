@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+        <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+            <section name="WcfAlarmData.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2" />
+    </startup>
+  <connectionStrings>
+    <add name="db" connectionString="Data Source=DESKTOP-DLRDABP;Initial Catalog=web_dht_r02; user id=dht; password=123456; Connection Timeout=3600;MultipleActiveResultSets=true" providerName="System.Data.SqlClient" />
+  </connectionStrings>
+
+  <applicationSettings>
+    <WcfAlarmData.Properties.Settings>
+      <setting name="WcfAlarmData_TA_WebReference_Map" serializeAs="String">
+        <value>http://112.78.4.162:5520/map.asmx</value>
+      </setting>
+    </WcfAlarmData.Properties.Settings>
+  </applicationSettings>
+</configuration>

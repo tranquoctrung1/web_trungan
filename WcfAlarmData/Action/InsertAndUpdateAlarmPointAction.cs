@@ -142,42 +142,62 @@ namespace WcfAlarmData.Action
                         el.Level = level;
                         el.IsFinish = false;
 
-                        int isFind = -2;
-                        if(el.StartDateAlarm != null)
+                        if (type == 1)
                         {
-                            isFind = binarySearch.BinarySearchInterative(listAll, el.StartDateAlarm.Value);
-                            if(isFind == -1)
+                            bool checkExistsLostData = false;
+                            foreach(var item in listAll)
+                            {
+                                if(item.ChannelId == channel.ChannelId && item.TypeAlarm == 1)
+                                {
+                                    checkExistsLostData = true;
+                                    break;
+                                }
+                            }
+
+                            if(checkExistsLostData == false)
                             {
                                 nRowUpdate += updateAlarmForPointAction.UpdateAlarmForPoint(channel.ChannelId);
                                 list.Add(el);
 
-                                if(type == 1)
+                                WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                                push.SubmitNotification(site.LoggerID, "Cảnh báo Lost Data từ " + site.Location, "Cảnh báo Lost Data");
+                            }
+                        }
+                        else
+                        {
+                            int isFind = -2;
+                            if (el.StartDateAlarm != null)
+                            {
+                                isFind = binarySearch.BinarySearchInterative(listAll, el.StartDateAlarm.Value);
+                                if (isFind == -1)
                                 {
-                                    WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
-                                    push.SubmitNotification(site.LoggerID, "Cảnh báo Lost Data từ " + site.Location, "Cảnh báo Lost Data");
-                                }
-                                else if(type == 2)
-                                {
-                                    WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
-                                    push.SubmitNotification(site.LoggerID, "Cảnh báo High Flow từ " + site.Location, "Cảnh báo High Flow với giá trị hiện hành " + currentValue + " so với giá trị ngày hôm trước " + prevValue);
-                                }
-                                else if(type == 3)
-                                {
-                                    WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
-                                    push.SubmitNotification(site.LoggerID, "Cảnh báo Low Flow từ " + site.Location, "Cảnh báo Low Flow với giá trị hiện hành " + currentValue + " so với giá trị ngày hôm trước " + prevValue);
-                                }
-                                else if(type ==4)
-                                {
-                                    WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
-                                    push.SubmitNotification(site.LoggerID, "Cảnh báo Inconstant Pressure từ " + site.Location, "Cảnh báo Inconstant Pressure với giá trị hiện hành " + currentValue + " so với giá trị ngày hôm trước " + prevValue);
-                                }
-                                else if(type ==5  )
-                                {
-                                    WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
-                                    push.SubmitNotification(site.LoggerID, "Cảnh báo Min Night Flow từ " + site.Location, "Cảnh báo Min Night Flow với giá trị hiện hành " + currentValue + " so với giá trị ngày hôm trước " + prevValue);
+                                    nRowUpdate += updateAlarmForPointAction.UpdateAlarmForPoint(channel.ChannelId);
+                                    list.Add(el);
+
+                                   if (type == 2)
+                                    {
+                                        WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                                        push.SubmitNotification(site.LoggerID, "Cảnh báo High Flow từ " + site.Location, "Cảnh báo High Flow với giá trị hiện hành " + currentValue + " so với giá trị ngày hôm trước " + prevValue);
+                                    }
+                                    else if (type == 3)
+                                    {
+                                        WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                                        push.SubmitNotification(site.LoggerID, "Cảnh báo Low Flow từ " + site.Location, "Cảnh báo Low Flow với giá trị hiện hành " + currentValue + " so với giá trị ngày hôm trước " + prevValue);
+                                    }
+                                    else if (type == 4)
+                                    {
+                                        WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                                        push.SubmitNotification(site.LoggerID, "Cảnh báo Inconstant Pressure từ " + site.Location, "Cảnh báo Inconstant Pressure với giá trị hiện hành " + currentValue + " so với giá trị ngày hôm trước " + prevValue);
+                                    }
+                                    else if (type == 5)
+                                    {
+                                        WcfAlarmData.TA_WebReference.Map push = new TA_WebReference.Map();
+                                        push.SubmitNotification(site.LoggerID, "Cảnh báo Min Night Flow từ " + site.Location, "Cảnh báo Min Night Flow với giá trị hiện hành " + currentValue + " so với giá trị ngày hôm trước " + prevValue);
+                                    }
                                 }
                             }
                         }
+                        
 
                     }
                     else

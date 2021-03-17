@@ -13,30 +13,26 @@ public class ChannelConfigurationBL
     {
         List<t_Channel_Configurations> list = new List<t_Channel_Configurations>();
 
-        GetLastTimeStampIndex getLastTimeStampIndex = new GetLastTimeStampIndex();
-        GetLastIndexValue getLastIndexValue = new GetLastIndexValue();
-        GetLastValue getLastValue = new GetLastValue();
-        GetLastTimeStamp getLastTimeStamp = new GetLastTimeStamp();
-
         Connect connect = new Connect();
         
         try
         {
-            string sqlQuery = "select t.[Id], t.[LoggerId], t.[Name], t.[Unit], t.[Description], t.[GroupChannel], t.[StatusViewAlarm], ds.[Pressure], ds.[Pressure1], ds.[Forward], ds.[Reverse] from [t_Devices_ChannelsConfigs] t join t_Devices_SitesConfigs ds on t.LoggerId = ds.Id where ds.Id = '"+loggerid+"'";
+
+            string store = "p_GetChannelByLoggerId";
 
             connect.Connected();
 
-            SqlDataReader reader = connect.Select(sqlQuery);
+            SqlCommand command = connect.ExcuteStoreProceduce(store);
+
+            command.Parameters.Add(new SqlParameter("@loggerid", loggerid));
+
+            SqlDataReader reader = command.ExecuteReader();
             
             if(reader.HasRows)
             {
                 while (reader.Read())
                 {
                     t_Channel_Configurations el = new t_Channel_Configurations();
-                    int? pressure1 = null;
-                    int? pressure2 = null;
-                    int? forward = null;
-                    int? reverse = null;
 
                     try
                     {
@@ -96,68 +92,68 @@ public class ChannelConfigurationBL
                     }
                     try
                     {
-                        pressure1 = int.Parse(reader["Pressure1"].ToString());
+                        el.Pressure1 = bool.Parse(reader["Pressure1"].ToString());
                     }
                     catch (Exception ex)
                     {
-                        pressure1 = null;
+                        el.Pressure1 = null;
                     }
                     try
                     {
-                        pressure2 = int.Parse(reader["Pressure"].ToString());
+                        el.Pressure2 = bool.Parse(reader["Pressure2"].ToString());
                     }
                     catch (Exception ex)
                     {
-                        pressure2 = null;
+                        el.Pressure2 = null;
                     }
                     try
                     {
-                        forward = int.Parse(reader["Forward"].ToString());
+                        el.ForwardFlow = bool.Parse(reader["ForwardFlow"].ToString());
                     }
                     catch (Exception ex)
                     {
-                        forward = null;
+                        el.ForwardFlow = null;
                     }
                     try
                     {
-                        reverse = int.Parse(reader["Reverse"].ToString());
+                        el.ReverseFlow = bool.Parse(reader["ReverseFlow"].ToString());
                     }
                     catch (Exception ex)
                     {
-                        reverse = null;
+                        el.ReverseFlow = null;
                     }
-                    char numberChannel = ' ';
-                    if (el.ChannelId != "")
+                    try
                     {
-                        numberChannel = el.ChannelId[el.ChannelId.Length - 1];
-                        int temp = int.Parse(numberChannel.ToString());
-
-                        if (temp == pressure1)
-                        {
-                            el.Pressure1 = true;
-                        }
-                        else if (temp == pressure2)
-                        {
-                            el.Pressure2 = true;
-                        }
-                        else if (temp == forward)
-                        {
-                            el.ForwardFlow = true;
-                        }
-                        else if (temp == reverse)
-                        {
-                            el.ReverseFlow = true;
-                        }
+                        el.TimeStamp = DateTime.Parse(reader["TimeStamp"].ToString());
                     }
-                    // calc for this channel
-                    if(el.ChannelId != null && el.ChannelId.Trim() != "")
+                    catch(Exception ex)
                     {
-                        el.LastIndex = getLastIndexValue.GetLastIndexValueAction(el.ChannelId);
-                        el.IndexTimeStamp = getLastTimeStampIndex.GetlastTimeStampIndexAction(el.ChannelId);
-                        el.LastValue = getLastValue.GetLastValueActon(el.ChannelId);
-                        el.TimeStamp = getLastTimeStamp.GetLastTimeStampAction(el.ChannelId);
+                        el.TimeStamp = null;
                     }
-                    
+                    try
+                    {
+                        el.LastValue = double.Parse(reader["LastValue"].ToString());
+                    }
+                    catch(Exception ex)
+                    {
+                        el.LastValue = null;
+                    }
+                    try
+                    {
+                        el.IndexTimeStamp = DateTime.Parse(reader["IndexTimeStamp"].ToString());
+                    }
+                    catch(Exception ex)
+                    {
+                        el.IndexTimeStamp = null;
+                    }
+                    try
+                    {
+                        el.LastIndex = double.Parse(reader["LastIndex"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.LastIndex = null;
+                    }
                     list.Add(el);
                 }
             }

@@ -81,7 +81,7 @@
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td style="width: 75px">Id</td>
-                                            <td style="width: 175px">Vị trí</td>
+                                            <td style="width: 175px">Tên point</td>
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
@@ -105,7 +105,7 @@
                     </div>
                     <div class="group-text">
                         <div class="row">
-                            <span>Vị trí</span>
+                            <span>Tên point</span>
                         </div>
                         <div class="row m-b">
                             <telerik:RadTextBox ID="txtLocation" runat="server" Height="50px"

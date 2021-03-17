@@ -119,7 +119,7 @@
                 min-height: unset !important;
                 overflow: hidden !important;
                 margin-left: 42px !important;
-            }
+            } 
 
             .leaflet-control-zoom {
                 display: none

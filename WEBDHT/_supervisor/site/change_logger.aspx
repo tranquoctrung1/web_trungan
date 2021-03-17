@@ -47,17 +47,15 @@
                                 <HeaderTemplate>
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
-                                            <td style="width:50px">Mã NV</td>
-                                            <td style="width:50px">Mã vị trí</td>
-                                            <td style="width:250px">Vị trí</td>
+                                            <td style="width:100px">Mã point</td>
+                                            <td style="width:250px">Tên point</td>
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
-                                            <td style="width:50px"><%#DataBinder.Eval(Container.DataItem,"StaffId") %></td>
-                                            <td style="width:50px"><%#DataBinder.Eval(Container.DataItem,"Id") %></td>
+                                            <td style="width:100px"><%#DataBinder.Eval(Container.DataItem,"Id") %></td>
                                             <td style="width:250px"><%#DataBinder.Eval(Container.DataItem,"Location") %></td>
                                         </tr>
                                     </table>

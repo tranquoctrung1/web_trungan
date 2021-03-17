@@ -33,6 +33,7 @@ namespace WcfAlarmData.ULT
             return -1;
         }
 
+
         public int BinarySearchInterativeForLogger(List<AlarmForLoggerViewModel> list, DateTime time)
         {
             int min = 0;

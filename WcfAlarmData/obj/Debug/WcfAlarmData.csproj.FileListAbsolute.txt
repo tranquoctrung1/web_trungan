@@ -5,3 +5,7 @@ D:\project\XNTD_WEBDHT\WEBDHT\WcfAlarmData\obj\Debug\WcfAlarmData.csproj.CoreCom
 D:\project\XNTD_WEBDHT\WEBDHT\WcfAlarmData\obj\Debug\WcfAlarmData.exe
 D:\project\XNTD_WEBDHT\WEBDHT\WcfAlarmData\obj\Debug\WcfAlarmData.pdb
 D:\project\XNTD_WEBDHT\WEBDHT\WcfAlarmData\obj\Debug\WcfAlarmData.csprojAssemblyReference.cache
+D:\project\XNTD_WEBDHT\WEBDHT\WcfAlarmData\bin\Debug\WcfAlarmData.exe.manifest
+D:\project\XNTD_WEBDHT\WEBDHT\WcfAlarmData\bin\Debug\WcfAlarmData.application
+D:\project\XNTD_WEBDHT\WEBDHT\WcfAlarmData\obj\Debug\WcfAlarmData.exe.manifest
+D:\project\XNTD_WEBDHT\WEBDHT\WcfAlarmData\obj\Debug\WcfAlarmData.application
