@@ -1634,6 +1634,131 @@ public class Map : System.Web.Services.WebService
         return list;
     }
 
+
+    [WebMethod]
+    public bool CheckExistsLoggerPoint(string siteid)
+    {
+        LoggerConfigurationBLL loggerConfigurationBLL = new LoggerConfigurationBLL();
+
+        return loggerConfigurationBLL.CheckExistsLoggerPoint(siteid);
+    }
+
+    [WebMethod]
+
+    public SiteConfig GetLoggerPointConfig(string siteid)
+    {
+        LoggerConfigurationBLL loggerConfigurationBLL = new LoggerConfigurationBLL();
+
+        return loggerConfigurationBLL.GetLoggerPointConfigById(siteid);
+    }
+
+    [WebMethod]
+    public bool InsertLoggerConfig(string serial, string siteid, string tel, string interval, string begintime)
+    {
+        SiteConfig siteConfig = new SiteConfig();
+
+        siteConfig.Id = serial;
+        siteConfig.SiteId = siteid;
+        siteConfig.Tel = tel;
+        if(begintime.Trim() != "")
+        {
+            DateTime tempBeginTime = new DateTime(1970, 01, 01).AddHours(7).AddSeconds(int.Parse(begintime));
+
+            siteConfig.BeginTime = tempBeginTime;
+        }
+        if(interval.Trim() != "")
+        {
+            siteConfig.Interval = short.Parse(interval);
+        }
+
+        CommandStatus command = new CommandStatus();
+
+        SiteConfigsBLL _siteConfigsBLL = new SiteConfigsBLL();
+
+        command = _siteConfigsBLL.Insert(siteConfig);
+
+        return command.Inserted;
+    }
+
+    [WebMethod]
+    public bool UpdateLoggerConfg(string serial, string siteid, string tel, string interval, string begintime, string pressure, string pressure1, string forward, string reverse)
+    {
+
+        SiteConfig siteConfig = new SiteConfig();
+
+        siteConfig.Id = serial;
+        siteConfig.SiteId = siteid;
+        siteConfig.Tel = tel;
+        if (begintime.Trim() != "")
+        {
+            DateTime tempBeginTime = new DateTime(1970, 01, 01).AddHours(7).AddSeconds(int.Parse(begintime));
+
+            siteConfig.BeginTime = tempBeginTime;
+        }
+        if (interval.Trim() != "")
+        {
+            siteConfig.Interval = short.Parse(interval);
+        }
+        if(pressure.Trim() != "")
+        {
+            siteConfig.Pressure = byte.Parse(pressure);
+        }
+        if (pressure1.Trim() != "")
+        {
+            siteConfig.Pressure1 = byte.Parse(pressure1);
+        }
+        if (forward.Trim() != "")
+        {
+            siteConfig.Forward = byte.Parse(forward);
+        }
+        if(reverse.Trim() != "")
+        {
+            siteConfig.Reverse = byte.Parse(reverse);
+        }
+
+        CommandStatus command = new CommandStatus();
+
+        SiteConfigsBLL _siteConfigsBLL = new SiteConfigsBLL();
+
+        command = _siteConfigsBLL.Update(siteConfig);
+
+        return command.Updated;
+
+    }
+
+    [WebMethod]
+    public bool DeleteLoggerConfig(string siteid)
+    {
+        SiteConfigsBLL _siteConfigsBLL = new SiteConfigsBLL();
+        CommandStatus command = new CommandStatus();
+
+        LoggerConfigurationBLL loggerConfigurationBLL = new LoggerConfigurationBLL();
+
+        SiteConfig site =  loggerConfigurationBLL.GetLoggerPointConfigById(siteid);
+
+        command = _siteConfigsBLL.Delete(site);
+
+        return command.Deleted;
+    }
+
+    [WebMethod] 
+    public List<string> GetListLoggerId()
+    {
+        LoggerConfigurationBLL loggerConfigurationBLL = new LoggerConfigurationBLL();
+
+        return loggerConfigurationBLL.GetListLoggerId();
+    }
+
+    [WebMethod]
+    public List<t_Channel_Configurations> GetChannelByLoggerId(string loggerid)
+    {
+
+        LoggerConfigurationBLL loggerConfigurationBLL = new LoggerConfigurationBLL();
+
+        return loggerConfigurationBLL.GetChannelByLoggerId(loggerid);
+
+    }
+
     public class MLoggerConfig
     {
         public bool? Status1 { get; set; }
