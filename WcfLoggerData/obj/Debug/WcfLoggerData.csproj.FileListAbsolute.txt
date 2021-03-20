@@ -34,3 +34,4 @@ D:\project\XNTD_WEBDHT\WEBDHT\WcfLoggerData\obj\Debug\WcfLoggerData.csproj.CoreC
 D:\project\XNTD_WEBDHT\WEBDHT\WcfLoggerData\obj\Debug\WcfLoggerData.csproj.CopyComplete
 D:\project\XNTD_WEBDHT\WEBDHT\WcfLoggerData\obj\Debug\WcfLoggerData.dll
 D:\project\XNTD_WEBDHT\WEBDHT\WcfLoggerData\obj\Debug\WcfLoggerData.pdb
+D:\project\XNTD_WEBDHT\WEBDHT\WcfLoggerData\obj\Debug\WcfLoggerData.csprojAssemblyReference.cache

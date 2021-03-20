@@ -1653,13 +1653,12 @@ public class Map : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public bool InsertLoggerConfig(string serial, string siteid, string tel, string interval, string begintime)
+    public bool InsertLoggerConfig(string serial, string siteid, string interval, string begintime)
     {
         SiteConfig siteConfig = new SiteConfig();
 
         siteConfig.Id = serial;
         siteConfig.SiteId = siteid;
-        siteConfig.Tel = tel;
         if(begintime.Trim() != "")
         {
             DateTime tempBeginTime = new DateTime(1970, 01, 01).AddHours(7).AddSeconds(int.Parse(begintime));
@@ -1681,14 +1680,13 @@ public class Map : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public bool UpdateLoggerConfg(string serial, string siteid, string tel, string interval, string begintime, string pressure, string pressure1, string forward, string reverse)
+    public bool UpdateLoggerConfg(string serial, string siteid, string interval, string begintime, string pressure, string pressure1, string forward, string reverse)
     {
 
         SiteConfig siteConfig = new SiteConfig();
 
         siteConfig.Id = serial;
         siteConfig.SiteId = siteid;
-        siteConfig.Tel = tel;
         if (begintime.Trim() != "")
         {
             DateTime tempBeginTime = new DateTime(1970, 01, 01).AddHours(7).AddSeconds(int.Parse(begintime));
@@ -1758,6 +1756,40 @@ public class Map : System.Web.Services.WebService
         return loggerConfigurationBLL.GetChannelByLoggerId(loggerid);
 
     }
+
+    [WebMethod]
+    public int InsertChannelConfig(string loggerid, string channelid, string channelname, string unit)
+    {
+        ChannelConfigurationBL channelConfigurationBL = new ChannelConfigurationBL();
+
+        return channelConfigurationBL.Insert(loggerid, channelid, channelname, unit);
+    }
+
+    [WebMethod]
+    public int UpdateChannelConfig(string loggerid, string channelid, string channelname, string unit)
+    {
+        ChannelConfigurationBL channelConfigurationBL = new ChannelConfigurationBL();
+
+        return channelConfigurationBL.Update(loggerid, channelid, channelname, unit);
+    }
+
+    [WebMethod]
+    public int DeleteChannelConfig(string loggerid, string channelid)
+    {
+        ChannelConfigurationBL channelConfigurationBL = new ChannelConfigurationBL();
+
+        return channelConfigurationBL.Delete(loggerid, channelid);
+    }
+
+    [WebMethod]
+    public int UpdateNumberTypeChannel(string loggerid, string number, string type)
+    {
+        SiteConfigBLL siteConfigBLL = new SiteConfigBLL();
+
+        return siteConfigBLL.UpdateNumberTypeChannel(loggerid, number, type);
+    }
+
+
 
     public class MLoggerConfig
     {

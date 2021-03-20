@@ -170,4 +170,121 @@ public class ChannelConfigurationBL
 
         return list;
     }
+
+    public bool CheckExistsChannel(string channelid, string loggerid)
+    {
+
+        bool result = false;
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select * from t_Devices_ChannelsConfigs where Id = '" + channelid + "' and loggerId = '" + loggerid + "'";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if(reader.HasRows)
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+        }
+        catch(SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return result;
+    }
+
+    public int Insert(string loggerid, string channelid, string channelname, string unit)
+    {
+        int nRows = 0;
+
+        Connect connect = new Connect();
+
+        try
+        {
+
+            string sqlQuery = "insert into t_Devices_ChannelsConfigs (Id, LoggerId, Name, Unit, GroupChannel) values('"+channelid+"', '"+loggerid+"', '" + channelname + "', '" + unit + "', 'Pressure')";
+
+            connect.Connected();
+
+            nRows = connect.ExcuteNonQuery(sqlQuery);
+        }
+        catch(SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+
+        {
+            connect.DisConnected();
+        }
+
+        return nRows;
+    }
+
+    public int Update(string loggerid, string channelid, string channelname, string unit)
+    {
+        int nRows = 0;
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "update t_Devices_ChannelsConfigs set Id = '" + channelid + "', Name = '" + channelname + "', Unit = '" + unit + "' where LoggerId = '" + loggerid + "'";
+
+            connect.Connected();
+
+            nRows = connect.ExcuteNonQuery(sqlQuery);
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+
+        {
+            connect.DisConnected();
+        }
+
+        return nRows;
+    }
+
+    public int Delete (string loggerid, string channelid)
+    {
+        int nRows = 0;
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "delete from t_Devices_ChannelsConfigs where Id = '" + channelid + "' and LoggerId = '" + loggerid + "'";
+
+            connect.Connected();
+
+            nRows = connect.ExcuteNonQuery(sqlQuery);
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+
+        {
+            connect.DisConnected();
+        }
+
+        return nRows;
+    }
 }
