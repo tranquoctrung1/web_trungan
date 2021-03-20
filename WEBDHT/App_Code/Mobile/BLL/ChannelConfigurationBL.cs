@@ -219,7 +219,7 @@ public class ChannelConfigurationBL
 
             connect.Connected();
 
-            nRows = connect.ExcuteNonQuery(sqlQuery);
+            nRows += connect.ExcuteNonQuery(sqlQuery);
         }
         catch(SqlException ex)
         {
@@ -227,6 +227,26 @@ public class ChannelConfigurationBL
         }
         finally
 
+        {
+            connect.DisConnected();
+        }
+
+        try
+        {
+            string store = "p_Data_Logger_CreateTable";
+
+            connect.Connected();
+
+            SqlCommand command = connect.ExcuteStoreProceduce(store);
+            command.Parameters.Add(new SqlParameter("@channelId", channelid));
+
+            nRows += command.ExecuteNonQuery();
+        }
+        catch(SqlException ex)
+        {
+            throw ex;
+        }
+        finally
         {
             connect.DisConnected();
         }

@@ -1758,6 +1758,14 @@ public class Map : System.Web.Services.WebService
     }
 
     [WebMethod]
+    public bool CheckExistsChannel(string loggerid, string channelid)
+    {
+        ChannelConfigurationBL channelConfigurationBL = new ChannelConfigurationBL();
+
+        return channelConfigurationBL.CheckExistsChannel(channelid, loggerid);
+    }
+
+    [WebMethod]
     public int InsertChannelConfig(string loggerid, string channelid, string channelname, string unit)
     {
         ChannelConfigurationBL channelConfigurationBL = new ChannelConfigurationBL();
@@ -1789,7 +1797,44 @@ public class Map : System.Web.Services.WebService
         return siteConfigBLL.UpdateNumberTypeChannel(loggerid, number, type);
     }
 
+    [WebMethod]
+    public Logger GetLoggerById(string loggerid)
+    {
+        LoggerBLL loggerBLL = new LoggerBLL();
 
+        return loggerBLL.GetLoggerById(loggerid);
+    }
+
+    [WebMethod]
+    public bool CheckExistsLogger(string loggerid)
+    {
+        LoggerBLL loggerBLL = new LoggerBLL();
+
+        return loggerBLL.CheckExistsLogger(loggerid);
+    }
+
+    [WebMethod]
+    public bool InsertLogger(string loggerid, string receiptdate, string provider, string marks, string model, string status, string install, string dateinstallbattery, string dateaccreditation, string yearbattery, string description)
+    {
+        LoggerBLL loggerBLL = new LoggerBLL();
+
+        return loggerBLL.Insert(loggerid, receiptdate, provider, marks, model, status, install, dateinstallbattery, dateaccreditation, yearbattery, description);
+    }
+
+    [WebMethod]
+    public bool UpdateLogger(string loggerid, string receiptdate, string provider, string marks, string model, string status, string install, string dateinstallbattery, string dateaccreditation, string yearbattery, string description)
+    {
+        LoggerBLL loggerBLL = new LoggerBLL();
+
+        return loggerBLL.Update(loggerid, receiptdate, provider, marks, model, status, install, dateinstallbattery, dateaccreditation, yearbattery, description);
+    }
+
+    [WebMethod]
+    public bool DeleteLogger(string loggerid)
+    {
+        LoggerBLL loggerBLL = new LoggerBLL();
+        return loggerBLL.Delete(loggerid);
+    }
 
     public class MLoggerConfig
     {
