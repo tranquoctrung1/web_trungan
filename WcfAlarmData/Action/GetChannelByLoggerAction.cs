@@ -145,24 +145,32 @@ namespace WcfLoggerData.Action
                         if (el.ChannelId != "")
                         {
                             numberChannel = el.ChannelId[el.ChannelId.Length - 1];
-                            int temp = int.Parse(numberChannel.ToString());
+                            try
+                            {
+                                int temp = int.Parse(numberChannel.ToString());
 
-                            if(temp == pressure1)
-                            {
-                                el.Press1 = true;
+                                if (temp == pressure1)
+                                {
+                                    el.Press1 = true;
+                                }
+                                else if (temp == pressure2)
+                                {
+                                    el.Press2 = true;
+                                }
+                                else if (temp == forward)
+                                {
+                                    el.Flow1 = true;
+                                }
+                                else if (temp == reverse)
+                                {
+                                    el.Flow2 = true;
+                                }
                             }
-                            else if(temp == pressure2)
+                            catch(Exception ex)
                             {
-                                el.Press2 = true;
+
                             }
-                            else if(temp == forward)
-                            {
-                                el.Flow1 = true;
-                            }
-                            else if(temp == reverse)
-                            {
-                                el.Flow2 = true;
-                            }
+                           
                         }
 
                         if(delayTime != null)
