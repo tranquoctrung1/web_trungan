@@ -2779,6 +2779,8 @@
                                             }
                                         });
 
+                                        chartData = chartData.sort(function (a, b) { return a.Timestamp - b.Timestamp });
+
                                         //SERIAL CHART
                                         chart = new AmCharts.AmSerialChart();
                                         chart.pathToImages = "../../js/amcharts/images/";

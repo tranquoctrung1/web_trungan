@@ -261,16 +261,18 @@
         function createListChannel(data) {
             let content = "";
 
-           
-
-            for (let item of data) {
-                content += ` <div class="content-card">
+            if (data != null) {
+                for (let item of data) {
+                    content += ` <div class="content-card">
                                 <p class="bolder">${(item.ChannelId != null && item.ChannelId != undefined) ? item.ChannelId : ""}</p>
                                 <p class="bolder">${(item.TimeStamp != null && item.TimeStamp != undefined) ? convertDateTime(item.TimeStamp) : ""}</p>
-                                <p class="bolder value">${(item.Value != null && item.Value != undefined) ? item.Value + `<span> ${item.Unit}</span>`: ""}</p>
+                                <p class="bolder value">${(item.Value != null && item.Value != undefined) ? item.Value + `<span> ${item.Unit}</span>` : ""}</p>
                             </div>`
+                }
+
             }
 
+            
             return content;
         }
 
