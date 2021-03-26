@@ -1544,9 +1544,15 @@
                                                         var spNode = treeViewSite.findNodeByText(s.Location);
                                                         spNode.get_nodes().add(cNode);
                                                         //MAP INFOWINDOW CONTENT
-                                                        if (c.LastIndex != null && c.LastIndex != 'undefined') {
-                                                            index -= c.LastIndex;
+                                                        if (c.Flow1 == true && c.Flow2 == null && c.LastIndex != null && c.Press1 == null && c.Press2 == null) {
+                                                            index += c.LastIndex;
                                                         }
+                                                        else if (c.Flow1 == null && c.Flow2 == true && c.LastIndex != null && c.Press1 == null && c.Press2 == null) {
+                                                            index -= c.LastIndex
+                                                        }
+                                                        //if (c.LastIndex != null && c.LastIndex != 'undefined') {
+                                                        //    index -= c.LastIndex;
+                                                        //}
                                                         if (c.Timestamp != null && c.Timestamp != 'undefined') {
                                                             parsedDate = new Date(convertDateFromApi(c.Timestamp));
                                                             jsDate = new Date(parsedDate);
@@ -1824,9 +1830,15 @@
                                                     }
 
                                                     //MAP INFOWINDOW CONTENT
-                                                    if (c.LastIndex != null && c.LastIndex != 'undefined') {
-                                                        index -= c.LastIndex;
+                                                    if (c.Flow1 == true && c.Flow2 == null && c.LastIndex != null && c.Press1 == null && c.Press2 == null) {
+                                                        index += c.LastIndex;
                                                     }
+                                                    else if (c.Flow1 == null && c.Flow2 == true && c.LastIndex != null && c.Press1 == null && c.Press2 == null) {
+                                                        index -= c.LastIndex
+                                                    }
+                                                    //if (c.LastIndex != null && c.LastIndex != 'undefined') {
+                                                    //    index -= c.LastIndex;
+                                                    //}
                                                     if (c.Timestamp != null && c.Timestamp != 'undefined') {
                                                         parsedDate = new Date(convertDateFromApi(c.Timestamp));
                                                         jsDate = new Date(parsedDate);

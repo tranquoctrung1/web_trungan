@@ -16,7 +16,7 @@ public class DataLoggerGetBL
         Connect connect = new Connect();
         try
         {
-            string sqlQuery = "select Value from t_Data_" + channelid + "where TimeStamp = convert(nvarchar, '" + start + "', 120)";
+            string sqlQuery = "select Value from t_Data_" + channelid + " where TimeStamp = convert(nvarchar, '" + start + "', 120)";
 
             connect.Connected();
 
