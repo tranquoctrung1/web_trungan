@@ -46,6 +46,7 @@ namespace WcfLoggerData.ConnectDB
         {
             SqlCommand sqlCommand = new SqlCommand(sqlquery, sqlConnection);
             sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            sqlCommand.CommandTimeout = 0;
             sqlCommand.Clone();
 
             return sqlCommand;

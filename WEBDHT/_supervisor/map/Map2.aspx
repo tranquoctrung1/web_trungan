@@ -124,6 +124,18 @@
             .leaflet-control-zoom {
                 display: none
             }
+
+            #RadWindowWrapper_ctl00_ContentPlaceHolder1_radWindowChart
+            {
+                width: 100% !important;
+                left: 10px !important;
+                top: 10px !important
+            }
+            #ctl00_ContentPlaceHolder1_radWindowChart_C
+            {
+                width: 100% !important;
+                height: 100% !important;
+            }
         </style>
 
 
@@ -1157,7 +1169,7 @@
                                     </div>
 
                                 </div>
-                                <div id="chart_canvas" style="width: 100%; height: 90%"></div>
+                                <div id="chart_canvas" style="width: 100%; height: 100%"></div>
 
                             </ContentTemplate>
                         </telerik:RadWindow>
@@ -1917,7 +1929,6 @@
                                     $.getJSON(url, function (ds) {
                                         var displayGroup;
                                         $.each(ds, function (i, s) {
-
                                             //TREEVIEW SITE NODE
                                             sites.push(s);
                                             var gpNode = treeViewSite.findNodeByText(s.DisplayGroup);
@@ -1957,6 +1968,7 @@
                                                 var alreadyPressureDisplay = false;
                                                 var displayByGroupChannel = 0;
                                                 $.each(dc, function (j, c) {
+                                                    console.log(c)
                                                     if (c.ChannelId != null) {
                                                         hasChannel = true;
                                                         //ICON
@@ -3241,6 +3253,7 @@
                                         chart.dataProvider = chartData;
                                         chart.categoryField = "Timestamp";
                                         chart.balloon.bulletSize = 5;
+                                        chart.responsive = true;
                                         //ZOOM
                                         chart.addListener("dataUpdated", zoomChart);
                                         //AXES

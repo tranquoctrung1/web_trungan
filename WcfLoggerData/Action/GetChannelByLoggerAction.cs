@@ -15,101 +15,43 @@ namespace WcfLoggerData.Action
             List<ChannelByLoggerViewModel> list = new List<ChannelByLoggerViewModel>();
             Connect connect = new Connect();
 
-            GetCurrentTimeAction getCurrentTimeAction = new GetCurrentTimeAction();
-            GetLastValueAction getLastValueAction = new GetLastValueAction();
-            GetLastIndexValueAction getLastIndexValueAction = new GetLastIndexValueAction();
-
             try
             {
-                string sqlQuery = $"select t.Id as ChannelId, t.Name as ChannelName, ds.Pressure, ds.Pressure1, ds.Forward, ds.Reverse, t.LastTimeStamp, t.LastValue, t.Unit, gc.Status as GroupChannelStatus, ds.DelayTime, t.BaseMin, t.BaseMax from t_Devices_ChannelsConfigs t left join t_Devices_SitesConfigs ds on t.LoggerId = ds.Id join t_GroupChannel gc on gc.GroupChannel = t.GroupChannel where ds.Id = '{loggerid}'";
+                string store = "p_GetChannelByLoggerIdForMap";
 
                 connect.Connected();
 
-                SqlDataReader reader = connect.Select(sqlQuery);
+                SqlCommand command = connect.ExcuteStoreProceduce(store);
 
-                if(reader.HasRows)
+                command.Parameters.Add(new SqlParameter("@loggerid ", loggerid));
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
                 {
-                    while(reader.Read())
+                    while (reader.Read())
                     {
                         ChannelByLoggerViewModel el = new ChannelByLoggerViewModel();
-                        int? pressure1 = null;
-                        int? pressure2 = null;
-                        int? forward = null;
-                        int? reverse = null;
-                        int? baseMin = null;
-                        int? baseMax = null;
-                        int? delayTime = null;
+
+                        int? timeDelay = null;
+                        double? basemax = null;
+                        double? basemin = null;
+                        bool check = false;
                         try
                         {
-                            el.ChannelId = reader["ChannelId"].ToString();
+                            el.ChannelId = reader["Id"].ToString();
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
                             el.ChannelId = "";
                         }
                         try
                         {
-                            el.ChannelName = reader["ChannelName"].ToString();
+                            el.ChannelName = reader["Name"].ToString();
                         }
                         catch (Exception ex)
                         {
                             el.ChannelName = "";
-                        }
-                        try
-                        {
-                           pressure1 = int.Parse(reader["Pressure1"].ToString());
-                        }
-                        catch (Exception ex)
-                        {
-                            pressure1 =  null;
-                        }
-                        try
-                        {
-                            pressure2 = int.Parse(reader["Pressure"].ToString());
-                        }
-                        catch (Exception ex)
-                        {
-                            pressure2 = null;
-                        }
-                        try
-                        {
-                            forward = int.Parse(reader["Forward"].ToString());
-                        }
-                        catch (Exception ex)
-                        {
-                            forward = null;
-                        }
-                        try
-                        {
-                            reverse = int.Parse(reader["Reverse"].ToString());
-                        }
-                        catch (Exception ex)
-                        {
-                            reverse = null;
-                        }
-                        try
-                        {
-                            el.Timestamp = getCurrentTimeAction.GetCurrentTime(el.ChannelId);
-                        }
-                        catch (Exception ex)
-                        {
-                            el.Timestamp = null;
-                        }
-                        try
-                        {
-                            el.Val = getLastValueAction.GetLastValue(el.ChannelId);
-                        }
-                        catch (Exception ex)
-                        {
-                            el.Val = null;
-                        }
-                        try
-                        {
-                            el.LastIndex = getLastIndexValueAction.GetLastIndexValue(el.ChannelId);
-                        }
-                        catch(Exception ex)
-                        {
-                            el.LastIndex = null;
                         }
                         try
                         {
@@ -121,98 +63,151 @@ namespace WcfLoggerData.Action
                         }
                         try
                         {
-                            el.GroupChannelStatus = int.Parse(reader["GroupChannelStatus"].ToString());
+                            el.Press1 = bool.Parse(reader["Pressure1"].ToString());
                         }
                         catch (Exception ex)
                         {
-                            el.GroupChannelStatus = 1;
+                            el.Press1 = null;
                         }
                         try
                         {
-                            delayTime = int.Parse(reader["DelayTime"].ToString());
+                            el.Press2 = bool.Parse(reader["Pressure2"].ToString());
                         }
                         catch (Exception ex)
                         {
-                            delayTime = 60;
+                            el.Press2 = null;
                         }
                         try
                         {
-                            baseMax = int.Parse(reader["BaseMax"].ToString());
-                        }
-                        catch(Exception ex)
-                        {
-                            baseMax = null;
-                        }
-                        try
-                        {
-                            baseMin = int.Parse(reader["BaseMin"].ToString());
+                            el.Flow1 = bool.Parse(reader["ForwardFlow"].ToString());
                         }
                         catch (Exception ex)
                         {
-                            baseMin = null;
+                            el.Flow1 = null;
                         }
-
-                        char numberChannel = ' ';
-                        if (el.ChannelId != "")
+                        try
                         {
-                            numberChannel = el.ChannelId[el.ChannelId.Length - 1];
-                            int temp = int.Parse(numberChannel.ToString());
-
-                            if(temp == pressure1)
-                            {
-                                el.Press1 = true;
-                            }
-                            else if(temp == pressure2)
-                            {
-                                el.Press2 = true;
-                            }
-                            else if(temp == forward)
-                            {
-                                el.Flow1 = true;
-                            }
-                            else if(temp == reverse)
-                            {
-                                el.Flow2 = true;
-                            }
+                            el.Flow2 = bool.Parse(reader["ReverseFlow"].ToString());
                         }
-
-                        if(delayTime != null)
+                        catch (Exception ex)
                         {
-                            if (el.Timestamp != null)
-                            {
-                                if ((DateTime.Now - (DateTime)el.Timestamp).TotalMinutes >= delayTime)
-                                {
-                                    el.Status = 4;
-                                }
-                            }
+                            el.Flow2 = null;
                         }
-                        if(baseMin != null)
+                        try
                         {
-                            if(el.Val != null)
-                            {
-                                if(el.Val < baseMin)
-                                {
-                                    el.Status = 2;
-                                }
-                            }
+                            el.Timestamp = DateTime.Parse(reader["Timestamp"].ToString());
                         }
-                        if(baseMax != null)
+                        catch (Exception ex)
                         {
-                            if(el.Val != null)
-                            {
-                                if(el.Val > baseMax)
-                                {
-                                    el.Status = 2;
-                                }
-                            }
+                            el.Timestamp = null;
+                        }
+                        try
+                        {
+                            el.Val = double.Parse(reader["LastValue"].ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            el.Val = null;
+                        }
+                        try
+                        {
+                            el.IndexTimestamp = DateTime.Parse(reader["IndexTimeStamp"].ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            el.IndexTimestamp = null;
+                        }
+                        try
+                        {
+                            el.LastIndex = double.Parse(reader["LastIdexValue"].ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            el.LastIndex = null;
+                        }
+                        try
+                        {
+                            el.GroupChannelStatus = int.Parse(reader["Status"].ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            el.GroupChannelStatus = 0;
                         }
                         el.DisplayLabel = true;
 
+                        try
+                        {
+                            timeDelay = int.Parse(reader["DelayTime"].ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            timeDelay = null;
+                        }
+                        try
+                        {
+                            basemax = double.Parse(reader["BaseMax"].ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            basemax = null;
+                        }
+                        try
+                        {
+                            basemin = double.Parse(reader["BaseMin"].ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            basemin = null;
+                        }
+                        el.Status = 1;
+                        if(el.Timestamp == null)
+                        {
+                            el.Status = 2;
+                            check = true;
+                        }
+                        if (check == false)
+                        {
+                            if (timeDelay != null)
+                            {
+                                if (el.Timestamp != null)
+                                {
+                                    if ((DateTime.Now - el.Timestamp.Value).TotalMinutes > timeDelay)
+                                    {
+                                        el.Status = 4;
+                                        check = true;
+                                    }
+                                }
+                            }
+                        }
+                        if (check == false)
+                        {
+                            if (basemin != null)
+                            {
+                                if (el.Val < basemin)
+                                {
+                                    el.Status = 2;
+                                    check = true;
+                                }
+                            }
+                        }
+                        if (check == false)
+                        {
+                            if (basemax != null)
+                            {
+                                if (el.Val > basemax.Value)
+                                {
+                                    el.Status = 2;
+                                    check = true;
+                                }
+                            }
+                        }
+                            
                         list.Add(el);
+
                     }
                 }
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }
