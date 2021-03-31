@@ -18,7 +18,7 @@ namespace WcfLoggerData.Action
 
             try
             {
-                string sqlQuery = $"select t.Id as ChannelId, t.Name as ChannelName, ds.Pressure, ds.Pressure1, ds.Forward, ds.Reverse, t.LastTimeStamp, t.LastValue, t.Unit, gc.Status as GroupChannelStatus, ds.DelayTime, t.BaseMin, t.BaseMax from t_Devices_ChannelsConfigs t left join t_Devices_SitesConfigs ds on t.LoggerId = ds.Id join t_GroupChannel gc on gc.GroupChannel = t.GroupChannel where ds.Id = '{loggerid}'";
+                string sqlQuery = $"select t.Id as ChannelId, t.Name as ChannelName, ds.Pressure, ds.Pressure1, ds.Forward, ds.Reverse, t.LastTimeStamp, t.LastValue, t.Unit, gc.Status as GroupChannelStatus, ds.DelayTime, t.BaseMin, t.BaseMax, t.IndexTimeStamp, t.LastIndex from t_Devices_ChannelsConfigs t left join t_Devices_SitesConfigs ds on t.LoggerId = ds.Id join t_GroupChannel gc on gc.GroupChannel = t.GroupChannel where ds.Id = '{loggerid}'";
 
                 connect.Connected();
 
@@ -140,7 +140,22 @@ namespace WcfLoggerData.Action
                         {
                             baseMin = null;
                         }
-
+                        try
+                        {
+                            el.IndexTimestamp = DateTime.Parse(reader["IndexTimeStamp"].ToString());
+                        }
+                        catch(Exception ex)
+                        {
+                            el.IndexTimestamp = null;
+                        }
+                        try
+                        {
+                            el.LastIndex = double.Parse(reader["LastIndex"].ToString());
+                        }
+                        catch(Exception ex)
+                        {
+                            el.LastIndex = null;
+                        }
                         char numberChannel = ' ';
                         if (el.ChannelId != "")
                         {
@@ -173,36 +188,57 @@ namespace WcfLoggerData.Action
                            
                         }
 
-                        if(delayTime != null)
+                        int status = 1;
+                        bool check = false;
+
+                        if(el.Timestamp == null)
                         {
-                            if (el.Timestamp != null)
+                            status = 4;
+                            check = true;
+                        }
+                        if(check == false)
+                        {
+                            if (delayTime != null)
                             {
-                                if ((DateTime.Now - (DateTime)el.Timestamp).TotalMinutes >= delayTime)
+                                if (el.Timestamp != null)
                                 {
-                                    el.Status = 4;
+                                    if ((DateTime.Now - (DateTime)el.Timestamp).TotalMinutes >= delayTime)
+                                    {
+                                        el.Status = 4;
+                                        check = true;
+                                    }
                                 }
                             }
                         }
-                        if(baseMin != null)
+                        if(check == false)
                         {
-                            if(el.Val != null)
+                            if(baseMin != null)
                             {
-                                if(el.Val < baseMin)
+                                    if (el.Val != null)
+                                    {
+                                        if (el.Val < baseMin)
+                                        {
+                                            el.Status = 2;
+                                        check = true;
+                                        }
+                                    }
+                                }
+                            }
+                        if(check == false)
+                        {
+                            if (baseMax != null)
+                            {
+                                if (el.Val != null)
                                 {
-                                    el.Status = 2;
+                                    if (el.Val > baseMax)
+                                    {
+                                        el.Status = 2;
+                                        check = true;
+                                    }
                                 }
                             }
                         }
-                        if(baseMax != null)
-                        {
-                            if(el.Val != null)
-                            {
-                                if(el.Val > baseMax)
-                                {
-                                    el.Status = 2;
-                                }
-                            }
-                        }
+                       
                         el.DisplayLabel = true;
 
                         list.Add(el);

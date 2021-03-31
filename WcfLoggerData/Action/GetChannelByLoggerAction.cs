@@ -119,7 +119,7 @@ namespace WcfLoggerData.Action
                         }
                         try
                         {
-                            el.LastIndex = double.Parse(reader["LastIdexValue"].ToString());
+                            el.LastIndex = double.Parse(reader["LastIndex"].ToString());
                         }
                         catch (Exception ex)
                         {
