@@ -216,7 +216,7 @@
         function ConvertDateFromValueAsString(date) {
             let string = date.split('-');
 
-            return new Date(parseFloat(string[0]), parseFloat(string[1]), parseFloat(string[2]), parseFloat(string[3]), parseFloat(string[4]), parseFloat(string[5]));
+            return new Date(parseFloat(string[0]), parseFloat(string[1]) - 1, parseFloat(string[2]), parseFloat(string[3]), parseFloat(string[4]), parseFloat(string[5]));
         }
 
         function createTablePlaceHolder() {
