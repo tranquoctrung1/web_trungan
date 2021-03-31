@@ -146,6 +146,12 @@
                                 <asp:Label ID="lbDataLoggerTable" runat="server" Text="Dữ Liệu Logger"></asp:Label>
                             </a>
                         </li>
+                        <li>
+                            <a href="/_supervisor/logger/DataLoggerByCycle.aspx">
+                                <i class="fa fa-table"></i>
+                                <asp:Label ID="lbDataLoggerByCycle" runat="server" Text="Dữ Liệu Logger Theo Chu Kỳ"></asp:Label>
+                            </a>
+                        </li>
                         <li class="treeview">
                             <a href="#ThietBi"><i class="fa fa-flag"></i>
                                 <asp:Label ID="lbDevice" runat="server" Text="Thiết Bị"></asp:Label>

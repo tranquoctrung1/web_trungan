@@ -119,20 +119,19 @@
                 min-height: unset !important;
                 overflow: hidden !important;
                 margin-left: 42px !important;
-            } 
+            }
 
             .leaflet-control-zoom {
                 display: none
             }
 
-            #RadWindowWrapper_ctl00_ContentPlaceHolder1_radWindowChart
-            {
+            #RadWindowWrapper_ctl00_ContentPlaceHolder1_radWindowChart {
                 width: 100% !important;
                 left: 10px !important;
                 top: 10px !important
             }
-            #ctl00_ContentPlaceHolder1_radWindowChart_C
-            {
+
+            #ctl00_ContentPlaceHolder1_radWindowChart_C {
                 width: 100% !important;
                 height: 100% !important;
             }
@@ -208,6 +207,12 @@
                                 <a href="/_supervisor/logger/datalogger.aspx">
                                     <i class="fa fa-table"></i>
                                     <asp:Label ID="lbDataLoggerTable" runat="server" Text="Dữ Liệu Logger"></asp:Label>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/_supervisor/logger/DataLoggerByCycle.aspx">
+                                    <i class="fa fa-table"></i>
+                                    <asp:Label ID="lbDataLoggerByCycle" runat="server" Text="Dữ Liệu Logger Theo Chu Kỳ"></asp:Label>
                                 </a>
                             </li>
                             <li class="treeview">
@@ -454,7 +459,7 @@
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-                                   <%-- <li>
+                                    <%-- <li>
                                         <a href="/_supervisor/data/raw.aspx">
                                             <asp:Label ID="lbDataRaw" runat="server" Text="Nhập Tay Chỉ Số"></asp:Label>
                                         </a>
@@ -515,7 +520,7 @@
                                             <asp:Label ID="lbMonthlyQuantityManager" runat="server" Text="Sản Lượng Tháng Theo DMA"></asp:Label>
                                         </a>
                                     </li>
-                                   <%-- <li>
+                                    <%-- <li>
                                         <a href="/_supervisor/logger/HourlyTotal.aspx">
                                             <asp:Label ID="lbHourlyQuantityTotal" runat="server" Text="Sản Lượng Giờ Tổng Công Ty"></asp:Label>
                                         </a>
@@ -571,7 +576,7 @@
                                             <asp:Label ID="lbChartMonthlyManager" runat="server" Text="Đồ Thị Tháng Theo DMA"></asp:Label>
                                         </a>
                                     </li>
-                                  <%--  <li>
+                                    <%--  <li>
                                         <a href="/_supervisor/chartP/ChartTotalHourly.aspx">
                                             <asp:Label ID="lbChartHourlyTotal" runat="server" Text="Đồ Thị Giờ Tổng"></asp:Label>
                                         </a>
@@ -618,7 +623,7 @@
                                             <asp:Label ID="lbTableAlarmForDMA" runat="server" Text="Bảng Cảnh Báo Cho DMA"></asp:Label>
                                         </a>
                                     </li>
-                                     <li>
+                                    <li>
                                         <a href="/_supervisor/alarm/SettingAlarm.aspx">
                                             <asp:Label ID="lbSettingAlarm" runat="server" Text="Cài Đặt Cảnh Báo"></asp:Label>
                                         </a>
@@ -1015,12 +1020,12 @@
                                             </div>
                                         </div>
 
-                                       <%-- <div>
+                                        <%-- <div>
                                             <h4 class="text-white">
                                                 <asp:Label Text="Danh sách nhóm kênh" ID="txtListGroupChannel" runat="server" />
                                             </h4>
                                         </div>--%>
-                                     <%--   <div id="plhListGroupChannel">
+                                        <%--   <div id="plhListGroupChannel">
                                             <div class="checkbox"><div><input type="checkbox" onclick="UpdateFlowChannel(this)" id="flowCheckBox" class="custom-checkbox" checked="checked">Lưu Lượng</div></div>
                                             <div class="checkbox"><div><input type="checkbox" onclick="UpdatePressureChannel(this)" id="pressureCheckBox" class="custom-checkbox" checked="checked">Áp Lực</div></div>
                                         </div>--%>
@@ -1033,7 +1038,7 @@
                                         </div>
                                         <div id="filterSitesArea">
                                         </div>
-                                         <div>
+                                        <div>
                                             <h4 class="text-white">
                                                 <asp:Label Text="Lọc point theo Quận" ID="lbFilterSitesDistrict" runat="server" />
                                             </h4>
@@ -2308,7 +2313,7 @@
                                                     else {
                                                         val = 'NO DATA';
                                                     }
-                                                    
+
                                                     //MAP LABEL CONTENT
                                                     var htmlImg = "";
                                                     if (c.Status1 == true) {
@@ -3245,7 +3250,7 @@
                                             }
                                         });
 
-                                        chartData = chartData.sort(function (a, b) { return a.Timestamp - b.Timestamp})
+                                        chartData = chartData.sort(function (a, b) { return a.Timestamp - b.Timestamp })
 
                                         //SERIAL CHART
                                         chart = new AmCharts.AmSerialChart();
@@ -3664,29 +3669,29 @@
                     <!-- To the right -->
                     <div class="container">
                         <div class="row text-center" style="font-weight: bold">
-                            <div class="col-sm-3"> 
+                            <div class="col-sm-3">
                                 Tổng số Point: <span style="color: lawngreen" id="totalSite"></span>
                             </div>
                             <div class="col-sm-3">
-                                 Tổng số Point hoạt động: <span style="color: green" id="totalSiteAction"></span>
+                                Tổng số Point hoạt động: <span style="color: green" id="totalSiteAction"></span>
                             </div>
                             <div class="col-sm-3">
-                                 Tổng số Point có dữ liệu: <span style="color: blue" id="totalSiteHasData"></span>    
+                                Tổng số Point có dữ liệu: <span style="color: blue" id="totalSiteHasData"></span>
                             </div>
                             <div class="col-sm-3">
-                                 Tổng số Point cảnh báo: <span style="color: red" id="totalSiteWarning"></span>   
+                                Tổng số Point cảnh báo: <span style="color: red" id="totalSiteWarning"></span>
                             </div>
                             <div class="col-sm-3 mt-2">
-                                 Tổng số DMA: <span style="color: red" id="totalDMA"></span>   
+                                Tổng số DMA: <span style="color: red" id="totalDMA"></span>
                             </div>
                             <div class="col-sm-3 mt-2">
-                                 Tổng số DMA cảnh báo: <span style="color: red" id="totalDMAWarning"></span>   
+                                Tổng số DMA cảnh báo: <span style="color: red" id="totalDMAWarning"></span>
                             </div>
                         </div>
                     </div>
-                    
 
-                  <%--  <div class="pull-right hidden-xs">
+
+                    <%--  <div class="pull-right hidden-xs">
                         <a href="#" class="label label-success">Design By TAWACO VIET NAM</a>
                     </div>
                     <!-- Default to the left -->
@@ -3741,7 +3746,7 @@
                     $("#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder1_RadPane2").css("height", strh);//resize map height
                     $("#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder1_RadPane2").css("width", screenwidth);//resize map width
                     $("#ctl00_ContentPlaceHolder1_RadSplitter1").css("height", strh)
-                    $("#ctl00_ContentPlaceHolder1_RadSplitter1").css("width", strw) 
+                    $("#ctl00_ContentPlaceHolder1_RadSplitter1").css("width", strw)
                     $("#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder1_RadPane1").css("width", "0px");//hide menu in radslide
 
                     $(".SiteSubMenu").click(function (e) {
@@ -4009,7 +4014,7 @@
 
                 getStatisticFotter();
 
-            }, 5*60*1000)
+            }, 5 * 60 * 1000)
 
         </script>
 

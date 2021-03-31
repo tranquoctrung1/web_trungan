@@ -205,6 +205,7 @@
     <Compile Include="Controllers\GetDataDashBoardMonthlySiteController.cs" />
     <Compile Include="Controllers\GetDataDashBoardYearlySiteController.cs" />
     <Compile Include="Controllers\GetDataHasChangedController.cs" />
+    <Compile Include="Controllers\GetDataHistoryController.cs" />
     <Compile Include="Controllers\GetDataReportDailyManagerController.cs" />
     <Compile Include="Controllers\GetDataReportDailySiteController.cs" />
     <Compile Include="Controllers\GetDataReportDailyTotalController.cs" />
@@ -321,6 +322,7 @@
     <Folder Include="Views\GetDataDashBoardMonthlySite\" />
     <Folder Include="Views\GetDataDashBoardYearlySite\" />
     <Folder Include="Views\GetDataHasChanged\" />
+    <Folder Include="Views\GetDataHistory\" />
     <Folder Include="Views\GetDataReportDailySite\" />
     <Folder Include="Views\GetDataReportDailyTotal\" />
     <Folder Include="Views\GetDataReportHourlyCompany\" />
