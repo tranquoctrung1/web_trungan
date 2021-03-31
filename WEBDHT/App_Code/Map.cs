@@ -399,308 +399,130 @@ public class Map : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public List<SiteDatAll> GetDataAllNew(string username)
+    public List<SiteDataAll> GetDataAllNew(string username)
     {
-        List<SiteDatAll> list = new List<SiteDatAll>();
+        List<SiteDataAll> list = new List<SiteDataAll>();
 
         var siteBL = new SiteBL();
         UserBL _userBL = new UserBL();
 
-        var channelConfigurationBL = new ChannelConfigurationBL();
+        var mChannel = new MChannelBL();
 
         var user = _userBL.GetUser(username);
         List<t_SiteCustomer> sites;
         if (user.Role == "consumer")
         {
-            sites = siteBL.GetSitesForMapByConsumerIdCustom(user.StaffId);
+            list = siteBL.GetSiteForMobileByConsumerId(user.StaffId);
         }
         else if (user.Role == "staff")
         {
-            sites = siteBL.GetSitesForMapByStaffIdCustom(user.StaffId);
+            list = siteBL.GetSitesForMobileByStaffId(user.StaffId);
         }
         else if (user.Role == "supervisor")
         {
-            sites = siteBL.GetSiteForMapBySupervisorCustom(user.StaffId);
+            list = siteBL.GetSiteForMobileBySupervisorId(user.StaffId);
         }
         else if (user.Role == "DMA")
         {
-            sites = siteBL.GetSiteForMapByDMACustom(user.StaffId);
+            list = siteBL.GetSiteForMobileByDMAId(user.StaffId);
         }
         else
         {
-            sites = siteBL.GetSitesForMapCustom().ToList();
+            list = siteBL.GetSitesForMobile();
             // sites = null;
         }
 
-        foreach(var item in sites)
+        foreach(var item in list)
         {
-            SiteDatAll el = new SiteDatAll();
-            el.SiteId = item.Id;
-            el.Location = item.Address;
-            el.SiteAliasName = item.Location;
-            el.DisplayGroup = item.Company;
-            el.District = item.District;
-            el.Longitude = (item.Longitude == null ? 0 : double.Parse(item.Longitude.ToString()));
-            el.Latitude = (item.Latitude == null ? 0 : double.Parse(item.Latitude.ToString()));
-            el.LoggerId = item.Logger;
 
             double index = 0;
+            List<MChannel> mChannels = mChannel.GetChannelsConfiguration(item.LoggerId, item.DelayTime);
 
-
-            List<t_Channel_Configurations> listChannel = channelConfigurationBL.GetChannelConfigurationsByLoggerID(el.LoggerId);
-            List<MChannel> listMChannel = new List<MChannel>();
-            foreach(var channel in listChannel)
+            foreach(var channel in mChannels)
             {
-                MChannel c = new MChannel();
-                c.ChannelId = channel.ChannelId;
-                c.ChannelName = channel.ChannelName;
-                c.Description = channel.Description;
-                c.DisplayOnLabel = (channel.DisplayOnLabel == null ? true : channel.DisplayOnLabel.Value);
-                c.Unit = channel.Unit;
-                c.GroupChannel = channel.GroupChannel;
-                c.Pressure1 = channel.Pressure1;
-                c.Pressure2 = channel.Pressure2;
-                c.ForwardFlow = channel.ForwardFlow;
-                c.ReverseFlow = channel.ReverseFlow;
-                c.LastIndex = (channel.LastIndex == null ? "NO DATA" : channel.LastIndex.Value.ToString());
-                c.LastValue = (channel.LastValue == null ? "NO DATA" : channel.LastValue.Value.ToString());
-                c.TimeStamp = (channel.TimeStamp == null ? "NO DATA" : channel.TimeStamp.Value.ToString("dd/MM/yyyy HH:mm"));
-                c.IndexTimeStamp = (channel.IndexTimeStamp == null ? "NO DATA" : channel.IndexTimeStamp.Value.ToString("dd/MM/yyyy HH:mm"));
-
-                c.yyyy = (channel.TimeStamp == null ? "NO DATA" : channel.TimeStamp.Value.Year.ToString());
-                c.MM = (channel.TimeStamp == null ? "NO DATA" : channel.TimeStamp.Value.Month.ToString());
-                c.dd = (channel.TimeStamp == null ? "NO DATA" : channel.TimeStamp.Value.Day.ToString());
-                c.HH = (channel.TimeStamp == null ? "NO DATA" : channel.TimeStamp.Value.Hour.ToString());
-                c.mm = (channel.TimeStamp == null ? "NO DATA" : channel.TimeStamp.Value.Minute.ToString());
-
-
-                if(channel.ForwardFlow != null )
+                if(channel.ForwardFlow == true)
                 {
-                    if(channel.LastIndex != null)
+                    if(channel.LastIndex != "NO DATA")
                     {
-                        index += channel.LastIndex.Value;
-
+                        index += double.Parse(channel.LastIndex);
                     }
                 }
-                else if(channel.ReverseFlow != null)
+                else if(channel.ReverseFlow == true)
                 {
-                    if(channel.LastIndex != null)
+                    if (channel.LastIndex != "NO DATA")
                     {
-                        index -= channel.LastIndex.Value;
+                        index -= double.Parse(channel.LastIndex);
                     }
                 }
-
-                int status = 0;
-                bool check = false;
-                if(channel.TimeStamp == null)
-                {
-                    status = 4;
-                    check = true;
-                }
-                if(check == false)
-                {
-                    if (channel.TimeStamp != null)
-                    {
-                        if ((DateTime.Now - channel.TimeStamp.Value).TotalMinutes > 60)
-                        {
-                            status = 2;
-                            check = true;
-                        }
-                    }
-                }
-                if(check == false )
-                {
-                    if(channel.basemax != null)
-                    {
-                        if(channel.LastValue != null)
-                        {
-                            if(channel.LastValue.Value >channel.basemax.Value)
-                            {
-                                status = 4;
-                                check = true;
-                            }
-                        }
-                    }
-                }
-                if (check == false)
-                {
-                    if (channel.basemin != null)
-                    {
-                        if (channel.LastValue != null)
-                        {
-                            if (channel.LastValue.Value < channel.basemin.Value)
-                            {
-                                status = 4;
-                                check = true;
-                            }
-                        }
-                    }
-                }
-                if(check == false )
-                {
-                    status = 1;
-                }
-
-                c.Status = status;
-                listMChannel.Add(c);
             }
-            el.Index = index;
-            el.ListChannels = listMChannel;
-            list.Add(el);
+
+            item.Index = index;
+            item.ListChannels = mChannels;
         }
 
         return list;
     }
 
     [WebMethod]
-    public List<SiteDatAll> GetDataAllLimitNew(string username)
+    public List<SiteDataAll> GetDataAllLimitNew(string username)
     {
-        List<SiteDatAll> list = new List<SiteDatAll>();
+        List<SiteDataAll> list = new List<SiteDataAll>();
 
         var siteBL = new SiteBL();
         UserBL _userBL = new UserBL();
 
-        var channelConfigurationBL = new ChannelConfigurationBL();
+        var mChannel = new MChannelBL();
 
         var user = _userBL.GetUser(username);
         List<t_SiteCustomer> sites;
         if (user.Role == "consumer")
         {
-            sites = siteBL.GetSitesForMapByConsumerIdCustomLimit(user.StaffId);
+            list = siteBL.GetSitesFormMobileConsumerIdLimit(user.StaffId);
         }
         else if (user.Role == "staff")
         {
-            sites = siteBL.GetSitesForMapByStaffIdCustomLimit(user.StaffId);
+            list = siteBL.GetSitesForMobileByStaffIdLimit(user.StaffId);
         }
         else if (user.Role == "supervisor")
         {
-            sites = siteBL.GetSiteForMapBySupervisorCustomLimit(user.StaffId);
+            list = siteBL.GetSiteForMobileBySupervisorIdLimit(user.StaffId);
         }
         else if (user.Role == "DMA")
         {
-            sites = siteBL.GetSiteForMapByDMACustomLimit(user.StaffId);
+            list = siteBL.GetSiteForMobileByDMAIdLimit(user.StaffId);
         }
         else
         {
-            sites = siteBL.GetSitesForMapCustomLimit().ToList();
+            list = siteBL.GetSitesForMobileLimit();
             // sites = null;
         }
 
-        foreach (var item in sites)
+        foreach (var item in list)
         {
-            SiteDatAll el = new SiteDatAll();
-            el.SiteId = item.Id;
-            el.Location = item.Address;
-            el.SiteAliasName = item.Location;
-            el.DisplayGroup = item.Company;
-            el.District = item.District;
-            el.Longitude = (item.Longitude == null ? 0 : double.Parse(item.Longitude.ToString()));
-            el.Latitude = (item.Latitude == null ? 0 : double.Parse(item.Latitude.ToString()));
-            el.LoggerId = item.Logger;
 
             double index = 0;
+            List<MChannel> mChannels = mChannel.GetChannelsConfiguration(item.LoggerId, item.DelayTime);
 
-
-            List<t_Channel_Configurations> listChannel = channelConfigurationBL.GetChannelConfigurationsByLoggerID(el.LoggerId);
-            List<MChannel> listMChannel = new List<MChannel>();
-            foreach (var channel in listChannel)
+            foreach (var channel in mChannels)
             {
-                MChannel c = new MChannel();
-                c.ChannelId = channel.ChannelId;
-                c.ChannelName = channel.ChannelName;
-                c.Description = channel.Description;
-                c.DisplayOnLabel = (channel.DisplayOnLabel == null ? true : channel.DisplayOnLabel.Value);
-                c.Unit = channel.Unit;
-                c.GroupChannel = channel.GroupChannel;
-                c.Pressure1 = channel.Pressure1;
-                c.Pressure2 = channel.Pressure2;
-                c.ForwardFlow = channel.ForwardFlow;
-                c.ReverseFlow = channel.ReverseFlow;
-                c.LastIndex = (channel.LastIndex == null ? "NO DATA" : channel.LastIndex.Value.ToString());
-                c.LastValue = (channel.LastValue == null ? "NO DATA" : channel.LastValue.Value.ToString());
-                c.TimeStamp = (channel.TimeStamp == null ? "NO DATA" : channel.TimeStamp.Value.ToString("dd/MM/yyyy HH:mm"));
-                c.IndexTimeStamp = (channel.IndexTimeStamp == null ? "NO DATA" : channel.IndexTimeStamp.Value.ToString("dd/MM/yyyy HH:mm"));
-
-                c.yyyy = (channel.TimeStamp == null ? "NO DATA" : channel.TimeStamp.Value.Year.ToString());
-                c.MM = (channel.TimeStamp == null ? "NO DATA" : channel.TimeStamp.Value.Month.ToString());
-                c.dd = (channel.TimeStamp == null ? "NO DATA" : channel.TimeStamp.Value.Day.ToString());
-                c.HH = (channel.TimeStamp == null ? "NO DATA" : channel.TimeStamp.Value.Hour.ToString());
-                c.mm = (channel.TimeStamp == null ? "NO DATA" : channel.TimeStamp.Value.Minute.ToString());
-
-
-                if (channel.ForwardFlow != null)
+                if (channel.ForwardFlow == true)
                 {
-                    if (channel.LastIndex != null)
+                    if (channel.LastIndex != "NO DATA")
                     {
-                        index += channel.LastIndex.Value;
-
+                        index += double.Parse(channel.LastIndex);
                     }
                 }
-                else if (channel.ReverseFlow != null)
+                else if (channel.ReverseFlow == true)
                 {
-                    if (channel.LastIndex != null)
+                    if (channel.LastIndex != "NO DATA")
                     {
-                        index -= channel.LastIndex.Value;
+                        index -= double.Parse(channel.LastIndex);
                     }
                 }
-
-                int status = 0;
-                bool check = false;
-                if (channel.TimeStamp == null)
-                {
-                    status = 4;
-                    check = true;
-                }
-                if (check == false)
-                {
-                    if (channel.TimeStamp != null)
-                    {
-                        if ((DateTime.Now - channel.TimeStamp.Value).TotalMinutes > 60)
-                        {
-                            status = 2;
-                            check = true;
-                        }
-                    }
-                }
-                if (check == false)
-                {
-                    if (channel.basemax != null)
-                    {
-                        if (channel.LastValue != null)
-                        {
-                            if (channel.LastValue.Value > channel.basemax.Value)
-                            {
-                                status = 4;
-                                check = true;
-                            }
-                        }
-                    }
-                }
-                if (check == false)
-                {
-                    if (channel.basemin != null)
-                    {
-                        if (channel.LastValue != null)
-                        {
-                            if (channel.LastValue.Value < channel.basemin.Value)
-                            {
-                                status = 4;
-                                check = true;
-                            }
-                        }
-                    }
-                }
-                if (check == false)
-                {
-                    status = 1;
-                }
-
-                c.Status = status;
-                listMChannel.Add(c);
             }
-            el.Index = index;
-            el.ListChannels = listMChannel;
-            list.Add(el);
+
+            item.Index = index;
+            item.ListChannels = mChannels;
         }
 
         return list;
@@ -2294,33 +2116,7 @@ public class Map : System.Web.Services.WebService
         public string Result { get; set; }
         public string Knumber { get; set; }
     }
-    public class MChannel
-    {
-        public string ChannelId { get; set; }
-        public string LoggerId { get; set; }
-        public string ChannelName { get; set; }
-        public string Unit { get; set; }
-        public string Description { get; set; }
-        public Nullable<bool> ForwardFlow { get; set; }
-        public Nullable<bool> ReverseFlow { get; set; }
-        public Nullable<bool> Pressure1 { get; set; }
-        public Nullable<bool> Pressure2 { get; set; }
-        public int Status { get; set; }
-        public string TimeStamp { get; set; }
-        public string LastValue { get; set; }
-        public string IndexTimeStamp { get; set; }
-        public string LastIndex { get; set; }
-        public bool DisplayOnLabel { get; set; }
-        public string StrTimeStamp { get; set; }
-
-        public string yyyy { get; set; }
-        public string MM { get; set; }
-        public string dd { get; set; }
-        public string HH { get; set; }
-        public string mm { get; set; }
-
-        public string GroupChannel { get; set; }
-    }
+    
 
     public partial class tSiteAvailabilities
     {
@@ -2436,18 +2232,6 @@ public class Map : System.Web.Services.WebService
         public string dtmLoggerChanged { get; set; }
     }
 
-    public class SiteDatAll
-    {
-        public string SiteId { get; set; }
-        public string SiteAliasName { get; set; }
-        public string Location { get; set; }
-        public string DisplayGroup { get; set; }
-        public string District { get; set; }
-        public double Latitude { get; set; }
-        public string LoggerId { get; set; }
-        public double Longitude { get; set; }
-        public double Index { get; set; }
-        public List<MChannel> ListChannels { get; set; }
-    }
+    
 }
 

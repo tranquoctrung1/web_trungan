@@ -15,9 +15,6 @@ namespace WcfLoggerData.Action
             List<ChannelViewModel> list = new List<ChannelViewModel>();
             Connect connect = new Connect();
 
-            GetLastValueAction getLastValueAction = new GetLastValueAction();
-            GetCurrentTimeAction getCurrentTimeAction = new GetCurrentTimeAction();
-
             try
             {
                 string sqlQuery = $"select tc.Id as ChannelID, tc.LastTimeStamp as TimeStamp, tc.LastValue as Value, tc.Unit as Unit from t_Devices_ChannelsConfigs tc where LoggerId = '{loggerID}'";
@@ -41,7 +38,7 @@ namespace WcfLoggerData.Action
                         }
                         try
                         {
-                            el.Value = getLastValueAction.GetLastValue(el.ChannelId);
+                            el.Value = double.Parse(reader["Value"].ToString());
                         }
                         catch (Exception ex)
                         {
@@ -49,7 +46,7 @@ namespace WcfLoggerData.Action
                         }
                         try
                         {
-                            el.TimeStamp = getCurrentTimeAction.GetCurrentTime(el.ChannelId);
+                            el.TimeStamp = DateTime.Parse(reader["TimeSTamp"].ToString());
                         }
                         catch (Exception ex)
                         {

@@ -680,7 +680,6 @@ public class SiteBL
         return list;
     }
 
-
     public List<t_SiteCustomer> GetSiteForMapBySupervisorCustomLimit(string supervisorId)
     {
         List<t_SiteCustomer> list = new List<t_SiteCustomer>();
@@ -1484,4 +1483,1099 @@ public class SiteBL
 
         return list;
     }
+
+
+    public List<SiteDataAll> GetSiteForMobileByConsumerId(string consumerid)
+    {
+        List<SiteDataAll> list = new List<SiteDataAll>();
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select s.[Id], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_Site_Consumer] c on c.[SiteId] = s.[Id] where c.[ConsumerId] = '" + consumerid + "'";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    SiteDataAll el = new SiteDataAll();
+                    try
+                    {
+                        el.SiteId = reader["Id"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteId = "";
+                    }
+                    try
+                    {
+                        el.SiteAliasName = reader["Location"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteAliasName = "";
+                    }
+                    try
+                    {
+                        el.Longitude = double.Parse(reader["Longitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Longitude = 0;
+                    }
+                    try
+                    {
+                        el.Latitude = double.Parse(reader["Latitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Latitude = 0;
+                    }
+                    try
+                    {
+                        el.LoggerId = reader["Logger"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.LoggerId = "";
+                    }
+                    try
+                    {
+                        el.Location = reader["Address"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Location = "";
+                    }
+                    try
+                    {
+                        el.District = reader["District"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.District = "";
+                    }
+                    try
+                    {
+                        el.DisplayGroup = reader["Company"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DisplayGroup = "";
+                    }
+                    try
+                    {
+                        el.DelayTime = int.Parse(reader["DelayTime"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DelayTime = 60;
+                    }
+
+                    list.Add(el);
+                }
+            }
+
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return list;
+    }
+
+    public List<SiteDataAll> GetSitesFormMobileConsumerIdLimit(string consumerid)
+    {
+        List<SiteDataAll> list = new List<SiteDataAll>();
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select top(50) s.[Id], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_Site_Consumer] c on c.[SiteId] = s.[Id] where c.[ConsumerId] = '" + consumerid + "'";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    SiteDataAll el = new SiteDataAll();
+                    try
+                    {
+                        el.SiteId = reader["Id"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteId = "";
+                    }
+                    try
+                    {
+                        el.SiteAliasName = reader["Location"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteAliasName = "";
+                    }
+                    try
+                    {
+                        el.Longitude = double.Parse(reader["Longitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Longitude = 0;
+                    }
+                    try
+                    {
+                        el.Latitude = double.Parse(reader["Latitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Latitude = 0;
+                    }
+                    try
+                    {
+                        el.LoggerId = reader["Logger"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.LoggerId = "";
+                    }
+                    try
+                    {
+                        el.Location = reader["Address"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Location = "";
+                    }
+                    try
+                    {
+                        el.District = reader["District"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.District = "";
+                    }
+                    try
+                    {
+                        el.DisplayGroup = reader["Company"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DisplayGroup = "";
+                    }
+                    try
+                    {
+                        el.DelayTime = int.Parse(reader["DelayTime"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DelayTime = 60;
+                    }
+
+                    list.Add(el);
+                }
+            }
+
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return list;
+    }
+
+    public List<SiteDataAll> GetSitesForMobileByStaffId(string staffId)
+    {
+        List<SiteDataAll> list = new List<SiteDataAll>();
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select s.[Id], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company],  ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_Site_Consumer] c on c.[SiteId] = s.[Id] where c.[ConsumerId] = '" + staffId + "'";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    SiteDataAll el = new SiteDataAll();
+                    try
+                    {
+                        el.SiteId = reader["Id"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteId = "";
+                    }
+                    try
+                    {
+                        el.SiteAliasName = reader["Location"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteAliasName = "";
+                    }
+                    try
+                    {
+                        el.Longitude = double.Parse(reader["Longitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Longitude = 0;
+                    }
+                    try
+                    {
+                        el.Latitude = double.Parse(reader["Latitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Latitude = 0;
+                    }
+                    try
+                    {
+                        el.LoggerId = reader["Logger"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.LoggerId = "";
+                    }
+                    try
+                    {
+                        el.Location = reader["Address"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Location = "";
+                    }
+                    try
+                    {
+                        el.District = reader["District"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.District = "";
+                    }
+                    try
+                    {
+                        el.DisplayGroup = reader["Company"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DisplayGroup = "";
+                    }
+                    try
+                    {
+                        el.DelayTime = int.Parse(reader["DelayTime"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DelayTime = 60;
+                    }
+
+                    list.Add(el);
+                }
+            }
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return list;
+    }
+
+    public List<SiteDataAll> GetSitesForMobileByStaffIdLimit(string staffId)
+    {
+        List<SiteDataAll> list = new List<SiteDataAll>();
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select top(50) s.[Id], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company],  ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_Site_Consumer] c on c.[SiteId] = s.[Id] where c.[ConsumerId] = '" + staffId + "'";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    SiteDataAll el = new SiteDataAll();
+                    try
+                    {
+                        el.SiteId = reader["Id"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteId = "";
+                    }
+                    try
+                    {
+                        el.SiteAliasName = reader["Location"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteAliasName = "";
+                    }
+                    try
+                    {
+                        el.Longitude = double.Parse(reader["Longitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Longitude = 0;
+                    }
+                    try
+                    {
+                        el.Latitude = double.Parse(reader["Latitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Latitude = 0;
+                    }
+                    try
+                    {
+                        el.LoggerId = reader["Logger"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.LoggerId = "";
+                    }
+                    try
+                    {
+                        el.Location = reader["Address"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Location = "";
+                    }
+                    try
+                    {
+                        el.District = reader["District"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.District = "";
+                    }
+                    try
+                    {
+                        el.DisplayGroup = reader["Company"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DisplayGroup = "";
+                    }
+                    try
+                    {
+                        el.DelayTime = int.Parse(reader["DelayTime"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DelayTime = 60;
+                    }
+
+                    list.Add(el);
+                }
+            }
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return list;
+    }
+
+    public List<SiteDataAll> GetSiteForMobileBySupervisorId(string supervisorId)
+    {
+        List<SiteDataAll> list = new List<SiteDataAll>();
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select s.[Id], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company],  ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_Supervisor_District] c on c.[IdDistrict] = s.[District] where c.[IdStaff] = '" + supervisorId + "'";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    SiteDataAll el = new SiteDataAll();
+                    try
+                    {
+                        el.SiteId = reader["Id"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteId = "";
+                    }
+                    try
+                    {
+                        el.SiteAliasName = reader["Location"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteAliasName = "";
+                    }
+                    try
+                    {
+                        el.Longitude = double.Parse(reader["Longitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Longitude = 0;
+                    }
+                    try
+                    {
+                        el.Latitude = double.Parse(reader["Latitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Latitude = 0;
+                    }
+                    try
+                    {
+                        el.LoggerId = reader["Logger"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.LoggerId = "";
+                    }
+                    try
+                    {
+                        el.Location = reader["Address"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Location = "";
+                    }
+                    try
+                    {
+                        el.District = reader["District"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.District = "";
+                    }
+                    try
+                    {
+                        el.DisplayGroup = reader["Company"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DisplayGroup = "";
+                    }
+                    try
+                    {
+                        el.DelayTime = int.Parse(reader["DelayTime"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DelayTime = 60;
+                    }
+
+                    list.Add(el);
+                }
+            }
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return list;
+    }
+
+    public List<SiteDataAll> GetSiteForMobileBySupervisorIdLimit(string supervisorId)
+    {
+        List<SiteDataAll> list = new List<SiteDataAll>();
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select top(50) s.[Id], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company],  ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_Supervisor_District] c on c.[IdDistrict] = s.[District] where c.[IdStaff] = '" + supervisorId + "'";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    SiteDataAll el = new SiteDataAll();
+                    try
+                    {
+                        el.SiteId = reader["Id"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteId = "";
+                    }
+                    try
+                    {
+                        el.SiteAliasName = reader["Location"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteAliasName = "";
+                    }
+                    try
+                    {
+                        el.Longitude = double.Parse(reader["Longitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Longitude = 0;
+                    }
+                    try
+                    {
+                        el.Latitude = double.Parse(reader["Latitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Latitude = 0;
+                    }
+                    try
+                    {
+                        el.LoggerId = reader["Logger"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.LoggerId = "";
+                    }
+                    try
+                    {
+                        el.Location = reader["Address"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Location = "";
+                    }
+                    try
+                    {
+                        el.District = reader["District"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.District = "";
+                    }
+                    try
+                    {
+                        el.DisplayGroup = reader["Company"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DisplayGroup = "";
+                    }
+                    try
+                    {
+                        el.DelayTime = int.Parse(reader["DelayTime"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DelayTime = 60;
+                    }
+
+                    list.Add(el);
+                }
+            }
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return list;
+    }
+
+    public List<SiteDataAll> GetSiteForMobileByDMAId(string dmaid)
+    {
+        List<SiteDataAll> list = new List<SiteDataAll>();
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select s.[Id], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_DMA_DMA] c on c.[IdDMA] = s.[Company] where c.[IdStaff] = '" + dmaid + "'";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    SiteDataAll el = new SiteDataAll();
+                    try
+                    {
+                        el.SiteId = reader["Id"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteId = "";
+                    }
+                    try
+                    {
+                        el.SiteAliasName = reader["Location"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteAliasName = "";
+                    }
+                    try
+                    {
+                        el.Longitude = double.Parse(reader["Longitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Longitude = 0;
+                    }
+                    try
+                    {
+                        el.Latitude = double.Parse(reader["Latitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Latitude = 0;
+                    }
+                    try
+                    {
+                        el.LoggerId = reader["Logger"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.LoggerId = "";
+                    }
+                    try
+                    {
+                        el.Location = reader["Address"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Location = "";
+                    }
+                    try
+                    {
+                        el.District = reader["District"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.District = "";
+                    }
+                    try
+                    {
+                        el.DisplayGroup = reader["Company"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DisplayGroup = "";
+                    }
+                    try
+                    {
+                        el.DelayTime = int.Parse(reader["DelayTime"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DelayTime = 60;
+                    }
+
+                    list.Add(el);
+                }
+            }
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return list;
+    }
+
+    public List<SiteDataAll> GetSiteForMobileByDMAIdLimit(string dmaid)
+    {
+        List<SiteDataAll> list = new List<SiteDataAll>();
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select top(50) s.[Id], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id] join [t_DMA_DMA] c on c.[IdDMA] = s.[Company] where c.[IdStaff] = '" + dmaid + "'";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    SiteDataAll el = new SiteDataAll();
+                    try
+                    {
+                        el.SiteId = reader["Id"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteId = "";
+                    }
+                    try
+                    {
+                        el.SiteAliasName = reader["Location"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteAliasName = "";
+                    }
+                    try
+                    {
+                        el.Longitude = double.Parse(reader["Longitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Longitude = 0;
+                    }
+                    try
+                    {
+                        el.Latitude = double.Parse(reader["Latitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Latitude = 0;
+                    }
+                    try
+                    {
+                        el.LoggerId = reader["Logger"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.LoggerId = "";
+                    }
+                    try
+                    {
+                        el.Location = reader["Address"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Location = "";
+                    }
+                    try
+                    {
+                        el.District = reader["District"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.District = "";
+                    }
+                    try
+                    {
+                        el.DisplayGroup = reader["Company"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DisplayGroup = "";
+                    }
+                    try
+                    {
+                        el.DelayTime = int.Parse(reader["DelayTime"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DelayTime = 60;
+                    }
+
+                    list.Add(el);
+                }
+            }
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return list;
+    }
+
+    public List<SiteDataAll> GetSitesForMobile()
+    {
+        List<SiteDataAll> list = new List<SiteDataAll>();
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select s.[Id], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id]";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    SiteDataAll el = new SiteDataAll();
+                    try
+                    {
+                        el.SiteId = reader["Id"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteId = "";
+                    }
+                    try
+                    {
+                        el.SiteAliasName = reader["Location"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteAliasName = "";
+                    }
+                    try
+                    {
+                        el.Longitude = double.Parse(reader["Longitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Longitude = 0;
+                    }
+                    try
+                    {
+                        el.Latitude = double.Parse(reader["Latitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Latitude = 0;
+                    }
+                    try
+                    {
+                        el.LoggerId = reader["Logger"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.LoggerId = "";
+                    }
+                    try
+                    {
+                        el.Location = reader["Address"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Location = "";
+                    }
+                    try
+                    {
+                        el.District = reader["District"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.District = "";
+                    }
+                    try
+                    {
+                        el.DisplayGroup = reader["Company"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DisplayGroup = "";
+                    }
+                    try
+                    {
+                        el.DelayTime = int.Parse(reader["DelayTime"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DelayTime = 60;
+                    }
+
+                    list.Add(el);
+                }
+            }
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return list;
+    }
+
+
+    public List<SiteDataAll> GetSitesForMobileLimit()
+    {
+        List<SiteDataAll> list = new List<SiteDataAll>();
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select top(50) s.[Id], s.[Location], s.[Longitude], s.[Latitude], ds.[Id] as Logger, s.[Address], s.[District], s.[Company], ds.[DelayTime]  from [t_Site_Sites] s join [t_Devices_SitesConfigs] ds on ds.[SiteId] = s.[Id]";
+
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    SiteDataAll el = new SiteDataAll();
+                    try
+                    {
+                        el.SiteId = reader["Id"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteId = "";
+                    }
+                    try
+                    {
+                        el.SiteAliasName = reader["Location"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.SiteAliasName = "";
+                    }
+                    try
+                    {
+                        el.Longitude = double.Parse(reader["Longitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Longitude = 0;
+                    }
+                    try
+                    {
+                        el.Latitude = double.Parse(reader["Latitude"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Latitude = 0;
+                    }
+                    try
+                    {
+                        el.LoggerId = reader["Logger"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.LoggerId = "";
+                    }
+                    try
+                    {
+                        el.Location = reader["Address"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.Location = "";
+                    }
+                    try
+                    {
+                        el.District = reader["District"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.District = "";
+                    }
+                    try
+                    {
+                        el.DisplayGroup = reader["Company"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DisplayGroup = "";
+                    }
+                    try
+                    {
+                        el.DelayTime = int.Parse(reader["DelayTime"].ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        el.DelayTime = 60;
+                    }
+
+                    list.Add(el);
+                }
+            }
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return list;
+    }
 }
+
