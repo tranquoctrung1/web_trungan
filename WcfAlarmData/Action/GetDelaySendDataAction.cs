@@ -29,13 +29,14 @@ namespace WcfAlarmData.Action
 
                 if(loggerid.Trim() != "" && loggerid != null)
                 {
-                    int interval =  getIntervalTimeAction.GetIntervalTime(loggerid);
+                    // not interval yet
+                    //int interval =  getIntervalTimeAction.GetIntervalTime(loggerid);
 
                     // if null is interval = 15 minutes as default
 
                     double diff = (now - current.Value).TotalMinutes;
 
-                    if(diff  > (interval * 2))
+                    if(diff  > (120))
                     {
                         check = true;
                     }

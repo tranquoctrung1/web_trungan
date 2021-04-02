@@ -1187,6 +1187,9 @@
                         <telerik:RadScriptBlock ID="RadScriptBlock1" runat="server">
                             <script type="text/javascript">
 
+                                var urlMapArgis = 'https://trungangis.capnuoctrungan.vn/arcgis/rest/services/LOGGER/Logger_Mangluoi/MapServer';
+                                var urlMapArgisDMA = 'https://trungangis.capnuoctrungan.vn/arcgis/rest/services/LOGGER/Logger_DMA/MapServer';
+
                                 function OnClientBeforeClose(sender, args) {
                                     args.set_cancel(!confirm("Are you sure that you want to close alarm bar?"));
                                 }
