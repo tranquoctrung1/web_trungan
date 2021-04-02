@@ -27,6 +27,40 @@ public class Map : System.Web.Services.WebService
         //Uncomment the following line if using designed components 
         //InitializeComponent(); 
     }
+    [WebMethod]
+    public int CheckExistsToken(string token)
+    {
+        int check = 0;
+
+        Connect connect = new Connect();
+
+        try
+        {
+            string sqlQuery = "select * from DeviceTokenApp where DeviceToken like '" + token + "'";
+            connect.Connected();
+
+            SqlDataReader reader = connect.Select(sqlQuery);
+
+            if(reader.HasRows)
+            {
+                check = 1;
+            }
+            else
+            {
+                check = 0;
+            }
+        }
+        catch(SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connect.DisConnected();
+        }
+
+        return check;
+    }
 
     [WebMethod] 
     public List<GroupLogger> GetLimitData(string username)

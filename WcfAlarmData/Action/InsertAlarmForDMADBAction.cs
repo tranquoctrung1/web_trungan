@@ -16,29 +16,31 @@ namespace WcfAlarmData.Action
             int nRows = 0;
 
             Connect connect = new Connect();
-
-            try
+            if(list.Count > 0)
             {
-                string sqlQuery = $"insert into t_Histoty_Alarm_DMA values";
-
-                for (int i = 0;  i < list.Count; i++)
+                try
                 {
-                    sqlQuery += $"('{list[i].Company}', N'{list[i].Description}', '{list[i].StartDate}', NULL, '{list[i].Type}', N'{list[i].Content}', N'{list[i].Level}', '{list[i].IsFinish}'),";
+                    string sqlQuery = $"insert into t_Histoty_Alarm_DMA values";
+
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        sqlQuery += $"('{list[i].Company}', N'{list[i].Description}', '{list[i].StartDate}', NULL, '{list[i].Type}', N'{list[i].Content}', N'{list[i].Level}', '{list[i].IsFinish}'),";
+                    }
+
+                    sqlQuery += $"('{list[list.Count - 1].Company}', N'{list[list.Count - 1].Description}', '{list[list.Count - 1].StartDate}', NULL, '{list[list.Count - 1].Type}', N'{list[list.Count - 1].Content}', N'{list[list.Count - 1].Level}' , '{list[list.Count - 1].IsFinish}')";
+
+                    connect.Connected();
+
+                    nRows = connect.ExcuteNonQuery(sqlQuery);
                 }
-
-                sqlQuery += $"('{list[list.Count - 1].Company}', N'{list[list.Count - 1].Description}', '{list[list.Count - 1].StartDate}', NULL, '{list[list.Count - 1].Type}', N'{list[list.Count - 1].Content}', N'{list[list.Count - 1].Level}' , '{list[list.Count - 1].IsFinish}')";
-
-                connect.Connected();
-
-                nRows = connect.ExcuteNonQuery(sqlQuery);
-            }
-            catch(SqlException ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                connect.DisConnected();
+                catch (SqlException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    connect.DisConnected();
+                }
             }
 
             return nRows;

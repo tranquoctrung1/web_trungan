@@ -42,24 +42,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WcfAlarmData.exe" size="98776">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WcfAlarmData.exe" size="99288">
       <assemblyIdentity name="WcfAlarmData" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CiU6W26sWrmFRkFz7Qibb1fqJB8FvSCXmXQsHgzNMho=</dsig:DigestValue>
+        <dsig:DigestValue>4aE+sOqqIMOZVF+DeNpOhOo1gIORkYPZddsIBSg+iso=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="WcfAlarmData.exe.config" size="1210">
+  <file name="WcfAlarmData.exe.config" size="1208">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>lD135ikAxzgQaJTjYMAwpaY67fWYC90oXXa/2qhSAMk=</dsig:DigestValue>
+      <dsig:DigestValue>23+MAV2YGNkKVLe4OUkqeGi5UQ0rn5gExaDxmL5hNgc=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

@@ -156,87 +156,94 @@ namespace WcfLoggerData.Action
                         {
                             el.LastIndex = null;
                         }
-                        char numberChannel = ' ';
-                        if (el.ChannelId != "")
+                        try
                         {
-                            numberChannel = el.ChannelId[el.ChannelId.Length - 1];
-                            try
+                            char numberChannel = ' ';
+                            if (el.ChannelId != "")
                             {
-                                int temp = int.Parse(numberChannel.ToString());
+                                numberChannel = el.ChannelId[el.ChannelId.Length - 1];
+                                try
+                                {
+                                    int temp = int.Parse(numberChannel.ToString());
 
-                                if (temp == pressure1)
-                                {
-                                    el.Press1 = true;
-                                }
-                                else if (temp == pressure2)
-                                {
-                                    el.Press2 = true;
-                                }
-                                else if (temp == forward)
-                                {
-                                    el.Flow1 = true;
-                                }
-                                else if (temp == reverse)
-                                {
-                                    el.Flow2 = true;
-                                }
-                            }
-                            catch(Exception ex)
-                            {
-
-                            }
-                           
-                        }
-
-                        int status = 1;
-                        bool check = false;
-
-                        if(el.Timestamp == null)
-                        {
-                            status = 4;
-                            check = true;
-                        }
-                        if(check == false)
-                        {
-                            if (delayTime != null)
-                            {
-                                if (el.Timestamp != null)
-                                {
-                                    if ((DateTime.Now - (DateTime)el.Timestamp).TotalMinutes >= delayTime)
+                                    if (temp == pressure1)
                                     {
-                                        el.Status = 4;
-                                        check = true;
+                                        el.Press1 = true;
+                                    }
+                                    else if (temp == pressure2)
+                                    {
+                                        el.Press2 = true;
+                                    }
+                                    else if (temp == forward)
+                                    {
+                                        el.Flow1 = true;
+                                    }
+                                    else if (temp == reverse)
+                                    {
+                                        el.Flow2 = true;
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+
+                                }
+
+                            }
+
+                            int status = 1;
+                            bool check = false;
+
+                            if (el.Timestamp == null)
+                            {
+                                status = 4;
+                                check = true;
+                            }
+                            if (check == false)
+                            {
+                                if (delayTime != null)
+                                {
+                                    if (el.Timestamp != null)
+                                    {
+                                        if ((DateTime.Now - (DateTime)el.Timestamp).TotalMinutes >= delayTime)
+                                        {
+                                            el.Status = 4;
+                                            check = true;
+                                        }
                                     }
                                 }
                             }
-                        }
-                        if(check == false)
-                        {
-                            if(baseMin != null)
+                            if (check == false)
                             {
+                                if (baseMin != null)
+                                {
                                     if (el.Val != null)
                                     {
                                         if (el.Val < baseMin)
                                         {
                                             el.Status = 2;
-                                        check = true;
+                                            check = true;
                                         }
                                     }
                                 }
                             }
-                        if(check == false)
-                        {
-                            if (baseMax != null)
+                            if (check == false)
                             {
-                                if (el.Val != null)
+                                if (baseMax != null)
                                 {
-                                    if (el.Val > baseMax)
+                                    if (el.Val != null)
                                     {
-                                        el.Status = 2;
-                                        check = true;
+                                        if (el.Val > baseMax)
+                                        {
+                                            el.Status = 2;
+                                            check = true;
+                                        }
                                     }
                                 }
                             }
+                        }
+                        catch(Exception ex)
+                        {
+
                         }
                        
                         el.DisplayLabel = true;
