@@ -485,11 +485,11 @@
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li>
+                                    <%--<li>
                                         <a href="/_supervisor/logger/datalogger.aspx">
                                             <asp:Label ID="lbDataLoggerComplex" runat="server" Text="Dữ Liệu Logger"></asp:Label>
                                         </a>
-                                    </li>
+                                    </li>--%>
                                     <li>
                                         <a href="/_supervisor/logger/HourlyLogger.aspx">
                                             <asp:Label ID="lbQuantityHourlyLogger" runat="server" Text="Sản Lượng Giờ Theo Point"></asp:Label>
