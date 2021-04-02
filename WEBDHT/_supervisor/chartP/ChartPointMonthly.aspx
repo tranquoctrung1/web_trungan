@@ -10,6 +10,10 @@
             bottom: -40px;
             height: 440px
         }
+         #titleChart {
+            font-weight: bolder;
+            font-size: xx-large
+        }
     </style>
     <script type="text/javascript">
         // preventing resubmition form application
@@ -100,6 +104,7 @@
         <div class="container-fluid m-t">
             <div class="row">
                 <div class="col">
+                    <div id="titleChart" class="text-center"></div>
                     <div id="chart">
                     </div>
                 </div>
@@ -155,9 +160,6 @@
             let timeStart = start.get_selectedDate();
             let timeEnd = end.get_selectedDate();
 
-            console.log(timeStart);
-            console.log(timeEnd)
-
             let totalSecondStart = timeStart.getTime() / 1000;
             let totalSecondEnd = timeEnd.getTime() / 1000;
 
@@ -167,6 +169,8 @@
             axios.get(urlGetDataChart).then((res) => {
                 if (checkExistsData(res.data)) {
                     //drawChart(sortingData(convertData(res.data)), getListChannel(res.data));
+                    let titleChart = document.getElementById('titleChart');
+                    titleChart.innerHTML = `Đồ thị sản lượng tháng theo point ${siteid}`;
                     drawChartQuantity(converDataQuantity(res.data));
                 }
                 else {
@@ -214,8 +218,9 @@
 
                     axios.get(urlGetDataChart).then((res) => {
                         if (checkExistsData(res.data)) {
-                            console.log(res.data)
                             //drawChart(sortingData(convertData(res.data)), getListChannel(res.data));
+                            let titleChart = document.getElementById('titleChart');
+                            titleChart.innerHTML = `Đồ thị sản lượng tháng theo point ${siteid}`;
                             drawChartQuantity(converDataQuantity(res.data));
                         }
                         else {
@@ -392,7 +397,6 @@
                 var chart = am4core.create("chart", am4charts.XYChart);
 
                 chart.data = data;
-                console.log(data);
 
                 var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
                 dateAxis.renderer.grid.template.location = 0;
@@ -467,17 +471,26 @@
 
                 var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 
+                let siteIDCbo = $find('<%=cboSiteIds.ClientID %>');
+                let siteID = siteIDCbo.get_selectedItem().get_value();
+
+
                 // Create series
                 var series = chart.series.push(new am4charts.LineSeries());
+                series.name = siteID;
                 series.dataFields.valueY = "Value";
                 series.dataFields.dateX = "TimeStamp";
-                series.tooltipText = "{value}"
+                series.tooltipText = "{name}: [bold]{valueY.value}[/] m3";
 
                 series.tooltip.pointerOrientation = "vertical";
 
                 chart.cursor = new am4charts.XYCursor();
                 chart.cursor.snapToSeries = series;
                 chart.cursor.xAxis = dateAxis;
+
+                chart.legend = new am4charts.Legend();
+                chart.legend.parent = chart.plotContainer;
+                chart.legend.zIndex = 100;
 
                 //chart.scrollbarY = new am4core.Scrollbar();
                 chart.scrollbarX = new am4core.Scrollbar();

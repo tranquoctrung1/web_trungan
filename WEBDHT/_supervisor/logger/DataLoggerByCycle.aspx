@@ -402,6 +402,8 @@
 
                 chart.data = convertingData;
 
+                let channelid = document.getElementById('ctl00_ContentPlaceHolder1_cboChannels_ClientState');
+                let valueChannelid = JSON.parse(channelid.value).text;
                 // Create axes
                 var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
                 dateAxis.renderer.minGridDistance = 60;
@@ -410,9 +412,10 @@
 
                 // Create series
                 var series = chart.series.push(new am4charts.LineSeries());
+                series.name = valueChannelid;
                 series.dataFields.valueY = "Value";
                 series.dataFields.dateX = "TimeStamp";
-                series.tooltipText = "{value}"
+                series.tooltipText = "{name}: [bold]{valueY.value}[/]";
 
                 series.tooltip.pointerOrientation = "vertical";
 
