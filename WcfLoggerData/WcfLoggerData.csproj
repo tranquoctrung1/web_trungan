@@ -132,6 +132,7 @@
     <Compile Include="Action\GetDataDashBoardHourlySiteAction.cs" />
     <Compile Include="Action\GetDataDashBoardMonthlyAction.cs" />
     <Compile Include="Action\GetDataDashBoardYearlySiteAction.cs" />
+    <Compile Include="Action\GetDataDetailTableAction.cs" />
     <Compile Include="Action\GetDataHistoryAction.cs" />
     <Compile Include="Action\GetDataLoggerChangedAction.cs" />
     <Compile Include="Action\GetDataMeterChangedAction.cs" />
@@ -220,6 +221,7 @@
     <Compile Include="Controllers\GetDataStatisticMeterController.cs" />
     <Compile Include="Controllers\GetDataStatisticSiteController.cs" />
     <Compile Include="Controllers\GetDataStatisticTransmitterController.cs" />
+    <Compile Include="Controllers\GetDetailTableController.cs" />
     <Compile Include="Controllers\GetDisplayGroupByUidController.cs" />
     <Compile Include="Controllers\GetDisplayGroupController.cs" />
     <Compile Include="Controllers\GetDistrictBySupervisorController.cs" />
@@ -273,6 +275,7 @@
     <Compile Include="Models\DataReportMonthlySiteViewModel.cs" />
     <Compile Include="Models\DataReportMonthlyTotalViewModel.cs" />
     <Compile Include="Models\DataReportYearlySiteViewModel.cs" />
+    <Compile Include="Models\DetailTableViewModel.cs" />
     <Compile Include="Models\DistrictViewModel.cs" />
     <Compile Include="Models\GroupChannelByLoggerViewModel.cs" />
     <Compile Include="Models\GroupChannelViewModel.cs" />
@@ -336,6 +339,7 @@
     <Folder Include="Views\GetDataStatisticMeter\" />
     <Folder Include="Views\GetDataStatisticSite\" />
     <Folder Include="Views\GetDataStatisticTransmitter\" />
+    <Folder Include="Views\GetDetailTable\" />
     <Folder Include="Views\GetDisplayGroupByUid\" />
     <Folder Include="Views\GetDisplayGroup\" />
     <Folder Include="Views\GetDistrictBySupervisor\" />
