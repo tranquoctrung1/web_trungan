@@ -47,7 +47,7 @@
                                 EnableLoadOnDemand="True" Filter="StartsWith"
                                 HighlightTemplatedItems="True" DataSourceID="IdsDataSource"
                                 AutoPostBack="false" 
-                                TabIndex="1">
+                                TabIndex="1" onclientselectedindexchanged="OnClientSelectedIndexChanged">
                             </telerik:RadComboBox>
                             <asp:ObjectDataSource ID="IdsDataSource" runat="server"
                                 OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllIds"
@@ -153,6 +153,69 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
     <script type="text/javascript">
+
+        document.addEventListener('DOMContentLoaded', function () {
+            //document.getElementById('ContentPlaceHolder1_btnView').click();
+        });
+
+        function OnClientSelectedIndexChanged(sender, eventArgs) {
+            var item = eventArgs.get_item();
+           
+            
+
+            var hostname = window.location.origin;
+            if (hostname.indexOf("localhost") < 0)
+                hostname = hostname + "/VivaServices/";
+            else
+                hostname = "http://localhost:57880";
+
+            let urlGetCurrentTimeStampPressureChannelBySite = `${hostname}/api/getcurrenttimestamppressurechannelbysite?siteid=${item.get_text()}`;
+
+            axios.get(urlGetCurrentTimeStampPressureChannelBySite).then((res) => {
+                let start = document.getElementById('ctl00_ContentPlaceHolder1_dtmStart_dateInput_ClientState');
+                let end = document.getElementById('ctl00_ContentPlaceHolder1_dtmEnd_dateInput_ClientState');
+
+                let endTime;
+                let tempEndTime;
+                let startTime;
+
+                if (res.data != null) {
+                    endTime = new Date(res.data);
+                    tempEndTime = new Date(res.data);
+                    startTime = new Date(tempEndTime.setDate(tempEndTime.getDate() - 1));
+                }
+                else {
+                    endTime = new Date(Date.now());
+                    tempEndTime = new Date(Date.now());
+                    startTime = new Date(tempEndTime.setDate(tempEndTime.getDate() - 1));
+                }
+                 
+
+                let s = convertValueAsStringFromDateAPI(startTime);
+                let e = convertValueAsStringFromDateAPI(endTime);
+
+                var sValue = JSON.parse(start.value);
+                sValue.validationText = s;
+                sValue.valueAsString = s;
+                sValue.lastSetTextBoxValue = convertLastSetTextBoxValueFromDateAPI(startTime);
+
+                start.value = "";
+                start.value = JSON.stringify(sValue);
+
+                var eValue = JSON.parse(end.value);
+                eValue.validationText = e;
+                eValue.valueAsString = e;
+                eValue.lastSetTextBoxValue = convertLastSetTextBoxValueFromDateAPI(endTime);
+
+                end.value = "";
+                end.value = JSON.stringify(eValue);
+
+                document.getElementById('ContentPlaceHolder1_btnView').click();
+
+            }).catch((err) => console.log(err));
+
+        }
+
         function btnView_Click() {
             let loadingElement = document.getElementById('loading');
 
@@ -169,6 +232,7 @@
             let valueSiteid = siteid.value;
             let valueStart = JSON.parse(start.value).valueAsString;
             let valueEnd = JSON.parse(end.value).valueAsString;
+
 
             if (valueSiteid.trim() == "" || valueSiteid == null || valueSiteid == undefined) {
                 alert("Chưa có mã kênh!!");
@@ -214,6 +278,31 @@
             }
 
             return true;
+        }
+
+        function convertValueAsStringFromDateAPI(date) {
+            let year = date.getFullYear();
+            let month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+            let day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+            let hours = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
+            let minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+            let seconds = date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds();
+            let result = `${year}-${month}-${day}-${hours}-${minutes}-${seconds}`;
+
+            return result;
+        }
+
+        function convertLastSetTextBoxValueFromDateAPI(date) {
+            let year = date.getFullYear();
+            let month = date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth();
+            let day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+            let hours = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
+            let minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+            let seconds = date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds();
+
+            let result = `${day}/${month}/${year}`;
+
+            return result;
         }
 
         function convertDate(date) {

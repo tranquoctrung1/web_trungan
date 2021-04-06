@@ -123,6 +123,7 @@
     <Compile Include="Action\GetChannelConfigAction.cs" />
     <Compile Include="Action\GetChannelDataDailyAction.cs" />
     <Compile Include="Action\GetCurrentTimeAction.cs" />
+    <Compile Include="Action\GetCurrentTimeStampPressureChannelBySiteAction.cs" />
     <Compile Include="Action\GetDataAccreditedMeterAction.cs" />
     <Compile Include="Action\GetDataBatterryChangedAciton.cs" />
     <Compile Include="Action\GetDataBatteryLoggerChangedAction.cs" />
@@ -199,6 +200,7 @@
     <Compile Include="Controllers\GetChannelDataDailyController.cs" />
     <Compile Include="Controllers\GetComplexDataByUidController.cs" />
     <Compile Include="Controllers\GetCurrentTimeController.cs" />
+    <Compile Include="Controllers\GetCurrentTimeStampPressureChannelBySiteController.cs" />
     <Compile Include="Controllers\GetDataChartController.cs" />
     <Compile Include="Controllers\GetDataComplexController.cs" />
     <Compile Include="Controllers\GetDataDashBoardDailySiteController.cs" />
@@ -317,6 +319,7 @@
     <Folder Include="Views\GetChannelDataChart\" />
     <Folder Include="Views\GetChannelDataDaily\" />
     <Folder Include="Views\GetComplexDataByUid\" />
+    <Folder Include="Views\GetCurrentTimeStampPressureChannelBySite\" />
     <Folder Include="Views\GetCurrentTime\" />
     <Folder Include="Views\GetDataChart\" />
     <Folder Include="Views\GetDataDailyManager\" />
