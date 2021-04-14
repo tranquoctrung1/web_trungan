@@ -11,7 +11,7 @@
         <script src="../../js/leaflet/leaflet.1.6.0.js"></script>
         <script src="../../js/leaflet/context-menu.js"></script>
         <script src="../../js/leaflet/kmllayer.js"></script>
-
+        <script src="../../js/leaflet/esri-leaflet.js"></script>
         <script src="../../js/jquery-1.7.2.min.js"></script>
         <script src="../../js/amcharts/amcharts.js"></script>
         <script src="../../js/amcharts/serial.js"></script>
@@ -827,7 +827,10 @@
                                     <img src="../../App_Themes/filter.png" />
                                     <span class="tooltiptext">LỌC POINT</span>
                                 </a>
-
+                                <a href="#" class="icon-right width-layer-icon custom-tooltip" data-toggle="control-sidebar" id="icon_collap_layer_menu" onclick="customLayer()">
+                                    <img src="../../App_Themes/layer.png" />
+                                    <span class="tooltiptext">LAYERS</span>
+                                </a>
                                 <div id="map_canvas">
                                 </div>
 
@@ -1052,7 +1055,28 @@
                                         <div id="filterSitesDistrictArea">
                                         </div>
                                     </div>
+                                    <div class="tab-content" id="tab_menu_4">
+                                        <div>
+                                            <h4 class="text-white">
+                                                <asp:Label Text="Layers" ID="lbFilterLayer" runat="server" />
+                                            </h4>
+                                        </div>
+                                        <div id="layerArea">
+                                            <div class="checkbox">
+                                                <div>
+                                                    <input type="checkbox" class="custom-checkbox"  value="" id="ckArea">
+                                                    <asp:Label Text="Mạng lưới Logger" ID="lbAreaLayer" runat="server" />
+                                                </div>
+                                            </div>
+                                            <div class="checkbox">
+                                                <div>
+                                                    <input type="checkbox" class="custom-checkbox"  value="" id="ckPipeLineLV2">
+                                                    <asp:Label Text="Mạng lưới DMA" ID="lbPipeLV2Layer" runat="server" />
+                                                </div>
+                                            </div>
+                                        </div>
 
+                                    </div>
                                 </div>
                                 <div class="control-sidebar-bg"></div>
                             </telerik:RadPane>
@@ -1864,7 +1888,7 @@
                                     let icon_collap_rightmenu = document.getElementById('icon_collap_rightmenu');
                                     let icon_collap_setting_menu = document.getElementById('icon_collap_setting_menu');
                                     let icon_collap_filter_menu = document.getElementById('icon_collap_filter_menu');
-                                    //let icon_collap_layer_menu = document.getElementById('icon_collap_layer_menu');
+                                    let icon_collap_layer_menu = document.getElementById('icon_collap_layer_menu');
 
                                     //L.Control.Watermark = L.Control.extend({
                                     //    onAdd: function (map) {
@@ -1922,6 +1946,22 @@
                                     L.Control.Watermark = L.Control.extend({
                                         onAdd: function (map) {
                                             return icon_collap_filter_menu
+                                        },
+
+                                        onRemove: function (map) {
+                                            // Nothing to do here
+                                        }
+                                    });
+
+                                    L.control.watermark = function (opts) {
+                                        return new L.Control.Watermark(opts);
+                                    }
+
+                                    L.control.watermark({ position: 'topright' }).addTo(map);
+
+                                    L.Control.Watermark = L.Control.extend({
+                                        onAdd: function (map) {
+                                            return icon_collap_layer_menu
                                         },
 
                                         onRemove: function (map) {
@@ -2150,6 +2190,58 @@
                                     FillDiaplayGroups();
                                     FillDistrict();
                                 }
+
+
+                                // add tick or untick for layer logger network
+                                let loggerNetworkArgis;
+
+                                document.getElementById('ckArea').addEventListener('change', function (e) {
+                                    if (this.checked == true) {
+                                        showAreaLayerKML();
+                                    }
+                                    else {
+                                        hideAreaLayerKML();
+                                    }
+                                })
+
+                                function showAreaLayerKML() {
+
+                                    loggerNetworkArgis = L.esri.dynamicMapLayer({
+                                        url: urlMapArgis,
+                                        opacity: 0.7
+                                    }).addTo(map);
+                                }
+
+                                function hideAreaLayerKML() {
+                                    map.removeLayer(loggerNetworkArgis);
+                                }
+
+                                // add tick or untick for layer dma network
+
+                                let DMANetworkArgis;
+
+                                document.getElementById('ckPipeLineLV2').addEventListener('change', function (e) {
+                                    if (this.checked == true) {
+                                        showDMAAreaLayerKML();
+                                    }
+                                    else {
+                                        hideDMAAreaLayerKML();
+                                    }
+                                })
+
+                                function showDMAAreaLayerKML() {
+
+                                    DMANetworkArgis = L.esri.dynamicMapLayer({
+                                        url: urlMapArgisDMA,
+                                        opacity: 0.7
+                                    }).addTo(map);
+                                }
+
+                                function hideDMAAreaLayerKML() {
+                                    map.removeLayer(DMANetworkArgis);
+                                }
+
+
 
 
                                 let prevMarker;
