@@ -323,7 +323,15 @@ public partial class _supervisor_site_info : BasePage
 
         var siteConfig = _siteConfigBLL.GetBySiteId(site.Id);
 
-        site.Logger = siteConfig.Id;
+        try
+        {
+            site.Logger = siteConfig.Id;
+
+        }
+        catch(Exception ex)
+        {
+            site.Logger = "";
+        }
         if (site != null)
         {
             SetSiteControlValues(site);

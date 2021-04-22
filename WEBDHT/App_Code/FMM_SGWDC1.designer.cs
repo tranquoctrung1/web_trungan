@@ -350,7 +350,7 @@ namespace WEBDHT.App_Code
 			}
 		}
 		
-		public System.Data.Linq.Table<ReportSiteLoggerHistory> ReportSiteLoggerHistories
+		public System.Data.Linq.Table<ReportSiteLoggerHistory> ReportSiteLoggerHistoriesf
 		{
 			get
 			{
@@ -1012,6 +1012,8 @@ namespace WEBDHT.App_Code
 		private System.Nullable<bool> _Installed;
 		
 		private string _Description;
+
+		private string _SerialLogger;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1033,8 +1035,11 @@ namespace WEBDHT.App_Code
     partial void OnInstalledChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
-    #endregion
-		
+	partial void OnSerialLoggerChanging(string value);
+	partial void OnSerialLoggerChanged();
+
+		#endregion
+
 		public Logger()
 		{
 			OnCreated();
@@ -1059,7 +1064,27 @@ namespace WEBDHT.App_Code
 				}
 			}
 		}
-		
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SerialLogger", DbType = "NVarChar(255) NOT NULL")]
+		public string SerialLogger
+		{
+			get
+			{
+				return this._SerialLogger;
+			}
+			set
+			{
+				if ((this._SerialLogger != value))
+				{
+					this.OnSerialLoggerChanging(value);
+					this.SendPropertyChanging();
+					this._SerialLogger = value;
+					this.SendPropertyChanged("SerialLogger");
+					this.OnSerialLoggerChanged();
+				}
+			}
+		}
+
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReceiptDate", DbType="DateTime")]
 		public System.Nullable<System.DateTime> ReceiptDate
 		{

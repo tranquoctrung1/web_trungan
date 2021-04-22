@@ -127,6 +127,7 @@ public partial class _supervisor_device_logger : BasePage
         {
             logger.YearBattery = int.Parse(yearBattery.Text);
         }
+        logger.SerialLogger = txtSerialLogger.Text;
         return logger;
     }
     private void SetControlValues(Logger logger)
@@ -147,5 +148,6 @@ public partial class _supervisor_device_logger : BasePage
         dtmAccreditation.SelectedDate = logger.DateAccreditation;
         dtmInstallBattery.SelectedDate = logger.DateInstallBattery;
         yearBattery.Text = logger.YearBattery.ToString();
+        txtSerialLogger.Text = logger.SerialLogger;
     }
 }

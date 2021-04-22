@@ -1134,6 +1134,7 @@ public partial class Logger : INotifyPropertyChanging, INotifyPropertyChanged
 	private Nullable<DateTime> _DateInstallBattery;
 
 	private Nullable<int> _YearBattery;
+	private string _SerialLogger;
 
 	#region Extensibility Method Definitions
 	partial void OnLoaded();
@@ -1162,6 +1163,10 @@ public partial class Logger : INotifyPropertyChanging, INotifyPropertyChanged
 	partial void OnDateInstallBatteryChanged();
 	partial void OnYearBatteryChanging(Nullable<int> value);
 	partial void OnYearBatteryChanged();
+
+	partial void OnSerialLoggerChanging(string value);
+
+	partial void OnSerialLoggerChanged();
 	#endregion
 
 	public Logger()
@@ -1188,7 +1193,27 @@ public partial class Logger : INotifyPropertyChanging, INotifyPropertyChanged
 			}
 		}
 	}
-	
+
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SerialLogger", DbType = "NVarChar(255) NOT NULL")]
+	public string SerialLogger
+	{
+		get
+		{
+			return this._SerialLogger;
+		}
+		set
+		{
+			if ((this._SerialLogger != value))
+			{
+				this.OnSerialLoggerChanging(value);
+				this.SendPropertyChanging();
+				this._SerialLogger = value;
+				this.SendPropertyChanged("SerialLogger");
+				this.OnSerialLoggerChanged();
+			}
+		}
+	}
+
 	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReceiptDate", DbType="DateTime")]
 	public System.Nullable<System.DateTime> ReceiptDate
 	{

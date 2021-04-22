@@ -27,7 +27,7 @@
                 <div class="col-sm-6">
                     <div class="group-text">
                         <div class="row">
-                            <span>Serial</span>
+                            <span>ID Logger</span>
                         </div>
                         <div class="row m-b">
                             <telerik:RadComboBox ID="cboSerials" runat="server" AllowCustomText="True"
@@ -120,7 +120,16 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-
+                     <div class="group-text">
+                        <div class="row">
+                            <span>Serial Logger</span>
+                        </div>
+                        <div class="row m-b">
+                           <telerik:RadTextBox ID="txtSerialLogger" runat="server" Height="50px"
+                                 TabIndex="8" Style="top: 0px; left: 0px">
+                            </telerik:RadTextBox>
+                        </div>
+                    </div>
                     <div class="group-text">
                         <div class="row">
                             <span>Ngày nhập kho</span>
@@ -271,6 +280,7 @@
                     <telerik:AjaxUpdatedControl ControlID="dtmInstallBattery" />
                     <telerik:AjaxUpdatedControl ControlID="yearBattery" />
                     <telerik:AjaxUpdatedControl ControlID="dtmAccreditation" />
+                    <telerik:AjaxUpdatedControl ControlID="txtSerialLogger" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="btnAdd">
@@ -287,6 +297,7 @@
                     <telerik:AjaxUpdatedControl ControlID="dtmInstallBattery" />
                     <telerik:AjaxUpdatedControl ControlID="yearBattery" />
                     <telerik:AjaxUpdatedControl ControlID="dtmAccreditation" />
+                    <telerik:AjaxUpdatedControl ControlID="txtSerialLogger" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="btnDelete">
