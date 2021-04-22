@@ -17,7 +17,7 @@ namespace WcfLoggerData.Action
             Connect connect = new Connect();
             try
             {
-                string sqlQuery = $"select Id, OldId, Location, Meter, Transmitter, Logger, Company, DMAOut, District, Status from [t_Site_Sites] order by Id";
+                string sqlQuery = $"select s.Id, s.OldId, s.Location, s.Meter, s.Transmitter, dl.Serial, dl.SerialLogger, s.Company, s.DMAOut, s.District, s.Status from [t_Site_Sites] s join t_Devices_SitesConfigs ds on s.Id = ds.SiteId join t_Devices_Loggers dl on dl.Serial = ds.Id  order by s.Id";
 
                 connect.Connected();
 
@@ -70,7 +70,7 @@ namespace WcfLoggerData.Action
                         }
                         try
                         {
-                            el.Logger = reader["Logger"].ToString();
+                            el.Logger = reader["Serial"].ToString();
                         }
                         catch (Exception ex)
                         {
@@ -107,6 +107,14 @@ namespace WcfLoggerData.Action
                         catch (Exception ex)
                         {
                             el.Status = "";
+                        }
+                        try
+                        {
+                            el.SerialLogger = reader["SerialLogger"].ToString();
+                        }
+                        catch(Exception ex)
+                        {
+                            el.SerialLogger = "";
                         }
 
                         list.Add(el);

@@ -58,5 +58,6 @@ namespace WcfLoggerData.Models
         public string ApprovalDecision { get; set; }
 
         public string DMAOut { get; set; }
+        public string SerialLogger { get; set; }
     }
 }

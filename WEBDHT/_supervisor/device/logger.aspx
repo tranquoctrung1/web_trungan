@@ -298,6 +298,7 @@
                     <telerik:AjaxUpdatedControl ControlID="yearBattery" />
                     <telerik:AjaxUpdatedControl ControlID="dtmAccreditation" />
                     <telerik:AjaxUpdatedControl ControlID="txtSerialLogger" />
+
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="btnDelete">

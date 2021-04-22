@@ -29,11 +29,11 @@
         <thead>
             <tr>
                 <th>Mã Point</th>
-                <th>Mã Point Cũ</th>
-                <th>Vị Trí</th>
+                <th>Tên Point</th>
                 <th>Meter</th>
                 <th>Transmitter</th>
-                <th>Logger</th>
+                <th>Logger Id</th>
+                <th>Serial Logger</th>
                 <th>DMA vào</th>
                 <th>DMA ra</th>
                 <th>Quận</th>
@@ -48,11 +48,11 @@
         <tfoot  class="text-center">
             <tr>
                 <th>Mã Point</th>
-                <th>Mã Point Cũ</th>
-                <th>Vị Trí</th>
+                <th>Tên Point</th>
                 <th>Meter</th>
                 <th>Transmitter</th>
-                <th>Logger</th>
+                <th>Logger Id</th>
+                <th>Serial Logger</th>
                 <th>DMA vào</th>
                 <th>DMA ra</th>
                 <th>Quận</th>
@@ -115,7 +115,7 @@
 
                 talbe = $('#example').DataTable({
                     initComplete: function () {
-                        this.api().columns([6, 7, 8, 9]).every(function () {
+                        this.api().columns([2, 3, 4, 5, 6, 7, 8, 9]).every(function () {
                             var column = this;
                             var select = $('<select><option value=""></option></select>')
                                 .appendTo($(column.footer()).empty())
@@ -150,11 +150,11 @@
                     content += `<tr>`;
                     if (isEmpty(item) == false && item != null && item != undefined) {
                         content += `<td>${item.Id}</td>`;
-                        content += `<td>${item.OldId}</td>`;
                         content += `<td>${item.Location}</td>`;
                         content += `<td>${item.Meter}</td>`;
                         content += `<td>${item.Transmitter}</td>`;
                         content += `<td>${item.Logger}</td>`;
+                        content += `<td>${item.SerialLogger}</td>`
                         content += `<td>${item.Company}</td>`;
                         content += `<td>${item.DMAOut}</td>`;
                         content += `<td>${item.District}</td>`;
