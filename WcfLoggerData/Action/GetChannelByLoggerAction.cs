@@ -36,6 +36,7 @@ namespace WcfLoggerData.Action
                         int? timeDelay = null;
                         double? basemax = null;
                         double? basemin = null;
+                        double? pressure = null;
                         bool check = false;
                         try
                         {
@@ -141,7 +142,7 @@ namespace WcfLoggerData.Action
                         }
                         catch (Exception ex)
                         {
-                            timeDelay = null;
+                            timeDelay = 60;
                         }
                         try
                         {
@@ -159,6 +160,11 @@ namespace WcfLoggerData.Action
                         {
                             basemin = null;
                         }
+                        if(el.Press1 == true || el.Press2 == true)
+                        {
+                            pressure = el.Val;
+                        }
+
                         el.Status = 1;
                         if(el.Timestamp == null)
                         {
@@ -176,6 +182,17 @@ namespace WcfLoggerData.Action
                                         el.Status = 4;
                                         check = true;
                                     }
+                                }
+                            }
+                        }
+                        if(check == false )
+                        {
+                            if(pressure != null)
+                            {
+                                if(pressure <= 0)
+                                {
+                                    el.Status = 2;
+                                    check = true;
                                 }
                             }
                         }
@@ -201,7 +218,24 @@ namespace WcfLoggerData.Action
                                 }
                             }
                         }
-                            
+                        if(check == false)
+                        {
+                            if (el.Timestamp != null)
+                            {
+                                GetHistoryDataLoggerAtOneTimeAction getHistoryDataLoggerAtOneTimeAction = new GetHistoryDataLoggerAtOneTimeAction();
+
+                                var data = getHistoryDataLoggerAtOneTimeAction.GetHistoryDataLoggerAtOneTime(el.ChannelId, el.Timestamp.Value);
+
+                                if(data.Value != null)
+                                {
+                                    if((el.Val / data.Value.Value) >= 0.3)
+                                    {
+                                        el.Status = 3;
+                                        check = true;
+                                    }
+                                }
+                            }
+                        }
                         list.Add(el);
 
                     }

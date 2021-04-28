@@ -45,7 +45,6 @@ namespace WcfLoggerData.Action
 
             try
             {
-                
 
                 connect.Connected();
 
