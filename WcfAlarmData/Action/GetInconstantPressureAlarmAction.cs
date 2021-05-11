@@ -44,7 +44,7 @@ namespace WcfLoggerData.Action
                 {
                     if(minPress != preMinPress )
                     {
-                        double percent = Math.Abs(minPress?? 0 - preMinPress??0) / 100;
+                        double percent = Math.Abs(minPress?? 0 / preMinPress??0) * 100;
 
                         for (int i = 0; i < listLevelAlarm.Count; i++)
                         {

@@ -37,7 +37,7 @@ namespace WcfLoggerData.Action
 
                 if(mnf != null && premnf != null)
                 {
-                    double percent = Math.Abs(mnf?? 0 - premnf?? 0) / 100;
+                    double percent = Math.Abs(mnf?? 0 / premnf?? 0) * 100;
 
                     for (int i = 0; i < listLevelAlarm.Count; i++)
                     {

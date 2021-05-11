@@ -35,7 +35,7 @@ namespace WcfLoggerData.Action
                 {
                     if (Qit < prevQit)
                     {
-                        double percent = (prevQit ?? 0 - Qit ?? 0) / 100;
+                        double percent = (prevQit ?? 0 / Qit ?? 0) * 100;
                         for (int i = 0; i < listLevelAlarm.Count; i++)
                         {
 

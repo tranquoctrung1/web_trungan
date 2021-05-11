@@ -33,7 +33,7 @@ namespace WcfAlarmData
 
             // Create a Timer object that knows to call our TimerCallback
             // method once every 2000 milliseconds.
-            Timer t = new Timer(TimerCallback, null, 0, 1000 * 60 * 15 );
+            Timer t = new Timer(TimerCallback, null, 0, 1000 * 60 * 20);
             // Wait for the user to hit <Enter>
             Console.ReadLine();
 

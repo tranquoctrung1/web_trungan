@@ -31,7 +31,7 @@ namespace WcfAlarmData.Action
 
             if (QnetD != null && QnetMD != null)
             {
-                double percent = (Math.Abs(QnetD ?? 0 - QnetMD ?? 0)) / 100;
+                double percent = (Math.Abs(QnetD ?? 0 / QnetMD ?? 0)) * 100;
 
                 for (int i = 0; i < listLevelAlarm.Count; i++)
                 {
