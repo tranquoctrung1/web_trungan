@@ -47,7 +47,7 @@ namespace WcfAlarmData.Action
                     }
                     else if (i == listLevelAlarm.Count - 1)
                     {
-                        if (percent > 0 && percent <= listLevelAlarm[i].Value)
+                        if ( percent == listLevelAlarm[i].Value)
                         {
                             result = listLevelAlarm[i].Level;
                             currentValue = QnetD;
