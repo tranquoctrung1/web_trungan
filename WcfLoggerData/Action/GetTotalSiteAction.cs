@@ -17,7 +17,7 @@ namespace WcfLoggerData.Action
 
             try
             {
-                string sqlQuery = "select Count(*) as Amount from t_Site_Sites";
+                string sqlQuery = "select count(*) as Amount from t_Site_Sites s join t_Devices_SitesConfigs d on d.SiteId = s.Id";
 
                 connect.Connected();
 

@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="statisticpointbystatus.aspx.cs" Inherits="_supervisor_report_statisticpointbystatus" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../css/Config.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
     <style>
@@ -19,52 +19,58 @@
     </style>
 
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main-content2">
         <div id="main-content-title">
             <h2 class="title">Thống Kê Point Theo Tình Trạng</h2>
         </div>
-         <div class="container-fluid m-t">
-            <table id="example" class="display" style="width:100%">
-        <thead>
-            <tr>
-                <th>Mã Point</th>
-                <th>Tên Point</th>
-                <th>Meter</th>
-                <th>Transmitter</th>
-                <th>Logger Id</th>
-                <th>Serial Logger</th>
-                <th>DMA vào</th>
-                <th>DMA ra</th>
-                <th>Quận</th>
-                <th>Tình Trạng</th>
-            </tr>
-        </thead>
-        <tbody id="body" class="text-center">
-             <div class="loading">
-                <img id="loading" class="hide" src="../../2.gif" />
-            </div>
-        </tbody>
-        <tfoot  class="text-center">
-            <tr>
-                <th>Mã Point</th>
-                <th>Tên Point</th>
-                <th>Meter</th>
-                <th>Transmitter</th>
-                <th>Logger Id</th>
-                <th>Serial Logger</th>
-                <th>DMA vào</th>
-                <th>DMA ra</th>
-                <th>Quận</th>
-                <th>Tình Trạng</th>
-            </tr>
-        </tfoot>
-    </table>
-         </div>
-            
+        <div class="container-fluid m-t">
+            <table id="example" class="display" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>Mã Point</th>
+                        <th>Tên Point</th>
+                        <th>Meter</th>
+                        <th>Transmitter</th>
+                        <th>Logger Id</th>
+                        <th>Serial Logger</th>
+                        <th>DMA vào</th>
+                        <th>DMA ra</th>
+                        <th>Quận</th>
+                        <th>Tình Trạng</th>
+                    </tr>
+                </thead>
+                <tbody id="body" class="text-center">
+                    <div class="loading">
+                        <img id="loading" class="hide" src="../../2.gif" />
+                    </div>
+                </tbody>
+                <tfoot class="text-center">
+                    <tr>
+                        <th>Mã Point</th>
+                        <th>Tên Point</th>
+                        <th>Meter</th>
+                        <th>Transmitter</th>
+                        <th>Logger Id</th>
+                        <th>Serial Logger</th>
+                        <th>DMA vào</th>
+                        <th>DMA ra</th>
+                        <th>Quận</th>
+                        <th>Tình Trạng</th>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
+
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
     <script>
 
         let loadingElement = document.getElementById('loading');
@@ -133,7 +139,22 @@
                                 select.append('<option value="' + d + '">' + d + '</option>')
                             });
                         });
-                    }
+                    },
+                    dom: 'Bfrtip',
+                    buttons: [
+                        {
+                            extend: 'excelHtml5',
+                            title: 'Thong_Ke_Point_Theo_Tinh_Trang'
+                        },
+                        {
+                            extend: 'csvHtml5',
+                            title: 'Thong_Ke_Point_Theo_Tinh_Trang'
+                        },
+                        {
+                            extend: 'pdfHtml5',
+                            title: 'Thong_Ke_Point_Theo_Tinh_Trang'
+                        }
+                    ]
                 });
 
             }).catch(err => console.log(err))
@@ -184,7 +205,7 @@
         //    createBody(data);
         //})
 
-       
+
     </script>
 </asp:Content>
 

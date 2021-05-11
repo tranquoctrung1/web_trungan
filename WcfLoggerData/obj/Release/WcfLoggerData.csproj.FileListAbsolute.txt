@@ -71,3 +71,4 @@ D:\project\web_trungan\WcfLoggerData\obj\Release\WcfLoggerData.csproj.CoreCompil
 D:\project\web_trungan\WcfLoggerData\obj\Release\WcfLoggerData.csproj.CopyComplete
 D:\project\web_trungan\WcfLoggerData\obj\Release\WcfLoggerData.dll
 D:\project\web_trungan\WcfLoggerData\obj\Release\WcfLoggerData.pdb
+D:\project\web_trungan\WcfLoggerData\obj\Release\WcfLoggerData.csprojAssemblyReference.cache
