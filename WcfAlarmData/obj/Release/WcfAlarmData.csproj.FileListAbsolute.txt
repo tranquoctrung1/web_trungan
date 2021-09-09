@@ -10,3 +10,4 @@ D:\project\web_trungan\WcfAlarmData\obj\Release\WcfAlarmData.application
 D:\project\web_trungan\WcfAlarmData\obj\Release\WcfAlarmData.exe
 D:\project\web_trungan\WcfAlarmData\obj\Release\WcfAlarmData.pdb
 D:\project\web_trungan\WcfAlarmData\obj\Release\WcfAlarmData.XmlSerializers.dll
+D:\project\web_trungan\WcfAlarmData\obj\Release\WcfAlarmData.csproj.AssemblyReference.cache

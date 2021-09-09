@@ -26,14 +26,14 @@ namespace WcfAlarmData
             var handle = GetConsoleWindow();
 
             // Hide
-           // ShowWindow(handle, SW_HIDE);
+            ShowWindow(handle, SW_HIDE);
 
             // Show
-            ShowWindow(handle, SW_SHOW);
+            //ShowWindow(handle, SW_SHOW);
 
             // Create a Timer object that knows to call our TimerCallback
             // method once every 2000 milliseconds.
-            Timer t = new Timer(TimerCallback, null, 0, 1000 * 60 * 20);
+            Timer t = new Timer(TimerCallback, null, 0, 1000 * 60 * 120);
             // Wait for the user to hit <Enter>
             Console.ReadLine();
 

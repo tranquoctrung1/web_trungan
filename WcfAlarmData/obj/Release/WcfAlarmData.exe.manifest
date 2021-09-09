@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/OKMxCK9Qur78Os0Yau3gyKyJkGXI/QAUb5hL3vAOoI=</dsig:DigestValue>
+        <dsig:DigestValue>LSPOob1XgmQt4Cs/RhAWm3z84KskZQl1y5CwTBRQ3Fo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,17 +61,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XXWXDqeOpLXk4KX1BWZ72M8CvStKPbfE402cg1f80nI=</dsig:DigestValue>
+        <dsig:DigestValue>E4ka3l+mWnKIbSXp/j7nfHJiWLTihKK0WJSK2DpDDdI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="WcfAlarmData.exe.config" size="1208">
+  <file name="WcfAlarmData.exe.config" size="1209">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>23+MAV2YGNkKVLe4OUkqeGi5UQ0rn5gExaDxmL5hNgc=</dsig:DigestValue>
+      <dsig:DigestValue>EihtoXVCExv9fWTCzdZ8qLjs6vKirs1AvatnkEMAkiI=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
