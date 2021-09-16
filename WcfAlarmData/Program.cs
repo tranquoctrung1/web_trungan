@@ -27,29 +27,31 @@ namespace WcfAlarmData
 
             // Hide
             ShowWindow(handle, SW_HIDE);
-
-            // Show
-            //ShowWindow(handle, SW_SHOW);
-
-            // Create a Timer object that knows to call our TimerCallback
-            // method once every 2000 milliseconds.
-            Timer t = new Timer(TimerCallback, null, 0, 1000 * 60 * 120);
-            // Wait for the user to hit <Enter>
-            Console.ReadLine();
-
-        }
-
-        private static void TimerCallback(Object o)
-        {
             // Display the date/time when this method got called.
-            Console.WriteLine("Program is running in : " + DateTime.Now);
+            //Console.WriteLine("Program is running in : " + DateTime.Now);
 
             //action for alarm
             AlarmForPoint();
             AlarmForLogger();
             AlarmForDMA();
 
-            Console.WriteLine("Running done in : " + DateTime.Now +". Please waiting to next time");
+            //Console.WriteLine("Running done in : " + DateTime.Now + ". Please waiting to next time");
+
+
+            // Show
+            //ShowWindow(handle, SW_SHOW);
+
+            // Create a Timer object that knows to call our TimerCallback
+            // method once every 2000 milliseconds.
+            //Timer t = new Timer(TimerCallback, null, 0, 1000 * 60 * 120);
+            // Wait for the user to hit <Enter>
+            //Console.ReadLine();
+
+        }
+
+        private static void TimerCallback(Object o)
+        {
+            
 
 
             // Force a garbage collection to occur for this demo.
