@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="web_dht_r02" Class="FMM_SGWDCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=TRUNG-WS;Initial Catalog=web_dht_r02;Persist Security Info=True;User ID=bavitech" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="web_dht_r02ConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-F21J623;Initial Catalog=tawaco;Persist Security Info=True;User ID=tawaco;MultipleActiveResultSets=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="web_dht_r02ConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.t_Devices_Status" Member="DeviceStatus">
     <Type Name="DeviceStatus">
       <Column Name="Status" Type="System.String" DbType="NVarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -33,7 +33,10 @@
       <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Installed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Description" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      
+      <Column Member="DateAccreditation" Type="System.DateTime" CanBeNull="true" />
+      <Column Member="DateInstallBattery" Type="System.DateTime" CanBeNull="true" />
+      <Column Member="YearBattery" Type="System.Int32" CanBeNull="true" />
+      <Column Member="SerialLogger" Type="System.String" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.t_Site_Levels" Member="SiteLevels">
@@ -53,6 +56,13 @@
       <Column Name="Company" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Production" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Member="Status" Type="System.String" CanBeNull="false" />
+      <Column Member="Ward" Type="System.String" CanBeNull="false" />
+      <Column Member="AmountDHTKH" Type="System.Int32" CanBeNull="true" />
+      <Column Member="AmountValve" Type="System.Int32" CanBeNull="true" />
+      <Column Member="AmountPool" Type="System.Int32" CanBeNull="true" />
+      <Column Member="AmountTCH" Type="System.Int32" CanBeNull="true" />
+      <Column Member="NRW" Type="System.Double" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.t_Site_Availabilities" Member="SiteAvailabilities">
@@ -431,6 +441,7 @@
       <Column Name="Group4" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
       <Column Name="Group5" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
       <Column Name="District" Type="System.String" DbType="nvarchar(4000)" CanBeNull="true" />
+      <Column Member="DMAOut" Type="System.String" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="" Member="MapSites">

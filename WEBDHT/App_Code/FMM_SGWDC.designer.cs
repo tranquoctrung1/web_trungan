@@ -1128,16 +1128,17 @@ public partial class Logger : INotifyPropertyChanging, INotifyPropertyChanged
 	private System.Nullable<bool> _Installed;
 	
 	private string _Description;
-
-	private Nullable<DateTime> _DateAccreditation;
-
-	private Nullable<DateTime> _DateInstallBattery;
-
-	private Nullable<int> _YearBattery;
+	
+	private System.Nullable<System.DateTime> _DateAccreditation;
+	
+	private System.Nullable<System.DateTime> _DateInstallBattery;
+	
+	private System.Nullable<int> _YearBattery;
+	
 	private string _SerialLogger;
-
-	#region Extensibility Method Definitions
-	partial void OnLoaded();
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnSerialChanging(string value);
@@ -1156,19 +1157,16 @@ public partial class Logger : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnInstalledChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
-
-	partial void OnDateAccreditationChanging(Nullable<DateTime> value);
-	partial void OnDateAccreditationChanged();
-	partial void OnDateInstallBatteryChanging(Nullable<DateTime> value);
-	partial void OnDateInstallBatteryChanged();
-	partial void OnYearBatteryChanging(Nullable<int> value);
-	partial void OnYearBatteryChanged();
-
-	partial void OnSerialLoggerChanging(string value);
-
-	partial void OnSerialLoggerChanged();
-	#endregion
-
+    partial void OnDateAccreditationChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateAccreditationChanged();
+    partial void OnDateInstallBatteryChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateInstallBatteryChanged();
+    partial void OnYearBatteryChanging(System.Nullable<int> value);
+    partial void OnYearBatteryChanged();
+    partial void OnSerialLoggerChanging(string value);
+    partial void OnSerialLoggerChanged();
+    #endregion
+	
 	public Logger()
 	{
 		OnCreated();
@@ -1193,27 +1191,7 @@ public partial class Logger : INotifyPropertyChanging, INotifyPropertyChanged
 			}
 		}
 	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SerialLogger", DbType = "NVarChar(255) NOT NULL")]
-	public string SerialLogger
-	{
-		get
-		{
-			return this._SerialLogger;
-		}
-		set
-		{
-			if ((this._SerialLogger != value))
-			{
-				this.OnSerialLoggerChanging(value);
-				this.SendPropertyChanging();
-				this._SerialLogger = value;
-				this.SendPropertyChanged("SerialLogger");
-				this.OnSerialLoggerChanged();
-			}
-		}
-	}
-
+	
 	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReceiptDate", DbType="DateTime")]
 	public System.Nullable<System.DateTime> ReceiptDate
 	{
@@ -1353,9 +1331,9 @@ public partial class Logger : INotifyPropertyChanging, INotifyPropertyChanged
 			}
 		}
 	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DateAccreditation", DbType = "Datetime")]
-	public Nullable<DateTime> DateAccreditation
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateAccreditation")]
+	public System.Nullable<System.DateTime> DateAccreditation
 	{
 		get
 		{
@@ -1373,29 +1351,9 @@ public partial class Logger : INotifyPropertyChanging, INotifyPropertyChanged
 			}
 		}
 	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_YearBattery", DbType = "Int")]
-	public Nullable<int> YearBattery
-	{
-		get
-		{
-			return this._YearBattery;
-		}
-		set
-		{
-			if ((this._YearBattery != value))
-			{
-				this.OnYearBatteryChanging(value);
-				this.SendPropertyChanging();
-				this._YearBattery = value;
-				this.SendPropertyChanged("YearBattery");
-				this.OnYearBatteryChanged();
-			}
-		}
-	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DateInstallBattery", DbType = "Datetime")]
-	public Nullable<DateTime> DateInstallBattery
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateInstallBattery")]
+	public System.Nullable<System.DateTime> DateInstallBattery
 	{
 		get
 		{
@@ -1413,7 +1371,47 @@ public partial class Logger : INotifyPropertyChanging, INotifyPropertyChanged
 			}
 		}
 	}
-
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YearBattery")]
+	public System.Nullable<int> YearBattery
+	{
+		get
+		{
+			return this._YearBattery;
+		}
+		set
+		{
+			if ((this._YearBattery != value))
+			{
+				this.OnYearBatteryChanging(value);
+				this.SendPropertyChanging();
+				this._YearBattery = value;
+				this.SendPropertyChanged("YearBattery");
+				this.OnYearBatteryChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SerialLogger")]
+	public string SerialLogger
+	{
+		get
+		{
+			return this._SerialLogger;
+		}
+		set
+		{
+			if ((this._SerialLogger != value))
+			{
+				this.OnSerialLoggerChanging(value);
+				this.SendPropertyChanging();
+				this._SerialLogger = value;
+				this.SendPropertyChanged("SerialLogger");
+				this.OnSerialLoggerChanged();
+			}
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -1618,16 +1616,21 @@ public partial class SiteCompany : INotifyPropertyChanging, INotifyPropertyChang
 	private System.Nullable<bool> _Production;
 	
 	private string _Description;
-
+	
 	private string _Status;
-	private string _District;
+	
 	private string _Ward;
-	private Nullable<int> _AmountDHTKH;
-	private Nullable<int> _AmountValve;
-	private Nullable<int> _AmountPool;
-	private Nullable<int> _AmountTCH;
-	private Nullable<double> _NRW;
-
+	
+	private System.Nullable<int> _AmountDHTKH;
+	
+	private System.Nullable<int> _AmountValve;
+	
+	private System.Nullable<int> _AmountPool;
+	
+	private System.Nullable<int> _AmountTCH;
+	
+	private System.Nullable<double> _NRW;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1638,32 +1641,22 @@ public partial class SiteCompany : INotifyPropertyChanging, INotifyPropertyChang
     partial void OnProductionChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
-
-	partial void OnStatusChanging(string value);
-	partial void OnStatusChanged();
-
-	partial void OnDistrictChanging(string value);
-	partial void OnDistrictChanged();
-
-	partial void OnWardChanging(string value);
-	partial void OnWardChanged();
-
-	partial void OnAmountDHTKHChanging(Nullable<int> value);
-	partial void OnAmountDHTKHChanged();
-
-	partial void OnAmountValveChanging(Nullable<int> value);
-	partial void OnAmountValveChanged();
-
-	partial void OnAmountPoolChanging(Nullable<int> value);
-	partial void OnAmountPoolChanged();
-
-	partial void OnAmountTCHChanging(Nullable<int> value);
-	partial void OnAmountTCHChanged();
-
-	partial void OnNRWChanging(Nullable<double> value);
-	partial void OnNRWChanged();
-	#endregion
-
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnWardChanging(string value);
+    partial void OnWardChanged();
+    partial void OnAmountDHTKHChanging(System.Nullable<int> value);
+    partial void OnAmountDHTKHChanged();
+    partial void OnAmountValveChanging(System.Nullable<int> value);
+    partial void OnAmountValveChanged();
+    partial void OnAmountPoolChanging(System.Nullable<int> value);
+    partial void OnAmountPoolChanged();
+    partial void OnAmountTCHChanging(System.Nullable<int> value);
+    partial void OnAmountTCHChanged();
+    partial void OnNRWChanging(System.Nullable<double> value);
+    partial void OnNRWChanged();
+    #endregion
+	
 	public SiteCompany()
 	{
 		OnCreated();
@@ -1709,167 +1702,7 @@ public partial class SiteCompany : INotifyPropertyChanging, INotifyPropertyChang
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage= "_Status", DbType="NVarChar(50)")]
-	public string Status
-	{
-		get
-		{
-			return this._Status;
-		}
-		set
-		{
-			if ((this._Status != value))
-			{
-				this.OnStatusChanging(value);
-				this.SendPropertyChanging();
-				this._Status = value;
-				this.SendPropertyChanged("Status");
-				this.OnStatusChanged();
-			}
-		}
-	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_District", DbType = "NVarChar(50)")]
-	public string District
-	{
-		get
-		{
-			return this._District;
-		}
-		set
-		{
-			if ((this._District != value))
-			{
-				this.OnDistrictChanging(value);
-				this.SendPropertyChanging();
-				this._District = value;
-				this.SendPropertyChanged("District");
-				this.OnDistrictChanged();
-			}
-		}
-	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Ward", DbType = "NVarChar(50)")]
-	public string Ward
-	{
-		get
-		{
-			return this._Ward;
-		}
-		set
-		{
-			if ((this._Ward != value))
-			{
-				this.OnWardChanging(value);
-				this.SendPropertyChanging();
-				this._Ward = value;
-				this.SendPropertyChanged("Ward");
-				this.OnWardChanged();
-			}
-		}
-	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_AmountDHTKH", DbType = "Int")]
-	public System.Nullable<int> AmountDHTKH
-	{
-		get
-		{
-			return this._AmountDHTKH;
-		}
-		set
-		{
-			if ((this._AmountDHTKH != value))
-			{
-				this.OnAmountDHTKHChanging(value);
-				this.SendPropertyChanging();
-				this._AmountDHTKH = value;
-				this.SendPropertyChanged("AmountDHTKH");
-				this.OnAmountDHTKHChanged();
-			}
-		}
-	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_AmountValve", DbType = "Int")]
-	public System.Nullable<int> AmountValve
-	{
-		get
-		{
-			return this._AmountValve;
-		}
-		set
-		{
-			if ((this._AmountValve != value))
-			{
-				this.OnAmountValveChanging(value);
-				this.SendPropertyChanging();
-				this._AmountValve = value;
-				this.SendPropertyChanged("AmountValve");
-				this.OnAmountValveChanged();
-			}
-		}
-	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_AmountPool", DbType = "Int")]
-	public System.Nullable<int> AmountPool
-	{
-		get
-		{
-			return this._AmountPool;
-		}
-		set
-		{
-			if ((this._AmountPool != value))
-			{
-				this.OnAmountPoolChanging(value);
-				this.SendPropertyChanging();
-				this._AmountPool = value;
-				this.SendPropertyChanged("AmountPool");
-				this.OnAmountPoolChanged();
-			}
-		}
-	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_AmountTCH", DbType = "Int")]
-	public System.Nullable<int> AmountTCH
-	{
-		get
-		{
-			return this._AmountTCH;
-		}
-		set
-		{
-			if ((this._AmountTCH != value))
-			{
-				this.OnAmountTCHChanging(value);
-				this.SendPropertyChanging();
-				this._AmountTCH = value;
-				this.SendPropertyChanged("AmountTCH");
-				this.OnAmountTCHChanged();
-			}
-		}
-	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NRW", DbType = "Float")]
-	public System.Nullable<double> NRW
-	{
-		get
-		{
-			return this._NRW;
-		}
-		set
-		{
-			if ((this._NRW != value))
-			{
-				this.OnNRWChanging(value);
-				this.SendPropertyChanging();
-				this._NRW = value;
-				this.SendPropertyChanged("NRW");
-				this.OnNRWChanged();
-			}
-		}
-	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Description", DbType = "NVarChar(255)")]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(255)")]
 	public string Description
 	{
 		get
@@ -1888,7 +1721,147 @@ public partial class SiteCompany : INotifyPropertyChanging, INotifyPropertyChang
 			}
 		}
 	}
-
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", CanBeNull=false)]
+	public string Status
+	{
+		get
+		{
+			return this._Status;
+		}
+		set
+		{
+			if ((this._Status != value))
+			{
+				this.OnStatusChanging(value);
+				this.SendPropertyChanging();
+				this._Status = value;
+				this.SendPropertyChanged("Status");
+				this.OnStatusChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", CanBeNull=false)]
+	public string Ward
+	{
+		get
+		{
+			return this._Ward;
+		}
+		set
+		{
+			if ((this._Ward != value))
+			{
+				this.OnWardChanging(value);
+				this.SendPropertyChanging();
+				this._Ward = value;
+				this.SendPropertyChanged("Ward");
+				this.OnWardChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AmountDHTKH")]
+	public System.Nullable<int> AmountDHTKH
+	{
+		get
+		{
+			return this._AmountDHTKH;
+		}
+		set
+		{
+			if ((this._AmountDHTKH != value))
+			{
+				this.OnAmountDHTKHChanging(value);
+				this.SendPropertyChanging();
+				this._AmountDHTKH = value;
+				this.SendPropertyChanged("AmountDHTKH");
+				this.OnAmountDHTKHChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AmountValve")]
+	public System.Nullable<int> AmountValve
+	{
+		get
+		{
+			return this._AmountValve;
+		}
+		set
+		{
+			if ((this._AmountValve != value))
+			{
+				this.OnAmountValveChanging(value);
+				this.SendPropertyChanging();
+				this._AmountValve = value;
+				this.SendPropertyChanged("AmountValve");
+				this.OnAmountValveChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AmountPool")]
+	public System.Nullable<int> AmountPool
+	{
+		get
+		{
+			return this._AmountPool;
+		}
+		set
+		{
+			if ((this._AmountPool != value))
+			{
+				this.OnAmountPoolChanging(value);
+				this.SendPropertyChanging();
+				this._AmountPool = value;
+				this.SendPropertyChanged("AmountPool");
+				this.OnAmountPoolChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AmountTCH")]
+	public System.Nullable<int> AmountTCH
+	{
+		get
+		{
+			return this._AmountTCH;
+		}
+		set
+		{
+			if ((this._AmountTCH != value))
+			{
+				this.OnAmountTCHChanging(value);
+				this.SendPropertyChanging();
+				this._AmountTCH = value;
+				this.SendPropertyChanged("AmountTCH");
+				this.OnAmountTCHChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRW")]
+	public System.Nullable<double> NRW
+	{
+		get
+		{
+			return this._NRW;
+		}
+		set
+		{
+			if ((this._NRW != value))
+			{
+				this.OnNRWChanging(value);
+				this.SendPropertyChanging();
+				this._NRW = value;
+				this.SendPropertyChanged("NRW");
+				this.OnNRWChanged();
+			}
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -2179,7 +2152,7 @@ public partial class UserStaff : INotifyPropertyChanging, INotifyPropertyChanged
 	private string _FirstName;
 	
 	private string _LastName;
-
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3654,14 +3627,9 @@ public partial class ChannelConfig : INotifyPropertyChanging, INotifyPropertyCha
 	private System.Nullable<double> _LastValue;
 	
 	private string _Description;
-
-	private Nullable<bool> _Pressure1;
-	private Nullable<bool> _Pressure2;
-	private Nullable<bool> _ForwardFlow;
-	private Nullable<bool> _ReverseFlow;
-
-	#region Extensibility Method Definitions
-	partial void OnLoaded();
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnIdChanging(string value);
@@ -3678,20 +3646,8 @@ public partial class ChannelConfig : INotifyPropertyChanging, INotifyPropertyCha
     partial void OnLastValueChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
-
-	partial void OnPressure1Changing(Nullable<bool> value);
-	partial void OnPressure1Changed();
-
-	partial void OnPressure2Changing(Nullable<bool> value);
-	partial void OnPressure2Changed();
-
-	partial void OnForwardFlowChanging(Nullable<bool> value);
-	partial void OnForwardFlowChanged();
-
-	partial void OnReverseFlowChanging(Nullable<bool> value);
-	partial void OnReverseFlowChanged();
-	#endregion
-
+    #endregion
+	
 	public ChannelConfig()
 	{
 		OnCreated();
@@ -3836,87 +3792,7 @@ public partial class ChannelConfig : INotifyPropertyChanging, INotifyPropertyCha
 			}
 		}
 	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Pressure1", DbType = "Bit")]
-	public Nullable<bool> Pressure1
-	{
-		get
-		{
-			return this._Pressure1;
-		}
-		set
-		{
-			if ((this._Pressure1 != value))
-			{
-				this.OnPressure1Changing(value);
-				this.SendPropertyChanging();
-				this._Pressure1 = value;
-				this.SendPropertyChanged("Pressure1");
-				this.OnPressure1Changed();
-			}
-		}
-	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Pressure2", DbType = "Bit")]
-	public Nullable<bool> Pressure2
-	{
-		get
-		{
-			return this._Pressure2;
-		}
-		set
-		{
-			if ((this._Pressure2 != value))
-			{
-				this.OnPressure2Changing(value);
-				this.SendPropertyChanging();
-				this._Pressure2 = value;
-				this.SendPropertyChanged("Pressure2");
-				this.OnPressure2Changed();
-			}
-		}
-	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ForwardFlow", DbType = "Bit")]
-	public Nullable<bool> ForwardFlow
-	{
-		get
-		{
-			return this._ForwardFlow;
-		}
-		set
-		{
-			if ((this._ForwardFlow != value))
-			{
-				this.OnForwardFlowChanging(value);
-				this.SendPropertyChanging();
-				this._ForwardFlow = value;
-				this.SendPropertyChanged("ForwardFlow");
-				this.OnForwardFlowChanged();
-			}
-		}
-	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ReverseFlow", DbType = "Bit")]
-	public Nullable<bool> ReverseFlow
-	{
-		get
-		{
-			return this._ReverseFlow;
-		}
-		set
-		{
-			if ((this._ReverseFlow != value))
-			{
-				this.OnReverseFlowChanging(value);
-				this.SendPropertyChanging();
-				this._ReverseFlow = value;
-				this.SendPropertyChanged("ReverseFlow");
-				this.OnReverseFlowChanged();
-			}
-		}
-	}
-
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -7446,7 +7322,7 @@ public partial class Site : INotifyPropertyChanging, INotifyPropertyChanged
 	private string _Group5;
 	
 	private string _District;
-
+	
 	private string _DMAOut;
 	
     #region Extensibility Method Definitions
@@ -7539,11 +7415,10 @@ public partial class Site : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnGroup5Changed();
     partial void OnDistrictChanging(string value);
     partial void OnDistrictChanged();
-
-	partial void OnDMAOutChanging(string value);
-	partial void OnDMAOutChanged();
-	#endregion
-
+    partial void OnDMAOutChanging(string value);
+    partial void OnDMAOutChanged();
+    #endregion
+	
 	public Site()
 	{
 		OnCreated();
@@ -8408,8 +8283,8 @@ public partial class Site : INotifyPropertyChanging, INotifyPropertyChanged
 			}
 		}
 	}
-
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DMAOut", DbType = "NVarChar(50)")]
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DMAOut", CanBeNull=false)]
 	public string DMAOut
 	{
 		get
@@ -8428,7 +8303,7 @@ public partial class Site : INotifyPropertyChanging, INotifyPropertyChanged
 			}
 		}
 	}
-
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
