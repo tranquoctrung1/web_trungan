@@ -888,7 +888,7 @@
                                     colors = [];
                                     mreds = [];
                                     mblues = [];
-                                    channels = [];
+                                    //channels = [];
                                     chartData = [];
                                     chart.dataProvider = chartData;
                                     chart.validateData();

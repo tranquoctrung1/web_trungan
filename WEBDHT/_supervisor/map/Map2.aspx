@@ -1302,7 +1302,7 @@
                                     colors = [];
                                     mreds = [];
                                     mblues = [];
-                                    channels = [];
+                                    //channels = [];
                                     chartData = [];
                                     chart.dataProvider = chartData;
                                     chart.validateData();
@@ -2028,7 +2028,6 @@
                                                 var alreadyPressureDisplay = false;
                                                 var displayByGroupChannel = 0;
                                                 $.each(dc, function (j, c) {
-                                                    console.log(c)
                                                     if (c.ChannelId != null) {
                                                         hasChannel = true;
                                                         //ICON
