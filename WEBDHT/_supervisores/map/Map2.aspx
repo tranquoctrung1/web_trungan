@@ -126,9 +126,9 @@
             }
             #RadWindowWrapper_ctl00_ContentPlaceHolder1_radWindowChart
             {
-                 width: 80% !important;
+/*                 width: 80% !important;
                 left: 10px !important;
-                top: 10px !important
+                top: 10px !important*/
             }
             #ctl00_ContentPlaceHolder1_radWindowChart_C
             {
