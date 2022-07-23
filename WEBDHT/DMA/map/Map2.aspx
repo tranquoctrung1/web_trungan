@@ -1715,7 +1715,7 @@
                                                             + '<td style="text-align:right;color:red">' + val + "</td>"
                                                             + '<td style="color:red">' + c.Unit + "</td>"
                                                             + "<td>" + strDate + "</td>"
-                                                            + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
+                                                            + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location.trim().replace('\n', '')} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
 
                                                         //MAP LABEL CONTENT
                                                         var htmlImg = "";
@@ -2086,7 +2086,7 @@
                                                                     + '<td style="text-align:right;color:red">' + val + "</td>"
                                                                     + '<td style="color:red">' + c.Unit + "</td>"
                                                                     + "<td>" + strDate + "</td>"
-                                                                    + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
+                                                                    + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location.trim().replace('\n', '')} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
                                                             }
                                                             if (statusRemoveAlLL) {
                                                                 if (c.Press1 == true || c.Press2 == true || c.Flow1 == true || c.Flow2 == true) {
@@ -2099,7 +2099,7 @@
                                                                         + '<td style="text-align:right;color:red">' + val + "</td>"
                                                                         + '<td style="color:red">' + c.Unit + "</td>"
                                                                         + "<td>" + strDate + "</td>"
-                                                                        + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
+                                                                        + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location.trim().replace('\n', '')} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
                                                                 }
                                                             }
                                                             if (statusRemoveApLuc) {
@@ -2113,7 +2113,7 @@
                                                                         + '<td style="text-align:right;color:red">' + val + "</td>"
                                                                         + '<td style="color:red">' + c.Unit + "</td>"
                                                                         + "<td>" + strDate + "</td>"
-                                                                        + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
+                                                                        + `<td><a href="#"  style="color: #30a0c1" onclick="openChart('${c.ChannelId}','${s.Location.trim().replace('\n', '')} | ${c.ChannelName}','${c.Unit}');"> <i class="fa fa-bar-chart" aria-hidden="true"></i> </a></td></tr>`
                                                                 }
                                                             }
                                                             if (statusRemoveLuuLuong) {
