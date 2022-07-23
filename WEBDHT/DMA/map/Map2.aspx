@@ -3594,6 +3594,10 @@
                     //        index++;
                     //    });
                     //});
+
+                    setTimeout(function () {
+                        window.dispatchEvent(new Event('resize'));
+                    }, 0);
                 })
             }
             $(document).ready(function () {
