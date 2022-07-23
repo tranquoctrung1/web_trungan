@@ -392,7 +392,7 @@
                 // Themes begin
                 am4core.useTheme(am4themes_animated);
                 // Themes end
-
+                am4core.addLicense("ch-custom-attribution");
                 // Create chart
                 var chart = am4core.create("chart", am4charts.XYChart);
 
@@ -461,7 +461,7 @@
                 // Themes begin
                 am4core.useTheme(am4themes_animated);
                 // Themes end
-
+                am4core.addLicense("ch-custom-attribution");
                 var chart = am4core.create(`chart`, am4charts.XYChart);
 
                 chart.data = data;

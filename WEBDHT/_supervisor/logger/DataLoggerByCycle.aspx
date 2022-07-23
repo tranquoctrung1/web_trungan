@@ -376,6 +376,7 @@
                 // Themes begin
                 am4core.useTheme(am4themes_animated);
                 // Themes end
+                am4core.addLicense("ch-custom-attribution");
 
                 var chart = am4core.create(`chart`, am4charts.XYChart);
 

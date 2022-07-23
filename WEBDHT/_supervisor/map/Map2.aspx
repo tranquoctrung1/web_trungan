@@ -4051,6 +4051,7 @@
 
                 $.getJSON(urlGetTotalSite, function (d) {
                     if (d != null) {
+
                         document.getElementById('totalSite').innerHTML = d.toString();
 
                     }
