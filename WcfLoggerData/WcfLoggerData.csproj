@@ -292,6 +292,10 @@
     <Compile Include="Models\StatisticSiteDMAViewModel.cs" />
     <Compile Include="Models\StatisticSiteViewModel.cs" />
     <Compile Include="Models\StatisticTransmitterViewModel.cs" />
+    <Compile Include="Models\TotalDMAErrorModel.cs" />
+    <Compile Include="Models\TotalSiteActionModel.cs" />
+    <Compile Include="Models\TotalSiteErrorModel.cs" />
+    <Compile Include="Models\TotalSiteHasValueModel.cs" />
     <Compile Include="Models\TurnHistoryAlarmViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\ValueAlarmViewModel.cs" />

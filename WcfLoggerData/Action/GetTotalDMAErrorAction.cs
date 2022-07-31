@@ -4,14 +4,15 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using WcfLoggerData.ConnectDB;
+using WcfLoggerData.Models;
 
 namespace WcfLoggerData.Action
 {
     public class GetTotalDMAErrorAction
     {
-        public int GetTotalDMAError()
+        public List<TotalDMAErrorModel> GetTotalDMAError()
         {
-            int result = 0;
+            List<TotalDMAErrorModel> list = new List<TotalDMAErrorModel>();
 
             Connect connect = new Connect();
 
@@ -29,14 +30,27 @@ namespace WcfLoggerData.Action
                 {
                     while(reader.Read())
                     {
+                        TotalDMAErrorModel el = new TotalDMAErrorModel();
+
                         try
                         {
-                            result = int.Parse(reader["Result"].ToString());
+                            el.Result = int.Parse(reader["Result"].ToString());
                         }
                         catch(Exception ex)
                         {
-                            result = 0;
+                            el.Result = 0;
                         }
+
+                        try
+                        {
+                            el.DMA = reader["DMA"].ToString();
+                        }
+                        catch(Exception ex)
+                        {
+                            el.DMA = "";
+                        }
+
+                        list.Add(el);   
                     }
                 }
             }
@@ -49,7 +63,7 @@ namespace WcfLoggerData.Action
                 connect.DisConnected();
             }
 
-            return result;
+            return list;
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Mvc;
 using WcfLoggerData.Action;
+using WcfLoggerData.Models;
 
 namespace WcfLoggerData.Controllers
 {
@@ -13,7 +14,7 @@ namespace WcfLoggerData.Controllers
     {
         // GET: GetTotalDMAError
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        public int GetTotalDMAError()
+        public List<TotalDMAErrorModel> GetTotalDMAError()
         {
             GetTotalDMAErrorAction action = new GetTotalDMAErrorAction();
             return action.GetTotalDMAError();

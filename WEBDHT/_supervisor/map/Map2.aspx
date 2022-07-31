@@ -135,6 +135,12 @@
                 width: 100% !important;
                 height: 100% !important;
             }
+
+            .fa.fa-info-circle
+            {
+                margin-left: 10px;
+                color: #55b0cb
+            }
         </style>
 
 
@@ -1205,6 +1211,16 @@
 
                                 </div>
                                 <div id="chart_canvas" style="width: 100%; height: 100%"></div>
+
+                            </ContentTemplate>
+                        </telerik:RadWindow>
+
+
+                        <telerik:RadWindow Behaviors="Pin, Move, Minimize, Maximize , Close" ID="radWindowTableSite" runat="server" VisibleStatusbar="False" Title="Table">
+                            <ContentTemplate>
+                                <div class="row" style="width: 100%; margin-left: 0; margin-right: 0; margin-top: 10px">
+                                    
+                                <div id="table_sites" style="width: 100%; height: 100%"></div>
 
                             </ContentTemplate>
                         </telerik:RadWindow>
@@ -3779,19 +3795,19 @@
                                 Tổng số Point: <span style="color: lawngreen" id="totalSite"></span>
                             </div>
                             <div class="col-sm-3">
-                                Tổng số Point hoạt động: <span style="color: green" id="totalSiteAction"></span>
+                                Tổng số Point hoạt động: <span style="color: green" id="totalSiteAction"></span> <span id="btnShowTableTotalSiteAction" onclick="openTableTotalSiteAction()" style="display: none"><i class="fa fa-info-circle" aria-hidden="true"></i> </span>
                             </div>
                             <div class="col-sm-3">
-                                Tổng số Point có dữ liệu: <span style="color: blue" id="totalSiteHasData"></span>
+                                Tổng số Point có dữ liệu: <span style="color: blue" id="totalSiteHasData"></span><span id="btnShowTableTotalSiteHasData" onclick="openTableTotalSiteHasData()" style="display: none"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
                             </div>
                             <div class="col-sm-3">
-                                Tổng số Point cảnh báo: <span style="color: red" id="totalSiteWarning"></span>
+                                Tổng số Point cảnh báo: <span style="color: red" id="totalSiteWarning"></span><span id="btnShowTableTotalSiteError" onclick="openTableTotalSiteError()" style="display: none"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
                             </div>
                             <div class="col-sm-3 mt-2">
                                 Tổng số DMA: <span style="color: red" id="totalDMA"></span>
                             </div>
                             <div class="col-sm-3 mt-2">
-                                Tổng số DMA cảnh báo: <span style="color: red" id="totalDMAWarning"></span>
+                                Tổng số DMA cảnh báo: <span style="color: red" id="totalDMAWarning"></span><span id="btnShowTableTotalDMAError" onclick="openTableTotalDMAError()" style="display: none"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
                             </div>
                         </div>
                     </div>
@@ -4035,6 +4051,11 @@
                 $("#btnConfirmAlarm").addClass("btn-info");
             });
 
+            let totalSiteError;
+            let totalSiteHasData;
+            let totalSiteAction;
+            let totalDMAError;
+
             function getStatisticFotter() {
                 var hostname = window.location.origin;
                 if (hostname.indexOf("localhost") < 0)
@@ -4053,28 +4074,42 @@
                     if (d != null) {
 
                         document.getElementById('totalSite').innerHTML = d.toString();
-
                     }
 
                 })
+
                 $.getJSON(urlGetTotalSiteAcion, function (d) {
                     if (d != null) {
-                        document.getElementById('totalSiteAction').innerHTML = d.toString();
+                        document.getElementById('totalSiteAction').innerHTML = d.length.toString();
+                        totalSiteAction = d;
+
+                        let btnShowTableTotalSiteAction = document.getElementById('btnShowTableTotalSiteAction');
+
+                        btnShowTableTotalSiteAction.style.display = "inline";
 
                     }
 
                 })
                 $.getJSON(urlGetTotalSiteHasData, function (d) {
                     if (d != null) {
-                        document.getElementById('totalSiteHasData').innerHTML = d.toString();
+                        document.getElementById('totalSiteHasData').innerHTML = d.length.toString();
+                        totalSiteHasData = d;
+
+                        let btnShowTableTotalSiteHasData = document.getElementById('btnShowTableTotalSiteHasData');
+
+                        btnShowTableTotalSiteHasData.style.display = "inline";
 
                     }
 
                 })
                 $.getJSON(urlGetTotalSiteError, function (d) {
                     if (d != null) {
-                        document.getElementById('totalSiteWarning').innerHTML = d.toString();
+                        document.getElementById('totalSiteWarning').innerHTML = d.length.toString();
+                        totalSiteError = d;
 
+                        let btnShowTableTotalSiteError = document.getElementById('btnShowTableTotalSiteError');
+
+                        btnShowTableTotalSiteError.style.display = "inline";
                     }
 
                 })
@@ -4087,11 +4122,191 @@
                 })
                 $.getJSON(urlGetTotalDMAError, function (d) {
                     if (d != null) {
-                        document.getElementById('totalDMAWarning').innerHTML = d.toString();
+                        document.getElementById('totalDMAWarning').innerHTML = d.length.toString();
+                        totalDMAError = d;
 
+                        let btnShowTableTotalDMAError = document.getElementById('btnShowTableTotalDMAError');
+
+                        btnShowTableTotalDMAError.style.display = "inline";
                     }
 
                 })
+            }
+
+            function openTableTotalSiteAction() {
+                let  window = $find("<%= radWindowTableSite.ClientID %>");
+                window.setSize(chartWidth, chartHeight);
+                window.show();
+                window.center();
+
+                let tableSites = document.getElementById('table_sites');
+
+                tableSites.innerHTML = "";
+
+                let content = ``;
+
+                if (totalSiteAction.length > 0) {
+                    let header = `<thead>
+                                    <tr>
+                                        <th scope="col">Mã vị trí</th>
+                                        <th scope="col">Vị trí</th>
+                                        <th scope="col">LoggerId</th>
+                                    </tr>
+                                    </thead>`
+
+                    let body = ``;
+
+                    for (let item of totalSiteAction) {
+                        body += `<tr>
+                                     <td>${item.SiteId}</td>
+                                     <td>${item.Location}</td>
+                                     <td>${item.LoggerId}</td>
+                                </tr>`
+                    }
+
+
+                    content += `<table class="table table-hover text-center">${header}${body}</table>`;
+
+
+
+                   
+                }
+                else {
+                    content += `<h6>Không có dữ liệu</h6>`
+                }
+
+                tableSites.innerHTML = content;
+            }
+
+            function openTableTotalSiteHasData() {
+                let window = $find("<%= radWindowTableSite.ClientID %>");
+                window.setSize(chartWidth, chartHeight);
+                window.show();
+                window.center();
+
+                let tableSites = document.getElementById('table_sites');
+
+                tableSites.innerHTML = "";
+
+                let content = ``;
+
+                if (totalSiteHasData.length > 0) {
+                    let header = `<thead>
+                                    <tr>
+                                        <th scope="col">Mã vị trí</th>
+                                        <th scope="col">Vị trí</th>
+                                        <th scope="col">LoggerId</th>
+                                    </tr>
+                                    </thead>`
+
+                    let body = ``;
+
+                    for (let item of totalSiteHasData) {
+                        body += `<tr>
+                                     <td>${item.SiteId}</td>
+                                     <td>${item.Location}</td>
+                                     <td>${item.LoggerId}</td>
+                                </tr>`
+                    }
+
+
+                    content += `<table class="table table-hover text-center">${header}${body}</table>`;
+
+
+
+
+                }
+                else {
+                    content += `<h6>Không có dữ liệu</h6>`
+                }
+
+                tableSites.innerHTML = content;
+            }
+
+            function openTableTotalSiteError() {
+                let window = $find("<%= radWindowTableSite.ClientID %>");
+                window.setSize(chartWidth, chartHeight);
+                window.show();
+                window.center();
+
+                let tableSites = document.getElementById('table_sites');
+
+                tableSites.innerHTML = "";
+
+                let content = ``;
+
+                if (totalSiteError.length > 0) {
+                    let header = `<thead>
+                                    <tr>
+                                        <th scope="col">Mã vị trí</th>
+                                        <th scope="col">Vị trí</th>
+                                        <th scope="col">LoggerId</th>
+                                    </tr>
+                                    </thead>`
+
+                    let body = ``;
+
+                    for (let item of totalSiteError) {
+                        body += `<tr>
+                                     <td>${item.SiteId}</td>
+                                     <td>${item.Location}</td>
+                                     <td>${item.LoggerId}</td>
+                                </tr>`
+                    }
+
+
+                    content += `<table class="table table-hover text-center">${header}${body}</table>`;
+
+
+
+
+                }
+                else {
+                    content += `<h6>Không có dữ liệu</h6>`
+                }
+
+                tableSites.innerHTML = content;
+            }
+
+            function openTableTotalDMAError() {
+                let window = $find("<%= radWindowTableSite.ClientID %>");
+                window.setSize(chartWidth, chartHeight);
+                window.show();
+                window.center();
+
+                let tableSites = document.getElementById('table_sites');
+
+                tableSites.innerHTML = "";
+
+                let content = ``;
+
+                if (totalDMAError.length > 0) {
+                    let header = `<thead>
+                                    <tr>
+                                        <th scope="col">Mã DMA</th>
+                                    </tr>
+                                    </thead>`
+
+                    let body = ``;
+
+                    for (let item of totalDMAError) {
+                        body += `<tr>
+                                     <td>${item.DMA}</td>
+                                </tr>`
+                    }
+
+
+                    content += `<table class="table table-hover text-center">${header}${body}</table>`;
+
+
+
+
+                }
+                else {
+                    content += `<h6>Không có dữ liệu</h6>`
+                }
+
+                tableSites.innerHTML = content;
             }
 
             getStatisticFotter();

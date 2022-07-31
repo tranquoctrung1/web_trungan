@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Mvc;
 using WcfLoggerData.Action;
+using WcfLoggerData.Models;
 
 namespace WcfLoggerData.Controllers
 {
@@ -15,7 +16,7 @@ namespace WcfLoggerData.Controllers
         [EnableCors(origins: "*", headers: "*", methods: "*")]
 
 
-        public int GetTotalSiteHasData()
+        public List<TotalSiteHasValueModel> GetTotalSiteHasData()
         {
             GetTotalSiteHasDataAction action = new GetTotalSiteHasDataAction();
 

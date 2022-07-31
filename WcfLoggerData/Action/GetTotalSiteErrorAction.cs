@@ -4,14 +4,15 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using WcfLoggerData.ConnectDB;
+using WcfLoggerData.Models;
 
 namespace WcfLoggerData.Action
 {
     public class GetTotalSiteErrorAction
     {
-        public int GetTotalSiteError()
+        public List<TotalSiteErrorModel> GetTotalSiteError()
         {
-            int result = 0;
+            List<TotalSiteErrorModel> list = new List<TotalSiteErrorModel>();
             Connect connect = new Connect();
             try
             {
@@ -27,14 +28,42 @@ namespace WcfLoggerData.Action
                 {
                     while (reader.Read())
                     {
+                        TotalSiteErrorModel el = new TotalSiteErrorModel();
+
                         try
                         {
-                            result = int.Parse(reader["Result"].ToString());
+                            el.Result = int.Parse(reader["Result"].ToString());
                         }
                         catch (Exception ex)
                         {
-                            result = 0;
+                            el.Result = 0;
                         }
+                        try
+                        {
+                            el.SiteId = reader["SiteId"].ToString();
+                        }
+                        catch (Exception ex)
+                        {
+                            el.SiteId = "";
+                        }
+                        try
+                        {
+                            el.Location = reader["Location"].ToString();
+                        }
+                        catch (Exception ex)
+                        {
+                            el.Location = "";
+                        }
+                        try
+                        {
+                            el.LoggerId = reader["LoggerId"].ToString();
+                        }
+                        catch (Exception ex)
+                        {
+                            el.LoggerId = "";
+                        }
+
+                        list.Add(el);
                     }
                 }
             }
@@ -47,7 +76,7 @@ namespace WcfLoggerData.Action
                 connect.DisConnected();
             }
 
-            return result;
+            return list;
         }
     }
 }
