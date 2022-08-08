@@ -108,7 +108,9 @@ namespace WcfLoggerData.Action
                                         try
                                         {
                                             el.Value = double.Parse(reader["Value"].ToString());
+                                            el.Value = Math.Round(el.Value.Value, 2);
                                             totalData.Value += el.Value;
+                                            totalData.Value = Math.Round(totalData.Value.Value, 2);
                                         }
                                         catch (Exception ex)
                                         {

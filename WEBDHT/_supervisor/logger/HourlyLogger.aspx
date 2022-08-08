@@ -10,7 +10,7 @@
             font-size: 1.4rem
         }
 
-        .rcbItem, .rcbHovered {
+        .rcbTemplate {
             display: flex;
             justify-content: center;
             align-items: center

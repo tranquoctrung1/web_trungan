@@ -7,10 +7,13 @@ namespace WcfLoggerData.Models
 {
     public class DataReportDailySiteViewModel
     {
-        Nullable<DateTime> timeStamp;
-        Nullable<double> value;
-
-        public DateTime? TimeStamp { get => timeStamp; set => timeStamp = value; }
-        public double? Value { get => value; set => this.value = value; }
+        public string SiteId { get; set; }
+        public string Location { get; set; }
+        public Nullable<DateTime> TimeStamp { get; set; }
+        public Nullable<DateTime> StartTime { get; set; }
+        public Nullable<DateTime> EndTime { get; set; }
+        public Nullable<double> StartIndex { get; set; }
+        public Nullable<double> EndIndex { get; set; }
+        public Nullable<double> Value { get; set; }
     }
 }

@@ -11,6 +11,12 @@
             font-weight: 500;
             font-size: 1.4rem
         }
+
+        .rcbTemplate {
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
     </style>
     <script type="text/javascript">
         // preventing resubmition form application
@@ -32,16 +38,16 @@
                         <div class="row m-b">
                             <telerik:RadComboBox ID="cboSiteIds" runat="server"
                                 DataSourceID="SitesDataSource" DataTextField="Id" DataValueField="Id"
-                                AllowCustomText="True" DropDownWidth="350px" EnableLoadOnDemand="True"
-                                Filter="StartsWith" HighlightTemplatedItems="True"
+                                AllowCustomText="True" DropDownWidth="400px" EnableLoadOnDemand="True"
+                                Filter="StartsWith" HighlightTemplatedItems="True" CheckBoxes="true" EnableCheckAllItemsCheckBox="true"
                                 AutoPostBack="false">
                                 <HeaderTemplate>
 
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td style="width: 50px">Mã NV</td>
-                                            <td style="width: 50px">Mã vị trí</td>
-                                            <td style="width: 250px">Vị trí</td>
+                                            <td style="width: 150px">Mã vị trí</td>
+                                            <td style="width: 200px">Vị trí</td>
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
@@ -49,8 +55,8 @@
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td style="width: 50px"><%#DataBinder.Eval(Container.DataItem,"StaffId") %></td>
-                                            <td style="width: 50px"><%#DataBinder.Eval(Container.DataItem,"Id") %></td>
-                                            <td style="width: 250px"><%#DataBinder.Eval(Container.DataItem,"Location") %></td>
+                                            <td style="width: 150px"><%#DataBinder.Eval(Container.DataItem,"Id") %></td>
+                                            <td style="width: 200px"><%#DataBinder.Eval(Container.DataItem,"Location") %></td>
                                         </tr>
                                     </table>
                                 </ItemTemplate>
@@ -144,7 +150,7 @@
             let siteIDCbo = $find('<%=cboSiteIds.ClientID %>');
             let start = $find('<%=dtmStart.ClientID %>');
             let end = $find('<%=dtmEnd.ClientID %>');
-            if (siteIDCbo == null || siteIDCbo == undefined || siteIDCbo.get_selectedItem() == null || siteIDCbo.get_selectedItem() == undefined) {
+            if (siteIDCbo.get_checkedItems().length <= 0) {
                 alert("Chưa chọn mã point")
                 return false;
             }
@@ -157,9 +163,15 @@
                 return false;
             }
             else {
-                let siteID = siteIDCbo.get_selectedItem().get_value();
+                let sites = [];
 
-                getData(siteID, start, end)
+                for (let site of siteIDCbo.get_checkedItems()) {
+                    sites.push(site.get_value());
+                }
+
+                sites = sites.join("|");
+
+                getData(sites, start, end)
             }
         }
 
@@ -183,6 +195,7 @@
 
 
             axios.get(urlGetDataDailySite).then((res) => {
+                
                 createTable(res.data);
             }).catch(err => console.log(err))
 
@@ -206,21 +219,13 @@
                 let index = firstElementHasData(data);
                 if (index != -1) {
                     contentHeader += `<thead><tr>`;
-
-                    for (let pro in data[index]) {
-                        if (pro == "TimeStamp") {
-                            contentHeader += `<th>Thời Gian</th>`;
-                        }
-                        else if (pro == "Value") {
-                            contentHeader += `<th>Giá Trị</th>`;
-                        }
-                        else {
-                            contentHeader += `<th>${pro}</th>`;
-                        }
-                    }
-
+                    contentHeader += `<th>Mã Vị Trí</th>`;
+                    contentHeader += `<th>Vị Trí</th>`;
+                    contentHeader += `<th>Thời Gian</th>`;
+                    contentHeader += `<th>Chỉ Số Đầu</th>`;
+                    contentHeader += `<th>Chỉ Số Cuối</th>`;
+                    contentHeader += `<th>Giá Trị</th>`;
                     contentHeader += `</tr></thead>`
-
                 }
             }
             return contentHeader;
@@ -237,19 +242,12 @@
                 for (let item of data) {
                     if (count < data.length - 1) {
                         contentBody += `<tr>`
-                        for (let pro in item) {
-                            if (item[pro].toString().trim() != "" && item[pro] != null && item[pro] != undefined) {
-                                if (pro == "TimeStamp") {
-                                    contentBody += `<td>${convertDate(item[pro])}</td>`;
-                                }
-                                else {
-                                    contentBody += `<td>${item[pro].toString()}</td>`;
-                                }
-                            }
-                            else {
-                                contentBody += `<td> </td>`
-                            }
-                        }
+                        contentBody += `<td>${item.SiteId}</td>`
+                        contentBody += `<td>${item.Location}</td>`
+                        contentBody += `<td>${convertDate(item.TimeStamp)}</td>`
+                        contentBody += `<td><div>${item.StartIndex}</div><div>${convertDate(item.StartTime)}</div></td>`
+                        contentBody += `<td><div>${item.EndIndex}</div><div>${convertDate(item.EndTime)}</div></td>`
+                        contentBody += `<td>${item.Value}</td>`
                         contentBody += `</tr>`;
                         count++;
                     }
@@ -265,7 +263,7 @@
             let contentFooter = "";
 
             if (checkExistData(data)) {
-                contentFooter += `<tfoot style="color: white"><tr><td>Tổng Cộng</td><td>${data[data.length - 1].Value.toString()}</td></tr></tfoot>`;
+                contentFooter += `<tfoot style="color: white"><tr><td>Tổng Cộng</td><td></td><td></td><td></td><td></td><td>${data[data.length - 1].Value.toString()}</td></tr></tfoot>`;
             }
 
             return contentFooter;
