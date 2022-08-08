@@ -7,6 +7,8 @@ namespace WcfLoggerData.Models
 {
     public class DataReportHourlySiteViewModel
     {
+        public string SiteId { get; set; }
+        public string Location { get; set; }
         public Nullable<DateTime> TimeStamp { get; set; }
         public Nullable<DateTime> StartTime { get; set; }
 

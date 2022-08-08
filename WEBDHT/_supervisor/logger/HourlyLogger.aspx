@@ -1,15 +1,19 @@
-﻿<%@ Page Language="C#"  MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="HourlyLogger.aspx.cs" Inherits="_supervisor_logger_HourlyLogger" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/_supervisor/master_page.master" AutoEventWireup="true" CodeFile="HourlyLogger.aspx.cs" Inherits="_supervisor_logger_HourlyLogger" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../css/Config.css" rel="stylesheet">
     <style>
-        #dataTable
-        {
+        #dataTable {
             width: 100%;
             text-align: center;
-
             font-weight: 500;
             font-size: 1.4rem
+        }
+
+        .rcbItem, .rcbHovered {
+            display: flex;
+            justify-content: center;
+            align-items: center
         }
     </style>
     <script type="text/javascript">
@@ -32,16 +36,16 @@
                         <div class="row m-b">
                             <telerik:RadComboBox ID="cboSiteIds" runat="server"
                                 DataSourceID="SitesDataSource" DataTextField="Id" DataValueField="Id"
-                                AllowCustomText="True" DropDownWidth="350px" EnableLoadOnDemand="True"
-                                Filter="StartsWith" HighlightTemplatedItems="True"
+                                AllowCustomText="True" DropDownWidth="400px" EnableLoadOnDemand="True"
+                                Filter="StartsWith" HighlightTemplatedItems="True" CheckBoxes="true" EnableCheckAllItemsCheckBox="true"
                                 AutoPostBack="false">
                                 <HeaderTemplate>
 
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td style="width: 50px">Mã NV</td>
-                                            <td style="width: 50px">Mã vị trí</td>
-                                            <td style="width: 250px">Vị trí</td>
+                                            <td style="width: 150px">Mã vị trí</td>
+                                            <td style="width: 200px">Vị trí</td>
                                         </tr>
                                     </table>
                                 </HeaderTemplate>
@@ -49,8 +53,8 @@
                                     <table cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td style="width: 50px"><%#DataBinder.Eval(Container.DataItem,"StaffId") %></td>
-                                            <td style="width: 50px"><%#DataBinder.Eval(Container.DataItem,"Id") %></td>
-                                            <td style="width: 250px"><%#DataBinder.Eval(Container.DataItem,"Location") %></td>
+                                            <td style="width: 150px"><%#DataBinder.Eval(Container.DataItem,"Id") %></td>
+                                            <td style="width: 200px"><%#DataBinder.Eval(Container.DataItem,"Location") %></td>
                                         </tr>
                                     </table>
                                 </ItemTemplate>
@@ -118,7 +122,6 @@
                             </div>
                         </div>
                         <table id="dataTable" class="table-striped table-bordered table-hover">
-                           
                         </table>
                     </div>
                 </div>
@@ -128,7 +131,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        
+
         let dataTable = document.getElementById('dataTable');
         let loadingElement = document.getElementById('loading');
 
@@ -144,7 +147,7 @@
             let siteIDCbo = $find('<%=cboSiteIds.ClientID %>');
             let start = $find('<%=dtmStart.ClientID %>');
             let end = $find('<%=dtmEnd.ClientID %>');
-            if (siteIDCbo == null || siteIDCbo == undefined || siteIDCbo.get_selectedItem() == null || siteIDCbo.get_selectedItem() == undefined) {
+            if (siteIDCbo.get_checkedItems().length <= 0 ) {
                 alert("Chưa chọn mã point")
                 return false;
             }
@@ -157,9 +160,16 @@
                 return false;
             }
             else {
-                let siteID = siteIDCbo.get_selectedItem().get_value();
 
-                getData(siteID, start, end)
+                let sites = [];
+
+                for (let site of siteIDCbo.get_checkedItems()) {
+                    sites.push(site.get_value());
+                }
+
+                sites = sites.join("|");
+
+                getData(sites, start, end)
             }
         }
 
@@ -206,6 +216,8 @@
                 let index = firstElementHasData(data);
                 if (index != -1) {
                     contentHeader += `<thead><tr>`;
+                    contentHeader += `<th>Mã Vị Trí</th>`;
+                    contentHeader += `<th>Vị Trí</th>`;
                     contentHeader += `<th>Thời Gian</th>`;
                     contentHeader += `<th>Chỉ Số Đầu</th>`;
                     contentHeader += `<th>Chỉ Số Cuối</th>`;
@@ -228,6 +240,8 @@
                 for (let item of data) {
                     if (count < data.length - 1) {
                         contentBody += `<tr>`
+                        contentBody += `<td>${item.SiteId}</td>`
+                        contentBody += `<td>${item.Location}</td>`
                         contentBody += `<td>${convertDate(item.TimeStamp)}</td>`
                         contentBody += `<td><div>${item.StartIndex}</div><div>${convertDate(item.StartTime)}</div></td>`
                         contentBody += `<td><div>${item.EndIndex}</div><div>${convertDate(item.EndTime)}</div></td>`
@@ -247,7 +261,7 @@
             let contentFooter = "";
 
             if (checkExistData(data)) {
-                contentFooter += `<tfoot style="color: white"><tr><td>Tổng Cộng</td><td></td><td></td><td>${data[data.length - 1].Value.toString()}</td></tr></tfoot>`;
+                contentFooter += `<tfoot style="color: white"><tr><td>Tổng Cộng</td><td></td><td></td><td></td><td></td><td>${data[data.length - 1].Value.toString()}</td></tr></tfoot>`;
             }
 
             return contentFooter;
@@ -299,7 +313,7 @@
         }
 
         function convertDate2(date) {
-            return `${date.getFullYear()}_${date.getMonth()+ 1}_${date.getDate()}_${date.getHours()}_${date.getMinutes()}_${date.getSeconds()}`;
+            return `${date.getFullYear()}_${date.getMonth() + 1}_${date.getDate()}_${date.getHours()}_${date.getMinutes()}_${date.getSeconds()}`;
         }
 
         function btnExportOnClick(e) {
@@ -307,28 +321,28 @@
             let start = $find('<%=dtmStart.ClientID %>');
             let end = $find('<%=dtmEnd.ClientID %>');
 
-                var tableToExcel = (function () {
-                    var uri = 'data:application/vnd.ms-excel;base64,',
-                        template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>',
-                        base64 = function (s) {
-                            return window.btoa(unescape(encodeURIComponent(s)))
-                        },
-                        format = function (s, c) {
-                            return s.replace(/{(\w+)}/g, function (m, p) {
-                                return c[p];
-                            })
-                        }
-                    return function (table, name) {
-                        if (!table.nodeType) table = document.getElementById(table)
-                        var ctx = {
-                            worksheet: name || 'Worksheet',
-                            table: table.innerHTML
-                        }
-                        //window.location.href = uri + base64(format(template, ctx))
-                        var blob = new Blob([format(template, ctx)]);
-                        var blobURL = window.URL.createObjectURL(blob);
-                        return blobURL;
+            var tableToExcel = (function () {
+                var uri = 'data:application/vnd.ms-excel;base64,',
+                    template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>',
+                    base64 = function (s) {
+                        return window.btoa(unescape(encodeURIComponent(s)))
+                    },
+                    format = function (s, c) {
+                        return s.replace(/{(\w+)}/g, function (m, p) {
+                            return c[p];
+                        })
                     }
+                return function (table, name) {
+                    if (!table.nodeType) table = document.getElementById(table)
+                    var ctx = {
+                        worksheet: name || 'Worksheet',
+                        table: table.innerHTML
+                    }
+                    //window.location.href = uri + base64(format(template, ctx))
+                    var blob = new Blob([format(template, ctx)]);
+                    var blobURL = window.URL.createObjectURL(blob);
+                    return blobURL;
+                }
             })()
 
             let url = tableToExcel('dataTable', `SL`);
