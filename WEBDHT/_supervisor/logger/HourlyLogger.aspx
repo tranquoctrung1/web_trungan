@@ -206,19 +206,10 @@
                 let index = firstElementHasData(data);
                 if (index != -1) {
                     contentHeader += `<thead><tr>`;
-
-                    for (let pro in data[index]) {
-                        if (pro == "TimeStamp") {
-                            contentHeader += `<th>Thời Gian</th>`;
-                        }
-                        else if (pro == "Value") {
-                            contentHeader += `<th>Giá Trị</th>`;
-                        }
-                        else {
-                            contentHeader += `<th>${pro}</th>`;
-                        }
-                    }
-
+                    contentHeader += `<th>Thời Gian</th>`;
+                    contentHeader += `<th>Chỉ Số Đầu</th>`;
+                    contentHeader += `<th>Chỉ Số Cuối</th>`;
+                    contentHeader += `<th>Giá Trị</th>`;
                     contentHeader += `</tr></thead>`
 
                 }
@@ -237,19 +228,10 @@
                 for (let item of data) {
                     if (count < data.length - 1) {
                         contentBody += `<tr>`
-                        for (let pro in item) {
-                            if (item[pro].toString().trim() != "" && item[pro] != null && item[pro] != undefined) {
-                                if (pro == "TimeStamp") {
-                                    contentBody += `<td>${convertDate(item[pro])}</td>`;
-                                }
-                                else {
-                                    contentBody += `<td>${item[pro].toString()}</td>`;
-                                }
-                            }
-                            else {
-                                contentBody += `<td> </td>`
-                            }
-                        }
+                        contentBody += `<td>${convertDate(item.TimeStamp)}</td>`
+                        contentBody += `<td><div>${item.StartIndex}</div><div>${convertDate(item.StartTime)}</div></td>`
+                        contentBody += `<td><div>${item.EndIndex}</div><div>${convertDate(item.EndTime)}</div></td>`
+                        contentBody += `<td>${item.Value}</td>`
                         contentBody += `</tr>`;
                         count++;
                     }
@@ -265,7 +247,7 @@
             let contentFooter = "";
 
             if (checkExistData(data)) {
-                contentFooter += `<tfoot style="color: white"><tr><td>Tổng Cộng</td><td>${data[data.length - 1].Value.toString()}</td></tr></tfoot>`;
+                contentFooter += `<tfoot style="color: white"><tr><td>Tổng Cộng</td><td></td><td></td><td>${data[data.length - 1].Value.toString()}</td></tr></tfoot>`;
             }
 
             return contentFooter;

@@ -49,6 +49,38 @@ namespace WcfLoggerData.Action
                         }
                         try
                         {
+                            el.StartTime = DateTime.Parse(reader["StartTime"].ToString());
+                        }
+                        catch(Exception ex)
+                        {
+                            el.StartTime = null;
+                        }
+                        try
+                        {
+                            el.EndTime = DateTime.Parse(reader["EndTime"].ToString());
+                        }
+                        catch(Exception ex)
+                        {
+                            el.EndTime = null;
+                        }
+                        try
+                        {
+                            el.StartIndex = double.Parse(reader["StartIndex"].ToString());
+                        }
+                        catch(Exception ex)
+                        {
+                            el.StartIndex = null;
+                        }
+                        try
+                        {
+                            el.EndIndex = double.Parse(reader["EndIndex"].ToString());
+                        }
+                        catch(Exception ex)
+                        {
+                            el.EndIndex = null;
+                        }
+                        try
+                        {
                             el.Value = double.Parse(reader["Value"].ToString());
                             totalData.Value += el.Value;
                         }
