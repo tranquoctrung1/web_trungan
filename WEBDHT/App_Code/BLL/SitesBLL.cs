@@ -45,6 +45,16 @@ public class SitesBLL
             DataContext.SubmitChanges();
             status.Deleted = true;
         }
+        catch (ChangeConflictException)
+        {
+            foreach (ObjectChangeConflict conflict in DataContext.ChangeConflicts)
+            {
+                conflict.Resolve(RefreshMode.KeepChanges);
+            }
+           
+            status.Error = true;
+            status.ErrorMessage = "Concurrency conflict occurred.";
+        }
         catch (Exception e)
         {
             status.Error = true;

@@ -781,7 +781,7 @@
         }).setView([10.7611111, 106.675], 12);
 
         L.tileLayer(
-            "https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYmF2aXRlY2giLCJhIjoiY2w1Ynd6ZWY5MGJ6NTNjbDFyYW5pMGtjcyJ9.d5nCqimeQsmP7bwkZmQHZA",
+            "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
             {
                 attribution:
                     '<strong style="color: #0078a8">Copyright &copy by Bavitech</strong>',

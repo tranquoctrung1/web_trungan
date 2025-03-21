@@ -840,8 +840,8 @@
                             <script type="text/javascript">
 
 
-                                var urlMapArgis = 'https://trungangis.capnuoctrungan.vn/arcgis/rest/services/LOGGER/Logger_Mangluoi/MapServer';
-                                var urlMapArgisDMA = 'https://trungangis.capnuoctrungan.vn/arcgis/rest/services/LOGGER/Logger_DMA/MapServer';
+                                var urlMapArgis = 'https://gis.capnuoctrungan.vn/server/rest/services/Logger/Logger_Mangluoi/MapServer';
+                                var urlMapArgisDMA = 'https://gis.capnuoctrungan.vn/server/rest/services/Logger/Logger_DMA/MapServer';
 
                                 function OnClientBeforeClose(sender, args) {
                                     args.set_cancel(!confirm("Are you sure that you want to close alarm bar?"));
@@ -1508,7 +1508,7 @@
                                     }).setView([10.845503, 106.621897], 12);
 
                                     L.tileLayer(
-                                        "https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYmF2aXRlY2giLCJhIjoiY2w1Ynd6ZWY5MGJ6NTNjbDFyYW5pMGtjcyJ9.d5nCqimeQsmP7bwkZmQHZA",
+                                        "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
                                         {
                                             attribution:
                                                 '<strong style="color: #0078a8">Copyright &copy by Bavitech</strong>',

@@ -7418,8 +7418,11 @@ public partial class Site : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnDMAOutChanging(string value);
     partial void OnDMAOutChanged();
     #endregion
-	
-	public Site()
+
+    [Column(IsVersion = true)]
+    public Binary RowVersionColumn { get; set; }
+
+    public Site()
 	{
 		OnCreated();
 	}
